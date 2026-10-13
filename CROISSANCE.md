@@ -38,25 +38,14 @@ Site validé dans Google Search Console (fichier `site/google07cf151d39bf7608.ht
 Pour aller plus loin : ajouter des pages trajets (une par ligne recherchée) et des pages hôtels par ville,
 puis les déclarer aussi dans Bing Webmaster Tools (import direct depuis Search Console).
 
-### 3. Gagner de l'argent avec l'affiliation
-Inscrivez-vous, puis collez vos identifiants dans l'objet `AFFILIATE` de `index.html` :
-- **Travelpayouts** : un seul compte pour de nombreuses marques (vols, hôtels, voitures). Depuis le 27 avril 2026,
-  on crée un « Project » et la plateforme y connecte les programmes compatibles. La commission dépend de chaque marque :
-  vérifiez-la dans votre tableau de bord.
-- **Booking.com Affiliate Partner Program** (paramètre `aid`), **Agoda Partners** (`cid`).
-- **Skyscanner** (programme via Impact) et **Discover Cars** (programme partenaire).
-- Une mention « liens partenaires » s'affiche automatiquement dans le pied de page dès qu'un identifiant est rempli.
+### 3. Affiliation (en cours)
+- ✔ Travelpayouts : script installé (chargé après accord via le bandeau cookies), identifiant 789659 ajouté aux liens Aviasales.
+- À faire : liens partenaires Booking, Agoda, voitures (générés par l'outil de création de liens Travelpayouts ou les réseaux CJ / Agoda Partners),
+  puis remplir l'objet `AFFILIATE` de `site/index.html`.
 
-### 4. Afficher de vrais prix sur le site
-**Déjà codé :** créez un compte Travelpayouts, copiez votre jeton API, puis dans Netlify
-(Project configuration > Environment variables) ajoutez `TRAVELPAYOUTS_TOKEN` (portée : Functions) et redéployez.
-L'encart « Prix repéré récemment : dès X € » apparaît alors au-dessus des résultats de vol.
-
-Afficher « Paris → Bamako dès 489 € » attire beaucoup plus de clics. Attention :
-**l'offre gratuite Amadeus Self-Service a fermé en juillet 2026**. Pistes :
-- l'API de données de Travelpayouts / Aviasales (prix en cache, réservée aux partenaires) ;
-- **Ignav** : 1 000 requêtes gratuites, puis environ 2 $ pour 1 000 (à vérifier sur leur site).
-Il faudra un petit serveur (par exemple Netlify Functions) pour cacher la clé d'accès.
+### 4. Prix réels ✔ (13 octobre 2026)
+Clé `TRAVELPAYOUTS_TOKEN` ajoutée dans Netlify : l'encart « dès X € » s'affiche au-dessus des résultats de vols.
+Idée suivante : afficher ces prix sur les pages trajets.
 
 ### 5. Réseaux sociaux et bouche-à-oreille
 - Une **chaîne WhatsApp** « Bons plans billets Afrique » avec 2 ou 3 bons plans par semaine et le lien de recherche.
