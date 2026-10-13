@@ -55,6 +55,13 @@ Clé `TRAVELPAYOUTS_TOKEN` ajoutée dans Netlify : l'encart « dès X € » s'a
 ✔ Accueil (moteur de recherche) traduit en espagnol, portugais et arabe (`site/i18n.js`), arabe de droite à gauche.
 Pistes suivantes : allemand, italien, chinois, turc (ajouter une colonne dans translations.py et une entrée dans UI).
 
+### 4 ter. Nouveautés du 14 octobre 2026
+- ✔ Page « Bons plans de la semaine » en 5 langues (`/bons-plans/`, `/en/deals/`…), fonction `/api/deals` mise en cache 6 h.
+- ✔ Calendrier des prix sur les 170 pages trajets (fonction `/api/calendar`).
+- ✔ Bloc « Avant de partir » (eSIM, assurance, transfert, activités) : liens dans `site/data/partners.json`,
+  à remplacer par vos liens partenaires Travelpayouts pour être rémunéré.
+- À faire de votre côté : relier GitHub à Netlify (voir README, « Déploiement automatique »).
+
 ### 5. Réseaux sociaux et bouche-à-oreille
 - Une **chaîne WhatsApp** « Bons plans billets Afrique » avec 2 ou 3 bons plans par semaine et le lien de recherche.
 - Vidéos courtes TikTok et Instagram : « J'ai trouvé Paris–Dakar à X € : voici comment ».

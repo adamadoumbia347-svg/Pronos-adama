@@ -67,6 +67,8 @@
       el.setAttribute("aria-label", T(el.dataset.frAria, el.dataset.enAria));
     });
     $("lang").value = LANG;
+    const dealsPath = { fr: "/bons-plans/", en: "/en/deals/", es: "/es/ofertas/", pt: "/pt/promocoes/", ar: "/ar/deals/" }[LANG];
+    document.querySelectorAll("#deals-link, .deals-href").forEach((a) => { a.href = dealsPath; });
     countryNames = null;
   }
 
@@ -386,7 +388,9 @@
     }
     const priceSlot = isLive && s.to && s.to.code ? '<div class="price-hint" id="price-hint" hidden></div>' : "";
     const anywhere = !s.to ? `<h3 class="sub-h">${T("Destinations les moins chères repérées", "Cheapest destinations found")}</h3><div class="ex-grid" id="res-explore"></div>` : "";
-    show(head + card + priceSlot + shareBar("vols", fmt(T("Vols {a} → {b}", "Flights {a} → {b}"), { a: s.from.name, b: s.to ? s.to.name : T("partout", "anywhere") })) + providerList(flightLinks(s)) + flexHtml + anywhere);
+    const extras = s.to && s.to.code ? extrasSlot(s.to.name) : "";
+    show(head + card + priceSlot + shareBar("vols", fmt(T("Vols {a} → {b}", "Flights {a} → {b}"), { a: s.from.name, b: s.to ? s.to.name : T("partout", "anywhere") })) + providerList(flightLinks(s)) + flexHtml + anywhere + extras);
+    if (extras) fillExtras(s.to.name, s.to.code);
     if (priceSlot) loadPrice(s);
     if (!s.to) renderExplore($("res-explore"), s.from.code, s.dep.slice(0, 7));
   }
@@ -412,7 +416,8 @@
       pass(`${esc(s.dest.slice(0, 3).toUpperCase())}`, [[T("Arrivée", "Check-in"), human(s.in)], [T("Départ", "Check-out"), human(s.out)],
         [T("Voyageurs", "Guests"), `${s.adults} ${s.adults > 1 ? T("adultes", "adults") : T("adulte", "adult")} · ${s.rooms} ${T("ch.", "rm")}`]],
         `${n} ${T("N", "N")}`, n > 1 ? T("nuits", "nights") : T("nuit", "night")) +
-      shareBar("hotels", fmt(T("Hôtels à {c}", "Hotels in {c}"), { c: s.dest })) + providerList(hotelLinks(s)));
+      shareBar("hotels", fmt(T("Hôtels à {c}", "Hotels in {c}"), { c: s.dest })) + providerList(hotelLinks(s)) + extrasSlot(s.dest));
+    fillExtras(s.dest, "");
   }
   function renderCars(s) {
     const days = Math.max(1, Math.ceil(nights(s.d1, s.d2) + (s.t2 > s.t1 ? 1 : 0)));
@@ -422,6 +427,26 @@
         [[T("Prise en charge", "Pick-up"), `${human(s.d1)} · ${s.t1}h`], [T("Restitution", "Drop-off"), `${human(s.d2)} · ${s.t2}h`], [T("Conducteur", "Driver"), $("c-age").selectedOptions[0].text]],
         `${days} ${T("J", "D")}`, T("de location", "rental")) +
       shareBar("voitures", fmt(T("Location de voiture à {c}", "Car rental in {c}"), { c: s.pick.name })) + providerList(carLinks(s)));
+  }
+
+  // ---------- Avant de partir (eSIM, assurance, transfert, activités) : liens réglés dans /data/partners.json ----------
+  let partnersP = null;
+  const extrasSlot = (city) => `<div id="res-extras-wrap"><h3 class="sub-h">${esc(T("Avant de partir", "Before you go"))}</h3>
+    <p class="summary">${esc(fmt(T("Les services utiles pour votre voyage à {c}.", "Useful services for your trip to {c}."), { c: city }))}</p>
+    <ul class="extras-res providers" id="res-extras"></ul></div>`;
+  function fillExtras(city, code) {
+    if (!partnersP) partnersP = fetch("/data/partners.json").then((r) => (r.ok ? r.json() : null)).catch(() => null);
+    partnersP.then((cfg) => {
+      const ul = $("res-extras");
+      if (!ul) return;
+      if (!cfg) { $("res-extras-wrap").remove(); return; }
+      ul.innerHTML = cfg.services.map((p, i) => {
+        const url = p.url.replace("{city}", enc(city)).replace("{code}", code || "");
+        return `<li class="extra prov" style="--i:${i}"><span class="logo" style="background:${esc(p.color)}" aria-hidden="true">${esc(p.name[0])}</span>
+          <div><strong>${esc(p.title[LANG] || p.title.en)}</strong><span>${esc(p.desc[LANG] || p.desc.en)}</span></div>
+          <a class="go" href="${esc(url)}" target="_blank" rel="sponsored noopener noreferrer">${esc(T("Voir l’offre", "See offer"))} · ${esc(p.name)}</a></li>`;
+      }).join("");
+    });
   }
 
   // ---------- Idées de voyage (prix réels) ----------

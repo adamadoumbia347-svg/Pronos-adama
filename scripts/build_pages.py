@@ -215,7 +215,7 @@ HEAD = """<!doctype html>
 {body}
 </main>
 <footer class="wrap">
-  <nav class="foot-nav" aria-label="Pages du site"><a href="/">Comparer vols, hôtels et voitures</a><a href="/#guides">Guides des trajets</a><a href="/mentions-legales/">Mentions légales</a><a href="/confidentialite/">Confidentialité</a><a href="/contact/">Contact</a><a href="#cookies" data-open-consent>Gérer les cookies</a></nav>
+  <nav class="foot-nav" aria-label="Pages du site"><a href="/">Comparer vols, hôtels et voitures</a><a href="/#guides">Guides des trajets</a><a href="/mentions-legales/">Mentions légales</a><a href="/confidentialite/">Confidentialité</a><a href="/contact/">Contact</a><a href="/bons-plans/">Bons plans</a><a href="#cookies" data-open-consent>Gérer les cookies</a></nav>
   <p>Escale ne vend pas de billets et ne fixe aucun prix. Les durées et informations sont indicatives : les programmes des compagnies changent, vérifiez toujours sur le site de réservation.</p>
 </footer>
 </body>
@@ -272,6 +272,7 @@ def route_page(r):
 <p class="small">Prix aller-retour les plus bas trouvés ces derniers jours par des voyageurs, par mois de départ. Le tarif exact et disponible s'affiche sur les sites de réservation.</p>
 <ul class="price-list"></ul></section>
 <script src="/route-prices.js" defer></script>
+{build_i18n.calendar_html("fr", fr, to)}
 <section><h2>Notre conseil pour ce trajet</h2><p>{E(note)}</p></section>
 <section><h2>Comment payer moins cher</h2>
 <ol class="steps">
@@ -289,6 +290,7 @@ def route_page(r):
   <li><a href="{E(hotels)}">Hôtels à {E(ct)}</a></li>
   <li><a href="{E(cars)}">Location de voiture à {E(ct)}</a></li>
 </ul></section>
+{build_i18n.extras_html(SITE, "fr", ct, build_i18n.city(ct, "en"), to)}
 <section class="faq"><h2>Questions fréquentes</h2>
 {''.join(f'<details><summary>{E(q)}</summary><p>{E(a)}</p></details>' for q, a in faq)}
 </section>
@@ -347,6 +349,7 @@ def hotel_page(h):
   <li><a href="{E(cars)}">Location de voiture à {E(city)}</a></li>
 </ul></section>
 {f'<section><h2>Vols vers {E(city)}</h2><ul class="route-links">' + "".join(f'<li><a href="/{route_slug(r)}/">{E(r[2])} → {E(r[3])}</a></li>' for r in flights) + '</ul></section>' if flights else ''}
+{build_i18n.extras_html(SITE, "fr", city, build_i18n.city(city, "en"), code)}
 <section class="faq"><h2>Questions fréquentes</h2>
 {''.join(f'<details><summary>{E(q)}</summary><p>{E(a)}</p></details>' for q, a in faq)}
 </section>
@@ -424,7 +427,7 @@ def main():
     ctx = dict(domain=DOMAIN, tp=TRAVELPAYOUTS, routes=ROUTES, hotels=HOTELS, route_slug=route_slug, hotel_slug=hotel_slug,
                airports=airports, related=related)
     i18n_urls, route_paths, hotel_paths = build_i18n.build(SITE, ctx)
-    urls += i18n_urls + build_i18n.build_indexes(SITE, ctx, route_paths, hotel_paths)
+    urls += i18n_urls + build_i18n.build_indexes(SITE, ctx, route_paths, hotel_paths) + build_i18n.build_deals(SITE, ctx)
     urls += legal_pages()
 
     # Liste des guides sur la page d'accueil

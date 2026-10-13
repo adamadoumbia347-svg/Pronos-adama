@@ -79,3 +79,54 @@ footer { margin-top: 48px; padding-block: 24px 40px; border-top: 1px solid var(-
 html[lang="ar"] body, html[lang="ar"] .board h1, html[lang="ar"] main h2, html[lang="ar"] .faq summary, html[lang="ar"] .btn { font-family: "Noto Sans Arabic", var(--f-body); }
 html[lang="ar"] .eyebrow, html[lang="ar"] .facts dt { letter-spacing: 0; }
 html[lang="ar"] .codes, html[lang="ar"] .facts dt, html[lang="ar"] .pill-best, html[lang="ar"] .price-val { letter-spacing: 0; font-family: "Noto Sans Arabic", var(--f-body); text-transform: none; }
+
+/* Puces (mois, villes de départ) */
+.chips { display: flex; gap: 6px; flex-wrap: wrap; margin: 12px 0; }
+.chips button { appearance: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 7px 12px; font: 600 13px/1 var(--f-body); cursor: pointer; text-transform: capitalize; }
+.chips button b { font: 700 11px/1 var(--f-mono); color: var(--muted); margin-inline-start: 4px; }
+.chips button[aria-pressed="true"] { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+.chips button[aria-pressed="true"] b { color: inherit; }
+
+/* Calendrier des prix : 5 niveaux du moins cher (vert) au plus cher (rouge) */
+:root { --t0: #1f9d55; --t1: #7cb342; --t2: #f2b705; --t3: #f08c2e; --t4: #d9483b; }
+.cal-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; max-width: 560px; }
+.cal-head { text-align: center; font: 600 11px/1 var(--f-body); color: var(--muted); padding: 4px 0; text-transform: uppercase; }
+.cal-day { display: grid; place-items: center; gap: 1px; min-height: 52px; border-radius: 8px; text-decoration: none; color: #141a24; background: var(--line); font-variant-numeric: tabular-nums; }
+.cal-day b { font: 700 13px/1 var(--f-body); }
+.cal-day span { font: 700 11px/1 var(--f-mono); }
+.cal-day.off { background: transparent; color: var(--muted); border: 1px dashed var(--line); }
+.cal-day.t0 { background: color-mix(in srgb, var(--t0) 30%, var(--surface)); } .cal-day.t1 { background: color-mix(in srgb, var(--t1) 30%, var(--surface)); }
+.cal-day.t2 { background: color-mix(in srgb, var(--t2) 32%, var(--surface)); } .cal-day.t3 { background: color-mix(in srgb, var(--t3) 32%, var(--surface)); }
+.cal-day.t4 { background: color-mix(in srgb, var(--t4) 30%, var(--surface)); }
+a.cal-day:hover { outline: 2px solid var(--accent); }
+a.cal-day { color: var(--ink); }
+.cal-scale { display: inline-flex; gap: 2px; vertical-align: middle; }
+.cal-scale i { width: 14px; height: 10px; border-radius: 2px; }
+.cal-scale .t0 { background: var(--t0); } .cal-scale .t1 { background: var(--t1); } .cal-scale .t2 { background: var(--t2); } .cal-scale .t3 { background: var(--t3); } .cal-scale .t4 { background: var(--t4); }
+@media (max-width: 420px) { .cal-day { min-height: 44px; } .cal-day span { font-size: 9px; } }
+
+/* Avant de partir */
+.extra-list { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 8px; }
+.extra { max-width: none; display: grid; grid-template-columns: 40px 1fr auto; gap: 12px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.extra .logo { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; color: #fff; font: 800 16px/1 var(--f-display); }
+.extra div { display: grid; gap: 2px; min-width: 0; }
+.extra div span { color: var(--muted); font-size: 14px; }
+@media (max-width: 560px) { .extra { grid-template-columns: 40px 1fr; } .extra .price-go { grid-column: 1 / -1; text-align: center; } }
+
+/* Bons plans */
+.deal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+.deal { display: grid; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.deal-main { display: grid; gap: 4px; padding: 14px; text-decoration: none; color: var(--ink); }
+.deal-main:hover { background: color-mix(in srgb, var(--accent) 6%, var(--surface)); }
+.deal-top { display: flex; gap: 8px; align-items: center; font-size: 20px; }
+.deal-top b { font: 700 12px/1 var(--f-mono); color: var(--muted); letter-spacing: .05em; }
+.deal-city { font: 700 17px/1.2 var(--f-display); }
+.deal-meta { color: var(--muted); font-size: 12px; }
+.deal-price { font: 700 19px/1.1 var(--f-mono); color: #18794e; }
+.deal-share { border-top: 1px solid var(--line); padding: 9px 14px; font-size: 13px; font-weight: 600; text-decoration: none; color: var(--accent); }
+.ex-skel { height: 120px; border-radius: 12px; background: var(--line); }
+.deal-updated { color: color-mix(in srgb, var(--board-ink) 70%, transparent); margin: 0; }
+@media (prefers-reduced-motion: no-preference) { .deal { animation: rise .35s ease-out both; animation-delay: calc(var(--i, 0) * 40ms); } @keyframes rise { from { opacity: 0; transform: translateY(6px); } } }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .deal-price { color: #4cc38a; } }
+:root[data-theme="dark"] .deal-price { color: #4cc38a; }
+.hero-lead { margin: 0 0 18px; max-width: 62ch; color: color-mix(in srgb, var(--board-ink) 80%, transparent); }

@@ -1,6 +1,12 @@
 // Traductions de l'accueil : clé = texte anglais, valeur = [espagnol, portugais, arabe].
 // Le français et l'anglais sont directement dans index.html (data-en) et app.js (T("fr", "en")).
 window.ESCALE_I18N = {
+  // Bons plans et « Avant de partir »
+  "See all this week’s deals →": ["Ver todas las ofertas de la semana →", "Ver todas as promoções da semana →", "اعرض كل عروض هذا الأسبوع ←"],
+  "Deals": ["Ofertas", "Promoções", "العروض"],
+  "Before you go": ["Antes de salir", "Antes de partir", "قبل السفر"],
+  "Useful services for your trip to {c}.": ["Servicios útiles para tu viaje a {c}.", "Serviços úteis para a sua viagem a {c}.", "خدمات مفيدة لرحلتك إلى {c}."],
+  "See offer": ["Ver oferta", "Ver oferta", "اعرض العرض"],
   // En-tête et onglets
   "Currency": ["Moneda", "Moeda", "العملة"],
   "Language": ["Idioma", "Idioma", "اللغة"],

@@ -39,3 +39,11 @@ python3 -m http.server -d site 8000
 ```
 
 En ligne : https://escale-voyage.netlify.app (projet Netlify `escale-voyage`).
+
+## Déploiement automatique depuis GitHub
+
+1. Netlify > projet `escale-voyage` > **Project configuration** > **Build & deploy** > **Continuous deployment** > **Link repository**.
+2. Choisir **GitHub**, autoriser l'application Netlify sur le dépôt `pronos-adama`, puis sélectionner ce dépôt.
+3. **Branch to deploy** : `claude/escale-comparateur` (ou `main` après fusion).
+   Les champs « Build command » et « Publish directory » sont lus dans `netlify.toml` : laisser vides.
+4. Valider. Chaque `git push` sur cette branche régénère les pages (`scripts/build_pages.py`) et publie le site.

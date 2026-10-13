@@ -253,14 +253,14 @@ HEAD = """<!doctype html>
 </head>
 <body>
 <header class="board"><div class="wrap">
-  <div class="page-top"><a class="brand" href="/?lang={applang}"><span class="brand-mark">ESC</span><span class="brand-name">Escale</span></a>{switch}</div>
+  <div class="page-top"><a class="brand" href="/{homeq}"><span class="brand-mark">ESC</span><span class="brand-name">Escale</span></a>{switch}</div>
   {hero}
 </div></header>
 <main class="wrap">
 {body}
 </main>
 <footer class="wrap">
-  <nav class="foot-nav"><a href="/?lang={applang}">{home}</a><a href="/mentions-legales/">{legal}</a><a href="/confidentialite/">{privacy}</a><a href="/contact/">Contact</a><a href="#cookies" data-open-consent>{cookies}</a></nav>
+  <nav class="foot-nav"><a href="/{homeq}">{home}</a><a href="/mentions-legales/">{legal}</a><a href="/confidentialite/">{privacy}</a><a href="/contact/">Contact</a><a href="/{dealsp}/">{dealsl}</a><a href="#cookies" data-open-consent>{cookies}</a></nav>
   <p>{disclaimer}</p>
 </footer>
 </body>
@@ -280,7 +280,9 @@ def write(site, path, lang, title, desc, hero, body, ld, paths, ctx):
     out = HEAD.format(
         lang=lang, dir="rtl" if lang == "ar" else "ltr", tp=ctx["tp"], title=E(title), desc=E(desc),
         url=f"{ctx['domain']}/{path}/", alts=alternates(paths, ctx["domain"]), oglocale=LOCALE[lang], domain=ctx["domain"],
-        arfont="&family=Noto+Sans+Arabic:wght@400;600;700" if lang == "ar" else "", ld=ld, applang=u["app_lang"],
+        arfont="&family=Noto+Sans+Arabic:wght@400;600;700" if lang == "ar" else "", ld=ld, homeq="" if lang == "fr" else "?lang=" + u["app_lang"],
+        dealsp={"fr": "bons-plans", "en": "en/deals", "es": "es/ofertas", "pt": "pt/promocoes", "ar": "ar/deals"}[lang],
+        dealsl={"fr": "Bons plans", "en": "Deals", "es": "Ofertas", "pt": "Promoções", "ar": "العروض"}[lang],
         switch=switcher(paths, lang), hero=hero, body=body, home=E(u["home"]), legal=E(u["legal"]), privacy=E(u["privacy"]),
         cookies=E(u["cookies"]), disclaimer=E(u["disclaimer"]))
     d = site / path
@@ -331,6 +333,7 @@ def build(site, ctx):
 <p class="small">{E(u["prices_p"])}</p>
 <ul class="price-list"></ul></section>
 <script src="/route-prices.js" defer></script>
+{calendar_html(lang, fr_, to)}
 <section><h2>{E(u["tip_h"])}</h2><p>{E(note)}</p></section>
 <section><h2>{E(u["cheap_h"])}</h2>
 <ol class="steps">{"".join(f"<li>{s}</li>" for s in u["steps"])}</ol>
@@ -343,6 +346,7 @@ def build(site, ctx):
   <li><a href="{E(hotels_l)}">{E(u["hotels_in"].format(b=b))}</a></li>
   <li><a href="{E(cars_l)}">{E(u["cars_in"].format(b=b))}</a></li>
 </ul></section>
+{extras_html(site, lang, b, city(ct, "en"), to)}
 <section class="faq"><h2>{E(u["faq_h"])}</h2>
 {"".join(f"<details><summary>{E(q)}</summary><p>{E(ans)}</p></details>" for q, ans in faq)}
 </section>
@@ -386,6 +390,7 @@ def build(site, ctx):
   <li><a href="{E(cars_l)}">{E(u["cars_in"].format(b=c))}</a></li>
 </ul></section>
 {fl_html}
+{extras_html(site, lang, c, city(cname, "en"), code)}
 <section class="faq"><h2>{E(u["faq_h"])}</h2>
 {"".join(f"<details><summary>{E(q)}</summary><p>{E(ans)}</p></details>" for q, ans in faq)}
 </section>
@@ -417,8 +422,93 @@ def build_indexes(site, ctx, route_paths, hotel_paths):
             for o, rs in groups.items())
         body += f'<section><h2>{E(hotels_t)}</h2><ul class="route-links">' + "".join(
             f'<li><a href="/{hotel_paths[h[0]][lang]}/">{E(u["hotels_short"].format(c=city(h[0], lang)))}</a></li>' for h in ctx["hotels"]) + "</ul></section>"
-        hero = f'<h1>{E(title)}</h1><p class="codes">{E(lead)}</p><div class="cta-row"><a class="btn" href="/?lang={u["app_lang"]}">{E(u["home"])}</a></div>'
+        hero = f'<h1>{E(title)}</h1><p class="hero-lead">{E(lead)}</p><div class="cta-row"><a class="btn" href="/?lang={u["app_lang"]}">{E(u["home"])}</a></div>'
         idx_paths = {"fr": "", **{l: l for l in LANGS}}
         out_url = write(site, lang, lang, f"{title} | Escale", lead, hero, body, "", idx_paths, ctx)
         urls.append(out_url)
+    return urls
+
+
+# ---------------------------------------------------------------------------
+# Calendrier des prix, « Avant de partir » et page des bons plans (5 langues)
+# ---------------------------------------------------------------------------
+ALL = ["fr"] + LANGS
+_PARTNERS = None
+
+
+def partners(site):
+    global _PARTNERS
+    if _PARTNERS is None:
+        _PARTNERS = json.loads((site / "data" / "partners.json").read_text(encoding="utf-8"))["services"]
+    return _PARTNERS
+
+
+BLOCKS = {
+    "fr": dict(cal_h="Calendrier des prix", cal_p="Prix aller-retour le plus bas trouvé pour chaque jour de départ. Cliquez sur un jour pour lancer la recherche.",
+               go_h="Avant de partir", go_p="Les services utiles pour votre voyage à {c}.", go_btn="Voir l’offre"),
+    "en": dict(cal_h="Price calendar", cal_p="Lowest round-trip price found for each departure day. Click a day to start the search.",
+               go_h="Before you go", go_p="Useful services for your trip to {c}.", go_btn="See offer"),
+    "es": dict(cal_h="Calendario de precios", cal_p="Precio de ida y vuelta más bajo encontrado para cada día de salida. Haz clic en un día para buscar.",
+               go_h="Antes de salir", go_p="Servicios útiles para tu viaje a {c}.", go_btn="Ver oferta"),
+    "pt": dict(cal_h="Calendário de preços", cal_p="Preço de ida e volta mais baixo encontrado para cada dia de partida. Clique num dia para pesquisar.",
+               go_h="Antes de partir", go_p="Serviços úteis para a sua viagem a {c}.", go_btn="Ver oferta"),
+    "ar": dict(cal_h="تقويم الأسعار", cal_p="أقل سعر ذهاب وعودة وُجد لكل يوم مغادرة. انقر على يوم لبدء البحث.",
+               go_h="قبل السفر", go_p="خدمات مفيدة لرحلتك إلى {c}.", go_btn="اعرض العرض"),
+}
+
+
+def calendar_html(lang, fr_, to):
+    b = BLOCKS[lang]
+    return (f'<section id="route-calendar" data-from="{fr_}" data-to="{to}" hidden><h2>{E(b["cal_h"])}</h2>'
+            f'<p class="small">{E(b["cal_p"])}</p><div class="chips cal-months" role="group"></div>'
+            f'<div class="cal-grid" dir="ltr"></div><p class="small cal-legend"></p></section>\n'
+            f'<script src="/route-calendar.js" defer></script>')
+
+
+def extras_html(site, lang, city_label, city_en, code):
+    b = BLOCKS[lang]
+    cards = []
+    for p in partners(site):
+        url = p["url"].replace("{city}", urllib.parse.quote(city_en)).replace("{code}", code)
+        cards.append(f'<li class="extra"><span class="logo" style="background:{p["color"]}" aria-hidden="true">{E(p["name"][0])}</span>'
+                     f'<div><strong>{E(p["title"][lang])}</strong><span>{E(p["desc"][lang])}</span></div>'
+                     f'<a class="price-go" href="{E(url)}" target="_blank" rel="sponsored noopener noreferrer">{E(b["go_btn"])} · {E(p["name"])}</a></li>')
+    return (f'<section class="extras"><h2>{E(b["go_h"])}</h2><p class="small">{E(b["go_p"].format(c=city_label))}</p>'
+            f'<ul class="extra-list">{"".join(cards)}</ul></section>')
+
+
+UI["fr"] = dict(app_lang="fr", home="Comparer vols, hôtels et voitures", legal="Mentions légales", privacy="Confidentialité",
+                cookies="Gérer les cookies",
+                disclaimer="Escale ne vend pas de billets et ne fixe aucun prix. Les prix affichés sont des prix réels trouvés récemment : le tarif exact s’affiche sur le site de réservation.")
+
+DEALS = {
+    "fr": dict(path="bons-plans", title="Bons plans vols de la semaine", h1="Bons plans <span>de la semaine</span>",
+               desc="Les vols aller-retour les moins chers trouvés cette semaine au départ de Paris, Bruxelles, Lyon, Marseille, Genève, Londres, New York et Montréal.",
+               lead="Les destinations les moins chères trouvées par des voyageurs ces derniers jours, au départ de grandes villes. Mis à jour automatiquement toutes les 6 heures."),
+    "en": dict(path="en/deals", title="This week's flight deals", h1="Flight deals <span>this week</span>",
+               desc="The cheapest round-trip flights found this week from Paris, Brussels, Lyon, Marseille, Geneva, London, New York and Montreal.",
+               lead="The cheapest destinations found by travellers in the last few days, from major cities. Updated automatically every 6 hours."),
+    "es": dict(path="es/ofertas", title="Ofertas de vuelos de la semana", h1="Ofertas de vuelos <span>de la semana</span>",
+               desc="Los vuelos de ida y vuelta más baratos encontrados esta semana desde París, Bruselas, Lyon, Marsella, Ginebra, Londres, Nueva York y Montreal.",
+               lead="Los destinos más baratos encontrados por viajeros en los últimos días, desde grandes ciudades. Se actualiza automáticamente cada 6 horas."),
+    "pt": dict(path="pt/promocoes", title="Promoções de voos da semana", h1="Promoções de voos <span>da semana</span>",
+               desc="Os voos de ida e volta mais baratos encontrados esta semana a partir de Paris, Bruxelas, Lyon, Marselha, Genebra, Londres, Nova Iorque e Montreal.",
+               lead="Os destinos mais baratos encontrados por viajantes nos últimos dias, a partir de grandes cidades. Atualizado automaticamente a cada 6 horas."),
+    "ar": dict(path="ar/deals", title="عروض الطيران لهذا الأسبوع", h1="عروض الطيران <span>لهذا الأسبوع</span>",
+               desc="أرخص رحلات الذهاب والعودة التي وُجدت هذا الأسبوع من باريس وبروكسل وليون ومرسيليا وجنيف ولندن ونيويورك ومونتريال.",
+               lead="أرخص الوجهات التي وجدها المسافرون في الأيام الأخيرة من مدن كبرى. يُحدَّث تلقائيًا كل 6 ساعات."),
+}
+
+
+def build_deals(site, ctx):
+    paths = {l: DEALS[l]["path"] for l in ALL}
+    urls = []
+    for lang in ALL:
+        d = DEALS[lang]
+        hero = (f'<h1>{d["h1"]}</h1><p class="hero-lead">{E(d["lead"])}</p>'
+                f'<p class="small deal-updated" id="deal-updated"></p>')
+        body = ('<section id="deals"><div class="chips deal-origins" id="deal-origins" role="group"></div>'
+                '<div class="deal-grid" id="deal-grid"><div class="ex-skel"></div><div class="ex-skel"></div><div class="ex-skel"></div></div></section>'
+                '<script src="/deals.js" defer></script>')
+        urls.append(write(site, d["path"], lang, d["title"] + " | Escale", d["desc"], hero, body, "", paths, ctx))
     return urls
