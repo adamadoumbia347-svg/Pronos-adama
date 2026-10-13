@@ -33,6 +33,8 @@
   const isLive = /^https?:$/.test(location.protocol) && window.top === window;
 
   // ---------- Langue ----------
+  const urlLang = new URLSearchParams(location.search).get("lang");
+  if (urlLang) { try { localStorage.setItem("escale.lang", urlLang === "fr" ? "fr" : "en"); } catch (e) {} }
   let LANG = store.get("escale.lang") || ((navigator.language || "fr").toLowerCase().startsWith("fr") ? "fr" : "en");
   if (!["fr", "en"].includes(LANG)) LANG = "fr";
   const T = (fr, en) => (LANG === "en" ? en : fr);

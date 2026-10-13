@@ -6,6 +6,19 @@
   if (!box) return;
   var from = box.getAttribute("data-from"), to = box.getAttribute("data-to");
   var heroPrice = document.getElementById("hero-price");
+  var lang = (document.documentElement.lang || "fr").slice(0, 2);
+  var L = {
+    fr: { loc: "fr-FR", hero: "Aller-retour repéré dès", from: "dès", direct: "vol direct", one: "1 escale", many: " escales", best: "Le moins cher", go: "Voir ces dates", app: "fr" },
+    en: { loc: "en-GB", hero: "Round trip found from", from: "from", direct: "direct", one: "1 stop", many: " stops", best: "Cheapest", go: "See these dates", app: "en" },
+    es: { loc: "es-ES", hero: "Ida y vuelta desde", from: "desde", direct: "vuelo directo", one: "1 escala", many: " escalas", best: "El más barato", go: "Ver estas fechas", app: "en" },
+    pt: { loc: "pt-PT", hero: "Ida e volta desde", from: "desde", direct: "voo direto", one: "1 escala", many: " escalas", best: "O mais barato", go: "Ver estas datas", app: "en" },
+    ar: { loc: "ar", hero: "ذهاب وعودة ابتداءً من", from: "من", direct: "رحلة مباشرة", one: "توقف واحد", many: " توقفات", best: "الأرخص", go: "اعرض هذه التواريخ", app: "en" }
+  }[lang] || null;
+  if (!L) return;
+  var money = function (n) {
+    try { return new Intl.NumberFormat(L.loc, { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n); }
+    catch (e) { return Math.round(n) + " €"; }
+  };
 
   var now = new Date(), months = [];
   for (var i = 0; i < 3; i++) {
@@ -14,10 +27,10 @@
   }
   var label = function (iso) {
     var p = iso.split("-");
-    return new Date(+p[0], +p[1] - 1, 1).toLocaleDateString("fr-FR", { month: "long", year: "numeric" });
+    return new Date(+p[0], +p[1] - 1, 1).toLocaleDateString(L.loc, { month: "long", year: "numeric" });
   };
   var day = function (iso) {
-    return iso ? new Date(iso).toLocaleDateString("fr-FR", { day: "numeric", month: "short" }) : "";
+    return iso ? new Date(iso).toLocaleDateString(L.loc, { day: "numeric", month: "short" }) : "";
   };
   var esc = function (t) {
     return String(t).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; });
@@ -36,18 +49,18 @@
     if (!found.length) return;
     var best = Math.min.apply(null, found.map(function (r) { return r.data.price; }));
     if (heroPrice) {
-      heroPrice.innerHTML = "Aller-retour repéré dès <strong>" + Math.round(best) + " €</strong>";
+      heroPrice.innerHTML = esc(L.hero) + " <strong>" + esc(money(best)) + "</strong>";
       heroPrice.hidden = false;
     }
     var list = found.map(function (r) {
       var d = r.data, dep = (d.departure_at || "").slice(0, 10), ret = (d.return_at || "").slice(0, 10);
-      var stops = d.transfers === 0 ? "vol direct" : d.transfers === 1 ? "1 escale" : d.transfers + " escales";
-      var href = "/?type=vols&from=" + from + "&to=" + to + (dep ? "&dep=" + dep : "") + (ret ? "&ret=" + ret : "");
-      var cheapest = d.price === best ? ' <span class="pill-best">Le moins cher</span>' : "";
+      var stops = d.transfers === 0 ? L.direct : d.transfers === 1 ? L.one : d.transfers + L.many;
+      var href = "/?type=vols&from=" + from + "&to=" + to + (dep ? "&dep=" + dep : "") + (ret ? "&ret=" + ret : "") + (L.app !== "fr" ? "&lang=" + L.app : "");
+      var cheapest = d.price === best ? ' <span class="pill-best">' + esc(L.best) + "</span>" : "";
       return '<li class="price-row"><div><span class="price-month">' + esc(label(r.month)) + cheapest + "</span>" +
         '<span class="price-meta">' + esc(dep ? day(dep) + (ret ? " → " + day(ret) : "") + " · " + stops : stops) + "</span></div>" +
-        '<strong class="price-val">dès ' + Math.round(d.price) + " €</strong>" +
-        '<a class="price-go" href="' + esc(href) + '">Voir ces dates</a></li>';
+        '<strong class="price-val">' + esc(L.from + " " + money(d.price)) + "</strong>" +
+        '<a class="price-go" href="' + esc(href) + '">' + esc(L.go) + "</a></li>";
     }).join("");
     box.querySelector(".price-list").innerHTML = list;
     box.hidden = false;

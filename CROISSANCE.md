@@ -50,7 +50,9 @@ Clé `TRAVELPAYOUTS_TOKEN` ajoutée dans Netlify : l'encart « dès X € » s'a
 ### 4 bis. Site international ✔ (13 octobre 2026)
 3 214 aéroports dans 234 pays, interface FR/EN, 7 devises, aéroport de départ détecté, idées de voyage avec prix réels
 (fonction `/api/explore`), panneau des départs animé.
-Pistes suivantes : pages trajets et hôtels en anglais (`/en/...`), autres langues (espagnol, portugais, arabe).
+✔ Pages trajets et hôtels traduites en anglais, espagnol, portugais et arabe (`/en/`, `/es/`, `/pt/`, `/ar/`), avec balises hreflang :
+258 pages au total. Traductions dans `scripts/translations.py`, générateur `scripts/build_i18n.py`.
+Pistes suivantes : allemand, italien, chinois, turc (ajouter une colonne dans translations.py et une entrée dans UI).
 
 ### 5. Réseaux sociaux et bouche-à-oreille
 - Une **chaîne WhatsApp** « Bons plans billets Afrique » avec 2 ou 3 bons plans par semaine et le lien de recherche.

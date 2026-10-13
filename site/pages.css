@@ -37,8 +37,8 @@ main p, main li { max-width: 68ch; }
 .facts div { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; min-width: 0; }
 .facts dt { font: 600 12px/1 var(--f-body); text-transform: uppercase; letter-spacing: .07em; color: var(--muted); }
 .facts dd { margin: 6px 0 0; font-weight: 600; }
-.steps { padding-left: 1.2em; display: grid; gap: 8px; }
-.links { padding-left: 1.2em; display: grid; gap: 6px; }
+.steps { padding-inline-start: 1.2em; display: grid; gap: 8px; }
+.links { padding-inline-start: 1.2em; display: grid; gap: 6px; }
 .faq details { border-bottom: 1px solid var(--line); padding: 12px 0; }
 .faq details:first-of-type { border-top: 1px solid var(--line); }
 .faq summary { cursor: pointer; font: 700 16px/1.35 var(--f-display); }
@@ -65,7 +65,17 @@ footer { margin-top: 48px; padding-block: 24px 40px; border-top: 1px solid var(-
 .price-val { font: 700 18px/1 var(--f-mono); font-variant-numeric: tabular-nums; }
 .price-go { text-decoration: none; font-weight: 700; padding: 9px 12px; border: 1px solid var(--line); border-radius: 10px; color: var(--ink); white-space: nowrap; }
 .price-go:hover { border-color: var(--accent); color: var(--accent); }
-.pill-best { font: 600 11px/1 var(--f-body); text-transform: uppercase; letter-spacing: .06em; padding: 4px 7px; border-radius: 999px; border: 1px solid #18794e; color: #18794e; margin-left: 6px; vertical-align: 2px; }
+.pill-best { font: 600 11px/1 var(--f-body); text-transform: uppercase; letter-spacing: .06em; padding: 4px 7px; border-radius: 999px; border: 1px solid #18794e; color: #18794e; margin-inline-start: 6px; vertical-align: 2px; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .pill-best { color: #4cc38a; border-color: #4cc38a; } }
 :root[data-theme="dark"] .pill-best { color: #4cc38a; border-color: #4cc38a; }
 @media (max-width: 520px) { .price-row { grid-template-columns: 1fr auto; } .price-go { grid-column: 1 / -1; text-align: center; } }
+
+/* Sélecteur de langue et langues écrites de droite à gauche */
+.page-top { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; }
+.lang-nav { display: flex; flex-wrap: wrap; gap: 4px; }
+.lang-nav a { color: var(--board-ink); text-decoration: none; font-size: 13px; font-weight: 600; padding: 6px 9px; border-radius: 6px; border: 1px solid color-mix(in srgb, var(--board-ink) 25%, transparent); }
+.lang-nav a[aria-current="page"] { background: var(--sign); color: var(--sign-ink); border-color: var(--sign); }
+.lang-nav a:hover { border-color: var(--sign); }
+html[lang="ar"] body, html[lang="ar"] .board h1, html[lang="ar"] main h2, html[lang="ar"] .faq summary, html[lang="ar"] .btn { font-family: "Noto Sans Arabic", var(--f-body); }
+html[lang="ar"] .eyebrow, html[lang="ar"] .facts dt { letter-spacing: 0; }
+html[lang="ar"] .codes, html[lang="ar"] .facts dt, html[lang="ar"] .pill-best, html[lang="ar"] .price-val { letter-spacing: 0; font-family: "Noto Sans Arabic", var(--f-body); text-transform: none; }

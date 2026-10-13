@@ -7,7 +7,11 @@ import datetime
 import html
 import pathlib
 import re
+import sys
 import urllib.parse
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import build_i18n  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = ROOT / "site"
@@ -204,7 +208,7 @@ HEAD = """<!doctype html>
 </head>
 <body>
 <header class="board"><div class="wrap">
-  <a class="brand" href="/"><span class="brand-mark">ESC</span><span class="brand-name">Escale</span></a>
+  <div class="page-top"><a class="brand" href="/"><span class="brand-mark">ESC</span><span class="brand-name">Escale</span></a>{switch}</div>
   {hero}
 </div></header>
 <main class="wrap">
@@ -218,9 +222,12 @@ HEAD = """<!doctype html>
 </html>
 """
 
-def page(path, title, desc, hero, body, ld=""):
-    url = f"{DOMAIN}/{path}" if path else f"{DOMAIN}/"
-    out = HEAD.format(tp=TRAVELPAYOUTS, title=E(title), desc=E(desc), url=url, domain=DOMAIN, hero=hero, body=body, ld=ld)
+def page(path, title, desc, hero, body, ld="", paths=None):
+    url = f"{DOMAIN}/{path}/" if path else f"{DOMAIN}/"
+    if paths:
+        ld = build_i18n.alternates(paths, DOMAIN) + "\n" + ld
+    switch = build_i18n.switcher(paths, "fr") if paths else ""
+    out = HEAD.format(tp=TRAVELPAYOUTS, title=E(title), desc=E(desc), url=url, domain=DOMAIN, hero=hero, body=body, ld=ld, switch=switch)
     d = SITE / path
     d.mkdir(parents=True, exist_ok=True)
     (d / "index.html").write_text(out, encoding="utf-8")
@@ -286,7 +293,8 @@ def route_page(r):
 {''.join(f'<details><summary>{E(q)}</summary><p>{E(a)}</p></details>' for q, a in faq)}
 </section>
 <section><h2>Autres trajets</h2><ul class="route-links">{''.join(f'<li><a href="/{route_slug(o)}/">{E(o[2])} → {E(o[3])}</a></li>' for o in related(r))}</ul></section>"""
-    return page(s, title, desc, hero, body, ld)
+    paths = {"fr": s, **{l: build_i18n.route_path(r, l) for l in build_i18n.LANGS}}
+    return page(s, title, desc, hero, body, ld, paths)
 
 def related(r, n=9):
     """Trajets proches : même destination, même pays ou même ville de départ, puis le reste."""
@@ -343,7 +351,8 @@ def hotel_page(h):
 {''.join(f'<details><summary>{E(q)}</summary><p>{E(a)}</p></details>' for q, a in faq)}
 </section>
 <section><h2>Autres villes</h2><ul class="route-links">{''.join(f'<li><a href="/{hotel_slug(o)}/">Hôtels à {E(o[0])}</a></li>' for o in HOTELS if o is not h)}</ul></section>"""
-    return page(s, title, desc, hero, body, ld)
+    paths = {"fr": s, **{l: build_i18n.hotel_path(h, l) for l in build_i18n.LANGS}}
+    return page(s, title, desc, hero, body, ld, paths)
 
 def legal_pages():
     urls = []
@@ -411,6 +420,11 @@ def main():
     urls = [f"{DOMAIN}/"]
     urls += [route_page(r) for r in ROUTES]
     urls += [hotel_page(h) for h in HOTELS]
+    airports = {a[0]: a for a in __import__("json").loads((SITE / "data" / "airports.json").read_text(encoding="utf-8"))}
+    ctx = dict(domain=DOMAIN, tp=TRAVELPAYOUTS, routes=ROUTES, hotels=HOTELS, route_slug=route_slug, hotel_slug=hotel_slug,
+               airports=airports, related=related)
+    i18n_urls, route_paths, hotel_paths = build_i18n.build(SITE, ctx)
+    urls += i18n_urls + build_i18n.build_indexes(SITE, ctx, route_paths, hotel_paths)
     urls += legal_pages()
 
     # Liste des guides sur la page d'accueil
@@ -423,6 +437,8 @@ def main():
         by_origin.setdefault(r[2], []).append(f'<li><a href="/{route_slug(r)}/">Vol {E(r[2])} → {E(r[3])}</a></li>')
     links = "".join(group(f"Vols au départ de {E(o)}", items) for o, items in by_origin.items())
     links += group("Hôtels pas chers", [f'<li><a href="/{hotel_slug(h)}/">Hôtel pas cher à {E(h[0])}</a></li>' for h in HOTELS])
+    links += '<p class="lead guides-langs">Guides in English, en español, em português, بالعربية : ' + " · ".join(
+        f'<a href="/{l}/" hreflang="{l}" lang="{l}">{build_i18n.NAMES[l]}</a>' for l in build_i18n.LANGS) + "</p>"
     s = re.sub(r"<!-- TRAVELPAYOUTS:START -->.*?<!-- TRAVELPAYOUTS:END -->",
                lambda m: "<!-- TRAVELPAYOUTS:START -->\n" + TRAVELPAYOUTS + "\n<!-- TRAVELPAYOUTS:END -->", s, flags=re.S)
     s = re.sub(r"<!-- ROUTES:START -->.*?<!-- ROUTES:END -->",
