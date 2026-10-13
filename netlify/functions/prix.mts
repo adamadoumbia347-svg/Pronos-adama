@@ -3,6 +3,7 @@ import type { Config } from "@netlify/functions"
 // Prix indicatif le plus bas trouvé récemment pour un trajet (données en cache Aviasales via Travelpayouts).
 // Inactif tant que la variable d'environnement TRAVELPAYOUTS_TOKEN n'est pas définie dans Netlify.
 // GET /api/prix?from=CDG&to=BKO&dep=2026-11-03&ret=2026-11-10
+// GET /api/prix?from=CDG&to=BKO&dep=2026-11-01&rt=1   (aller-retour, date de retour libre)
 
 const IATA = /^[A-Z]{3}$/
 const DATE = /^\d{4}-\d{2}-\d{2}$/
@@ -16,6 +17,7 @@ export default async (req: Request) => {
   const to = (q.get("to") || "").toUpperCase()
   const dep = q.get("dep") || ""
   const ret = q.get("ret") || ""
+  const roundTrip = Boolean(ret) || q.get("rt") === "1"
   if (!IATA.test(from) || !IATA.test(to) || !DATE.test(dep) || (ret && !DATE.test(ret))) {
     return Response.json({ error: "Paramètres invalides" }, { status: 400 })
   }
@@ -26,7 +28,7 @@ export default async (req: Request) => {
     destination: to,
     departure_at: dep.slice(0, 7), // le mois entier : plus de résultats en cache
     ...(ret ? { return_at: ret.slice(0, 7) } : {}),
-    one_way: ret ? "false" : "true",
+    one_way: roundTrip ? "false" : "true",
     sorting: "price",
     currency: "eur",
     limit: "1",

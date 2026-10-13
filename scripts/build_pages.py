@@ -253,6 +253,7 @@ def route_page(r):
     hero = f"""<p class="eyebrow">{E(country)}</p>
   <h1>Vol pas cher {E(cf)} <span>→</span> {E(ct)}</h1>
   <p class="codes">{fr} → {to}</p>
+  <p class="hero-price" id="hero-price" hidden></p>
   <div class="cta-row"><a class="btn" href="{E(app)}">Comparer les prix maintenant</a><a class="btn ghost" href="{E(back)}">Trajet retour {E(ct)} → {E(cf)}</a></div>"""
     facts = f"""<dl class="facts">
   <div><dt>Durée</dt><dd>{E(dur_txt[0].upper() + dur_txt[1:])}</dd></div>
@@ -260,6 +261,10 @@ def route_page(r):
   <div><dt>Prix les plus hauts</dt><dd>{E(peak[0].upper() + peak[1:])}</dd></div>
 </dl>"""
     body = f"""{facts}
+<section id="route-prices" data-from="{fr}" data-to="{to}" hidden><h2>Prix repérés récemment</h2>
+<p class="small">Prix aller-retour les plus bas trouvés ces derniers jours par des voyageurs, par mois de départ. Le tarif exact et disponible s'affiche sur les sites de réservation.</p>
+<ul class="price-list"></ul></section>
+<script src="/route-prices.js" defer></script>
 <section><h2>Notre conseil pour ce trajet</h2><p>{E(note)}</p></section>
 <section><h2>Comment payer moins cher</h2>
 <ol class="steps">

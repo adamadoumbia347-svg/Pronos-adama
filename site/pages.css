@@ -12,6 +12,7 @@
 }
 :root[data-theme="dark"] { --bg: #0f141b; --surface: #171e28; --ink: #e9edf3; --muted: #9aa5b5; --line: #2a3442; --board: #0a0e14; --board-ink: #e9edf3; --accent: #6ea8ff; --accent-ink: #0b1220; --focus: #6ea8ff; color-scheme: dark; }
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.6 var(--f-body); }
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
 a { color: var(--accent); }
@@ -54,3 +55,17 @@ footer { margin-top: 48px; padding-block: 24px 40px; border-top: 1px solid var(-
 .contact button { justify-self: start; margin-top: 10px; border: 0; cursor: pointer; font: 700 16px/1 var(--f-body); }
 .hp { position: absolute; left: -9999px; }
 .small { font-size: 14px; color: var(--muted); }
+.hero-price { margin: -8px 0 20px; font-size: 17px; }
+.hero-price strong { font: 700 22px/1 var(--f-mono); color: var(--sign); }
+.price-list { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 8px; }
+.price-row { max-width: none; display: grid; grid-template-columns: 1fr auto auto; gap: 8px 16px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; }
+.price-row > div { min-width: 0; display: grid; gap: 2px; }
+.price-month { font-weight: 700; text-transform: capitalize; }
+.price-meta { color: var(--muted); font-size: 14px; }
+.price-val { font: 700 18px/1 var(--f-mono); font-variant-numeric: tabular-nums; }
+.price-go { text-decoration: none; font-weight: 700; padding: 9px 12px; border: 1px solid var(--line); border-radius: 10px; color: var(--ink); white-space: nowrap; }
+.price-go:hover { border-color: var(--accent); color: var(--accent); }
+.pill-best { font: 600 11px/1 var(--f-body); text-transform: uppercase; letter-spacing: .06em; padding: 4px 7px; border-radius: 999px; border: 1px solid #18794e; color: #18794e; margin-left: 6px; vertical-align: 2px; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .pill-best { color: #4cc38a; border-color: #4cc38a; } }
+:root[data-theme="dark"] .pill-best { color: #4cc38a; border-color: #4cc38a; }
+@media (max-width: 520px) { .price-row { grid-template-columns: 1fr auto; } .price-go { grid-column: 1 / -1; text-align: center; } }
