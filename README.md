@@ -12,6 +12,11 @@ prépare la recherche, déjà triée par prix, sur les grands comparateurs :
 
 Les prix réels s'affichent sur les sites partenaires, où se fait la réservation.
 
+Aussi : liens de recherche partageables (WhatsApp), destinations populaires, FAQ, référencement
+(données structurées, Open Graph, sitemap), appli installable, emplacements pour l'affiliation.
+
+Pour faire grandir le site : voir [CROISSANCE.md](CROISSANCE.md).
+
 ## Lancer
 
 Ouvrez `index.html` dans un navigateur, ou publiez le dossier sur n'importe quel hébergement

@@ -1,7 +1,26 @@
+<!doctype html>
+<html lang="fr">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Escale Comparateur</title>
-<meta name="description" content="Comparez en un clic les vols les moins chers, les hôtels et les locations de voitures sur les meilleurs sites.">
+<meta name="description" content="Trouvez les vols les moins chers, les hôtels et les locations de voitures en une seule recherche : Google Flights, Skyscanner, Kayak, Booking, Agoda et plus. Gratuit, sans inscription.">
+<meta name="keywords" content="vol pas cher, billet d'avion, comparateur de vols, hôtel pas cher, location voiture, Paris Bamako, Paris Dakar, Paris Abidjan">
+<meta name="theme-color" content="#18202c">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Escale">
+<meta property="og:title" content="Escale : vols, hôtels et voitures au meilleur prix">
+<meta property="og:description" content="Une seule recherche, tous les grands comparateurs. Trouvez le vol, l'hôtel ou la voiture le moins cher.">
+<meta property="og:image" content="og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"Escale","description":"Comparateur de vols, hôtels et locations de voitures","inLanguage":"fr"}
+</script>
+<script type="application/ld+json" id="faq-ld"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap">
@@ -143,6 +162,21 @@ section.block h2 { font: 700 24px/1.2 var(--f-display); margin: 0 0 14px; text-w
 .tip h3 { font: 700 16px/1.25 var(--f-display); margin: 0 0 6px; }
 .tip p { margin: 0; color: var(--muted); font-size: 14px; max-width: 60ch; }
 .tip .k { font: 700 12px/1 var(--f-mono); color: var(--accent); letter-spacing: .08em; display: block; margin-bottom: 8px; }
+/* Partage, destinations, FAQ */
+.share { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.share .go { font-size: 14px; padding: 9px 12px; cursor: pointer; font-family: var(--f-body); }
+.share .ok { color: var(--ok); font-size: 13px; font-weight: 600; }
+.dests { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+.dest { appearance: none; text-align: left; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 12px; padding: 14px; cursor: pointer; display: grid; gap: 4px; font: inherit; }
+.dest:hover { border-color: var(--accent); }
+.dest .codes { font: 700 18px/1 var(--f-mono); letter-spacing: .04em; }
+.dest .codes span { color: var(--muted); font-size: 13px; }
+.dest small { color: var(--muted); font-size: 13px; }
+.lead { color: var(--muted); margin: -6px 0 16px; max-width: 65ch; }
+.faq details { border-bottom: 1px solid var(--line); padding: 14px 0; }
+.faq details:first-child { border-top: 1px solid var(--line); }
+.faq summary { cursor: pointer; font: 700 16px/1.35 var(--f-display); list-style-position: outside; }
+.faq p { margin: 10px 0 0; color: var(--muted); max-width: 70ch; }
 footer { margin-top: 48px; padding-block: 24px 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
 footer p { margin: 0 0 6px; max-width: 75ch; }
 @media (prefers-reduced-motion: no-preference) {
@@ -150,6 +184,8 @@ footer p { margin: 0 0 6px; max-width: 75ch; }
   @keyframes rise { from { transform: translateY(6px); opacity: .6; } to { transform: none; opacity: 1; } }
 }
 </style>
+</head>
+<body>
 
 <header class="board">
   <div class="wrap">
@@ -270,6 +306,12 @@ footer p { margin: 0 0 6px; max-width: 75ch; }
     <div class="recent" id="recent"></div>
   </section>
 
+  <section class="block" id="destinations">
+    <h2>Destinations populaires</h2>
+    <p class="lead">Un clic remplit la recherche avec des dates dans trois semaines. Modifiez-les ensuite si besoin.</p>
+    <div class="dests" id="dests"></div>
+  </section>
+
   <section class="block">
     <h2>Payer moins cher : ce qui marche vraiment</h2>
     <div class="tips">
@@ -282,8 +324,14 @@ footer p { margin: 0 0 6px; max-width: 75ch; }
     </div>
   </section>
 
+  <section class="block faq" id="faq">
+    <h2>Questions fréquentes</h2>
+    <div id="faq-list"></div>
+  </section>
+
   <footer>
     <p>Escale ne vend pas de billets et ne fixe aucun prix. Chaque bouton ouvre la recherche correspondante sur le site partenaire, où s’affichent les prix réels et où se fait la réservation.</p>
+    <p id="aff-note" hidden>Certains liens sont des liens partenaires : si vous réservez, Escale peut toucher une commission, sans aucun surcoût pour vous. C’est ce qui permet au site de rester gratuit.</p>
     <p>Les prix et disponibilités changent en permanence : vérifiez toujours le tarif final, bagages et frais inclus, avant de payer.</p>
   </footer>
 </main>
@@ -295,6 +343,26 @@ footer p { margin: 0 0 6px; max-width: 75ch; }
 (function () {
   "use strict";
 
+  // ---------- Réglages : identifiants partenaires ----------
+  // Collez ici vos identifiants une fois inscrit aux programmes d'affiliation (voir CROISSANCE.md).
+  // Laissés vides, les liens restent des liens normaux.
+  const AFFILIATE = {
+    booking_aid: "",      // Booking.com Affiliate Partner Program -> paramètre aid
+    agoda_cid: "",        // Agoda Partners -> paramètre cid
+    kayak_affid: "",      // Kayak / momondo (via programme partenaire) -> paramètre affid
+    skyscanner_wrap: "",  // Lien de suivi Skyscanner (Impact), ex. "https://skyscanner.pxf.io/c/XXX/YYY/ZZZ?u=" ; l'URL de recherche est ajoutée à la fin
+    travelpayouts_marker: "" // Travelpayouts -> réservé pour Aviasales / Hotellook / location de voitures
+  };
+  const hasAffiliate = Object.values(AFFILIATE).some(Boolean);
+  function tag(k, url) {
+    const add = (u, key, val) => val ? u + (u.includes("?") ? "&" : "?") + key + "=" + encodeURIComponent(val) : u;
+    if (k === "booking") return add(url, "aid", AFFILIATE.booking_aid);
+    if (k === "agoda") return add(url, "cid", AFFILIATE.agoda_cid);
+    if ((k === "kayak" || k === "momondo") && url.includes(".fr/")) return add(url, "affid", AFFILIATE.kayak_affid);
+    if (k === "sky" && AFFILIATE.skyscanner_wrap) return AFFILIATE.skyscanner_wrap + encodeURIComponent(url);
+    return url;
+  }
+
   // ---------- Données ----------
   const AIRPORTS = [
     ["CDG","Paris Charles-de-Gaulle"],["ORY","Paris Orly"],["BVA","Paris Beauvais"],["LYS","Lyon"],["MRS","Marseille"],
@@ -303,7 +371,7 @@ footer p { margin: 0 0 6px; max-width: 75ch; }
     ["LHR","Londres Heathrow"],["LGW","Londres Gatwick"],["STN","Londres Stansted"],["AMS","Amsterdam"],["FRA","Francfort"],
     ["MAD","Madrid"],["BCN","Barcelone"],["LIS","Lisbonne"],["FCO","Rome"],["MXP","Milan Malpensa"],["IST","Istanbul"],["ATH","Athènes"],
     ["BKO","Bamako"],["DSS","Dakar"],["ABJ","Abidjan"],["OUA","Ouagadougou"],["NIM","Niamey"],["CKY","Conakry"],["LFW","Lomé"],
-    ["COO","Cotonou"],["DLA","Douala"],["NSI","Yaoundé"],["LBV","Libreville"],["NKC","Nouakchott"],["ACC","Accra"],["LOS","Lagos"],
+    ["COO","Cotonou"],["DLA","Douala"],["NSI","Yaoundé"],["LBV","Libreville"],["FIH","Kinshasa"],["BZV","Brazzaville"],["BJL","Banjul"],["OXB","Bissau"],["NDJ","N’Djamena"],["TNR","Antananarivo"],["NKC","Nouakchott"],["ACC","Accra"],["LOS","Lagos"],
     ["CMN","Casablanca"],["RAK","Marrakech"],["RBA","Rabat"],["ALG","Alger"],["TUN","Tunis"],["CAI","Le Caire"],["ADD","Addis-Abeba"],
     ["NBO","Nairobi"],["JNB","Johannesburg"],["CPT","Le Cap"],["RUN","La Réunion"],["MRU","Maurice"],
     ["DXB","Dubaï"],["DOH","Doha"],["JED","Djeddah"],["RUH","Riyad"],["MED","Médine"],
@@ -452,7 +520,7 @@ footer p { margin: 0 0 6px; max-width: 75ch; }
           <div class="prov-name">${esc(p.name)}${p.best ? ' <span class="pill best">Recommandé</span>' : ""}${p.manual ? ' <span class="pill manual">Saisie sur le site</span>' : ""}</div>
           <div class="prov-desc">${esc(p.desc)}</div>
         </div>
-        <a class="go" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">Voir les prix →</a>
+        <a class="go" href="${esc(tag(p.k, p.url))}" target="_blank" rel="noopener noreferrer">Voir les prix →</a>
       </li>`).join("") + `</ul>`;
   }
   function pass(codes, meta, stubBig, stubSmall) {
@@ -482,13 +550,13 @@ footer p { margin: 0 0 6px; max-width: 75ch; }
       }).join("");
       flexHtml = `<h3 class="sub-h">Comparer jour par jour sur Google Flights</h3><div class="flex-grid">${cells}</div>`;
     }
-    show(head + card + providerList(flightLinks(s)) + flexHtml);
+    show(head + card + shareBar("vols", `Vols ${s.from.name} → ${s.to ? s.to.name : "partout"}`) + providerList(flightLinks(s)) + flexHtml);
   }
   function renderHotels(s) {
     const n = nights(s.in, s.out);
     show(`<div class="results-head"><h2>Hôtels à ${esc(s.dest)}</h2><span class="summary">Tri du moins cher au plus cher</span></div>` +
       pass(`${esc(s.dest.slice(0, 3).toUpperCase())}`, [["Arrivée", human(s.in)], ["Départ", human(s.out)], ["Voyageurs", `${s.adults} adulte${s.adults > 1 ? "s" : ""} · ${s.rooms} ch.`]],
-        `${n} N`, n > 1 ? "nuits" : "nuit") + providerList(hotelLinks(s)));
+        `${n} N`, n > 1 ? "nuits" : "nuit") + shareBar("hotels", `Hôtels à ${s.dest}`) + providerList(hotelLinks(s)));
   }
   function renderCars(s) {
     const days = Math.max(1, Math.ceil(nights(s.d1, s.d2) + (s.t2 > s.t1 ? 1 : 0)));
@@ -496,8 +564,90 @@ footer p { margin: 0 0 6px; max-width: 75ch; }
     show(`<div class="results-head"><h2>Location à ${esc(s.pick.name)}</h2><span class="summary">Vérifiez franchise et politique carburant</span></div>` +
       pass(`${esc(code)}${s.drop ? ` <small>→</small> ${esc(s.drop.code || s.drop.name.slice(0, 3).toUpperCase())}` : ""}`,
         [["Prise en charge", `${human(s.d1)} · ${s.t1}h`], ["Restitution", `${human(s.d2)} · ${s.t2}h`], ["Conducteur", $("c-age").selectedOptions[0].text]],
-        `${days} J`, "de location") + providerList(carLinks(s)));
+        `${days} J`, "de location") + shareBar("voitures", `Location de voiture à ${s.pick.name}`) + providerList(carLinks(s)));
   }
+
+
+  // ---------- Destinations populaires ----------
+  const DESTS = [
+    ["CDG", "BKO", "Paris → Bamako", "Vol direct avec Air France, ~5 h 30"],
+    ["CDG", "DSS", "Paris → Dakar", "Air France, Air Sénégal, ~5 h 30"],
+    ["CDG", "ABJ", "Paris → Abidjan", "Air France, Air Côte d’Ivoire, ~6 h 30"],
+    ["BRU", "FIH", "Bruxelles → Kinshasa", "Brussels Airlines, ~8 h"],
+    ["ORY", "CMN", "Paris → Casablanca", "Low-cost possibles, ~3 h"],
+    ["LYS", "ALG", "Lyon → Alger", "Air Algérie, ~2 h"],
+    ["CDG", "YUL", "Paris → Montréal", "Nombreux vols directs, ~7 h 30"],
+    ["CDG", "DXB", "Paris → Dubaï", "Emirates, Air France, ~6 h 30"]
+  ];
+  const nameOf = (c) => { const a = AIRPORTS.find(([x]) => x === c); return a ? `${a[1]} (${c})` : c; };
+  $("dests").innerHTML = DESTS.map(([a, b, t, d], i) =>
+    `<button type="button" class="dest" data-i="${i}"><span class="codes">${a} <span>→</span> ${b}</span><strong>${esc(t)}</strong><small>${esc(d)}</small></button>`).join("");
+  $("dests").addEventListener("click", (ev) => {
+    const b = ev.target.closest(".dest"); if (!b) return;
+    const [a, c] = DESTS[+b.dataset.i];
+    selectTab("vols");
+    $("f-from").value = nameOf(a); $("f-to").value = nameOf(c);
+    $("trip-rt").checked = true; syncTrip();
+    $("f-dep").value = addDays(today, 21); $("f-ret").value = addDays(today, 35);
+    $("form-vols").requestSubmit();
+  });
+
+  // ---------- FAQ (affichée + données structurées pour Google) ----------
+  const FAQ = [
+    ["Escale est-il gratuit ?", "Oui. Escale ne demande ni inscription ni paiement. Vous payez uniquement votre réservation, directement sur le site choisi."],
+    ["Comment trouver le vol le moins cher ?", "Activez les dates flexibles, comparez au moins trois sites (Google Flights, Skyscanner, Kayak) et regardez la grille jour par jour : décaler le départ d’un ou deux jours fait souvent baisser le prix."],
+    ["Pourquoi les prix ne s’affichent-ils pas directement sur Escale ?", "Escale ouvre votre recherche, déjà triée par prix, sur les grands comparateurs. Vous voyez ainsi les prix réels et à jour, avec les offres de centaines de compagnies et d’agences."],
+    ["Quand réserver un billet d’avion pour l’Afrique de l’Ouest ?", "En général deux à trois mois avant le départ. Pour les vacances d’été, Noël et la Tabaski, réservez plus tôt : les prix montent vite."],
+    ["Les prix incluent-ils les bagages ?", "Pas toujours. Les tarifs les plus bas incluent parfois seulement un petit sac. Vérifiez la franchise bagage avant de payer, surtout sur les vols vers l’Afrique."],
+    ["Comment payer moins cher une location de voiture ?", "Réservez tôt, choisissez la politique carburant « plein/plein » et comparez une prise en charge en ville avec l’aéroport, souvent plus cher."]
+  ];
+  $("faq-list").innerHTML = FAQ.map(([q2, a]) => `<details><summary>${esc(q2)}</summary><p>${esc(a)}</p></details>`).join("");
+  $("faq-ld").textContent = JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage",
+    mainEntity: FAQ.map(([q2, a]) => ({ "@type": "Question", name: q2, acceptedAnswer: { "@type": "Answer", text: a } })) });
+  $("aff-note").hidden = !hasAffiliate;
+
+  // ---------- Liens partageables (?type=vols&from=CDG&to=BKO...) ----------
+  const URLKEYS = {
+    vols: { from: "f-from", to: "f-to", dep: "f-dep", ret: "f-ret", ad: "f-adults", ch: "f-children", cab: "f-cabin", ow: "trip-ow", flex: "f-flex", dir: "f-direct" },
+    hotels: { dest: "h-dest", in: "h-in", out: "h-out", ad: "h-adults", ro: "h-rooms" },
+    voitures: { pick: "c-pick", drop: "c-drop", other: "c-other", d1: "c-d1", t1: "c-t1", d2: "c-d2", t2: "c-t2", age: "c-age" }
+  };
+  const isBool = (el) => el.type === "checkbox" || el.type === "radio";
+  const canShareUrl = /^https?:$/.test(location.protocol) && window.top === window;
+  function shareUrl(tab) {
+    const params = new URLSearchParams({ type: tab });
+    Object.entries(URLKEYS[tab]).forEach(([k, id]) => {
+      const el = $(id); const v = isBool(el) ? (el.checked ? "1" : "") : el.value;
+      if (v) params.set(k, v.replace(/^.*\(([A-Z]{3})\)$/, "$1"));
+    });
+    return location.origin + location.pathname + "?" + params.toString();
+  }
+  function applyUrl() {
+    if (!canShareUrl) return null;
+    const p = new URLSearchParams(location.search), tab = p.get("type");
+    if (!URLKEYS[tab]) return null;
+    Object.entries(URLKEYS[tab]).forEach(([k, id]) => {
+      if (!p.has(k)) return;
+      const el = $(id), v = p.get(k);
+      if (isBool(el)) el.checked = v === "1";
+      else el.value = /^[A-Z]{3}$/.test(v) && el.list ? nameOf(v) : v;
+    });
+    if (tab === "vols" && !$("trip-ow").checked) $("trip-rt").checked = true;
+    return tab;
+  }
+  function shareBar(tab, text) {
+    if (!canShareUrl) return "";
+    const url = shareUrl(tab);
+    if (!booting) { try { history.replaceState(null, "", url); } catch (e) {} }
+    const wa = "https://wa.me/?text=" + encodeURIComponent(text + " : " + url);
+    return `<div class="share"><button type="button" class="go" id="copy-link" data-url="${esc(url)}">Copier le lien de cette recherche</button>
+      <a class="go" href="${esc(wa)}" target="_blank" rel="noopener noreferrer">Partager sur WhatsApp</a><span class="ok" id="copy-ok" role="status"></span></div>`;
+  }
+  $("results").addEventListener("click", async (ev) => {
+    const b = ev.target.closest("#copy-link"); if (!b) return;
+    try { await navigator.clipboard.writeText(b.dataset.url); $("copy-ok").textContent = "Lien copié"; }
+    catch (e) { $("copy-ok").textContent = b.dataset.url; }
+  });
 
   // ---------- Historique ----------
   const KEY = "escale.recent.v1";
@@ -603,7 +753,7 @@ footer p { margin: 0 0 6px; max-width: 75ch; }
     selectTab(next); $("tab-" + next).focus();
   });
 
-  let start = (location.hash || "").slice(1);
+  let start = applyUrl() || (location.hash || "").slice(1);
   if (!TABS.includes(start)) { try { start = localStorage.getItem("escale.tab") || "vols"; } catch (e) { start = "vols"; } }
   selectTab(start);
   syncTrip(); syncDrop(); paintRecent();
@@ -612,3 +762,5 @@ footer p { margin: 0 0 6px; max-width: 75ch; }
   booting = false;
 })();
 </script>
+</body>
+</html>
