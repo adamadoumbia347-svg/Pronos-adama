@@ -6,19 +6,23 @@
 <title>Escale Comparateur</title>
 <meta name="description" content="Trouvez les vols les moins chers, les hôtels et les locations de voitures en une seule recherche : Google Flights, Skyscanner, Kayak, Booking, Agoda et plus. Gratuit, sans inscription.">
 <meta name="keywords" content="vol pas cher, billet d'avion, comparateur de vols, hôtel pas cher, location voiture, Paris Bamako, Paris Dakar, Paris Abidjan">
+<link rel="canonical" href="https://escale-voyage.netlify.app/">
+<meta property="og:url" content="https://escale-voyage.netlify.app/">
 <meta name="theme-color" content="#18202c">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="icon-192.png">
-<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<link rel="manifest" href="/manifest.webmanifest">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Escale">
 <meta property="og:title" content="Escale : vols, hôtels et voitures au meilleur prix">
 <meta property="og:description" content="Une seule recherche, tous les grands comparateurs. Trouvez le vol, l'hôtel ou la voiture le moins cher.">
-<meta property="og:image" content="og-image.png">
+<meta property="og:image" content="https://escale-voyage.netlify.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","name":"Escale","description":"Comparateur de vols, hôtels et locations de voitures","inLanguage":"fr"}
+{"@context":"https://schema.org","@type":"WebSite","name":"Escale","url":"https://escale-voyage.netlify.app/","description":"Comparateur de vols, hôtels et locations de voitures","inLanguage":"fr"}
 </script>
 <script type="application/ld+json" id="faq-ld"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -177,6 +181,13 @@ section.block h2 { font: 700 24px/1.2 var(--f-display); margin: 0 0 14px; text-w
 .faq details:first-child { border-top: 1px solid var(--line); }
 .faq summary { cursor: pointer; font: 700 16px/1.35 var(--f-display); list-style-position: outside; }
 .faq p { margin: 10px 0 0; color: var(--muted); max-width: 70ch; }
+.route-links { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 6px 16px; list-style: none; padding: 0; margin: 0; }
+.route-links a { display: block; padding: 8px 0; border-bottom: 1px solid var(--line); text-decoration: none; color: var(--ink); font-weight: 500; }
+.route-links a:hover { color: var(--accent); }
+.foot-nav { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-bottom: 14px; }
+.foot-nav a { color: var(--ink); font-weight: 600; }
+.price-hint { background: color-mix(in srgb, var(--ok) 12%, var(--surface)); border: 1px solid color-mix(in srgb, var(--ok) 40%, var(--line)); border-radius: 12px; padding: 12px 16px; font-size: 14px; }
+.price-hint strong { font: 700 18px/1.2 var(--f-mono); color: var(--ok); }
 footer { margin-top: 48px; padding-block: 24px 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
 footer p { margin: 0 0 6px; max-width: 75ch; }
 @media (prefers-reduced-motion: no-preference) {
@@ -324,12 +335,21 @@ footer p { margin: 0 0 6px; max-width: 75ch; }
     </div>
   </section>
 
+  <section class="block" id="guides">
+    <h2>Guides des trajets</h2>
+    <p class="lead">Durée, aéroports, meilleure période pour réserver et bagages, trajet par trajet.</p>
+    <!-- ROUTES:START -->
+    <ul class="route-links"><li><a href="/vol-paris-bamako/">Vol Paris → Bamako</a></li><li><a href="/vol-paris-dakar/">Vol Paris → Dakar</a></li><li><a href="/vol-paris-abidjan/">Vol Paris → Abidjan</a></li><li><a href="/vol-paris-conakry/">Vol Paris → Conakry</a></li><li><a href="/vol-paris-douala/">Vol Paris → Douala</a></li><li><a href="/vol-paris-lome/">Vol Paris → Lomé</a></li><li><a href="/vol-paris-cotonou/">Vol Paris → Cotonou</a></li><li><a href="/vol-paris-ouagadougou/">Vol Paris → Ouagadougou</a></li><li><a href="/vol-bruxelles-kinshasa/">Vol Bruxelles → Kinshasa</a></li><li><a href="/vol-paris-casablanca/">Vol Paris → Casablanca</a></li><li><a href="/vol-paris-alger/">Vol Paris → Alger</a></li><li><a href="/vol-paris-tunis/">Vol Paris → Tunis</a></li><li><a href="/vol-paris-montreal/">Vol Paris → Montréal</a></li><li><a href="/vol-paris-dubai/">Vol Paris → Dubaï</a></li></ul>
+    <!-- ROUTES:END -->
+  </section>
+
   <section class="block faq" id="faq">
     <h2>Questions fréquentes</h2>
     <div id="faq-list"></div>
   </section>
 
   <footer>
+    <nav class="foot-nav" aria-label="Pages du site"><a href="/mentions-legales/">Mentions légales</a><a href="/confidentialite/">Confidentialité</a><a href="/contact/">Contact</a><a href="/#guides">Guides des trajets</a></nav>
     <p>Escale ne vend pas de billets et ne fixe aucun prix. Chaque bouton ouvre la recherche correspondante sur le site partenaire, où s’affichent les prix réels et où se fait la réservation.</p>
     <p id="aff-note" hidden>Certains liens sont des liens partenaires : si vous réservez, Escale peut toucher une commission, sans aucun surcoût pour vous. C’est ce qui permet au site de rester gratuit.</p>
     <p>Les prix et disponibilités changent en permanence : vérifiez toujours le tarif final, bagages et frais inclus, avant de payer.</p>
@@ -550,7 +570,24 @@ footer p { margin: 0 0 6px; max-width: 75ch; }
       }).join("");
       flexHtml = `<h3 class="sub-h">Comparer jour par jour sur Google Flights</h3><div class="flex-grid">${cells}</div>`;
     }
-    show(head + card + shareBar("vols", `Vols ${s.from.name} → ${s.to ? s.to.name : "partout"}`) + providerList(flightLinks(s)) + flexHtml);
+    const priceSlot = canShareUrl && s.to && s.to.code ? '<div class="price-hint" id="price-hint" hidden></div>' : "";
+    show(head + card + priceSlot + shareBar("vols", `Vols ${s.from.name} → ${s.to ? s.to.name : "partout"}`) + providerList(flightLinks(s)) + flexHtml);
+    if (priceSlot) loadPrice(s);
+  }
+  let priceReq = 0;
+  async function loadPrice(s) {
+    const box = $("price-hint"); if (!box) return;
+    const id = ++priceReq;
+    try {
+      const r = await fetch("/api/prix?" + q({ from: s.from.code, to: s.to.code, dep: s.dep, ret: s.ret || "" }));
+      if (!r.ok || id !== priceReq) return;
+      const d = await r.json();
+      if (!d.available || !d.price || !$("price-hint")) return;
+      const month = parse(s.dep).toLocaleDateString("fr-FR", { month: "long" });
+      const stops = d.transfers === 0 ? "vol direct" : d.transfers === 1 ? "1 escale" : `${d.transfers} escales`;
+      box.innerHTML = `Prix repéré récemment pour ${esc(month)} : <strong>dès ${Math.round(d.price)} €</strong> (${esc(stops)}${s.ret ? ", aller-retour" : ", aller simple"}). Le tarif exact et disponible s'affiche sur les sites ci-dessous.`;
+      box.hidden = false;
+    } catch (e) { /* prix indisponibles : on n'affiche rien */ }
   }
   function renderHotels(s) {
     const n = nights(s.in, s.out);
@@ -570,14 +607,14 @@ footer p { margin: 0 0 6px; max-width: 75ch; }
 
   // ---------- Destinations populaires ----------
   const DESTS = [
-    ["CDG", "BKO", "Paris → Bamako", "Vol direct avec Air France, ~5 h 30"],
-    ["CDG", "DSS", "Paris → Dakar", "Air France, Air Sénégal, ~5 h 30"],
-    ["CDG", "ABJ", "Paris → Abidjan", "Air France, Air Côte d’Ivoire, ~6 h 30"],
-    ["BRU", "FIH", "Bruxelles → Kinshasa", "Brussels Airlines, ~8 h"],
-    ["ORY", "CMN", "Paris → Casablanca", "Low-cost possibles, ~3 h"],
-    ["LYS", "ALG", "Lyon → Alger", "Air Algérie, ~2 h"],
-    ["CDG", "YUL", "Paris → Montréal", "Nombreux vols directs, ~7 h 30"],
-    ["CDG", "DXB", "Paris → Dubaï", "Emirates, Air France, ~6 h 30"]
+    ["CDG", "BKO", "Paris → Bamako", "Souvent avec une escale, environ 8 à 12 h"],
+    ["CDG", "DSS", "Paris → Dakar", "Vols directs, environ 5 h 30"],
+    ["CDG", "ABJ", "Paris → Abidjan", "Vols directs, environ 6 h 30"],
+    ["BRU", "FIH", "Bruxelles → Kinshasa", "Vols directs, environ 8 h"],
+    ["ORY", "CMN", "Paris → Casablanca", "Low-cost possibles, environ 3 h"],
+    ["LYS", "ALG", "Lyon → Alger", "Vols directs, environ 2 h"],
+    ["CDG", "YUL", "Paris → Montréal", "Nombreux vols directs, environ 7 h 30"],
+    ["CDG", "DXB", "Paris → Dubaï", "Vols directs, environ 6 h 30"]
   ];
   const nameOf = (c) => { const a = AIRPORTS.find(([x]) => x === c); return a ? `${a[1]} (${c})` : c; };
   $("dests").innerHTML = DESTS.map(([a, b, t, d], i) =>

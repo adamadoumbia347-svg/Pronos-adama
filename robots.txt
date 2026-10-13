@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-
-# Remplacez par l'adresse réelle du site après la mise en ligne
-Sitemap: https://VOTRE-DOMAINE/sitemap.xml
