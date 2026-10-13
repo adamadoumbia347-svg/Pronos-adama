@@ -171,7 +171,10 @@ def route_slug(r):
 E = html.escape
 
 # Script Travelpayouts (vérification du site et suivi des liens partenaires), inséré dans le <head> de chaque page
+# Il reste bloqué (type="text/plain") tant que le visiteur n'a pas accepté les cookies : site/consent.js l'active.
 TRAVELPAYOUTS = (ROOT / "scripts" / "travelpayouts-snippet.html").read_text(encoding="utf-8").strip()
+TRAVELPAYOUTS = TRAVELPAYOUTS.replace("<script ", '<script type="text/plain" data-consent="marketing" ', 1)
+TRAVELPAYOUTS += '\n<script src="/consent.js" defer></script>'
 
 HEAD = """<!doctype html>
 <html lang="fr">
@@ -208,7 +211,7 @@ HEAD = """<!doctype html>
 {body}
 </main>
 <footer class="wrap">
-  <nav class="foot-nav" aria-label="Pages du site"><a href="/">Comparer vols, hôtels et voitures</a><a href="/#guides">Guides des trajets</a><a href="/mentions-legales/">Mentions légales</a><a href="/confidentialite/">Confidentialité</a><a href="/contact/">Contact</a></nav>
+  <nav class="foot-nav" aria-label="Pages du site"><a href="/">Comparer vols, hôtels et voitures</a><a href="/#guides">Guides des trajets</a><a href="/mentions-legales/">Mentions légales</a><a href="/confidentialite/">Confidentialité</a><a href="/contact/">Contact</a><a href="#cookies" data-open-consent>Gérer les cookies</a></nav>
   <p>Escale ne vend pas de billets et ne fixe aucun prix. Les durées et informations sont indicatives : les programmes des compagnies changent, vérifiez toujours sur le site de réservation.</p>
 </footer>
 </body>
@@ -361,14 +364,14 @@ def legal_pages():
 <p>Escale ne demande aucun compte et ne collecte ni nom, ni e-mail, ni numéro de téléphone (sauf si vous nous écrivez via le formulaire de contact).</p>
 </section>
 <section><h2>Ce qui reste sur votre appareil</h2>
-<p>Vos dernières recherches et le dernier onglet utilisé sont enregistrés dans le stockage local de votre navigateur, uniquement pour vous les reproposer. Ces données ne quittent pas votre appareil. Vous pouvez les effacer à tout moment en supprimant les données du site dans votre navigateur.</p>
+<p>Vos dernières recherches, le dernier onglet utilisé et votre choix concernant les cookies sont enregistrés dans le stockage local de votre navigateur, uniquement pour vous les reproposer. Ces données ne quittent pas votre appareil. Vous pouvez les effacer à tout moment en supprimant les données du site dans votre navigateur.</p>
 </section>
 <section><h2>Prix indicatifs</h2>
 <p>Pour afficher un prix indicatif, le site envoie le trajet et les dates recherchés (par exemple CDG → BKO en novembre) à notre serveur, qui interroge un fournisseur de données de prix. Aucune donnée personnelle n'est transmise.</p>
 </section>
 <section><h2>Liens partenaires (Travelpayouts)</h2>
-<p>Le site charge un script de notre partenaire d'affiliation Travelpayouts. Il sert à vérifier le site et à attribuer à Escale les réservations faites après un clic sur un lien partenaire. Ce script peut déposer des cookies ou utiliser des identifiants techniques sur votre navigateur. Travelpayouts applique sa propre politique de confidentialité, disponible sur travelpayouts.com.</p>
-<p>Vous pouvez bloquer ou supprimer ces cookies dans les réglages de votre navigateur. Cela ne change rien au fonctionnement des recherches.</p>
+<p>Avec votre accord seulement, le site charge un script de notre partenaire d'affiliation Travelpayouts. Il sert à attribuer à Escale les réservations faites après un clic sur un lien partenaire, et peut pour cela déposer des cookies ou utiliser des identifiants techniques sur votre navigateur. Travelpayouts applique sa propre politique de confidentialité, disponible sur travelpayouts.com.</p>
+<p>Votre choix (accepter ou refuser) est demandé à votre première visite, gardé 6 mois dans votre navigateur, puis redemandé. Vous pouvez le changer à tout moment avec le lien <a href="#cookies" data-open-consent>Gérer les cookies</a>, aussi présent en bas de chaque page. Refuser ne change rien au fonctionnement des recherches.</p>
 </section>
 <section><h2>Hébergement</h2>
 <p>Comme tout hébergeur, Netlify enregistre des journaux techniques (adresse IP, page demandée, date) nécessaires au fonctionnement et à la sécurité du site.</p>
