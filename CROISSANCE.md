@@ -17,13 +17,24 @@ Ce qui est déjà fait dans le code, puis ce qu'il reste à faire, dans l'ordre 
 | `robots.txt` et `sitemap.xml` | À compléter avec le vrai domaine (voir étape 1) |
 | Emplacements pour vos identifiants d'affiliation (`AFFILIATE` dans `index.html`) | Le site peut gagner de l'argent sans rien changer d'autre |
 
+| 14 pages trajets (`/vol-paris-bamako/`, `/vol-paris-dakar/`…) avec FAQ structurée | Capter les recherches Google précises (« vol pas cher Paris Bamako ») |
+| Pages Mentions légales, Confidentialité, Contact (formulaire Netlify) | Obligations légales et confiance des visiteurs |
+| Fonction `/api/prix` (Travelpayouts) + encart « dès X € » | Affiche un prix réel dès que la clé est configurée |
+| Projet Netlify `escale-voyage` créé, public, formulaires activés | Adresse : https://escale-voyage.netlify.app |
+| Sitemap, robots.txt, liens canoniques sur cette adresse | Générés par `scripts/build_pages.py` |
+
 ## À faire
 
-### 1. Mettre le site en ligne avec un vrai nom (priorité absolue)
-- Hébergement gratuit : Netlify, Cloudflare Pages ou GitHub Pages.
-- Nom de domaine court et mémorisable (environ 10 €/an), par exemple `escale-voyage.fr`.
-- Remplacer `VOTRE-DOMAINE` dans `robots.txt` et `sitemap.xml`, et ajouter dans `index.html` :
-  `<link rel="canonical" href="https://votre-domaine/">` et l'URL absolue de `og:image`.
+### 1. Publier le site sur Netlify (une seule fois)
+Le projet existe mais n'a pas encore reçu de fichiers. Deux possibilités :
+- **Recommandé : relier le dépôt GitHub.** Sur https://app.netlify.com/projects/escale-voyage, Project configuration
+  > Build & deploy > Link repository, choisir `pronos-adama` et la branche `main` (après fusion) ou
+  `claude/escale-comparateur`. Ensuite chaque `git push` met le site à jour tout seul (la configuration est dans `netlify.toml`).
+- Ou autoriser `api.netlify.com` et `netlify-mcp.netlify.app` dans l'accès réseau de l'environnement Claude Code,
+  puis demander à Claude de relancer le déploiement.
+
+Plus tard : un nom de domaine à vous (environ 10 €/an) ; changer alors `DOMAIN` dans `scripts/build_pages.py`
+et l'adresse dans `site/index.html`.
 
 ### 2. Être trouvé sur Google
 - Déclarer le site dans **Google Search Console** et **Bing Webmaster Tools**, puis envoyer le `sitemap.xml`.
@@ -43,6 +54,10 @@ Inscrivez-vous, puis collez vos identifiants dans l'objet `AFFILIATE` de `index.
 - Une mention « liens partenaires » s'affiche automatiquement dans le pied de page dès qu'un identifiant est rempli.
 
 ### 4. Afficher de vrais prix sur le site
+**Déjà codé :** créez un compte Travelpayouts, copiez votre jeton API, puis dans Netlify
+(Project configuration > Environment variables) ajoutez `TRAVELPAYOUTS_TOKEN` (portée : Functions) et redéployez.
+L'encart « Prix repéré récemment : dès X € » apparaît alors au-dessus des résultats de vol.
+
 Afficher « Paris → Bamako dès 489 € » attire beaucoup plus de clics. Attention :
 **l'offre gratuite Amadeus Self-Service a fermé en juillet 2026**. Pistes :
 - l'API de données de Travelpayouts / Aviasales (prix en cache, réservée aux partenaires) ;

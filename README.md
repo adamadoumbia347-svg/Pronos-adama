@@ -17,7 +17,18 @@ Aussi : liens de recherche partageables (WhatsApp), destinations populaires, FAQ
 
 Pour faire grandir le site : voir [CROISSANCE.md](CROISSANCE.md).
 
+## Structure
+
+- `site/` : le site publié (page d'accueil, pages générées, icônes).
+- `scripts/build_pages.py` : génère les pages trajets, légales, contact et le sitemap. Lancé automatiquement par Netlify.
+- `netlify/functions/prix.mts` : prix indicatifs (variable `TRAVELPAYOUTS_TOKEN`).
+- `netlify.toml` : configuration Netlify.
+
 ## Lancer
 
-Ouvrez `index.html` dans un navigateur, ou publiez le dossier sur n'importe quel hébergement
-statique (GitHub Pages, Netlify…).
+```
+python3 scripts/build_pages.py
+python3 -m http.server -d site 8000
+```
+
+En ligne : https://escale-voyage.netlify.app (projet Netlify `escale-voyage`).
