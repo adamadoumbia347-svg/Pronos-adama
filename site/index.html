@@ -383,7 +383,7 @@ footer p { margin: 0 0 6px; max-width: 75ch; }
     agoda_cid: "",        // Agoda Partners -> paramètre cid
     kayak_affid: "",      // Kayak / momondo (via programme partenaire) -> paramètre affid
     skyscanner_wrap: "",  // Lien de suivi Skyscanner (Impact), ex. "https://skyscanner.pxf.io/c/XXX/YYY/ZZZ?u=" ; l'URL de recherche est ajoutée à la fin
-    travelpayouts_marker: "" // Travelpayouts -> réservé pour Aviasales / Hotellook / location de voitures
+    travelpayouts_marker: "789659" // Identifiant Travelpayouts -> ajouté aux liens Aviasales (paramètre marker)
   };
   const hasAffiliate = Object.values(AFFILIATE).some(Boolean);
   function tag(k, url) {
@@ -467,7 +467,7 @@ footer p { margin: 0 0 6px; max-width: 75ch; }
 
   // ---------- Fournisseurs ----------
   const COLORS = { google: "#1a73e8", sky: "#0062e3", kayak: "#ff690f", momondo: "#d1006e", booking: "#003580",
-    hotels: "#d32f2f", agoda: "#5c2d91", airbnb: "#e0475b", rental: "#00897b", discover: "#2e7d32" };
+    hotels: "#d32f2f", agoda: "#5c2d91", airbnb: "#e0475b", rental: "#00897b", discover: "#2e7d32", aviasales: "#0c73fe" };
 
   function flightLinks(s) {
     const F = s.from.code.toLowerCase(), T = s.to && s.to.code ? s.to.code.toLowerCase() : null;
@@ -501,6 +501,13 @@ footer p { margin: 0 0 6px; max-width: 75ch; }
             rtn: s.ret ? 1 : 0, preferdirects: s.direct ? "true" : "", sortby: "cheapest" }) });
     list.push({ k: "kayak", name: "Kayak", desc: s.flex ? "Recherche ±3 jours autour de vos dates, triée par prix." : "Compare des centaines de sites, tri par prix.",
       url: `https://www.kayak.fr/flights/${s.from.code}-${s.to.code}${kDates}${cabinKayak}${pax}${kids}${kParams}` });
+    if (AFFILIATE.travelpayouts_marker) {
+      // Format Aviasales : /search/ORIGJJMMDESTJJMM + nombre d'adultes (+ enfants)
+      const ddmm = (d) => d.slice(8, 10) + d.slice(5, 7);
+      const paxAv = String(s.adults) + (s.children ? String(s.children) : "");
+      list.push({ k: "aviasales", name: "Aviasales", desc: "Compare des centaines de compagnies et d’agences, souvent très bon sur les vols avec escale.",
+        url: `https://www.aviasales.com/search/${s.from.code}${ddmm(s.dep)}${s.to.code}${s.ret ? ddmm(s.ret) : ""}${paxAv}?` + q({ marker: AFFILIATE.travelpayouts_marker, currency: "eur" }) });
+    }
     list.push({ k: "momondo", name: "momondo", desc: "Souvent des tarifs d’agences que les autres n’affichent pas.",
       url: `https://www.momondo.fr/flight-search/${s.from.code}-${s.to.code}${kDates}${cabinKayak}${pax}${kids}${kParams}` });
     return list;
