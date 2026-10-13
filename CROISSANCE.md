@@ -47,6 +47,11 @@ puis les déclarer aussi dans Bing Webmaster Tools (import direct depuis Search 
 Clé `TRAVELPAYOUTS_TOKEN` ajoutée dans Netlify : l'encart « dès X € » s'affiche au-dessus des résultats de vols.
 ✔ Les prix (3 prochains mois) s'affichent aussi sur les 34 pages trajets, chargés à chaque visite via `site/route-prices.js`.
 
+### 4 bis. Site international ✔ (13 octobre 2026)
+3 214 aéroports dans 234 pays, interface FR/EN, 7 devises, aéroport de départ détecté, idées de voyage avec prix réels
+(fonction `/api/explore`), panneau des départs animé.
+Pistes suivantes : pages trajets et hôtels en anglais (`/en/...`), autres langues (espagnol, portugais, arabe).
+
 ### 5. Réseaux sociaux et bouche-à-oreille
 - Une **chaîne WhatsApp** « Bons plans billets Afrique » avec 2 ou 3 bons plans par semaine et le lien de recherche.
 - Vidéos courtes TikTok et Instagram : « J'ai trouvé Paris–Dakar à X € : voici comment ».
