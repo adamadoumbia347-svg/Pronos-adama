@@ -45,7 +45,7 @@ puis les déclarer aussi dans Bing Webmaster Tools (import direct depuis Search 
 
 ### 4. Prix réels ✔ (13 octobre 2026)
 Clé `TRAVELPAYOUTS_TOKEN` ajoutée dans Netlify : l'encart « dès X € » s'affiche au-dessus des résultats de vols.
-Idée suivante : afficher ces prix sur les pages trajets.
+✔ Les prix (3 prochains mois) s'affichent aussi sur les 34 pages trajets, chargés à chaque visite via `site/route-prices.js`.
 
 ### 5. Réseaux sociaux et bouche-à-oreille
 - Une **chaîne WhatsApp** « Bons plans billets Afrique » avec 2 ou 3 bons plans par semaine et le lien de recherche.
