@@ -22,7 +22,8 @@ Pour faire grandir le site : voir [CROISSANCE.md](CROISSANCE.md).
 - `site/` : le site publié (page d'accueil, pages générées, icônes).
 - `scripts/build_pages.py` : génère les pages trajets, légales, contact et le sitemap. Lancé automatiquement par Netlify.
 - `scripts/build_i18n.py` + `scripts/translations.py` : versions anglaise, espagnole, portugaise et arabe des pages trajets et hôtels.
-- `site/app.js` : le moteur de l'accueil (recherche mondiale, FR/EN, devises, idées de voyage, animations).
+- `site/app.js` : le moteur de l'accueil (recherche mondiale, 5 langues, devises, idées de voyage, animations).
+- `site/i18n.js` : traductions espagnol, portugais et arabe de l'accueil (clé = texte anglais).
 - `site/data/airports.json` : 3 214 aéroports avec vols réguliers dans 234 pays (OurAirports, domaine public),
   régénéré par `scripts/build_airports.py`.
 - `netlify/functions/prix.mts` : prix indicatifs d'un trajet (variable `TRAVELPAYOUTS_TOKEN`).

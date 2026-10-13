@@ -39,7 +39,7 @@
 <script type="application/ld+json" id="faq-ld"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+Arabic:wght@400;600;700&display=swap">
 <style>
 /* Layout: signage band (departure-board header) over a single working column; form card, then result rows like a ticket list. */
 :root {
@@ -263,6 +263,14 @@ section.block h2 { font: 700 24px/1.2 var(--f-display); margin: 0 0 14px; text-w
   .swap { transition: transform .25s ease, color .15s ease, border-color .15s ease; }
   .swap:hover { transform: rotate(180deg); }
 }
+/* Arabe : police et sens d'écriture */
+html[lang="ar"] body, html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3, html[lang="ar"] .btn, html[lang="ar"] .tab,
+html[lang="ar"] input, html[lang="ar"] select, html[lang="ar"] .prov-name { font-family: "Noto Sans Arabic", var(--f-body); }
+html[lang="ar"] label, html[lang="ar"] .label, html[lang="ar"] .pill, html[lang="ar"] .flap-label { letter-spacing: 0; text-transform: none; }
+[dir="rtl"] .tip { padding: 16px 0 16px 16px; }
+[dir="rtl"] .pass-stub { border-left: 0; border-right: 2px dashed var(--line); }
+@media (max-width: 560px) { [dir="rtl"] .pass-stub { border-right: 0; } }
+.lang-select { max-width: 9.5em; }
 footer { margin-top: 48px; padding-block: 24px 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
 footer p { margin: 0 0 6px; max-width: 75ch; }
 @media (prefers-reduced-motion: no-preference) {
@@ -278,9 +286,11 @@ footer p { margin: 0 0 6px; max-width: 75ch; }
     <div class="topbar">
       <div class="brand"><span class="brand-mark">ESC</span><span class="brand-name">Escale</span></div>
       <div class="prefs">
-        <div class="lang-switch" role="group" aria-label="Langue / Language">
-          <button type="button" class="lang" data-lang="fr" aria-pressed="true">FR</button><button type="button" class="lang" data-lang="en" aria-pressed="false">EN</button>
-        </div>
+        <label class="sr-only" for="lang" data-en="Language">Langue</label>
+        <select id="lang" class="cur-select lang-select">
+          <option value="fr">FR · Français</option><option value="en">EN · English</option><option value="es">ES · Español</option>
+          <option value="pt">PT · Português</option><option value="ar">AR · العربية</option>
+        </select>
         <label class="sr-only" for="cur" data-en="Currency">Devise</label>
         <select id="cur" class="cur-select">
           <option value="EUR">€ EUR</option><option value="USD">$ USD</option><option value="GBP">£ GBP</option><option value="CAD">$ CAD</option>
@@ -290,7 +300,7 @@ footer p { margin: 0 0 6px; max-width: 75ch; }
     </div>
     <h1 data-en-html="Flights, hotels and cars <em>at the best price</em>">Vols, hôtels et voitures <em>au meilleur prix</em></h1>
     <p data-en="One search, every major comparison site, worldwide. Escale opens your search on Google Flights, Skyscanner, Kayak, Booking and more, sorted from cheapest to most expensive.">Une seule recherche, tous les grands comparateurs, partout dans le monde. Escale prépare vos recherches sur Google Flights, Skyscanner, Kayak, Booking et d’autres, triées du moins cher au plus cher.</p>
-    <div class="flap-board" aria-hidden="true"><span class="flap-label" data-en="Departures">Départs</span><span class="flap" id="flap"></span></div>
+    <div class="flap-board" aria-hidden="true" dir="ltr"><span class="flap-label" data-en="Departures">Départs</span><span class="flap" id="flap"></span></div>
   </div>
 </header>
 
@@ -451,6 +461,7 @@ footer p { margin: 0 0 6px; max-width: 75ch; }
   </footer>
 </main>
 
+<script src="/i18n.js" defer></script>
 <script src="/app.js" defer></script>
 </body>
 </html>

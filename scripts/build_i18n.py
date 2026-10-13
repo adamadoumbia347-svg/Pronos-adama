@@ -55,7 +55,7 @@ UI = {
         home="Compare flights, hotels and cars", legal="Legal notice (FR)", privacy="Privacy (FR)", cookies="Cookie settings",
         area_names={"Centre-ville": "City centre", "Quartier administratif": "Administrative district"}),
     "es": dict(
-        flight_slug="vuelos", hotel_slug="hoteles-baratos", app_lang="en", arrow="→",
+        flight_slug="vuelos", hotel_slug="hoteles-baratos", app_lang="es", arrow="→",
         title_route="Vuelos baratos {a} – {b}: compara precios",
         desc_route="Encuentra un vuelo barato {a} – {b} ({fa} → {ta}): duración, aeropuerto, mejor época para reservar y comparación de precios en Google Flights, Skyscanner, Kayak y momondo.",
         h1_route="Vuelos baratos {a} <span>→</span> {b}", cta="Comparar precios ahora", back="Vuelta {b} → {a}",
@@ -92,7 +92,7 @@ UI = {
         home="Comparar vuelos, hoteles y coches", legal="Aviso legal (FR)", privacy="Privacidad (FR)", cookies="Gestionar cookies",
         area_names={"Centre-ville": "Centro", "Quartier administratif": "Barrio administrativo"}),
     "pt": dict(
-        flight_slug="voos", hotel_slug="hoteis-baratos", app_lang="en", arrow="→",
+        flight_slug="voos", hotel_slug="hoteis-baratos", app_lang="pt", arrow="→",
         title_route="Voos baratos {a} – {b}: compare preços",
         desc_route="Encontre um voo barato {a} – {b} ({fa} → {ta}): duração, aeroporto, melhor época para reservar e comparação de preços no Google Flights, Skyscanner, Kayak e momondo.",
         h1_route="Voos baratos {a} <span>→</span> {b}", cta="Comparar preços agora", back="Regresso {b} → {a}",
@@ -129,7 +129,7 @@ UI = {
         home="Comparar voos, hotéis e carros", legal="Aviso legal (FR)", privacy="Privacidade (FR)", cookies="Gerir cookies",
         area_names={"Centre-ville": "Centro", "Quartier administratif": "Bairro administrativo"}),
     "ar": dict(
-        flight_slug="flights", hotel_slug="hotels", app_lang="en", arrow="←",
+        flight_slug="flights", hotel_slug="hotels", app_lang="ar", arrow="←",
         title_route="رحلات طيران رخيصة من {a} إلى {b}: قارن الأسعار",
         desc_route="ابحث عن رحلة رخيصة من {a} إلى {b} ({fa} → {ta}): مدة الرحلة، المطار، أفضل وقت للحجز ومقارنة الأسعار على Google Flights وSkyscanner وKayak وmomondo.",
         h1_route="رحلات رخيصة {a} <span>←</span> {b}", cta="قارن الأسعار الآن", back="رحلة العودة {b} ← {a}",

@@ -52,6 +52,7 @@ Clé `TRAVELPAYOUTS_TOKEN` ajoutée dans Netlify : l'encart « dès X € » s'a
 (fonction `/api/explore`), panneau des départs animé.
 ✔ Pages trajets et hôtels traduites en anglais, espagnol, portugais et arabe (`/en/`, `/es/`, `/pt/`, `/ar/`), avec balises hreflang :
 258 pages au total. Traductions dans `scripts/translations.py`, générateur `scripts/build_i18n.py`.
+✔ Accueil (moteur de recherche) traduit en espagnol, portugais et arabe (`site/i18n.js`), arabe de droite à gauche.
 Pistes suivantes : allemand, italien, chinois, turc (ajouter une colonne dans translations.py et une entrée dans UI).
 
 ### 5. Réseaux sociaux et bouche-à-oreille

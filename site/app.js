@@ -33,32 +33,40 @@
   const isLive = /^https?:$/.test(location.protocol) && window.top === window;
 
   // ---------- Langue ----------
+  const LANGS = ["fr", "en", "es", "pt", "ar"];
   const urlLang = new URLSearchParams(location.search).get("lang");
-  if (urlLang) { try { localStorage.setItem("escale.lang", urlLang === "fr" ? "fr" : "en"); } catch (e) {} }
-  let LANG = store.get("escale.lang") || ((navigator.language || "fr").toLowerCase().startsWith("fr") ? "fr" : "en");
-  if (!["fr", "en"].includes(LANG)) LANG = "fr";
-  const T = (fr, en) => (LANG === "en" ? en : fr);
-  const locale = () => (LANG === "en" ? "en-GB" : "fr-FR");
+  if (LANGS.includes(urlLang)) { try { localStorage.setItem("escale.lang", urlLang); } catch (e) {} }
+  const navLang = (navigator.language || "fr").slice(0, 2).toLowerCase();
+  let LANG = store.get("escale.lang") || (LANGS.includes(navLang) ? navLang : "en");
+  if (!LANGS.includes(LANG)) LANG = "fr";
+  // Français et anglais écrits dans le code ; espagnol, portugais et arabe dans i18n.js (clé = texte anglais)
+  const DICT = window.ESCALE_I18N || {};
+  const COL = { es: 0, pt: 1, ar: 2 };
+  const tr = (en) => (DICT[en] && DICT[en][COL[LANG]]) || en;
+  const T = (fr, en) => (LANG === "fr" ? fr : LANG === "en" ? en : tr(en));
+  const fmt = (str, vars) => str.replace(/\{(\w+)\}/g, (m, k) => (k in vars ? vars[k] : m));
+  const locale = () => ({ fr: "fr-FR", en: "en-GB", es: "es-ES", pt: "pt-PT", ar: "ar-u-nu-latn" })[LANG];
 
   function applyLang() {
     document.documentElement.lang = LANG;
+    document.documentElement.dir = LANG === "ar" ? "rtl" : "ltr";
     document.querySelectorAll("[data-en]").forEach((el) => {
       if (el.dataset.fr == null) el.dataset.fr = el.textContent;
-      el.textContent = LANG === "en" ? el.dataset.en : el.dataset.fr;
+      el.textContent = T(el.dataset.fr, el.dataset.en);
     });
     document.querySelectorAll("[data-en-html]").forEach((el) => {
       if (el.dataset.frHtml == null) el.dataset.frHtml = el.innerHTML;
-      el.innerHTML = LANG === "en" ? el.dataset.enHtml : el.dataset.frHtml;
+      el.innerHTML = T(el.dataset.frHtml, el.dataset.enHtml);
     });
     document.querySelectorAll("[data-en-ph]").forEach((el) => {
       if (el.dataset.frPh == null) el.dataset.frPh = el.placeholder;
-      el.placeholder = LANG === "en" ? el.dataset.enPh : el.dataset.frPh;
+      el.placeholder = T(el.dataset.frPh, el.dataset.enPh);
     });
     document.querySelectorAll("[data-en-aria]").forEach((el) => {
       if (el.dataset.frAria == null) el.dataset.frAria = el.getAttribute("aria-label");
-      el.setAttribute("aria-label", LANG === "en" ? el.dataset.enAria : el.dataset.frAria);
+      el.setAttribute("aria-label", T(el.dataset.frAria, el.dataset.enAria));
     });
-    document.querySelectorAll(".lang").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === LANG)));
+    $("lang").value = LANG;
     countryNames = null;
   }
 
@@ -238,11 +246,19 @@
   // ---------- Sites comparés ----------
   const COLORS = { google: "#1a73e8", sky: "#0062e3", kayak: "#ff690f", momondo: "#d1006e", booking: "#003580",
     hotels: "#d32f2f", agoda: "#5c2d91", airbnb: "#e0475b", rental: "#00897b", discover: "#2e7d32", aviasales: "#0c73fe" };
-  const D = () => LANG === "en"
-    ? { kayak: "www.kayak.com", momondo: "www.momondo.com", sky: "www.skyscanner.net/transport/flights", booking: "searchresults.en-gb.html",
-        hotels: "www.hotels.com", agoda: "en-gb", airbnb: "www.airbnb.com", rental: "en", discover: "" }
-    : { kayak: "www.kayak.fr", momondo: "www.momondo.fr", sky: "www.skyscanner.fr/transport/vols", booking: "searchresults.fr.html",
-        hotels: "fr.hotels.com", agoda: "fr-fr", airbnb: "www.airbnb.fr", rental: "fr", discover: "fr" };
+  const SITES = {
+    fr: { kayak: "www.kayak.fr", momondo: "www.momondo.fr", sky: "www.skyscanner.fr/transport/vols", booking: "searchresults.fr.html",
+          hotels: "fr.hotels.com", agoda: "fr-fr", airbnb: "www.airbnb.fr", rental: "fr", discover: "fr" },
+    en: { kayak: "www.kayak.com", momondo: "www.momondo.com", sky: "www.skyscanner.net/transport/flights", booking: "searchresults.en-gb.html",
+          hotels: "www.hotels.com", agoda: "en-gb", airbnb: "www.airbnb.com", rental: "en", discover: "" },
+    es: { kayak: "www.kayak.es", momondo: "www.momondo.es", sky: "www.skyscanner.net/transport/flights", booking: "searchresults.es.html",
+          hotels: "es.hotels.com", agoda: "es-es", airbnb: "www.airbnb.es", rental: "es", discover: "es" },
+    pt: { kayak: "www.kayak.com", momondo: "www.momondo.com", sky: "www.skyscanner.net/transport/flights", booking: "searchresults.pt-pt.html",
+          hotels: "www.hotels.com", agoda: "pt-pt", airbnb: "www.airbnb.pt", rental: "pt", discover: "pt" },
+    ar: { kayak: "www.kayak.com", momondo: "www.momondo.com", sky: "www.skyscanner.net/transport/flights", booking: "searchresults.ar.html",
+          hotels: "www.hotels.com", agoda: "ar-ae", airbnb: "www.airbnb.com", rental: "en", discover: "" }
+  };
+  const D = () => SITES[LANG];
 
   function flightLinks(s) {
     const d = D();
@@ -336,7 +352,7 @@
       </li>`).join("") + `</ul>`;
   }
   function pass(codes, meta, stubBig, stubSmall) {
-    return `<div class="pass"><div class="pass-main"><div class="pass-codes">${codes}</div>${meta.map(([l, v]) =>
+    return `<div class="pass"><div class="pass-main"><div class="pass-codes" dir="ltr">${codes}</div>${meta.map(([l, v]) =>
       `<div class="pass-meta"><span>${esc(l)}</span><strong>${esc(v)}</strong></div>`).join("")}</div>
       <div class="pass-stub"><b>${esc(stubBig)}</b>${esc(stubSmall)}</div></div>`;
   }
@@ -345,12 +361,12 @@
     const r = $("results"); r.innerHTML = html;
     if (!booting) r.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
   }
-  const stopsText = (n) => n === 0 ? T("vol direct", "direct") : n === 1 ? T("1 escale", "1 stop") : T(`${n} escales`, `${n} stops`);
+  const stopsText = (n) => n === 0 ? T("vol direct", "direct") : n === 1 ? T("1 escale", "1 stop") : fmt(T("{n} escales", "{n} stops"), { n });
 
   function renderFlights(s) {
     const toCode = s.to && s.to.code ? s.to.code : "ANY";
     const pax = s.adults + s.children;
-    const head = `<div class="results-head"><h2>${esc(s.from.name)} → ${esc(s.to ? s.to.name : T("Partout", "Anywhere"))}</h2>
+    const head = `<div class="results-head"><h2><bdi dir="ltr">${esc(s.from.name)} → ${esc(s.to ? s.to.name : T("Partout", "Anywhere"))}</bdi></h2>
       <span class="summary">${T("Ouvrez 2 ou 3 sites et comparez le prix final", "Open 2 or 3 sites and compare the final price")}</span></div>`;
     const card = pass(`${esc(s.from.code)} <small>→</small> ${esc(toCode)}`,
       [[T("Aller", "Depart"), human(s.dep)], [T("Retour", "Return"), s.ret ? human(s.ret) : T("Aller simple", "One way")],
@@ -370,7 +386,7 @@
     }
     const priceSlot = isLive && s.to && s.to.code ? '<div class="price-hint" id="price-hint" hidden></div>' : "";
     const anywhere = !s.to ? `<h3 class="sub-h">${T("Destinations les moins chères repérées", "Cheapest destinations found")}</h3><div class="ex-grid" id="res-explore"></div>` : "";
-    show(head + card + priceSlot + shareBar("vols", T(`Vols ${s.from.name} → ${s.to ? s.to.name : "partout"}`, `Flights ${s.from.name} → ${s.to ? s.to.name : "anywhere"}`)) + providerList(flightLinks(s)) + flexHtml + anywhere);
+    show(head + card + priceSlot + shareBar("vols", fmt(T("Vols {a} → {b}", "Flights {a} → {b}"), { a: s.from.name, b: s.to ? s.to.name : T("partout", "anywhere") })) + providerList(flightLinks(s)) + flexHtml + anywhere);
     if (priceSlot) loadPrice(s);
     if (!s.to) renderExplore($("res-explore"), s.from.code, s.dep.slice(0, 7));
   }
@@ -384,8 +400,9 @@
       const box = $("price-hint");
       if (!d.available || !d.price || !box) return;
       const month = parse(s.dep).toLocaleDateString(locale(), { month: "long" });
-      box.innerHTML = T(`Prix repéré récemment pour ${esc(month)} : <strong>dès ${esc(money(d.price, d.currency))}</strong> (${esc(stopsText(d.transfers))}${s.ret ? ", aller-retour" : ", aller simple"}). Le tarif exact et disponible s’affiche sur les sites ci-dessous.`,
-        `Recently found for ${esc(month)}: <strong>from ${esc(money(d.price, d.currency))}</strong> (${esc(stopsText(d.transfers))}${s.ret ? ", round trip" : ", one way"}). The exact available fare is shown on the sites below.`);
+      box.innerHTML = fmt(T("Prix repéré récemment pour {month} : <strong>dès {price}</strong> ({stops}, {kind}). Le tarif exact et disponible s’affiche sur les sites ci-dessous.",
+        "Recently found for {month}: <strong>from {price}</strong> ({stops}, {kind}). The exact available fare is shown on the sites below."),
+        { month: esc(month), price: esc(money(d.price, d.currency)), stops: esc(stopsText(d.transfers)), kind: s.ret ? T("aller-retour", "round trip") : T("aller simple", "one way") });
       box.hidden = false;
     } catch (e) { /* prix indisponibles : rien n'est affiché */ }
   }
@@ -393,9 +410,9 @@
     const n = nights(s.in, s.out);
     show(`<div class="results-head"><h2>${T("Hôtels à", "Hotels in")} ${esc(s.dest)}</h2><span class="summary">${T("Tri du moins cher au plus cher", "Sorted from cheapest")}</span></div>` +
       pass(`${esc(s.dest.slice(0, 3).toUpperCase())}`, [[T("Arrivée", "Check-in"), human(s.in)], [T("Départ", "Check-out"), human(s.out)],
-        [T("Voyageurs", "Guests"), `${s.adults} ${T("adulte" + (s.adults > 1 ? "s" : ""), "adult" + (s.adults > 1 ? "s" : ""))} · ${s.rooms} ${T("ch.", "rm")}`]],
+        [T("Voyageurs", "Guests"), `${s.adults} ${s.adults > 1 ? T("adultes", "adults") : T("adulte", "adult")} · ${s.rooms} ${T("ch.", "rm")}`]],
         `${n} ${T("N", "N")}`, n > 1 ? T("nuits", "nights") : T("nuit", "night")) +
-      shareBar("hotels", T(`Hôtels à ${s.dest}`, `Hotels in ${s.dest}`)) + providerList(hotelLinks(s)));
+      shareBar("hotels", fmt(T("Hôtels à {c}", "Hotels in {c}"), { c: s.dest })) + providerList(hotelLinks(s)));
   }
   function renderCars(s) {
     const days = Math.max(1, Math.ceil(nights(s.d1, s.d2) + (s.t2 > s.t1 ? 1 : 0)));
@@ -404,7 +421,7 @@
       pass(`${esc(code)}${s.drop ? ` <small>→</small> ${esc(s.drop.code || s.drop.name.slice(0, 3).toUpperCase())}` : ""}`,
         [[T("Prise en charge", "Pick-up"), `${human(s.d1)} · ${s.t1}h`], [T("Restitution", "Drop-off"), `${human(s.d2)} · ${s.t2}h`], [T("Conducteur", "Driver"), $("c-age").selectedOptions[0].text]],
         `${days} ${T("J", "D")}`, T("de location", "rental")) +
-      shareBar("voitures", T(`Location de voiture à ${s.pick.name}`, `Car rental in ${s.pick.name}`)) + providerList(carLinks(s)));
+      shareBar("voitures", fmt(T("Location de voiture à {c}", "Car rental in {c}"), { c: s.pick.name })) + providerList(carLinks(s)));
   }
 
   // ---------- Idées de voyage (prix réels) ----------
@@ -495,7 +512,10 @@
   }
   function feedFlap(from, items) {
     const rows = items.slice(0, 8).map((it) => {
-      const p = money(it.price, CUR).replace(/\s/g, "");
+      // Panneau en caractères latins quelle que soit la langue
+      let p;
+      try { p = new Intl.NumberFormat("en", { style: "currency", currency: CUR, currencyDisplay: "narrowSymbol", maximumFractionDigits: 0 }).format(it.price).replace(/\s/g, ""); }
+      catch (e) { p = Math.round(it.price) + CUR; }
       return `${from} → ${(byCode.get(it.to) || [it.to])[0]} ${p}`;
     });
     if (rows.length) { flapRows = rows; flapIdx = 0; startFlap(); }
@@ -703,11 +723,11 @@
   });
 
   // ---------- Langue et devise : changements ----------
-  document.querySelectorAll(".lang").forEach((b) => b.addEventListener("click", () => {
-    LANG = b.dataset.lang; store.set("escale.lang", LANG);
+  $("lang").addEventListener("change", () => {
+    LANG = $("lang").value; store.set("escale.lang", LANG);
     applyLang(); paintDests(); paintFaq(); paintRecent(); rerender();
     if (!$("explore").hidden) { paintExploreMonths(); renderExplore($("ex-grid"), exploreFrom, exploreMonth); }
-  }));
+  });
   $("cur").addEventListener("change", () => {
     CUR = $("cur").value; store.set("escale.cur", CUR);
     rerender();
