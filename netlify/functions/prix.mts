@@ -7,6 +7,7 @@ import type { Config } from "@netlify/functions"
 
 const IATA = /^[A-Z]{3}$/
 const DATE = /^\d{4}-\d{2}-\d{2}$/
+const CURRENCIES = ["EUR", "USD", "GBP", "CAD", "CHF", "XOF", "MAD"]
 
 export default async (req: Request) => {
   const token = Netlify.env.get("TRAVELPAYOUTS_TOKEN")
@@ -18,33 +19,41 @@ export default async (req: Request) => {
   const dep = q.get("dep") || ""
   const ret = q.get("ret") || ""
   const roundTrip = Boolean(ret) || q.get("rt") === "1"
+  let currency = (q.get("currency") || "EUR").toUpperCase()
+  if (!CURRENCIES.includes(currency)) currency = "EUR"
   if (!IATA.test(from) || !IATA.test(to) || !DATE.test(dep) || (ret && !DATE.test(ret))) {
     return Response.json({ error: "Paramètres invalides" }, { status: 400 })
   }
 
-  const api = new URL("https://api.travelpayouts.com/aviasales/v3/prices_for_dates")
-  api.search = new URLSearchParams({
-    origin: from,
-    destination: to,
-    departure_at: dep.slice(0, 7), // le mois entier : plus de résultats en cache
-    ...(ret ? { return_at: ret.slice(0, 7) } : {}),
-    one_way: roundTrip ? "false" : "true",
-    sorting: "price",
-    currency: "eur",
-    limit: "1",
-    token,
-  }).toString()
+  const ask = async (cur: string) => {
+    const api = new URL("https://api.travelpayouts.com/aviasales/v3/prices_for_dates")
+    api.search = new URLSearchParams({
+      origin: from,
+      destination: to,
+      departure_at: dep.slice(0, 7), // le mois entier : plus de résultats en cache
+      ...(ret ? { return_at: ret.slice(0, 7) } : {}),
+      one_way: roundTrip ? "false" : "true",
+      sorting: "price",
+      currency: cur.toLowerCase(),
+      limit: "1",
+      token,
+    }).toString()
+    const res = await fetch(api, { headers: { "Accept-Encoding": "gzip" } })
+    if (!res.ok) return null
+    const body = await res.json()
+    return body?.success === false ? null : body
+  }
 
   try {
-    const res = await fetch(api, { headers: { "Accept-Encoding": "gzip" } })
-    if (!res.ok) return Response.json({ available: false }, { status: 200 })
-    const body = await res.json()
+    let body = await ask(currency)
+    if (!body && currency !== "EUR") { currency = "EUR"; body = await ask(currency) }
+    if (!body) return Response.json({ available: false }, { status: 200 })
     const best = body?.data?.[0]
-    if (!best) return Response.json({ available: true, price: null }, { status: 200, headers: cache() })
+    if (!best) return Response.json({ available: true, price: null, currency }, { status: 200, headers: cache() })
     return Response.json({
       available: true,
       price: best.price,
-      currency: "EUR",
+      currency,
       airline: best.airline,
       transfers: best.transfers,
       departure_at: best.departure_at,

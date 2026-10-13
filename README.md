@@ -21,7 +21,12 @@ Pour faire grandir le site : voir [CROISSANCE.md](CROISSANCE.md).
 
 - `site/` : le site publié (page d'accueil, pages générées, icônes).
 - `scripts/build_pages.py` : génère les pages trajets, légales, contact et le sitemap. Lancé automatiquement par Netlify.
-- `netlify/functions/prix.mts` : prix indicatifs (variable `TRAVELPAYOUTS_TOKEN`).
+- `site/app.js` : le moteur de l'accueil (recherche mondiale, FR/EN, devises, idées de voyage, animations).
+- `site/data/airports.json` : 3 214 aéroports avec vols réguliers dans 234 pays (OurAirports, domaine public),
+  régénéré par `scripts/build_airports.py`.
+- `netlify/functions/prix.mts` : prix indicatifs d'un trajet (variable `TRAVELPAYOUTS_TOKEN`).
+- `netlify/functions/explore.mts` : destinations les moins chères depuis un aéroport.
+- `netlify/functions/geo.mts` : ville et pays approximatifs du visiteur (aéroport et devise par défaut).
 - `netlify.toml` : configuration Netlify.
 
 ## Lancer

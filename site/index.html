@@ -200,6 +200,69 @@ section.block h2 { font: 700 24px/1.2 var(--f-display); margin: 0 0 14px; text-w
 .foot-nav a { color: var(--ink); font-weight: 600; }
 .price-hint { background: color-mix(in srgb, var(--ok) 12%, var(--surface)); border: 1px solid color-mix(in srgb, var(--ok) 40%, var(--line)); border-radius: 12px; padding: 12px 16px; font-size: 14px; }
 .price-hint strong { font: 700 18px/1.2 var(--f-mono); color: var(--ok); }
+/* En-tête : langue, devise */
+.topbar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; }
+.prefs { display: flex; gap: 8px; align-items: center; }
+.lang-switch { display: inline-flex; border: 1px solid color-mix(in srgb, var(--board-ink) 30%, transparent); border-radius: 8px; overflow: hidden; }
+.lang { appearance: none; border: 0; background: transparent; color: var(--board-ink); font: 700 13px/1 var(--f-mono); padding: 9px 11px; cursor: pointer; letter-spacing: .06em; }
+.lang[aria-pressed="true"] { background: var(--sign); color: var(--sign-ink); }
+.cur-select { width: auto; min-height: 0; padding: 8px 10px; font: 700 13px/1 var(--f-mono); background: transparent; color: var(--board-ink); border: 1px solid color-mix(in srgb, var(--board-ink) 30%, transparent); border-radius: 8px; }
+.cur-select option { color: #141a24; background: #fff; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Panneau d'affichage façon aéroport (lettres qui basculent) */
+.flap-board { display: inline-flex; align-items: center; gap: 12px; margin-top: 22px; background: color-mix(in srgb, #000 35%, var(--board)); border-radius: 8px; padding: 8px 12px; max-width: 100%; overflow: hidden; }
+.flap-label { font: 600 11px/1 var(--f-body); text-transform: uppercase; letter-spacing: .12em; color: var(--sign); }
+.flap { display: inline-flex; gap: 2px; font: 700 clamp(14px, 3.2vw, 18px)/1 var(--f-mono); }
+.flap i { font-style: normal; display: inline-block; min-width: .78em; text-align: center; padding: 5px 1px; border-radius: 3px; background: color-mix(in srgb, var(--board-ink) 9%, transparent); color: var(--board-ink); }
+.flap i.sp { background: transparent; }
+.flap i.hl { color: var(--sign); }
+@media (prefers-reduced-motion: no-preference) {
+  .flap i.flip { animation: flip .32s ease-in both; }
+  @keyframes flip { 0% { transform: rotateX(0); } 50% { transform: rotateX(90deg); filter: brightness(.6); } 100% { transform: rotateX(0); } }
+}
+
+/* Recherche d'aéroports et de villes */
+.ac { position: relative; }
+.ac-list { position: absolute; z-index: 30; left: 0; right: 0; top: calc(100% + 4px); margin: 0; padding: 4px; list-style: none; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 16px 40px -18px rgb(0 0 0 / .45); max-height: 320px; overflow-y: auto; }
+.ac-list li { display: grid; grid-template-columns: auto 1fr auto; gap: 2px 10px; align-items: center; padding: 9px 10px; border-radius: 8px; cursor: pointer; }
+.ac-list li[aria-selected="true"], .ac-list li:hover { background: color-mix(in srgb, var(--accent) 12%, var(--surface)); }
+.ac-flag { font-size: 20px; line-height: 1; grid-row: span 2; }
+.ac-main { font-weight: 600; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ac-sub { grid-column: 2; color: var(--muted); font-size: 12px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ac-code { grid-row: span 2; font: 700 14px/1 var(--f-mono); color: var(--accent); }
+.ac-empty { color: var(--muted); font-size: 13px; padding: 10px; cursor: default; }
+@media (prefers-reduced-motion: no-preference) { .ac-list { animation: drop .14s ease-out; } @keyframes drop { from { opacity: 0; transform: translateY(-4px); } } }
+
+/* Idées de voyage */
+.explore-head { display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: baseline; justify-content: space-between; }
+.explore-head h2 { margin-bottom: 0; }
+.ex-city { color: var(--accent); }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.chips button { appearance: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 7px 12px; font: 600 13px/1 var(--f-body); cursor: pointer; text-transform: capitalize; }
+.chips button[aria-pressed="true"] { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+.ex-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 10px; }
+.ex-card { appearance: none; text-align: left; font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px; cursor: pointer; display: grid; gap: 4px; transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease; }
+.ex-card:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 10px 24px -16px rgb(0 0 0 / .4); }
+.ex-top { display: flex; align-items: center; gap: 8px; font-size: 20px; line-height: 1; }
+.ex-top b { font: 700 13px/1 var(--f-mono); color: var(--muted); letter-spacing: .06em; }
+.ex-name { font: 700 16px/1.2 var(--f-display); }
+.ex-meta { color: var(--muted); font-size: 12px; }
+.ex-price { font: 700 18px/1.1 var(--f-mono); color: var(--ok); }
+.ex-skel { height: 104px; border-radius: 12px; background: linear-gradient(90deg, var(--line), color-mix(in srgb, var(--line) 40%, var(--surface)), var(--line)); background-size: 200% 100%; }
+@media (prefers-reduced-motion: no-preference) { .ex-skel { animation: shimmer 1.2s linear infinite; } @keyframes shimmer { to { background-position: -200% 0; } } }
+.credits { font-size: 12px; }
+
+/* Animations douces */
+@media (prefers-reduced-motion: no-preference) {
+  .prov, .ex-card { animation: rise .35s ease-out both; animation-delay: calc(var(--i, 0) * 45ms); }
+  .btn { transition: transform .12s ease, filter .12s ease; }
+  .btn:active { transform: scale(.98); }
+  .tab { transition: background-color .15s ease, color .15s ease; }
+  .go { transition: background-color .15s ease, color .15s ease, border-color .15s ease; }
+  .swap { transition: transform .25s ease, color .15s ease, border-color .15s ease; }
+  .swap:hover { transform: rotate(180deg); }
+}
 footer { margin-top: 48px; padding-block: 24px 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
 footer p { margin: 0 0 6px; max-width: 75ch; }
 @media (prefers-reduced-motion: no-preference) {
@@ -212,67 +275,77 @@ footer p { margin: 0 0 6px; max-width: 75ch; }
 
 <header class="board">
   <div class="wrap">
-    <div class="brand"><span class="brand-mark">ESC</span><span class="brand-name">Escale</span></div>
-    <h1>Vols, hôtels et voitures <em>au meilleur prix</em></h1>
-    <p>Une seule recherche, tous les grands comparateurs. Escale prépare vos recherches sur Google Flights, Skyscanner, Kayak, Booking et d’autres, triées du moins cher au plus cher.</p>
-    <div class="ticker" aria-hidden="true">
-      <span>CDG <b>→</b> BKO</span><span>ORY <b>→</b> DSS</span><span>BRU <b>→</b> ABJ</span><span>LYS <b>→</b> CMN</span><span>CDG <b>→</b> JFK</span>
+    <div class="topbar">
+      <div class="brand"><span class="brand-mark">ESC</span><span class="brand-name">Escale</span></div>
+      <div class="prefs">
+        <div class="lang-switch" role="group" aria-label="Langue / Language">
+          <button type="button" class="lang" data-lang="fr" aria-pressed="true">FR</button><button type="button" class="lang" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <label class="sr-only" for="cur" data-en="Currency">Devise</label>
+        <select id="cur" class="cur-select">
+          <option value="EUR">€ EUR</option><option value="USD">$ USD</option><option value="GBP">£ GBP</option><option value="CAD">$ CAD</option>
+          <option value="CHF">CHF</option><option value="XOF">F CFA</option><option value="MAD">MAD</option>
+        </select>
+      </div>
     </div>
+    <h1 data-en-html="Flights, hotels and cars <em>at the best price</em>">Vols, hôtels et voitures <em>au meilleur prix</em></h1>
+    <p data-en="One search, every major comparison site, worldwide. Escale opens your search on Google Flights, Skyscanner, Kayak, Booking and more, sorted from cheapest to most expensive.">Une seule recherche, tous les grands comparateurs, partout dans le monde. Escale prépare vos recherches sur Google Flights, Skyscanner, Kayak, Booking et d’autres, triées du moins cher au plus cher.</p>
+    <div class="flap-board" aria-hidden="true"><span class="flap-label" data-en="Departures">Départs</span><span class="flap" id="flap"></span></div>
   </div>
 </header>
 
 <main class="wrap">
   <div class="card">
-    <div class="tabs" role="tablist" aria-label="Type de recherche">
+    <div class="tabs" role="tablist" aria-label="Type de recherche" data-en-aria="Search type">
       <button class="tab" role="tab" id="tab-vols" aria-controls="form-vols" aria-selected="true" data-tab="vols">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>Vols</button>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg><span data-en="Flights">Vols</span></button>
       <button class="tab" role="tab" id="tab-hotels" aria-controls="form-hotels" aria-selected="false" data-tab="hotels">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9a4 4 0 0 0-4-4z"/></svg>Hôtels</button>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9a4 4 0 0 0-4-4z"/></svg><span data-en="Hotels">Hôtels</span></button>
       <button class="tab" role="tab" id="tab-voitures" aria-controls="form-voitures" aria-selected="false" data-tab="voitures">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 6a1.5 1.5 0 0 0-1.4-1h-11a1.5 1.5 0 0 0-1.4 1L3 12v8a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h12v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-8zM6.5 16a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm11 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM5 11l1.5-4.5h11L19 11z"/></svg>Voitures</button>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 6a1.5 1.5 0 0 0-1.4-1h-11a1.5 1.5 0 0 0-1.4 1L3 12v8a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h12v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-8zM6.5 16a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm11 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM5 11l1.5-4.5h11L19 11z"/></svg><span data-en="Cars">Voitures</span></button>
     </div>
 
     <!-- VOLS -->
     <form id="form-vols" role="tabpanel" aria-labelledby="tab-vols" novalidate>
       <div class="opts">
-        <div class="seg" role="radiogroup" aria-label="Type de trajet">
-          <input type="radio" name="trip" id="trip-rt" value="rt" checked><label for="trip-rt">Aller-retour</label>
-          <input type="radio" name="trip" id="trip-ow" value="ow"><label for="trip-ow">Aller simple</label>
+        <div class="seg" role="radiogroup" aria-label="Type de trajet" data-en-aria="Trip type">
+          <input type="radio" name="trip" id="trip-rt" value="rt" checked><label for="trip-rt" data-en="Round trip">Aller-retour</label>
+          <input type="radio" name="trip" id="trip-ow" value="ow"><label for="trip-ow" data-en="One way">Aller simple</label>
         </div>
-        <label class="check"><input type="checkbox" id="f-flex" checked> Dates flexibles (±3 jours)</label>
-        <label class="check"><input type="checkbox" id="f-direct"> Vols directs uniquement</label>
+        <label class="check"><input type="checkbox" id="f-flex" checked> <span data-en="Flexible dates (±3 days)">Dates flexibles (±3 jours)</span></label>
+        <label class="check"><input type="checkbox" id="f-direct"> <span data-en="Direct flights only">Vols directs uniquement</span></label>
       </div>
       <div class="row route">
         <div class="field">
-          <label for="f-from">Départ</label>
-          <input id="f-from" list="airports" placeholder="Ville ou code (ex. CDG)" autocomplete="off" required>
+          <label for="f-from" data-en="From">Départ</label>
+          <input id="f-from" data-ac="airport" placeholder="Ville, aéroport ou pays" data-en-ph="City, airport or country" autocomplete="off" required>
         </div>
-        <button type="button" class="swap" id="f-swap" aria-label="Inverser départ et arrivée">
+        <button type="button" class="swap" id="f-swap" aria-label="Inverser départ et arrivée" data-en-aria="Swap origin and destination">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 7h13l-4-4M17 17H4l4 4"/></svg>
         </button>
         <div class="field">
-          <label for="f-to">Arrivée</label>
-          <input id="f-to" list="airports" placeholder="Laisser vide = partout" autocomplete="off">
+          <label for="f-to" data-en="To">Arrivée</label>
+          <input id="f-to" data-ac="airport" placeholder="Vide = partout dans le monde" data-en-ph="Empty = anywhere in the world" autocomplete="off">
         </div>
       </div>
       <div class="row">
-        <div class="field"><label for="f-dep">Aller</label><input type="date" id="f-dep" required></div>
-        <div class="field" id="f-ret-wrap"><label for="f-ret">Retour</label><input type="date" id="f-ret"></div>
-        <div class="field"><label for="f-adults">Adultes</label>
+        <div class="field"><label for="f-dep" data-en="Depart">Aller</label><input type="date" id="f-dep" required></div>
+        <div class="field" id="f-ret-wrap"><label for="f-ret" data-en="Return">Retour</label><input type="date" id="f-ret"></div>
+        <div class="field"><label for="f-adults" data-en="Adults">Adultes</label>
           <select id="f-adults"></select></div>
-        <div class="field"><label for="f-children">Enfants (2–11 ans)</label>
+        <div class="field"><label for="f-children" data-en="Children (2–11)">Enfants (2–11 ans)</label>
           <select id="f-children"></select></div>
-        <div class="field"><label for="f-cabin">Classe</label>
+        <div class="field"><label for="f-cabin" data-en="Class">Classe</label>
           <select id="f-cabin">
-            <option value="economy">Économique</option>
-            <option value="premium">Premium éco.</option>
-            <option value="business">Affaires</option>
-            <option value="first">Première</option>
+            <option value="economy" data-en="Economy">Économique</option>
+            <option value="premium" data-en="Premium economy">Premium éco.</option>
+            <option value="business" data-en="Business">Affaires</option>
+            <option value="first" data-en="First">Première</option>
           </select></div>
       </div>
       <div class="actions">
         <span class="error" id="f-err" role="alert"></span>
-        <button class="btn" type="submit">Trouver les vols les moins chers</button>
+        <button class="btn" type="submit" data-en="Find the cheapest flights">Trouver les vols les moins chers</button>
       </div>
     </form>
 
@@ -280,542 +353,104 @@ footer p { margin: 0 0 6px; max-width: 75ch; }
     <form id="form-hotels" role="tabpanel" aria-labelledby="tab-hotels" novalidate hidden>
       <div class="row">
         <div class="field" style="grid-column: 1 / -1">
-          <label for="h-dest">Destination</label>
-          <input id="h-dest" list="cities" placeholder="Ville, quartier ou nom d’hôtel" autocomplete="off" required>
+          <label for="h-dest" data-en="Destination">Destination</label>
+          <input id="h-dest" data-ac="city" placeholder="N’importe quelle ville du monde, quartier ou hôtel" data-en-ph="Any city in the world, area or hotel" autocomplete="off" required>
         </div>
       </div>
       <div class="row">
-        <div class="field"><label for="h-in">Arrivée</label><input type="date" id="h-in" required></div>
-        <div class="field"><label for="h-out">Départ</label><input type="date" id="h-out" required></div>
-        <div class="field"><label for="h-adults">Adultes</label><select id="h-adults"></select></div>
-        <div class="field"><label for="h-rooms">Chambres</label><select id="h-rooms"></select></div>
+        <div class="field"><label for="h-in" data-en="Check-in">Arrivée</label><input type="date" id="h-in" required></div>
+        <div class="field"><label for="h-out" data-en="Check-out">Départ</label><input type="date" id="h-out" required></div>
+        <div class="field"><label for="h-adults" data-en="Adults">Adultes</label><select id="h-adults"></select></div>
+        <div class="field"><label for="h-rooms" data-en="Rooms">Chambres</label><select id="h-rooms"></select></div>
       </div>
       <div class="actions">
         <span class="error" id="h-err" role="alert"></span>
-        <button class="btn" type="submit">Comparer les hôtels</button>
+        <button class="btn" type="submit" data-en="Compare hotels">Comparer les hôtels</button>
       </div>
     </form>
 
     <!-- VOITURES -->
     <form id="form-voitures" role="tabpanel" aria-labelledby="tab-voitures" novalidate hidden>
       <div class="opts">
-        <label class="check"><input type="checkbox" id="c-other"> Restituer dans un autre lieu</label>
+        <label class="check"><input type="checkbox" id="c-other"> <span data-en="Drop off at a different location">Restituer dans un autre lieu</span></label>
       </div>
       <div class="row">
-        <div class="field"><label for="c-pick">Lieu de prise en charge</label>
-          <input id="c-pick" list="airports" placeholder="Aéroport ou ville (ex. CDG)" autocomplete="off" required></div>
-        <div class="field" id="c-drop-wrap" hidden><label for="c-drop">Lieu de restitution</label>
-          <input id="c-drop" list="airports" placeholder="Aéroport ou ville" autocomplete="off"></div>
+        <div class="field"><label for="c-pick" data-en="Pick-up location">Lieu de prise en charge</label>
+          <input id="c-pick" data-ac="airport" placeholder="Aéroport ou ville" data-en-ph="Airport or city" autocomplete="off" required></div>
+        <div class="field" id="c-drop-wrap" hidden><label for="c-drop" data-en="Drop-off location">Lieu de restitution</label>
+          <input id="c-drop" data-ac="airport" placeholder="Aéroport ou ville" data-en-ph="Airport or city" autocomplete="off"></div>
       </div>
       <div class="row">
-        <div class="field"><label for="c-d1">Prise en charge</label><input type="date" id="c-d1" required></div>
-        <div class="field"><label for="c-t1">Heure</label><select id="c-t1"></select></div>
-        <div class="field"><label for="c-d2">Restitution</label><input type="date" id="c-d2" required></div>
-        <div class="field"><label for="c-t2">Heure</label><select id="c-t2"></select></div>
-        <div class="field"><label for="c-age">Âge du conducteur</label>
-          <select id="c-age"><option value="30">26 à 65 ans</option><option value="22">21 à 25 ans</option><option value="70">Plus de 65 ans</option></select></div>
+        <div class="field"><label for="c-d1" data-en="Pick-up">Prise en charge</label><input type="date" id="c-d1" required></div>
+        <div class="field"><label for="c-t1" data-en="Time">Heure</label><select id="c-t1"></select></div>
+        <div class="field"><label for="c-d2" data-en="Drop-off">Restitution</label><input type="date" id="c-d2" required></div>
+        <div class="field"><label for="c-t2" data-en="Time">Heure</label><select id="c-t2"></select></div>
+        <div class="field"><label for="c-age" data-en="Driver age">Âge du conducteur</label>
+          <select id="c-age"><option value="30" data-en="26 to 65">26 à 65 ans</option><option value="22" data-en="21 to 25">21 à 25 ans</option><option value="70" data-en="Over 65">Plus de 65 ans</option></select></div>
       </div>
       <div class="actions">
         <span class="error" id="c-err" role="alert"></span>
-        <button class="btn" type="submit">Comparer les locations</button>
+        <button class="btn" type="submit" data-en="Compare car rentals">Comparer les locations</button>
       </div>
     </form>
   </div>
 
   <div id="results" class="results" aria-live="polite"></div>
 
+  <section class="block" id="explore" hidden>
+    <div class="explore-head">
+      <h2><span data-en="Cheap trip ideas from">Idées de voyage pas chères depuis</span> <span id="ex-city" class="ex-city"></span></h2>
+      <div class="chips" id="ex-months" role="group" aria-label="Mois de départ" data-en-aria="Departure month"></div>
+    </div>
+    <p class="lead" data-en="Real round-trip prices found recently by travelers. Click a destination to fill in the search.">Prix aller-retour réels trouvés récemment par des voyageurs. Cliquez sur une destination pour remplir la recherche.</p>
+    <div class="ex-grid" id="ex-grid"></div>
+  </section>
+
   <section class="block" id="recent-block" hidden>
-    <h2>Vos recherches récentes</h2>
+    <h2 data-en="Your recent searches">Vos recherches récentes</h2>
     <div class="recent" id="recent"></div>
   </section>
 
   <section class="block" id="destinations">
-    <h2>Destinations populaires</h2>
-    <p class="lead">Un clic remplit la recherche avec des dates dans trois semaines. Modifiez-les ensuite si besoin.</p>
+    <h2 data-en="Popular routes">Destinations populaires</h2>
+    <p class="lead" data-en="One click fills in the search with dates three weeks from now. Change them if needed.">Un clic remplit la recherche avec des dates dans trois semaines. Modifiez-les ensuite si besoin.</p>
     <div class="dests" id="dests"></div>
   </section>
 
   <section class="block">
-    <h2>Payer moins cher : ce qui marche vraiment</h2>
+    <h2 data-en="Pay less: what really works">Payer moins cher : ce qui marche vraiment</h2>
     <div class="tips">
-      <div class="tip"><span class="k">±3 J</span><h3>Bougez vos dates</h3><p>Décaler le départ de un ou deux jours change souvent le prix plus que le choix du site. Les mardis, mercredis et samedis sont en général moins chers.</p></div>
-      <div class="tip"><span class="k">CMP</span><h3>Comparez au moins trois sites</h3><p>Chaque comparateur a ses partenaires. Ouvrez Google Flights, Skyscanner et Kayak : l’écart atteint parfois plusieurs dizaines d’euros.</p></div>
-      <div class="tip"><span class="k">AÉRO</span><h3>Essayez l’aéroport voisin</h3><p>Paris : CDG, ORY et BVA. Bruxelles : BRU et CRL. Un aéroport secondaire est souvent desservi par les compagnies low-cost.</p></div>
-      <div class="tip"><span class="k">BAG</span><h3>Vérifiez les bagages</h3><p>Le tarif le plus bas n’inclut parfois qu’un sac sous le siège. Ajoutez le prix de la valise avant de comparer.</p></div>
-      <div class="tip"><span class="k">ALERT</span><h3>Activez une alerte prix</h3><p>Google Flights, Kayak et Skyscanner vous préviennent par e-mail quand le prix baisse sur votre trajet.</p></div>
-      <div class="tip"><span class="k">CAR</span><h3>Voiture : franchise et carburant</h3><p>Préférez la politique « plein/plein » et vérifiez le montant de la franchise. Une prise en charge en ville coûte souvent moins cher qu’à l’aéroport.</p></div>
+      <div class="tip"><span class="k">±3 J</span><h3 data-en="Move your dates">Bougez vos dates</h3><p data-en="Shifting your departure by a day or two often changes the price more than the choice of site. Tuesdays, Wednesdays and Saturdays are usually cheaper.">Décaler le départ de un ou deux jours change souvent le prix plus que le choix du site. Les mardis, mercredis et samedis sont en général moins chers.</p></div>
+      <div class="tip"><span class="k">CMP</span><h3 data-en="Compare at least three sites">Comparez au moins trois sites</h3><p data-en="Each comparison site has its own partners. Open Google Flights, Skyscanner and Kayak: the gap can be tens of euros.">Chaque comparateur a ses partenaires. Ouvrez Google Flights, Skyscanner et Kayak : l’écart atteint parfois plusieurs dizaines d’euros.</p></div>
+      <div class="tip"><span class="k">AÉRO</span><h3 data-en="Try the nearby airport">Essayez l’aéroport voisin</h3><p data-en="Paris: CDG, ORY and BVA. London: LHR, LGW, STN. Secondary airports are often served by low-cost airlines.">Paris : CDG, ORY et BVA. Bruxelles : BRU et CRL. Un aéroport secondaire est souvent desservi par les compagnies low-cost.</p></div>
+      <div class="tip"><span class="k">BAG</span><h3 data-en="Check the baggage">Vérifiez les bagages</h3><p data-en="The lowest fare sometimes only includes an under-seat bag. Add the price of a suitcase before comparing.">Le tarif le plus bas n’inclut parfois qu’un sac sous le siège. Ajoutez le prix de la valise avant de comparer.</p></div>
+      <div class="tip"><span class="k">ALERT</span><h3 data-en="Set a price alert">Activez une alerte prix</h3><p data-en="Google Flights, Kayak and Skyscanner email you when the price drops on your route.">Google Flights, Kayak et Skyscanner vous préviennent par e-mail quand le prix baisse sur votre trajet.</p></div>
+      <div class="tip"><span class="k">CAR</span><h3 data-en="Cars: excess and fuel">Voiture : franchise et carburant</h3><p data-en="Choose a full-to-full fuel policy and check the excess amount. Picking up in town is often cheaper than at the airport.">Préférez la politique « plein/plein » et vérifiez le montant de la franchise. Une prise en charge en ville coûte souvent moins cher qu’à l’aéroport.</p></div>
     </div>
   </section>
 
   <section class="block" id="guides">
-    <h2>Guides des trajets et des hôtels</h2>
-    <p class="lead">Durée du vol, aéroports, meilleure période pour réserver, quartiers où dormir : nos conseils destination par destination.</p>
+    <h2 data-en="Route and hotel guides (in French)">Guides des trajets et des hôtels</h2>
+    <p class="lead" data-en="Flight time, airports, best time to book, where to stay: our tips destination by destination.">Durée du vol, aéroports, meilleure période pour réserver, quartiers où dormir : nos conseils destination par destination.</p>
     <!-- ROUTES:START -->
     <h3 class="sub-h">Vols au départ de Paris</h3><ul class="route-links"><li><a href="/vol-paris-bamako/">Vol Paris → Bamako</a></li><li><a href="/vol-paris-dakar/">Vol Paris → Dakar</a></li><li><a href="/vol-paris-abidjan/">Vol Paris → Abidjan</a></li><li><a href="/vol-paris-conakry/">Vol Paris → Conakry</a></li><li><a href="/vol-paris-douala/">Vol Paris → Douala</a></li><li><a href="/vol-paris-lome/">Vol Paris → Lomé</a></li><li><a href="/vol-paris-cotonou/">Vol Paris → Cotonou</a></li><li><a href="/vol-paris-ouagadougou/">Vol Paris → Ouagadougou</a></li><li><a href="/vol-paris-casablanca/">Vol Paris → Casablanca</a></li><li><a href="/vol-paris-alger/">Vol Paris → Alger</a></li><li><a href="/vol-paris-tunis/">Vol Paris → Tunis</a></li><li><a href="/vol-paris-montreal/">Vol Paris → Montréal</a></li><li><a href="/vol-paris-dubai/">Vol Paris → Dubaï</a></li><li><a href="/vol-paris-kinshasa/">Vol Paris → Kinshasa</a></li><li><a href="/vol-paris-libreville/">Vol Paris → Libreville</a></li><li><a href="/vol-paris-yaounde/">Vol Paris → Yaoundé</a></li><li><a href="/vol-paris-nouakchott/">Vol Paris → Nouakchott</a></li><li><a href="/vol-paris-niamey/">Vol Paris → Niamey</a></li><li><a href="/vol-paris-marrakech/">Vol Paris → Marrakech</a></li><li><a href="/vol-paris-istanbul/">Vol Paris → Istanbul</a></li><li><a href="/vol-paris-djeddah/">Vol Paris → Djeddah</a></li><li><a href="/vol-paris-pointe-a-pitre/">Vol Paris → Pointe-à-Pitre</a></li><li><a href="/vol-paris-la-reunion/">Vol Paris → La Réunion</a></li></ul><h3 class="sub-h">Vols au départ de Bruxelles</h3><ul class="route-links"><li><a href="/vol-bruxelles-kinshasa/">Vol Bruxelles → Kinshasa</a></li><li><a href="/vol-bruxelles-dakar/">Vol Bruxelles → Dakar</a></li><li><a href="/vol-bruxelles-abidjan/">Vol Bruxelles → Abidjan</a></li><li><a href="/vol-bruxelles-douala/">Vol Bruxelles → Douala</a></li></ul><h3 class="sub-h">Vols au départ de Marseille</h3><ul class="route-links"><li><a href="/vol-marseille-alger/">Vol Marseille → Alger</a></li><li><a href="/vol-marseille-tunis/">Vol Marseille → Tunis</a></li><li><a href="/vol-marseille-dakar/">Vol Marseille → Dakar</a></li></ul><h3 class="sub-h">Vols au départ de Lyon</h3><ul class="route-links"><li><a href="/vol-lyon-casablanca/">Vol Lyon → Casablanca</a></li><li><a href="/vol-lyon-dakar/">Vol Lyon → Dakar</a></li></ul><h3 class="sub-h">Vols au départ de Genève</h3><ul class="route-links"><li><a href="/vol-geneve-casablanca/">Vol Genève → Casablanca</a></li><li><a href="/vol-geneve-dakar/">Vol Genève → Dakar</a></li></ul><h3 class="sub-h">Hôtels pas chers</h3><ul class="route-links"><li><a href="/hotel-pas-cher-dakar/">Hôtel pas cher à Dakar</a></li><li><a href="/hotel-pas-cher-abidjan/">Hôtel pas cher à Abidjan</a></li><li><a href="/hotel-pas-cher-bamako/">Hôtel pas cher à Bamako</a></li><li><a href="/hotel-pas-cher-casablanca/">Hôtel pas cher à Casablanca</a></li><li><a href="/hotel-pas-cher-marrakech/">Hôtel pas cher à Marrakech</a></li><li><a href="/hotel-pas-cher-douala/">Hôtel pas cher à Douala</a></li><li><a href="/hotel-pas-cher-conakry/">Hôtel pas cher à Conakry</a></li><li><a href="/hotel-pas-cher-lome/">Hôtel pas cher à Lomé</a></li><li><a href="/hotel-pas-cher-cotonou/">Hôtel pas cher à Cotonou</a></li><li><a href="/hotel-pas-cher-kinshasa/">Hôtel pas cher à Kinshasa</a></li><li><a href="/hotel-pas-cher-alger/">Hôtel pas cher à Alger</a></li><li><a href="/hotel-pas-cher-tunis/">Hôtel pas cher à Tunis</a></li><li><a href="/hotel-pas-cher-paris/">Hôtel pas cher à Paris</a></li><li><a href="/hotel-pas-cher-dubai/">Hôtel pas cher à Dubaï</a></li><li><a href="/hotel-pas-cher-istanbul/">Hôtel pas cher à Istanbul</a></li><li><a href="/hotel-pas-cher-montreal/">Hôtel pas cher à Montréal</a></li></ul>
     <!-- ROUTES:END -->
   </section>
 
   <section class="block faq" id="faq">
-    <h2>Questions fréquentes</h2>
+    <h2 data-en="Frequently asked questions">Questions fréquentes</h2>
     <div id="faq-list"></div>
   </section>
 
   <footer>
-    <nav class="foot-nav" aria-label="Pages du site"><a href="/mentions-legales/">Mentions légales</a><a href="/confidentialite/">Confidentialité</a><a href="/contact/">Contact</a><a href="/#guides">Guides des trajets</a><a href="#cookies" data-open-consent>Gérer les cookies</a></nav>
-    <p>Escale ne vend pas de billets et ne fixe aucun prix. Chaque bouton ouvre la recherche correspondante sur le site partenaire, où s’affichent les prix réels et où se fait la réservation.</p>
-    <p id="aff-note">Certains liens sont des liens partenaires : si vous réservez, Escale peut toucher une commission, sans aucun surcoût pour vous. C’est ce qui permet au site de rester gratuit.</p>
-    <p>Les prix et disponibilités changent en permanence : vérifiez toujours le tarif final, bagages et frais inclus, avant de payer.</p>
+    <nav class="foot-nav" aria-label="Pages du site"><a href="/mentions-legales/" data-en="Legal notice">Mentions légales</a><a href="/confidentialite/" data-en="Privacy">Confidentialité</a><a href="/contact/">Contact</a><a href="/#guides" data-en="Route guides">Guides des trajets</a><a href="#cookies" data-open-consent data-en="Cookie settings">Gérer les cookies</a></nav>
+    <p data-en="Escale does not sell tickets or set any prices. Each button opens the matching search on the partner site, where real prices are shown and where you book.">Escale ne vend pas de billets et ne fixe aucun prix. Chaque bouton ouvre la recherche correspondante sur le site partenaire, où s’affichent les prix réels et où se fait la réservation.</p>
+    <p id="aff-note" data-en="Some links are partner links: if you book, Escale may earn a commission at no extra cost to you. That is what keeps the site free.">Certains liens sont des liens partenaires : si vous réservez, Escale peut toucher une commission, sans aucun surcoût pour vous. C’est ce qui permet au site de rester gratuit.</p>
+    <p data-en="Prices and availability change constantly: always check the final fare, including baggage and fees, before paying.">Les prix et disponibilités changent en permanence : vérifiez toujours le tarif final, bagages et frais inclus, avant de payer.</p>
+    <p class="credits" data-en="Airport data: OurAirports (public domain). Prices: Aviasales via Travelpayouts.">Données des aéroports : OurAirports (domaine public). Prix : Aviasales via Travelpayouts.</p>
   </footer>
 </main>
 
-<datalist id="airports"></datalist>
-<datalist id="cities"></datalist>
-
-<script>
-(function () {
-  "use strict";
-
-  // ---------- Réglages : identifiants partenaires ----------
-  // Collez ici vos identifiants une fois inscrit aux programmes d'affiliation (voir CROISSANCE.md).
-  // Laissés vides, les liens restent des liens normaux.
-  const AFFILIATE = {
-    booking_aid: "",      // Booking.com Affiliate Partner Program -> paramètre aid
-    agoda_cid: "",        // Agoda Partners -> paramètre cid
-    kayak_affid: "",      // Kayak / momondo (via programme partenaire) -> paramètre affid
-    skyscanner_wrap: "",  // Lien de suivi Skyscanner (Impact), ex. "https://skyscanner.pxf.io/c/XXX/YYY/ZZZ?u=" ; l'URL de recherche est ajoutée à la fin
-    travelpayouts_marker: "789659" // Identifiant Travelpayouts -> ajouté aux liens Aviasales (paramètre marker)
-  };
-  const hasAffiliate = Object.values(AFFILIATE).some(Boolean);
-  function tag(k, url) {
-    const add = (u, key, val) => val ? u + (u.includes("?") ? "&" : "?") + key + "=" + encodeURIComponent(val) : u;
-    if (k === "booking") return add(url, "aid", AFFILIATE.booking_aid);
-    if (k === "agoda") return add(url, "cid", AFFILIATE.agoda_cid);
-    if ((k === "kayak" || k === "momondo") && url.includes(".fr/")) return add(url, "affid", AFFILIATE.kayak_affid);
-    if (k === "sky" && AFFILIATE.skyscanner_wrap) return AFFILIATE.skyscanner_wrap + encodeURIComponent(url);
-    return url;
-  }
-
-  // ---------- Données ----------
-  const AIRPORTS = [
-    ["CDG","Paris Charles-de-Gaulle"],["ORY","Paris Orly"],["BVA","Paris Beauvais"],["LYS","Lyon"],["MRS","Marseille"],
-    ["NCE","Nice"],["TLS","Toulouse"],["BOD","Bordeaux"],["NTE","Nantes"],["LIL","Lille"],["MPL","Montpellier"],["SXB","Strasbourg"],
-    ["BRU","Bruxelles"],["CRL","Bruxelles-Charleroi"],["GVA","Genève"],["ZRH","Zurich"],["LUX","Luxembourg"],
-    ["LHR","Londres Heathrow"],["LGW","Londres Gatwick"],["STN","Londres Stansted"],["AMS","Amsterdam"],["FRA","Francfort"],
-    ["MAD","Madrid"],["BCN","Barcelone"],["LIS","Lisbonne"],["FCO","Rome"],["MXP","Milan Malpensa"],["IST","Istanbul"],["ATH","Athènes"],
-    ["BKO","Bamako"],["DSS","Dakar"],["ABJ","Abidjan"],["OUA","Ouagadougou"],["NIM","Niamey"],["CKY","Conakry"],["LFW","Lomé"],
-    ["COO","Cotonou"],["DLA","Douala"],["NSI","Yaoundé"],["LBV","Libreville"],["FIH","Kinshasa"],["BZV","Brazzaville"],["BJL","Banjul"],["OXB","Bissau"],["NDJ","N’Djamena"],["TNR","Antananarivo"],["NKC","Nouakchott"],["ACC","Accra"],["LOS","Lagos"],
-    ["CMN","Casablanca"],["RAK","Marrakech"],["RBA","Rabat"],["ALG","Alger"],["TUN","Tunis"],["CAI","Le Caire"],["ADD","Addis-Abeba"],
-    ["NBO","Nairobi"],["JNB","Johannesburg"],["CPT","Le Cap"],["RUN","La Réunion"],["MRU","Maurice"],
-    ["DXB","Dubaï"],["DOH","Doha"],["JED","Djeddah"],["RUH","Riyad"],["MED","Médine"],
-    ["JFK","New York JFK"],["EWR","New York Newark"],["YUL","Montréal"],["YYZ","Toronto"],["MIA","Miami"],["LAX","Los Angeles"],
-    ["PTP","Pointe-à-Pitre"],["FDF","Fort-de-France"],["CAY","Cayenne"],["GRU","São Paulo"],["CUN","Cancún"],
-    ["BKK","Bangkok"],["SIN","Singapour"],["HND","Tokyo Haneda"],["PEK","Pékin"],["DEL","Delhi"],["BOM","Mumbai"]
-  ];
-  const CITIES = ["Paris","Lyon","Marseille","Nice","Bruxelles","Genève","Londres","Barcelone","Madrid","Rome","Lisbonne","Istanbul",
-    "Bamako","Dakar","Abidjan","Ouagadougou","Conakry","Lomé","Cotonou","Douala","Casablanca","Marrakech","Tunis","Alger",
-    "Dubaï","New York","Montréal","Bangkok","Tokyo"];
-
-  const $ = (id) => document.getElementById(id);
-  const fill = (sel, from, to, def, fmt) => { for (let i = from; i <= to; i++) { const o = new Option(fmt ? fmt(i) : String(i), String(i)); if (i === def) o.selected = true; sel.add(o); } };
-
-  $("airports").innerHTML = AIRPORTS.map(([c, n]) => `<option value="${n} (${c})"></option>`).join("");
-  $("cities").innerHTML = CITIES.map((c) => `<option value="${c}"></option>`).join("");
-  fill($("f-adults"), 1, 9, 1); fill($("f-children"), 0, 8, 0);
-  fill($("h-adults"), 1, 10, 2); fill($("h-rooms"), 1, 5, 1);
-  fill($("c-t1"), 6, 22, 10, (h) => String(h).padStart(2, "0") + ":00");
-  fill($("c-t2"), 6, 22, 10, (h) => String(h).padStart(2, "0") + ":00");
-
-  // ---------- Dates ----------
-  const iso = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
-  const parse = (s) => { const [y, m, d] = s.split("-").map(Number); return new Date(y, m - 1, d); };
-  const addDays = (s, n) => { const d = parse(s); d.setDate(d.getDate() + n); return iso(d); };
-  const today = iso(new Date());
-  const nights = (a, b) => Math.round((parse(b) - parse(a)) / 86400000);
-  const human = (s) => parse(s).toLocaleDateString("fr-FR", { weekday: "short", day: "numeric", month: "short" });
-  const yymmdd = (s) => s.slice(2).replace(/-/g, "");
-
-  [["f-dep", 21], ["f-ret", 28], ["h-in", 21], ["h-out", 25], ["c-d1", 21], ["c-d2", 28]].forEach(([id, n]) => {
-    $(id).value = addDays(today, n); $(id).min = today;
-  });
-  $("f-from").value = "Paris Charles-de-Gaulle (CDG)";
-  $("f-to").value = "Bamako (BKO)";
-  $("h-dest").value = "Dakar";
-  $("c-pick").value = "Casablanca (CMN)";
-
-  // Keep return after departure
-  const link = (a, b, gap) => $(a).addEventListener("change", () => {
-    $(b).min = $(a).value;
-    if (!$(b).value || $(b).value <= $(a).value) $(b).value = addDays($(a).value, gap);
-  });
-  link("f-dep", "f-ret", 7); link("h-in", "h-out", 3); link("c-d1", "c-d2", 7);
-
-  // ---------- Lieux ----------
-  function place(raw) {
-    const v = (raw || "").trim();
-    if (!v) return null;
-    const m = v.match(/\(([A-Za-z]{3})\)\s*$/) || v.match(/^([A-Za-z]{3})$/);
-    if (m) {
-      const code = m[1].toUpperCase();
-      const hit = AIRPORTS.find(([c]) => c === code);
-      return { code, name: hit ? hit[1] : code, label: v };
-    }
-    const hit = AIRPORTS.find(([, n]) => n.toLowerCase() === v.toLowerCase() || n.toLowerCase().startsWith(v.toLowerCase() + " "));
-    return hit ? { code: hit[0], name: hit[1], label: v } : { code: null, name: v, label: v };
-  }
-  const q = (o) => Object.entries(o).filter(([, v]) => v !== "" && v != null).map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join("&");
-  const enc = encodeURIComponent;
-
-  // ---------- Fournisseurs ----------
-  const COLORS = { google: "#1a73e8", sky: "#0062e3", kayak: "#ff690f", momondo: "#d1006e", booking: "#003580",
-    hotels: "#d32f2f", agoda: "#5c2d91", airbnb: "#e0475b", rental: "#00897b", discover: "#2e7d32", aviasales: "#0c73fe" };
-
-  function flightLinks(s) {
-    const F = s.from.code.toLowerCase(), T = s.to && s.to.code ? s.to.code.toLowerCase() : null;
-    const cabinSky = { economy: "economy", premium: "premiumeconomy", business: "business", first: "first" }[s.cabin];
-    const cabinKayak = { economy: "", premium: "/premium", business: "/business", first: "/first" }[s.cabin];
-    const cabinG = { economy: "", premium: " premium economy", business: " business class", first: " first class" }[s.cabin];
-    const pax = s.adults > 1 ? `/${s.adults}adults` : "";
-    const kids = s.children > 0 ? "/children" + "-11".repeat(s.children) : "";
-    const flex = s.flex ? "-flexible-3days" : "";
-    const kDates = `/${s.dep}${flex}` + (s.ret ? `/${s.ret}${flex}` : "");
-    const kParams = "?" + q({ sort: "price_a", fs: s.direct ? "stops=0" : "" });
-    const list = [];
-
-    if (!T) {
-      list.push({ k: "google", name: "Google Flights Explorer", desc: "Carte des destinations les moins chères depuis votre aéroport.", best: true,
-        url: `https://www.google.com/travel/explore?${q({ q: `Flights from ${s.from.code}`, hl: "fr", curr: "EUR" })}` });
-      list.push({ k: "sky", name: "Skyscanner « Partout »", desc: "Liste de toutes les destinations triées par prix.",
-        url: `https://www.skyscanner.fr/transport/vols/${F}/anywhere/${yymmdd(s.dep)}/` + (s.ret ? `${yymmdd(s.ret)}/` : "") + "?" + q({ adultsv2: s.adults, cabinclass: cabinSky, rtn: s.ret ? 1 : 0 }) });
-      list.push({ k: "kayak", name: "Kayak Explore", desc: "Destinations selon votre budget et vos dates.",
-        url: `https://www.kayak.fr/explore/${s.from.code}-anywhere` });
-      return list;
-    }
-
-    const gq = `Flights to ${s.to.code} from ${s.from.code} on ${s.dep}` + (s.ret ? ` through ${s.ret}` : " one way") +
-      (s.adults > 1 ? ` ${s.adults} adults` : "") + (s.children ? ` ${s.children} children` : "") + cabinG + (s.direct ? " nonstop" : "");
-    list.push({ k: "google", name: "Google Flights", desc: "Graphique et calendrier des prix pour repérer le jour le moins cher.", best: true,
-      url: `https://www.google.com/travel/flights?${q({ q: gq, hl: "fr", curr: "EUR" })}` });
-    list.push({ k: "sky", name: "Skyscanner", desc: "Très bon sur les compagnies low-cost et les agences en ligne.", best: true,
-      url: `https://www.skyscanner.fr/transport/vols/${F}/${T}/${yymmdd(s.dep)}/` + (s.ret ? `${yymmdd(s.ret)}/` : "") + "?" +
-        q({ adultsv2: s.adults, childrenv2: s.children ? Array(s.children).fill(8).join("|") : "", cabinclass: cabinSky,
-            rtn: s.ret ? 1 : 0, preferdirects: s.direct ? "true" : "", sortby: "cheapest" }) });
-    list.push({ k: "kayak", name: "Kayak", desc: s.flex ? "Recherche ±3 jours autour de vos dates, triée par prix." : "Compare des centaines de sites, tri par prix.",
-      url: `https://www.kayak.fr/flights/${s.from.code}-${s.to.code}${kDates}${cabinKayak}${pax}${kids}${kParams}` });
-    if (AFFILIATE.travelpayouts_marker) {
-      // Format Aviasales : /search/ORIGJJMMDESTJJMM + nombre d'adultes (+ enfants)
-      const ddmm = (d) => d.slice(8, 10) + d.slice(5, 7);
-      const paxAv = String(s.adults) + (s.children ? String(s.children) : "");
-      list.push({ k: "aviasales", name: "Aviasales", desc: "Compare des centaines de compagnies et d’agences, souvent très bon sur les vols avec escale.",
-        url: `https://www.aviasales.com/search/${s.from.code}${ddmm(s.dep)}${s.to.code}${s.ret ? ddmm(s.ret) : ""}${paxAv}?` + q({ marker: AFFILIATE.travelpayouts_marker, currency: "eur" }) });
-    }
-    list.push({ k: "momondo", name: "momondo", desc: "Souvent des tarifs d’agences que les autres n’affichent pas.",
-      url: `https://www.momondo.fr/flight-search/${s.from.code}-${s.to.code}${kDates}${cabinKayak}${pax}${kids}${kParams}` });
-    return list;
-  }
-
-  function hotelLinks(s) {
-    const d = s.dest;
-    return [
-      { k: "booking", name: "Booking.com", desc: "Le plus grand choix d’hébergements, souvent annulables gratuitement.", best: true,
-        url: `https://www.booking.com/searchresults.fr.html?${q({ ss: d, checkin: s.in, checkout: s.out, group_adults: s.adults, no_rooms: s.rooms, group_children: 0, order: "price" })}` },
-      { k: "google", name: "Google Hôtels", desc: "Compare les prix de plusieurs agences pour le même hôtel.", best: true,
-        url: `https://www.google.com/travel/search?${q({ q: `hôtels ${d} du ${s.in} au ${s.out}`, hl: "fr", curr: "EUR" })}` },
-      { k: "kayak", name: "Kayak Hôtels", desc: "Agrège Booking, Expedia, Hotels.com et d’autres, tri par prix.",
-        url: `https://www.kayak.fr/hotels/${enc(d)}/${s.in}/${s.out}/${s.adults}adults` + (s.rooms > 1 ? `/${s.rooms}rooms` : "") + "?sort=price_a" },
-      { k: "hotels", name: "Hotels.com", desc: "Programme de fidélité : des nuits offertes après plusieurs séjours.",
-        url: `https://fr.hotels.com/Hotel-Search?${q({ destination: d, startDate: s.in, endDate: s.out, adults: s.adults, rooms: s.rooms, sort: "PRICE_LOW_TO_HIGH" })}` },
-      { k: "agoda", name: "Agoda", desc: "Souvent le moins cher en Asie et au Moyen-Orient.",
-        url: `https://www.agoda.com/fr-fr/search?${q({ textToSearch: d, checkIn: s.in, checkOut: s.out, adults: s.adults, rooms: s.rooms, sort: "priceLowToHigh" })}` },
-      { k: "airbnb", name: "Airbnb", desc: "Appartements et maisons, intéressant pour les familles et les longs séjours.",
-        url: `https://www.airbnb.fr/s/${enc(d)}/homes?${q({ checkin: s.in, checkout: s.out, adults: s.adults })}` }
-    ];
-  }
-
-  function carLinks(s) {
-    const P = s.pick.code || s.pick.name, D = s.drop ? (s.drop.code || s.drop.name) : null;
-    const h = (n) => String(n).padStart(2, "0") + "h";
-    const path = `${enc(P)}` + (D ? `/${enc(D)}` : "") + `/${s.d1}-${h(s.t1)}/${s.d2}-${h(s.t2)}`;
-    return [
-      { k: "kayak", name: "Kayak Voitures", desc: "Compare les loueurs et les courtiers, tri par prix.", best: true,
-        url: `https://www.kayak.fr/cars/${path}?sort=price_a` },
-      { k: "momondo", name: "momondo Voitures", desc: "Bon complément de Kayak, avec d’autres partenaires.",
-        url: `https://www.momondo.fr/carsearch/${path}?sort=price_a` },
-      { k: "google", name: "Recherche Google", desc: "Loueurs locaux et agences indépendantes, souvent moins chers hors aéroport.",
-        url: `https://www.google.com/search?${q({ q: `location voiture pas cher ${s.pick.name} ${s.d1}`, hl: "fr" })}` },
-      { k: "rental", name: "Rentalcars", desc: "Courtier connu, assurance « franchise zéro » proposée.", manual: true,
-        url: "https://www.rentalcars.com/fr/" },
-      { k: "discover", name: "Discover Cars", desc: "Souvent bien placé sur les petites agences locales.", manual: true,
-        url: "https://www.discovercars.com/fr" }
-    ];
-  }
-
-  // ---------- Rendu ----------
-  const esc = (t) => String(t).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-  function providerList(items) {
-    return `<ul class="providers">` + items.map((p) => `
-      <li class="prov">
-        <span class="logo" style="background:${COLORS[p.k]}" aria-hidden="true">${esc(p.name[0].toUpperCase())}</span>
-        <div class="prov-body">
-          <div class="prov-name">${esc(p.name)}${p.best ? ' <span class="pill best">Recommandé</span>' : ""}${p.manual ? ' <span class="pill manual">Saisie sur le site</span>' : ""}</div>
-          <div class="prov-desc">${esc(p.desc)}</div>
-        </div>
-        <a class="go" href="${esc(tag(p.k, p.url))}" target="_blank" rel="noopener noreferrer">Voir les prix →</a>
-      </li>`).join("") + `</ul>`;
-  }
-  function pass(codes, meta, stubBig, stubSmall) {
-    return `<div class="pass"><div class="pass-main"><div class="pass-codes">${codes}</div>${meta.map(([l, v]) =>
-      `<div class="pass-meta"><span>${esc(l)}</span><strong>${esc(v)}</strong></div>`).join("")}</div>
-      <div class="pass-stub"><b>${esc(stubBig)}</b>${esc(stubSmall)}</div></div>`;
-  }
-  function show(html) { const r = $("results"); r.innerHTML = html; if (!booting) r.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" }); }
-
-  function renderFlights(s) {
-    const to = s.to && s.to.code ? s.to.code : "ANY";
-    const pax = s.adults + s.children;
-    const head = `<div class="results-head"><h2>${esc(s.from.name)} → ${esc(s.to ? s.to.name : "Partout")}</h2>
-      <span class="summary">Ouvrez 2 ou 3 sites et comparez le prix final</span></div>`;
-    const card = pass(`${esc(s.from.code)} <small>→</small> ${esc(to)}`,
-      [["Aller", human(s.dep)], ["Retour", s.ret ? human(s.ret) : "Aller simple"], ["Voyageurs", `${pax} · ${$("f-cabin").selectedOptions[0].text}`]],
-      s.ret ? `${nights(s.dep, s.ret)} J` : "1 VOL", s.ret ? "séjour" : "aller simple");
-    let flexHtml = "";
-    if (s.flex && s.to && s.to.code) {
-      const len = s.ret ? nights(s.dep, s.ret) : 0;
-      const cells = [-3, -2, -1, 0, 1, 2, 3].map((o) => {
-        const d = addDays(s.dep, o);
-        if (d < today) return "";
-        const r = s.ret ? addDays(d, len) : null;
-        const u = flightLinks({ ...s, dep: d, ret: r, flex: false })[0].url;
-        return `<a href="${esc(u)}" target="_blank" rel="noopener noreferrer" class="${o === 0 ? "cur" : ""}"><small>${o === 0 ? "Vos dates" : (o > 0 ? "+" : "") + o + " j"}</small><strong>${esc(human(d))}</strong></a>`;
-      }).join("");
-      flexHtml = `<h3 class="sub-h">Comparer jour par jour sur Google Flights</h3><div class="flex-grid">${cells}</div>`;
-    }
-    const priceSlot = canShareUrl && s.to && s.to.code ? '<div class="price-hint" id="price-hint" hidden></div>' : "";
-    show(head + card + priceSlot + shareBar("vols", `Vols ${s.from.name} → ${s.to ? s.to.name : "partout"}`) + providerList(flightLinks(s)) + flexHtml);
-    if (priceSlot) loadPrice(s);
-  }
-  let priceReq = 0;
-  async function loadPrice(s) {
-    const box = $("price-hint"); if (!box) return;
-    const id = ++priceReq;
-    try {
-      const r = await fetch("/api/prix?" + q({ from: s.from.code, to: s.to.code, dep: s.dep, ret: s.ret || "" }));
-      if (!r.ok || id !== priceReq) return;
-      const d = await r.json();
-      if (!d.available || !d.price || !$("price-hint")) return;
-      const month = parse(s.dep).toLocaleDateString("fr-FR", { month: "long" });
-      const stops = d.transfers === 0 ? "vol direct" : d.transfers === 1 ? "1 escale" : `${d.transfers} escales`;
-      box.innerHTML = `Prix repéré récemment pour ${esc(month)} : <strong>dès ${Math.round(d.price)} €</strong> (${esc(stops)}${s.ret ? ", aller-retour" : ", aller simple"}). Le tarif exact et disponible s'affiche sur les sites ci-dessous.`;
-      box.hidden = false;
-    } catch (e) { /* prix indisponibles : on n'affiche rien */ }
-  }
-  function renderHotels(s) {
-    const n = nights(s.in, s.out);
-    show(`<div class="results-head"><h2>Hôtels à ${esc(s.dest)}</h2><span class="summary">Tri du moins cher au plus cher</span></div>` +
-      pass(`${esc(s.dest.slice(0, 3).toUpperCase())}`, [["Arrivée", human(s.in)], ["Départ", human(s.out)], ["Voyageurs", `${s.adults} adulte${s.adults > 1 ? "s" : ""} · ${s.rooms} ch.`]],
-        `${n} N`, n > 1 ? "nuits" : "nuit") + shareBar("hotels", `Hôtels à ${s.dest}`) + providerList(hotelLinks(s)));
-  }
-  function renderCars(s) {
-    const days = Math.max(1, Math.ceil(nights(s.d1, s.d2) + (s.t2 > s.t1 ? 1 : 0)));
-    const code = s.pick.code || s.pick.name.slice(0, 3).toUpperCase();
-    show(`<div class="results-head"><h2>Location à ${esc(s.pick.name)}</h2><span class="summary">Vérifiez franchise et politique carburant</span></div>` +
-      pass(`${esc(code)}${s.drop ? ` <small>→</small> ${esc(s.drop.code || s.drop.name.slice(0, 3).toUpperCase())}` : ""}`,
-        [["Prise en charge", `${human(s.d1)} · ${s.t1}h`], ["Restitution", `${human(s.d2)} · ${s.t2}h`], ["Conducteur", $("c-age").selectedOptions[0].text]],
-        `${days} J`, "de location") + shareBar("voitures", `Location de voiture à ${s.pick.name}`) + providerList(carLinks(s)));
-  }
-
-
-  // ---------- Destinations populaires ----------
-  const DESTS = [
-    ["CDG", "BKO", "Paris → Bamako", "Souvent avec une escale, environ 8 à 12 h"],
-    ["CDG", "DSS", "Paris → Dakar", "Vols directs, environ 5 h 30"],
-    ["CDG", "ABJ", "Paris → Abidjan", "Vols directs, environ 6 h 30"],
-    ["BRU", "FIH", "Bruxelles → Kinshasa", "Vols directs, environ 8 h"],
-    ["ORY", "CMN", "Paris → Casablanca", "Low-cost possibles, environ 3 h"],
-    ["LYS", "ALG", "Lyon → Alger", "Vols directs, environ 2 h"],
-    ["CDG", "YUL", "Paris → Montréal", "Nombreux vols directs, environ 7 h 30"],
-    ["CDG", "DXB", "Paris → Dubaï", "Vols directs, environ 6 h 30"]
-  ];
-  const nameOf = (c) => { const a = AIRPORTS.find(([x]) => x === c); return a ? `${a[1]} (${c})` : c; };
-  $("dests").innerHTML = DESTS.map(([a, b, t, d], i) =>
-    `<button type="button" class="dest" data-i="${i}"><span class="codes">${a} <span>→</span> ${b}</span><strong>${esc(t)}</strong><small>${esc(d)}</small></button>`).join("");
-  $("dests").addEventListener("click", (ev) => {
-    const b = ev.target.closest(".dest"); if (!b) return;
-    const [a, c] = DESTS[+b.dataset.i];
-    selectTab("vols");
-    $("f-from").value = nameOf(a); $("f-to").value = nameOf(c);
-    $("trip-rt").checked = true; syncTrip();
-    $("f-dep").value = addDays(today, 21); $("f-ret").value = addDays(today, 35);
-    $("form-vols").requestSubmit();
-  });
-
-  // ---------- FAQ (affichée + données structurées pour Google) ----------
-  const FAQ = [
-    ["Escale est-il gratuit ?", "Oui. Escale ne demande ni inscription ni paiement. Vous payez uniquement votre réservation, directement sur le site choisi."],
-    ["Comment trouver le vol le moins cher ?", "Activez les dates flexibles, comparez au moins trois sites (Google Flights, Skyscanner, Kayak) et regardez la grille jour par jour : décaler le départ d’un ou deux jours fait souvent baisser le prix."],
-    ["Pourquoi les prix ne s’affichent-ils pas directement sur Escale ?", "Escale ouvre votre recherche, déjà triée par prix, sur les grands comparateurs. Vous voyez ainsi les prix réels et à jour, avec les offres de centaines de compagnies et d’agences."],
-    ["Quand réserver un billet d’avion pour l’Afrique de l’Ouest ?", "En général deux à trois mois avant le départ. Pour les vacances d’été, Noël et la Tabaski, réservez plus tôt : les prix montent vite."],
-    ["Les prix incluent-ils les bagages ?", "Pas toujours. Les tarifs les plus bas incluent parfois seulement un petit sac. Vérifiez la franchise bagage avant de payer, surtout sur les vols vers l’Afrique."],
-    ["Comment payer moins cher une location de voiture ?", "Réservez tôt, choisissez la politique carburant « plein/plein » et comparez une prise en charge en ville avec l’aéroport, souvent plus cher."]
-  ];
-  $("faq-list").innerHTML = FAQ.map(([q2, a]) => `<details><summary>${esc(q2)}</summary><p>${esc(a)}</p></details>`).join("");
-  $("faq-ld").textContent = JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage",
-    mainEntity: FAQ.map(([q2, a]) => ({ "@type": "Question", name: q2, acceptedAnswer: { "@type": "Answer", text: a } })) });
-
-  // ---------- Liens partageables (?type=vols&from=CDG&to=BKO...) ----------
-  const URLKEYS = {
-    vols: { from: "f-from", to: "f-to", dep: "f-dep", ret: "f-ret", ad: "f-adults", ch: "f-children", cab: "f-cabin", ow: "trip-ow", flex: "f-flex", dir: "f-direct" },
-    hotels: { dest: "h-dest", in: "h-in", out: "h-out", ad: "h-adults", ro: "h-rooms" },
-    voitures: { pick: "c-pick", drop: "c-drop", other: "c-other", d1: "c-d1", t1: "c-t1", d2: "c-d2", t2: "c-t2", age: "c-age" }
-  };
-  const isBool = (el) => el.type === "checkbox" || el.type === "radio";
-  const canShareUrl = /^https?:$/.test(location.protocol) && window.top === window;
-  function shareUrl(tab) {
-    const params = new URLSearchParams({ type: tab });
-    Object.entries(URLKEYS[tab]).forEach(([k, id]) => {
-      const el = $(id); const v = isBool(el) ? (el.checked ? "1" : "") : el.value;
-      if (v) params.set(k, v.replace(/^.*\(([A-Z]{3})\)$/, "$1"));
-    });
-    return location.origin + location.pathname + "?" + params.toString();
-  }
-  function applyUrl() {
-    if (!canShareUrl) return null;
-    const p = new URLSearchParams(location.search), tab = p.get("type");
-    if (!URLKEYS[tab]) return null;
-    Object.entries(URLKEYS[tab]).forEach(([k, id]) => {
-      if (!p.has(k)) return;
-      const el = $(id), v = p.get(k);
-      if (isBool(el)) el.checked = v === "1";
-      else el.value = /^[A-Z]{3}$/.test(v) && el.list ? nameOf(v) : v;
-    });
-    if (tab === "vols" && !$("trip-ow").checked) $("trip-rt").checked = true;
-    return tab;
-  }
-  function shareBar(tab, text) {
-    if (!canShareUrl) return "";
-    const url = shareUrl(tab);
-    if (!booting) { try { history.replaceState(null, "", url); } catch (e) {} }
-    const wa = "https://wa.me/?text=" + encodeURIComponent(text + " : " + url);
-    return `<div class="share"><button type="button" class="go" id="copy-link" data-url="${esc(url)}">Copier le lien de cette recherche</button>
-      <a class="go" href="${esc(wa)}" target="_blank" rel="noopener noreferrer">Partager sur WhatsApp</a><span class="ok" id="copy-ok" role="status"></span></div>`;
-  }
-  $("results").addEventListener("click", async (ev) => {
-    const b = ev.target.closest("#copy-link"); if (!b) return;
-    try { await navigator.clipboard.writeText(b.dataset.url); $("copy-ok").textContent = "Lien copié"; }
-    catch (e) { $("copy-ok").textContent = b.dataset.url; }
-  });
-
-  // ---------- Historique ----------
-  const KEY = "escale.recent.v1";
-  const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } };
-  let booting = true;
-  function remember(entry) {
-    if (booting) return;
-    try {
-      const list = load().filter((e) => e.label !== entry.label);
-      list.unshift(entry);
-      localStorage.setItem(KEY, JSON.stringify(list.slice(0, 6)));
-    } catch (e) { /* stockage indisponible */ }
-    paintRecent();
-  }
-  function paintRecent() {
-    const list = load();
-    $("recent-block").hidden = list.length === 0;
-    $("recent").innerHTML = list.map((e, i) => `<button type="button" class="chip" data-i="${i}">${esc(e.label)}</button>`).join("");
-  }
-  $("recent").addEventListener("click", (ev) => {
-    const b = ev.target.closest(".chip"); if (!b) return;
-    const e = load()[+b.dataset.i]; if (!e) return;
-    Object.entries(e.fields).forEach(([id, v]) => { const el = $(id); if (!el) return; if (el.type === "checkbox" || el.type === "radio") el.checked = v; else el.value = v; });
-    selectTab(e.tab); syncTrip(); syncDrop();
-    $("form-" + e.tab).requestSubmit();
-  });
-  const snapshot = (ids) => Object.fromEntries(ids.map((id) => [id, ($(id).type === "checkbox" || $(id).type === "radio") ? $(id).checked : $(id).value]));
-
-  // ---------- Formulaires ----------
-  function syncTrip() { const ow = $("trip-ow").checked; $("f-ret-wrap").hidden = ow; }
-  document.querySelectorAll('input[name="trip"]').forEach((r) => r.addEventListener("change", syncTrip));
-  function syncDrop() { $("c-drop-wrap").hidden = !$("c-other").checked; }
-  $("c-other").addEventListener("change", syncDrop);
-  $("f-swap").addEventListener("click", () => { const a = $("f-from").value; $("f-from").value = $("f-to").value; $("f-to").value = a; });
-
-  $("form-vols").addEventListener("submit", (ev) => {
-    ev.preventDefault();
-    const err = $("f-err"); err.textContent = "";
-    const from = place($("f-from").value), to = place($("f-to").value);
-    const ow = $("trip-ow").checked;
-    if (!from) return (err.textContent = "Indiquez un aéroport de départ.");
-    if (!from.code) return (err.textContent = "Choisissez l’aéroport de départ dans la liste ou tapez son code à 3 lettres (ex. CDG).");
-    if (to && !to.code) return (err.textContent = "Choisissez l’aéroport d’arrivée dans la liste ou tapez son code à 3 lettres (ex. BKO).");
-    if (to && to.code === from.code) return (err.textContent = "Le départ et l’arrivée sont identiques.");
-    const dep = $("f-dep").value, ret = ow ? null : $("f-ret").value;
-    if (!dep) return (err.textContent = "Choisissez une date d’aller.");
-    if (dep < today) return (err.textContent = "La date d’aller est déjà passée.");
-    if (!ow && (!ret || ret < dep)) return (err.textContent = "La date de retour doit être après l’aller.");
-    const s = { from, to, dep, ret, adults: +$("f-adults").value, children: +$("f-children").value, cabin: $("f-cabin").value,
-      flex: $("f-flex").checked, direct: $("f-direct").checked };
-    renderFlights(s);
-    remember({ tab: "vols", label: `✈ ${from.code}→${to ? to.code : "?"} · ${dep.slice(5)}`,
-      fields: snapshot(["f-from", "f-to", "f-dep", "f-ret", "f-adults", "f-children", "f-cabin", "f-flex", "f-direct", "trip-rt", "trip-ow"]) });
-  });
-
-  $("form-hotels").addEventListener("submit", (ev) => {
-    ev.preventDefault();
-    const err = $("h-err"); err.textContent = "";
-    const dest = $("h-dest").value.trim();
-    if (!dest) return (err.textContent = "Indiquez une destination.");
-    const a = $("h-in").value, b = $("h-out").value;
-    if (!a || !b || b <= a) return (err.textContent = "La date de départ doit être après la date d’arrivée.");
-    if (a < today) return (err.textContent = "La date d’arrivée est déjà passée.");
-    const s = { dest, in: a, out: b, adults: +$("h-adults").value, rooms: +$("h-rooms").value };
-    renderHotels(s);
-    remember({ tab: "hotels", label: `🛏 ${dest} · ${a.slice(5)}`, fields: snapshot(["h-dest", "h-in", "h-out", "h-adults", "h-rooms"]) });
-  });
-
-  $("form-voitures").addEventListener("submit", (ev) => {
-    ev.preventDefault();
-    const err = $("c-err"); err.textContent = "";
-    const pick = place($("c-pick").value), drop = $("c-other").checked ? place($("c-drop").value) : null;
-    if (!pick) return (err.textContent = "Indiquez un lieu de prise en charge.");
-    if ($("c-other").checked && !drop) return (err.textContent = "Indiquez le lieu de restitution.");
-    const d1 = $("c-d1").value, d2 = $("c-d2").value, t1 = +$("c-t1").value, t2 = +$("c-t2").value;
-    if (!d1 || !d2 || d2 < d1 || (d2 === d1 && t2 <= t1)) return (err.textContent = "La restitution doit être après la prise en charge.");
-    if (d1 < today) return (err.textContent = "La date de prise en charge est déjà passée.");
-    const s = { pick, drop, d1, d2, t1, t2 };
-    renderCars(s);
-    remember({ tab: "voitures", label: `🚗 ${pick.code || pick.name} · ${d1.slice(5)}`, fields: snapshot(["c-pick", "c-drop", "c-other", "c-d1", "c-t1", "c-d2", "c-t2", "c-age"]) });
-  });
-
-  // ---------- Onglets ----------
-  const TABS = ["vols", "hotels", "voitures"];
-  function selectTab(name) {
-    if (!TABS.includes(name)) name = "vols";
-    TABS.forEach((t) => {
-      $("tab-" + t).setAttribute("aria-selected", String(t === name));
-      $("tab-" + t).tabIndex = t === name ? 0 : -1;
-      $("form-" + t).hidden = t !== name;
-    });
-    try { localStorage.setItem("escale.tab", name); } catch (e) {}
-    // Affiche tout de suite les liens pour le formulaire de cet onglet, sans l'ajouter à l'historique
-    const was = booting; booting = true;
-    $("form-" + name).dispatchEvent(new Event("submit", { cancelable: true }));
-    booting = was;
-  }
-  document.querySelector(".tabs").addEventListener("click", (ev) => { const b = ev.target.closest(".tab"); if (b) selectTab(b.dataset.tab); });
-  document.querySelector(".tabs").addEventListener("keydown", (ev) => {
-    if (ev.key !== "ArrowRight" && ev.key !== "ArrowLeft") return;
-    const cur = TABS.findIndex((t) => $("tab-" + t).getAttribute("aria-selected") === "true");
-    const next = TABS[(cur + (ev.key === "ArrowRight" ? 1 : TABS.length - 1)) % TABS.length];
-    selectTab(next); $("tab-" + next).focus();
-  });
-
-  let start = applyUrl() || (location.hash || "").slice(1);
-  if (!TABS.includes(start)) { try { start = localStorage.getItem("escale.tab") || "vols"; } catch (e) { start = "vols"; } }
-  selectTab(start);
-  syncTrip(); syncDrop(); paintRecent();
-  // État de départ : un exemple de recherche déjà affiché
-  $("form-" + start).dispatchEvent(new Event("submit", { cancelable: true }));
-  booting = false;
-})();
-</script>
+<script src="/app.js" defer></script>
 </body>
 </html>
