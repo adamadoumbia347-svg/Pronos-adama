@@ -25,24 +25,18 @@ Ce qui est déjà fait dans le code, puis ce qu'il reste à faire, dans l'ordre 
 
 ## À faire
 
-### 1. Publier le site sur Netlify (une seule fois)
-Le projet existe mais n'a pas encore reçu de fichiers. Deux possibilités :
-- **Recommandé : relier le dépôt GitHub.** Sur https://app.netlify.com/projects/escale-voyage, Project configuration
-  > Build & deploy > Link repository, choisir `pronos-adama` et la branche `main` (après fusion) ou
-  `claude/escale-comparateur`. Ensuite chaque `git push` met le site à jour tout seul (la configuration est dans `netlify.toml`).
-- Ou autoriser `api.netlify.com` et `netlify-mcp.netlify.app` dans l'accès réseau de l'environnement Claude Code,
-  puis demander à Claude de relancer le déploiement.
-
+### 1. Site en ligne ✔
+Publié sur https://escale-voyage.netlify.app (dépôt du dossier du projet sur Netlify).
+Pour publier une mise à jour : redéposer le dossier du projet dans l'onglet Deploys, ou relier le dépôt GitHub
+(Project configuration > Build & deploy > Link repository) pour des mises à jour automatiques.
 Plus tard : un nom de domaine à vous (environ 10 €/an) ; changer alors `DOMAIN` dans `scripts/build_pages.py`
 et l'adresse dans `site/index.html`.
 
-### 2. Être trouvé sur Google
-- Déclarer le site dans **Google Search Console** et **Bing Webmaster Tools**, puis envoyer le `sitemap.xml`.
-- **Le levier n°1 : une page par trajet populaire** (« Vol pas cher Paris Bamako », « Paris Dakar », etc.).
-  Chaque page : durée du vol, compagnies, aéroports, meilleure période pour réserver, bagages, puis le formulaire déjà rempli.
-  Ces recherches précises ont moins de concurrence que « vol pas cher ».
-- Ajouter ensuite des pages hôtels par ville (« Hôtel pas cher à Dakar ») et quelques guides
-  (« Quand réserver pour la Tabaski », « Franchise bagage vers l'Afrique par compagnie »).
+### 2. Google ✔ (13 octobre 2026)
+Site validé dans Google Search Console (fichier `site/google07cf151d39bf7608.html`, à ne pas supprimer) et sitemap envoyé.
+À suivre chaque semaine dans Search Console : pages indexées, requêtes qui amènent des visiteurs.
+Pour aller plus loin : ajouter des pages trajets (une par ligne recherchée) et des pages hôtels par ville,
+puis les déclarer aussi dans Bing Webmaster Tools (import direct depuis Search Console).
 
 ### 3. Gagner de l'argent avec l'affiliation
 Inscrivez-vous, puis collez vos identifiants dans l'objet `AFFILIATE` de `index.html` :
