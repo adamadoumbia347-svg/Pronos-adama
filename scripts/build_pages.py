@@ -58,7 +58,106 @@ ROUTES = [
     ("CDG", "DXB", "Paris", "Dubaï", "Émirats arabes unis", "Aéroport international de Dubaï", "6 h 45",
      "de novembre à mars, quand il fait moins chaud",
      "Dubaï est aussi une escale pratique vers l'Asie et l'Afrique de l'Est : un stop de quelques jours ne coûte parfois rien de plus."),
+    ("CDG", "FIH", "Paris", "Kinshasa", "RD Congo", "Aéroport international de N'djili", "8 h",
+     "juillet-août et les fêtes de fin d'année",
+     "Comparez avec un départ de Bruxelles, historiquement très bien relié à Kinshasa : l'écart de prix peut couvrir le train Paris–Bruxelles."),
+    ("CDG", "LBV", "Paris", "Libreville", "Gabon", "Aéroport international Léon-Mba", "6 h 30",
+     "juillet-août et les fêtes de fin d'année",
+     "Peu de compagnies desservent la ligne en direct : réservez tôt pour l'été et regardez aussi les escales via Casablanca, Addis-Abeba ou Douala."),
+    ("CDG", "NSI", "Paris", "Yaoundé", "Cameroun", "Aéroport international de Yaoundé-Nsimalen", "6 h 30",
+     "juillet-août et les fêtes de fin d'année",
+     "Comparez avec Douala (DLA) : selon les dates, arriver à Douala puis prendre la route ou un vol intérieur peut revenir moins cher."),
+    ("CDG", "NKC", "Paris", "Nouakchott", "Mauritanie", "Aéroport international de Nouakchott-Oumtounsy", None,
+     "juillet-août et les fêtes de fin d'année",
+     "Les trajets avec escale à Casablanca, Tunis ou Dakar sont fréquents : comparez la durée de correspondance."),
+    ("CDG", "NIM", "Paris", "Niamey", "Niger", "Aéroport international Diori-Hamani", None,
+     "juillet-août et les fêtes de fin d'année",
+     "L'offre de vols change selon la situation : passez par les comparateurs pour voir les escales disponibles (Casablanca, Alger, Istanbul, Addis-Abeba…)."),
+    ("CDG", "RAK", "Paris", "Marrakech", "Maroc", "Aéroport Marrakech-Ménara", "3 h 15",
+     "les vacances scolaires, Noël et Pâques",
+     "Beaucoup de vols low-cost partent d'Orly et de Beauvais : vérifiez les trois aéroports parisiens."),
+    ("CDG", "IST", "Paris", "Istanbul", "Turquie", "Aéroport d'Istanbul", "3 h 20",
+     "juillet-août et les vacances de printemps",
+     "Pensez aussi à l'aéroport Sabiha-Gökçen (SAW), côté asiatique, souvent desservi par des compagnies moins chères."),
+    ("CDG", "JED", "Paris", "Djeddah", "Arabie saoudite", "Aéroport international Roi-Abdelaziz", "6 h",
+     "le Ramadan, le Hajj et les vacances scolaires",
+     "Pour la Omra, réservez le plus tôt possible avant le Ramadan : les prix montent fortement. Médine (MED) est une alternative d'arrivée."),
+    ("CDG", "PTP", "Paris", "Pointe-à-Pitre", "Guadeloupe", "Aéroport Guadeloupe – Pôle Caraïbes", "8 h 30",
+     "juillet-août, Noël et le carnaval",
+     "Les vols partent de Roissy et d'Orly : comparez les deux, les écarts sont fréquents."),
+    ("CDG", "RUN", "Paris", "La Réunion", "La Réunion", "Aéroport de La Réunion Roland-Garros", "11 h",
+     "juillet-août et décembre-janvier",
+     "Comparez aussi l'arrivée à Saint-Pierre Pierrefonds (ZSE) si vous allez dans le sud de l'île."),
+    ("MRS", "ALG", "Marseille", "Alger", "Algérie", "Aéroport Houari-Boumédiène", "1 h 45",
+     "juillet-août, l'Aïd et les vacances scolaires",
+     "L'été, les prix grimpent très vite : réservez dès le printemps et comparez avec un départ de Lyon ou Montpellier."),
+    ("MRS", "TUN", "Marseille", "Tunis", "Tunisie", "Aéroport international de Tunis-Carthage", "1 h 30",
+     "juillet-août et l'Aïd",
+     "Comparez avec Djerba (DJE) et Monastir (MIR) selon votre destination finale."),
+    ("MRS", "DSS", "Marseille", "Dakar", "Sénégal", "Aéroport international Blaise-Diagne (AIBD)", None,
+     "juillet-août, les fêtes de fin d'année et la Tabaski",
+     "Comparez un départ de Marseille avec escale et un train jusqu'à Paris suivi d'un vol direct : le second est parfois moins cher."),
+    ("LYS", "CMN", "Lyon", "Casablanca", "Maroc", "Aéroport Mohammed-V", "2 h 45",
+     "juillet-août, les vacances scolaires et l'Aïd",
+     "Regardez aussi les vols Lyon–Marrakech et Lyon–Oujda selon votre destination finale."),
+    ("LYS", "DSS", "Lyon", "Dakar", "Sénégal", "Aéroport international Blaise-Diagne (AIBD)", None,
+     "juillet-août, les fêtes de fin d'année et la Tabaski",
+     "Comparez avec un départ de Genève, à moins de 2 heures de Lyon : l'offre est parfois plus large."),
+    ("BRU", "DSS", "Bruxelles", "Dakar", "Sénégal", "Aéroport international Blaise-Diagne (AIBD)", "6 h",
+     "juillet-août, les fêtes de fin d'année et la Tabaski",
+     "Depuis le nord de la France, comparez avec Paris : la différence de prix couvre souvent le train."),
+    ("BRU", "ABJ", "Bruxelles", "Abidjan", "Côte d'Ivoire", "Aéroport international Félix-Houphouët-Boigny", "6 h 30",
+     "juillet-août et les fêtes de fin d'année",
+     "Comparez avec un départ de Paris : la concurrence y est plus forte et les promotions plus fréquentes."),
+    ("BRU", "DLA", "Bruxelles", "Douala", "Cameroun", "Aéroport international de Douala", None,
+     "juillet-août et les fêtes de fin d'année",
+     "Comparez la durée totale : certains vols font une escale technique en Afrique de l'Ouest ou centrale."),
+    ("GVA", "CMN", "Genève", "Casablanca", "Maroc", "Aéroport Mohammed-V", "3 h",
+     "juillet-août, les vacances scolaires et l'Aïd",
+     "Si vous habitez en France voisine, comparez avec Lyon : les deux aéroports sont à moins de 2 heures."),
+    ("GVA", "DSS", "Genève", "Dakar", "Sénégal", "Aéroport international Blaise-Diagne (AIBD)", None,
+     "juillet-août, les fêtes de fin d'année et la Tabaski",
+     "Les vols passent souvent par Paris, Bruxelles, Lisbonne ou Casablanca : comparez la durée de l'escale."),
 ]
+
+# ville, pays, [(quartier, pour qui)], conseil, aéroport (code)
+HOTELS = [
+    ("Dakar", "Sénégal", [("Plateau", "proche des administrations et du centre d'affaires"), ("Almadies et Ngor", "bord de mer, restaurants, plus calme"), ("Mermoz et Sacré-Cœur", "résidentiel, bon rapport qualité-prix")],
+     "L'aéroport Blaise-Diagne est loin du centre (environ 45 km) : pour une arrivée tardive, une nuit près de l'aéroport ou à Saly peut être plus pratique.", "DSS"),
+    ("Abidjan", "Côte d'Ivoire", [("Plateau", "quartier des affaires"), ("Cocody", "résidentiel, hôtels et restaurants"), ("Zone 4 (Marcory)", "vie nocturne, proche de l'aéroport")],
+     "Marcory et la Zone 4 sont les plus proches de l'aéroport Félix-Houphouët-Boigny : pratique pour un court séjour.", "ABJ"),
+    ("Bamako", "Mali", [("ACI 2000", "quartier moderne, hôtels d'affaires"), ("Hippodrome", "animé, restaurants"), ("Badalabougou", "rive droite, plus calme")],
+     "Vérifiez les conseils aux voyageurs du ministère des Affaires étrangères avant de réserver, et privilégiez les annulations gratuites.", "BKO"),
+    ("Casablanca", "Maroc", [("Centre-ville et Maârif", "commerces, transports, prix moyens"), ("Aïn Diab", "corniche et bord de mer"), ("Gauthier", "central et calme")],
+     "Le train relie l'aéroport Mohammed-V au centre : inutile de payer un hôtel près de l'aéroport.", "CMN"),
+    ("Marrakech", "Maroc", [("Médina", "riads traditionnels, au cœur de la ville"), ("Guéliz", "ville moderne, restaurants"), ("Hivernage", "hôtels avec piscine, plus chic")],
+     "Les riads de la médina affichent souvent des prix plus bas sur réservation directe hors saison : comparez avec Booking.", "RAK"),
+    ("Douala", "Cameroun", [("Bonanjo", "quartier administratif et des affaires"), ("Akwa", "commerçant et animé"), ("Bonapriso", "résidentiel, plus calme")],
+     "Les embouteillages sont fréquents : choisissez votre hôtel près de vos rendez-vous plutôt que le moins cher.", "DLA"),
+    ("Conakry", "Guinée", [("Kaloum", "centre administratif et des affaires"), ("Ratoma", "résidentiel, hôtels récents"), ("Kipé", "restaurants, plus calme")],
+     "Kaloum est éloigné de l'aéroport et souvent embouteillé : vérifiez le temps de trajet avant de réserver.", "CKY"),
+    ("Lomé", "Togo", [("Centre-ville", "marché, commerces"), ("Bè et bord de mer", "plages et maquis"), ("Quartier administratif", "calme, proche des institutions")],
+     "Lomé est compacte : un hôtel en bord de mer reste proche de tout.", "LFW"),
+    ("Cotonou", "Bénin", [("Haie Vive", "restaurants et vie nocturne"), ("Ganhi", "centre des affaires"), ("Fidjrossè", "bord de mer, plus détendu")],
+     "Haie Vive est proche de l'aéroport : pratique pour une arrivée ou un départ de nuit.", "COO"),
+    ("Kinshasa", "RD Congo", [("Gombe", "centre des affaires, hôtels internationaux"), ("Ngaliema", "résidentiel"), ("Limete", "commerçant")],
+     "L'aéroport de N'djili est loin de la Gombe : prévoyez du temps de trajet, surtout en fin de journée.", "FIH"),
+    ("Alger", "Algérie", [("Centre (Alger-Centre, Didouche)", "transports et commerces"), ("Hydra", "résidentiel et calme"), ("Bab Ezzouar", "proche de l'aéroport, hôtels d'affaires")],
+     "Bab Ezzouar est pratique pour un court séjour ou une correspondance, à quelques minutes de l'aéroport.", "ALG"),
+    ("Tunis", "Tunisie", [("Centre-ville", "médina et avenue Bourguiba"), ("Les Berges du Lac", "moderne, hôtels d'affaires"), ("La Marsa et Gammarth", "bord de mer")],
+     "Hors été, les hôtels de bord de mer de Gammarth baissent beaucoup leurs prix.", "TUN"),
+    ("Paris", "France", [("Gare du Nord et République", "bien reliés à Roissy (RER B)"), ("Bastille et Nation", "prix plus doux, bien desservis"), ("Porte de Versailles et Montparnasse", "pratique pour Orly")],
+     "Pour un vol tôt le matin, un hôtel près de la ligne du RER B (Roissy) ou de l'Orlyval évite un taxi coûteux.", "CDG"),
+    ("Dubaï", "Émirats arabes unis", [("Deira et Bur Dubaï", "les plus abordables, proches de l'aéroport et du métro"), ("Downtown", "Burj Khalifa et Dubai Mall"), ("Dubai Marina", "bord de mer, plus cher")],
+     "Les prix chutent l'été (juin-août) mais il fait très chaud : idéal pour un séjour en hôtel avec piscine.", "DXB"),
+    ("Istanbul", "Turquie", [("Sultanahmet", "monuments à pied"), ("Beyoğlu et Taksim", "animé, restaurants"), ("Kadıköy", "côté asiatique, plus local et abordable")],
+     "Le nouvel aéroport d'Istanbul est loin du centre : comptez au moins une heure de trajet.", "IST"),
+    ("Montréal", "Canada", [("Centre-ville", "proche de tout, métro"), ("Plateau-Mont-Royal", "quartier vivant, appartements"), ("Vieux-Montréal", "charme historique, plus cher")],
+     "L'hiver (janvier-mars) est la saison la moins chère pour les hôtels, sauf pendant les festivals.", "YUL"),
+]
+
+def hotel_slug(h):
+    return f"hotel-pas-cher-{slug(h[0])}"
 
 def slug(t):
     t = t.lower().replace("'", "-")
@@ -128,7 +227,8 @@ def route_page(r):
             f"et comparaison des prix sur Google Flights, Skyscanner, Kayak et momondo.")
     app = "/?" + urllib.parse.urlencode({"type": "vols", "from": fr, "to": to})
     back = "/?" + urllib.parse.urlencode({"type": "vols", "from": to, "to": fr})
-    hotels = "/?" + urllib.parse.urlencode({"type": "hotels", "dest": ct})
+    hp = next((h for h in HOTELS if h[0] == ct), None)
+    hotels = f"/{hotel_slug(hp)}/" if hp else "/?" + urllib.parse.urlencode({"type": "hotels", "dest": ct})
     cars = "/?" + urllib.parse.urlencode({"type": "voitures", "pick": to})
     gf = "https://www.google.com/travel/flights?" + urllib.parse.urlencode({"q": f"Flights from {fr} to {to}", "hl": "fr", "curr": "EUR"})
     sky = f"https://www.skyscanner.fr/transport/vols/{fr.lower()}/{to.lower()}/"
@@ -173,7 +273,64 @@ def route_page(r):
 <section class="faq"><h2>Questions fréquentes</h2>
 {''.join(f'<details><summary>{E(q)}</summary><p>{E(a)}</p></details>' for q, a in faq)}
 </section>
-<section><h2>Autres trajets</h2><ul class="route-links">{''.join(f'<li><a href="/{route_slug(o)}/">{E(o[2])} → {E(o[3])}</a></li>' for o in ROUTES if o is not r)}</ul></section>"""
+<section><h2>Autres trajets</h2><ul class="route-links">{''.join(f'<li><a href="/{route_slug(o)}/">{E(o[2])} → {E(o[3])}</a></li>' for o in related(r))}</ul></section>"""
+    return page(s, title, desc, hero, body, ld)
+
+def related(r, n=9):
+    """Trajets proches : même destination, même pays ou même ville de départ, puis le reste."""
+    score = lambda o: (o[3] == r[3]) * 3 + (o[4] == r[4]) * 2 + (o[2] == r[2])
+    others = [o for o in ROUTES if o is not r]
+    return sorted(others, key=lambda o: -score(o))[:n]
+
+def hotel_page(h):
+    city, country, areas, tip, code = h
+    s = hotel_slug(h)
+    title = f"Hôtel pas cher à {city} : comparer les prix"
+    desc = (f"Trouvez un hôtel pas cher à {city} ({country}) : quartiers où dormir, conseils pour payer moins cher et "
+            f"comparaison des prix sur Booking, Google Hôtels, Kayak, Hotels.com, Agoda et Airbnb.")
+    app = "/?" + urllib.parse.urlencode({"type": "hotels", "dest": city})
+    booking = "https://www.booking.com/searchresults.fr.html?" + urllib.parse.urlencode({"ss": city, "order": "price"})
+    google = "https://www.google.com/travel/search?" + urllib.parse.urlencode({"q": f"hôtels {city}", "hl": "fr", "curr": "EUR"})
+    airbnb = f"https://www.airbnb.fr/s/{urllib.parse.quote(city)}/homes"
+    flights = [r for r in ROUTES if r[3] == city]
+    cars = "/?" + urllib.parse.urlencode({"type": "voitures", "pick": code})
+    faq = [
+        (f"Quel quartier choisir pour dormir à {city} ?", " ; ".join(f"{a} : {b}" for a, b in areas) + "."),
+        (f"Comment trouver un hôtel pas cher à {city} ?", "Comparez plusieurs sites pour les mêmes dates, triez par prix, choisissez l'annulation gratuite et réservez tôt pour les périodes de fêtes. Regardez aussi les appartements, souvent avantageux à partir de 3 nuits."),
+        ("Faut-il réserver avec annulation gratuite ?", "Oui, surtout si vos billets d'avion ne sont pas encore pris : vous pourrez rebasculer sur une meilleure offre si le prix baisse."),
+    ]
+    ld = '<script type="application/ld+json">' + __import__("json").dumps({
+        "@context": "https://schema.org", "@type": "FAQPage",
+        "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]
+    }, ensure_ascii=False) + "</script>"
+    hero = f"""<p class="eyebrow">{E(country)}</p>
+  <h1>Hôtel pas cher à <span>{E(city)}</span></h1>
+  <p class="codes">{code} · {"hôtels, riads, appartements" if country == "Maroc" else "hôtels et appartements"}</p>
+  <div class="cta-row"><a class="btn" href="{E(app)}">Comparer les prix des hôtels</a>{f'<a class="btn ghost" href="/{route_slug(flights[0])}/">Vols vers {E(city)}</a>' if flights else ''}</div>"""
+    areas_html = "".join(f"<div><dt>{E(a)}</dt><dd>{E(b[0].upper() + b[1:])}</dd></div>" for a, b in areas)
+    body = f"""<section><h2>Où dormir à {E(city)}</h2><dl class="facts">{areas_html}</dl></section>
+<section><h2>Notre conseil</h2><p>{E(tip)}</p></section>
+<section><h2>Comment payer moins cher</h2>
+<ol class="steps">
+  <li><strong>Comparez au moins trois sites.</strong> Le même hôtel n'a pas toujours le même prix sur Booking, Hotels.com ou Agoda.</li>
+  <li><strong>Choisissez l'annulation gratuite.</strong> Vous pourrez réserver ailleurs si le prix baisse.</li>
+  <li><strong>Regardez le prix total.</strong> Taxes de séjour, petit-déjeuner et frais de ménage changent le classement.</li>
+  <li><strong>Pour 3 nuits ou plus, regardez les appartements</strong> : souvent moins chers pour une famille.</li>
+</ol>
+<p><a class="btn" href="{E(app)}">Lancer la recherche à {E(city)}</a></p>
+</section>
+<section><h2>Accès direct aux comparateurs</h2>
+<ul class="links">
+  <li><a href="{E(booking)}" target="_blank" rel="noopener noreferrer">Hôtels à {E(city)} sur Booking.com, du moins cher au plus cher</a></li>
+  <li><a href="{E(google)}" target="_blank" rel="noopener noreferrer">Comparer les prix sur Google Hôtels</a></li>
+  <li><a href="{E(airbnb)}" target="_blank" rel="noopener noreferrer">Appartements à {E(city)} sur Airbnb</a></li>
+  <li><a href="{E(cars)}">Location de voiture à {E(city)}</a></li>
+</ul></section>
+{f'<section><h2>Vols vers {E(city)}</h2><ul class="route-links">' + "".join(f'<li><a href="/{route_slug(r)}/">{E(r[2])} → {E(r[3])}</a></li>' for r in flights) + '</ul></section>' if flights else ''}
+<section class="faq"><h2>Questions fréquentes</h2>
+{''.join(f'<details><summary>{E(q)}</summary><p>{E(a)}</p></details>' for q, a in faq)}
+</section>
+<section><h2>Autres villes</h2><ul class="route-links">{''.join(f'<li><a href="/{hotel_slug(o)}/">Hôtels à {E(o[0])}</a></li>' for o in HOTELS if o is not h)}</ul></section>"""
     return page(s, title, desc, hero, body, ld)
 
 def legal_pages():
@@ -234,15 +391,21 @@ def legal_pages():
 def main():
     urls = [f"{DOMAIN}/"]
     urls += [route_page(r) for r in ROUTES]
+    urls += [hotel_page(h) for h in HOTELS]
     urls += legal_pages()
 
     # Liste des guides sur la page d'accueil
     idx = SITE / "index.html"
     s = idx.read_text(encoding="utf-8")
-    links = '<ul class="route-links">' + "".join(
-        f'<li><a href="/{route_slug(r)}/">Vol {E(r[2])} → {E(r[3])}</a></li>' for r in ROUTES) + "</ul>"
+    def group(title, items):
+        return f'<h3 class="sub-h">{title}</h3><ul class="route-links">' + "".join(items) + "</ul>"
+    by_origin = {}
+    for r in ROUTES:
+        by_origin.setdefault(r[2], []).append(f'<li><a href="/{route_slug(r)}/">Vol {E(r[2])} → {E(r[3])}</a></li>')
+    links = "".join(group(f"Vols au départ de {E(o)}", items) for o, items in by_origin.items())
+    links += group("Hôtels pas chers", [f'<li><a href="/{hotel_slug(h)}/">Hôtel pas cher à {E(h[0])}</a></li>' for h in HOTELS])
     s = re.sub(r"<!-- ROUTES:START -->.*?<!-- ROUTES:END -->",
-               "<!-- ROUTES:START -->\n    " + links + "\n    <!-- ROUTES:END -->", s, flags=re.S)
+               lambda m: "<!-- ROUTES:START -->\n    " + links + "\n    <!-- ROUTES:END -->", s, flags=re.S)
     idx.write_text(s, encoding="utf-8")
 
     (SITE / "sitemap.xml").write_text(
