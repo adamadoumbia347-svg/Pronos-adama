@@ -170,11 +170,15 @@ def route_slug(r):
 
 E = html.escape
 
+# Script Travelpayouts (vérification du site et suivi des liens partenaires), inséré dans le <head> de chaque page
+TRAVELPAYOUTS = (ROOT / "scripts" / "travelpayouts-snippet.html").read_text(encoding="utf-8").strip()
+
 HEAD = """<!doctype html>
 <html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+{tp}
 <title>{title}</title>
 <meta name="description" content="{desc}">
 <link rel="canonical" href="{url}">
@@ -213,7 +217,7 @@ HEAD = """<!doctype html>
 
 def page(path, title, desc, hero, body, ld=""):
     url = f"{DOMAIN}/{path}" if path else f"{DOMAIN}/"
-    out = HEAD.format(title=E(title), desc=E(desc), url=url, domain=DOMAIN, hero=hero, body=body, ld=ld)
+    out = HEAD.format(tp=TRAVELPAYOUTS, title=E(title), desc=E(desc), url=url, domain=DOMAIN, hero=hero, body=body, ld=ld)
     d = SITE / path
     d.mkdir(parents=True, exist_ok=True)
     (d / "index.html").write_text(out, encoding="utf-8")
@@ -354,13 +358,17 @@ def legal_pages():
     urls.append(page("mentions-legales", "Mentions légales | Escale", "Mentions légales du site Escale, comparateur de vols, hôtels et locations de voitures.", hero, body))
     hero = '<h1>Confidentialité</h1>'
     body = """<section><h2>En bref</h2>
-<p>Escale ne demande aucun compte, ne collecte ni nom, ni e-mail, ni numéro de téléphone, et n'utilise aucun cookie publicitaire ou de suivi.</p>
+<p>Escale ne demande aucun compte et ne collecte ni nom, ni e-mail, ni numéro de téléphone (sauf si vous nous écrivez via le formulaire de contact).</p>
 </section>
 <section><h2>Ce qui reste sur votre appareil</h2>
 <p>Vos dernières recherches et le dernier onglet utilisé sont enregistrés dans le stockage local de votre navigateur, uniquement pour vous les reproposer. Ces données ne quittent pas votre appareil. Vous pouvez les effacer à tout moment en supprimant les données du site dans votre navigateur.</p>
 </section>
 <section><h2>Prix indicatifs</h2>
 <p>Pour afficher un prix indicatif, le site envoie le trajet et les dates recherchés (par exemple CDG → BKO en novembre) à notre serveur, qui interroge un fournisseur de données de prix. Aucune donnée personnelle n'est transmise.</p>
+</section>
+<section><h2>Liens partenaires (Travelpayouts)</h2>
+<p>Le site charge un script de notre partenaire d'affiliation Travelpayouts. Il sert à vérifier le site et à attribuer à Escale les réservations faites après un clic sur un lien partenaire. Ce script peut déposer des cookies ou utiliser des identifiants techniques sur votre navigateur. Travelpayouts applique sa propre politique de confidentialité, disponible sur travelpayouts.com.</p>
+<p>Vous pouvez bloquer ou supprimer ces cookies dans les réglages de votre navigateur. Cela ne change rien au fonctionnement des recherches.</p>
 </section>
 <section><h2>Hébergement</h2>
 <p>Comme tout hébergeur, Netlify enregistre des journaux techniques (adresse IP, page demandée, date) nécessaires au fonctionnement et à la sécurité du site.</p>
@@ -404,6 +412,8 @@ def main():
         by_origin.setdefault(r[2], []).append(f'<li><a href="/{route_slug(r)}/">Vol {E(r[2])} → {E(r[3])}</a></li>')
     links = "".join(group(f"Vols au départ de {E(o)}", items) for o, items in by_origin.items())
     links += group("Hôtels pas chers", [f'<li><a href="/{hotel_slug(h)}/">Hôtel pas cher à {E(h[0])}</a></li>' for h in HOTELS])
+    s = re.sub(r"<!-- TRAVELPAYOUTS:START -->.*?<!-- TRAVELPAYOUTS:END -->",
+               lambda m: "<!-- TRAVELPAYOUTS:START -->\n" + TRAVELPAYOUTS + "\n<!-- TRAVELPAYOUTS:END -->", s, flags=re.S)
     s = re.sub(r"<!-- ROUTES:START -->.*?<!-- ROUTES:END -->",
                lambda m: "<!-- ROUTES:START -->\n    " + links + "\n    <!-- ROUTES:END -->", s, flags=re.S)
     idx.write_text(s, encoding="utf-8")
