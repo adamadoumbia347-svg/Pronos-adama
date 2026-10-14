@@ -4,7 +4,7 @@
 //   ADMIN_KEY            accès à la page /admin/ (messages et inscriptions)
 //   RESEND_API_KEY ou BREVO_API_KEY + ALERT_FROM   envoi des alertes prix par e-mail
 //   CRON_KEY             appel quotidien de /api/cron (vérification des alertes)
-//   SITE_URL             adresse publique du site (par défaut https://escale-voyage.adamadoumbia347.workers.dev)
+//   SITE_URL             adresse publique du site (par défaut https://escale.live)
 // Stockage : espace KV « escale », relié sous le nom ESCALE dans wrangler.jsonc (formulaires, alertes, cache des bons plans).
 export type Env = {
   TRAVELPAYOUTS_TOKEN?: string; ADMIN_KEY?: string; CRON_KEY?: string; SITE_URL?: string
@@ -21,18 +21,21 @@ export const MONTH = /^\d{4}-\d{2}$/
 export const DATE = /^\d{4}-\d{2}-\d{2}$/
 export const CURRENCIES = ["EUR", "USD", "GBP", "CAD", "CHF", "XOF", "MAD"]
 export const currencyOf = (v: string | null) => { const c = (v || "EUR").toUpperCase(); return CURRENCIES.includes(c) ? c : "EUR" }
-export const siteUrl = (env: Env, req?: Request) => (env.SITE_URL || (req ? new URL(req.url).origin : "") || "https://escale-voyage.adamadoumbia347.workers.dev").replace(/\/$/, "")
+export const siteUrl = (env: Env, req?: Request) => (env.SITE_URL || (req ? new URL(req.url).origin : "") || "https://escale.live").replace(/\/$/, "")
 
 // API Travelpayouts « prices_for_dates » (prix en cache Aviasales)
+// Dernière erreur rencontrée (sans la clé), renvoyée dans le champ « reason » pour faciliter le diagnostic
+export let lastApiError = ""
 export async function pricesForDates(token: string, params: Record<string, string>, timeoutMs = 8000): Promise<any[] | null> {
   const api = new URL("https://api.travelpayouts.com/aviasales/v3/prices_for_dates")
-  api.search = new URLSearchParams({ ...params, token }).toString()
+  api.search = new URLSearchParams({ ...params, token: token.trim() }).toString()
   try {
     const res = await fetch(api.toString(), { headers: { "Accept-Encoding": "gzip" }, signal: AbortSignal.timeout(timeoutMs) })
-    if (!res.ok) return null
+    if (!res.ok) { lastApiError = `travelpayouts-http-${res.status}`; return null }
     const body: any = await res.json()
-    return body?.success === false ? null : body?.data ?? null
-  } catch { return null }
+    if (body?.success === false) { lastApiError = `travelpayouts-${String(body?.error || "refus").slice(0, 80)}`; return null }
+    return body?.data ?? null
+  } catch (e) { lastApiError = `travelpayouts-reseau-${String((e as any)?.name || "erreur")}`; return null }
 }
 
 // Cache de la périphérie Cloudflare (Cache API) : évite d'interroger Travelpayouts à chaque visite.
@@ -44,7 +47,9 @@ export async function edgeCached(ctx: Ctx, seconds: number, produce: () => Promi
     if (hit) return hit
   }
   const res = await produce()
-  if (cache && res.ok) {
+  // On ne garde en cache que les vraies réponses (jamais « indisponible »)
+  const ok = res.ok && !(await res.clone().text()).includes('"available":false')
+  if (cache && ok) {
     const copy = new Response(res.clone().body, res)
     copy.headers.set("Cache-Control", `public, max-age=${seconds}`)
     ctx.waitUntil(cache.put(key, copy))
