@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pronos Adama</title>
+  <meta name="description" content="Pronostics sportifs du jour, analysés, avec un historique complet et transparent.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="age-banner">🔞 Réservé aux personnes majeures. Les paris comportent des risques : endettement, dépendance. Jouez avec modération.</div>
+
+  <header class="hero">
+    <h1>Pronos <span>Adama</span></h1>
+    <p>Des pronostics analysés chaque jour, avec un historique 100 % transparent : gagnés <em>et</em> perdus.</p>
+  </header>
+
+  <main>
+    <section id="stats" class="stats" aria-label="Statistiques"></section>
+
+    <section>
+      <h2>⭐ L'Entrée Extra du jour</h2>
+      <div id="extra"></div>
+    </section>
+
+    <section>
+      <h2>Pronos du jour</h2>
+      <div id="jour" class="grid"></div>
+    </section>
+
+    <section id="cta" class="cta"></section>
+
+    <section>
+      <h2>Historique</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Date</th><th>Match</th><th>Prono</th><th>Cote</th><th>Résultat</th></tr></thead>
+          <tbody id="historique"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>Jeu responsable.</strong> Aucun pronostic n'est garanti. Ne misez jamais plus que ce que vous pouvez vous permettre de perdre.
+      Besoin d'aide ? Contactez le service d'aide aux joueurs de votre pays.</p>
+    <p>© <span id="annee"></span> Pronos Adama</p>
+  </footer>
+
+  <script src="pronos.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
