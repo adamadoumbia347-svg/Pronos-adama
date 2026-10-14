@@ -1,9 +1,13 @@
 import { Env, pricesForDates } from "./common"
 // Envoi d'e-mails : Resend (RESEND_API_KEY) ou Brevo (BREVO_API_KEY). Expéditeur : ALERT_FROM (adresse validée chez le fournisseur).
-export const mailerReady = (env: Env) => Boolean((env.RESEND_API_KEY || env.BREVO_API_KEY) && env.ALERT_FROM && env.ESCALE)
+// Adresse d'expéditeur : ALERT_FROM si défini, sinon MAIL_FROM (écrit dans wrangler.jsonc)
+const sender = (env: Env) => (env.ALERT_FROM || (env as any).MAIL_FROM || "").trim()
+export const mailerReady = (env: Env) => Boolean((env.RESEND_API_KEY || env.BREVO_API_KEY) && sender(env) && env.ESCALE)
 
 export async function sendMail(env: Env, to: string, subject: string, html: string): Promise<boolean> {
-  const from = env.ALERT_FROM || ""
+  // Accepte « alertes@escale.live » comme « Escale <alertes@escale.live> »
+  const raw = sender(env)
+  const from = (raw.match(/<([^>]+)>/)?.[1] || raw).trim()
   try {
     if (env.RESEND_API_KEY) {
       const r = await fetch("https://api.resend.com/emails", {
