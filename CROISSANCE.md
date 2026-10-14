@@ -18,7 +18,7 @@ Ce qui est déjà fait dans le code, puis ce qu'il reste à faire, dans l'ordre 
 | Emplacements pour vos identifiants d'affiliation (`AFFILIATE` dans `index.html`) | Le site peut gagner de l'argent sans rien changer d'autre |
 
 | 14 pages trajets (`/vol-paris-bamako/`, `/vol-paris-dakar/`…) avec FAQ structurée | Capter les recherches Google précises (« vol pas cher Paris Bamako ») |
-| Pages Mentions légales, Confidentialité, Contact (formulaire Netlify) | Obligations légales et confiance des visiteurs |
+| Pages Mentions légales, Confidentialité, Contact (formulaire enregistré sur Cloudflare) | Obligations légales et confiance des visiteurs |
 | Fonction `/api/prix` (Travelpayouts) + encart « dès X € » | Affiche un prix réel dès que la clé est configurée |
 | Projet Netlify `escale-voyage` créé, public, formulaires activés | Adresse : https://escale-voyage.netlify.app |
 | Sitemap, robots.txt, liens canoniques sur cette adresse | Générés par `scripts/build_pages.py` |
@@ -102,9 +102,9 @@ Pistes suivantes : allemand, italien, chinois, turc (ajouter une colonne dans tr
 - ✔ IndexNow : à chaque mise en ligne, `netlify/functions/deploy-succeeded.mts` envoie toutes les pages à Bing (et DuckDuckGo, Yahoo, Ecosia).
 - À faire : nom de domaine à soi, Bing Webmaster Tools, liens depuis d'autres sites (associations, blogs, groupes de la diaspora), suivi mensuel dans Search Console.
 
-## Déménagement sur Cloudflare Pages (14 octobre 2026)
-- Les crédits gratuits de Netlify (300 par mois, 15 par mise en ligne) étaient épuisés : le site passe sur Cloudflare Pages (gratuit, environ 500 mises en ligne par mois).
-- Nouvelle adresse : https://escale-voyage.pages.dev ; l'ancienne redirige (301) dès que Netlify accepte une nouvelle mise en ligne.
+## Déménagement sur Cloudflare (14 octobre 2026)
+- Les crédits gratuits de Netlify (300 par mois, 15 par mise en ligne) étaient épuisés : le site passe sur Cloudflare Workers (gratuit).
+- Nouvelle adresse : https://escale-voyage.adamadoumbia347.workers.dev ; l'ancienne redirige (301) dès que Netlify accepte une nouvelle mise en ligne.
 - Formulaires (contact, bons plans) lus sur `/admin/` ; statistiques dans Cloudflare Web Analytics.
 - À faire : ajouter la nouvelle adresse dans Google Search Console (et Bing Webmaster Tools), renvoyer le sitemap,
   puis utiliser l'outil « Changement d'adresse » de Search Console une fois la redirection active.
