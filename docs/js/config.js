@@ -24,7 +24,7 @@
 window.AFFILIATION = {
   boutiques: {
     fr: { nom: "Amazon.fr", domaine: "amazon.fr", tag: "dobam0b-21" },
-    it: { nom: "Amazon.it", domaine: "amazon.it", tag: "" },
+    it: { nom: "Amazon.it", domaine: "amazon.it", tag: "dobam01-21" },
     es: { nom: "Amazon.es", domaine: "amazon.es", tag: "" },
     de: { nom: "Amazon.de", domaine: "amazon.de", tag: "" },
     uk: { nom: "Amazon.co.uk", domaine: "amazon.co.uk", tag: "" },
