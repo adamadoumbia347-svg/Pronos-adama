@@ -14,14 +14,24 @@ DOCS = pathlib.Path(__file__).resolve().parent.parent / "docs"
 class Analyse(HTMLParser):
     def __init__(self):
         super().__init__()
-        self.ids, self.liens, self.pile = set(), [], []
+        self.ids, self.liens, self.dans_lien, self.erreurs = set(), [], 0, []
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
+        if tag == "a":
+            if self.dans_lien:
+                self.erreurs.append("lien <a> imbriqué dans un autre lien")
+            self.dans_lien += 1
+        if tag == "li" and self.dans_lien:
+            self.erreurs.append("<li> à l'intérieur d'un lien <a>")
         if "id" in a:
             self.ids.add(a["id"])
         if tag == "a" and "href" in a:
             self.liens.append(a)
+
+    def handle_endtag(self, tag):
+        if tag == "a" and self.dans_lien:
+            self.dans_lien -= 1
 
 
 def main():
@@ -33,6 +43,8 @@ def main():
         analyses[nom] = an
     problemes, nb_aff = [], 0
     for nom, an in analyses.items():
+        for err in sorted(set(an.erreurs)):
+            problemes.append(f"{nom} : {err}")
         for a in an.liens:
             href = a["href"]
             if "aff" in a.get("class", "").split():
