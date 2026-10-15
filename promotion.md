@@ -1,6 +1,6 @@
 # Kit de promotion — Éduc'Animaux
 
-Site : https://adamadoumbia347-svg.github.io/Pronos-adama/
+Site : https://educanimaux.fr/
 
 Ce fichier n'est pas publié sur le site : il te sert de boîte à outils.
 
@@ -12,7 +12,7 @@ C'est l'outil gratuit de Google pour lui signaler ton site et voir ce que les ge
 
 1. Va sur https://search.google.com/search-console et connecte-toi.
 2. Clique **Ajouter une propriété** → choisis **Préfixe de l'URL** → colle :
-   `https://adamadoumbia347-svg.github.io/Pronos-adama/`
+   `https://educanimaux.fr/`
 3. Méthode de validation : **Balise HTML**. Google te donne une ligne du type
    `<meta name="google-site-verification" content="XXXX">`
    → **envoie-la à Claude**, qui l'ajoute au site. Ensuite clique **Valider**.
@@ -54,7 +54,7 @@ Rejoins des groupes comme « Éducation canine positive », « Propriétaires de
 
 **Exemple de réponse à « Mon chiot me mord tout le temps, help ! » :**
 
-> C'est normal à cet âge, ils font leurs dents et explorent avec la bouche 🙂 Ce qui marche bien : dès qu'il serre trop fort, tu t'arrêtes net et tu retires calmement ta main 10-20 secondes, puis tu lui proposes un jouet à mâcher. Et surveille la fatigue : un chiot qui mord frénétiquement le soir a souvent juste besoin d'une sieste (ils dorment 16 à 20 h par jour !). J'ai mis tout le détail ici si tu veux : https://adamadoumbia347-svg.github.io/Pronos-adama/chiot-mord.html
+> C'est normal à cet âge, ils font leurs dents et explorent avec la bouche 🙂 Ce qui marche bien : dès qu'il serre trop fort, tu t'arrêtes net et tu retires calmement ta main 10-20 secondes, puis tu lui proposes un jouet à mâcher. Et surveille la fatigue : un chiot qui mord frénétiquement le soir a souvent juste besoin d'une sieste (ils dorment 16 à 20 h par jour !). J'ai mis tout le détail ici si tu veux : https://educanimaux.fr/chiot-mord.html
 
 ---
 
