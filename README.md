@@ -44,3 +44,12 @@ Pour ajouter un produit n'importe où :
 ## Faire venir des visiteurs
 
 Voir `promotion.md` (Search Console, Pinterest, groupes Facebook, scripts vidéo, planning).
+
+## Publier un article
+
+Voir `ARTICLES.md` (règles de rédaction, liste des sujets) :
+
+```
+python3 tools/publier_article.py articles/AAAA-MM-JJ-slug.html
+python3 tools/verifier_site.py
+```
