@@ -16,6 +16,14 @@ Il n'est pas publié sur le site (seul le dossier `docs/` l'est).
 6. Commiter sur `main` et pousser (`git push origin main`). GitHub Pages met le site
    à jour automatiquement en 1 à 2 minutes.
 
+## Langues
+
+Les articles hebdomadaires sont publiés en français uniquement. Sur les versions anglaise et italienne,
+le sélecteur de langue renvoie alors vers l'accueil de la langue. Pour traduire un article, créer
+`docs/en/<slug>.html` et/ou `docs/it/<slug>.html` (même nom de fichier, contenu traduit, `lang` et adresses
+`https://educanimaux.fr/en/…` ou `/it/…`, liens Amazon vers amazon.com ou amazon.it avec des mots-clés traduits),
+ajouter la carte dans `docs/en/conseils.html` / `docs/it/conseils.html`, puis lancer `python3 tools/langues.py`.
+
 ## Format du fichier source
 
 ```

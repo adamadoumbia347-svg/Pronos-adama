@@ -20,13 +20,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
+<!-- langues -->
+  <link rel="alternate" hreflang="fr" href="https://educanimaux.fr/chien.html">
+  <link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/chien.html">
+  <link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/chien.html">
+  <link rel="alternate" hreflang="x-default" href="https://educanimaux.fr/chien.html">
+  <!-- /langues -->
 </head>
 <body>
-  <div class="disclosure">Ce site contient des liens d'affiliation : nous pouvons toucher une commission sur vos achats, sans surcoût pour vous. <a href="mentions-legales.html#affiliation">En savoir plus</a></div>
+  <div class="disclosure">Ce site contient des liens d'affiliation : nous pouvons toucher une commission sur vos achats, sans surcoût pour vous. <a href="mentions-legales.html#affiliation">En savoir plus</a> · <label class="shop">Boutique : <select id="boutique"></select></label></div>
   <header class="site-header">
     <nav class="container nav" aria-label="Navigation principale">
       <a class="logo" href="index.html">🐾 Éduc'<span>Animaux</span></a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="menu">☰</button>
+      <!-- choix-langue --><div class="lang-switch"><a href="chien.html" hreflang="fr" lang="fr" title="Français" aria-current="true">FR</a><a href="en/chien.html" hreflang="en" lang="en" title="English">EN</a><a href="it/chien.html" hreflang="it" lang="it" title="Italiano">IT</a></div><!-- /choix-langue -->
+<button class="nav-toggle" aria-expanded="false" aria-controls="menu">☰</button>
       <ul class="nav-links" id="menu">
         <li><a href="index.html">Accueil</a></li>
         <li><a href="methodes.html">Méthodes</a></li>

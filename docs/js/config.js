@@ -1,27 +1,51 @@
 /*
  * ============================================================
- *  CONFIGURATION DES LIENS D'AFFILIATION
+ *  CONFIGURATION DES LIENS D'AFFILIATION (toutes les langues)
  *  C'est le SEUL fichier à modifier pour gagner des commissions.
  * ============================================================
  *
- * 1. Inscrivez-vous au Partenariat Amazon : https://partenaires.amazon.fr
- * 2. Copiez votre identifiant de suivi (ex. "monsite-21") ci-dessous.
- * 3. (Optionnel) Remplacez n'importe quel produit par un lien précis
- *    d'un autre programme (Zooplus via Awin, Wanimo, Fnac, etc.)
- *    dans "liensPersonnalises", en utilisant l'identifiant data-aff.
+ * Chaque boutique Amazon a son propre programme Partenaires et son propre
+ * identifiant (tag). Inscrivez-vous dans chaque pays qui vous intéresse et
+ * collez l'identifiant dans "tag" :
+ *   - France    : https://partenaires.amazon.fr          (tag en -21)
+ *   - Italie    : https://programma-affiliazione.amazon.it (tag en -21)
+ *   - Espagne   : https://afiliados.amazon.es            (tag en -21)
+ *   - Allemagne : https://partnernet.amazon.de           (tag en -21)
+ *   - Royaume-Uni : https://affiliate-program.amazon.co.uk (tag en -21)
+ *   - États-Unis  : https://affiliate-program.amazon.com   (tag en -20)
+ *   - Canada      : https://associates.amazon.ca          (tag en -20)
+ * Une boutique sans tag fonctionne quand même, mais ne rapporte rien.
+ *
+ * Le site choisit la boutique du visiteur ainsi :
+ *   1. celle qu'il a choisie dans le menu « Boutique » (mémorisée) ;
+ *   2. sinon, d'après la langue et le pays de son navigateur (ex. en-GB → Royaume-Uni) ;
+ *   3. sinon, la boutique par défaut de la langue de la page.
  */
 window.AFFILIATION = {
-  // Votre identifiant Partenaires Amazon (laissez vide tant que vous n'en avez pas)
-  amazonTag: "dobam0b-21",
+  boutiques: {
+    fr: { nom: "Amazon.fr", domaine: "amazon.fr", tag: "dobam0b-21" },
+    it: { nom: "Amazon.it", domaine: "amazon.it", tag: "" },
+    es: { nom: "Amazon.es", domaine: "amazon.es", tag: "" },
+    de: { nom: "Amazon.de", domaine: "amazon.de", tag: "" },
+    uk: { nom: "Amazon.co.uk", domaine: "amazon.co.uk", tag: "" },
+    us: { nom: "Amazon.com", domaine: "amazon.com", tag: "" },
+    ca: { nom: "Amazon.ca", domaine: "amazon.ca", tag: "" }
+  },
 
-  // Boutique Amazon ciblée : "amazon.fr", "amazon.be", "amazon.ca", "amazon.com"...
-  amazonDomaine: "amazon.fr",
+  // Boutique par défaut selon la langue de la page.
+  boutiqueParLangue: { fr: "fr", it: "it", en: "us" },
 
-  // Liens précis qui remplacent la recherche Amazon pour un produit donné.
-  // La clé correspond à l'attribut data-aff du lien dans les pages HTML.
-  // Exemple : clicker: "https://www.awin1.com/cread.php?awinmid=XXXX&awinaffid=YYYY&ued=...",
-  liensPersonnalises: {
-    // clicker: "",
-    // harnais: "",
-  }
+  // Boutique selon le pays du navigateur du visiteur (code pays ISO).
+  boutiqueParPays: {
+    FR: "fr", BE: "fr", LU: "fr", MC: "fr",
+    IT: "it", SM: "it", VA: "it",
+    ES: "es", DE: "de", AT: "de",
+    GB: "uk", IE: "uk",
+    US: "us", CA: "ca"
+  },
+
+  // Liens précis qui remplacent la recherche Amazon pour un produit donné,
+  // par boutique. La clé correspond à l'attribut data-aff du lien.
+  // Exemple : liensPersonnalises: { fr: { harnais: "https://..." } }
+  liensPersonnalises: {}
 };

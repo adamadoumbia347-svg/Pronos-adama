@@ -14,13 +14,15 @@ Le script :
     les balises Google / réseaux sociaux et les données structurées Article ;
   - ajoute la carte de l'article en tête de docs/conseils.html ;
   - met l'article en tête des « derniers conseils » de docs/index.html (4 max) ;
-  - ajoute l'adresse dans docs/sitemap.xml.
+  - relie la page aux autres langues et régénère docs/sitemap.xml (tools/langues.py).
 """
 import html
 import json
 import pathlib
 import re
 import sys
+
+import langues
 
 RACINE = pathlib.Path(__file__).resolve().parent.parent
 DOCS = RACINE / "docs"
@@ -99,16 +101,6 @@ def ajouter_a_accueil(m):
     p.write_text(s[:g0] + "\n".join(cartes) + "\n" + s[g1:], encoding="utf-8")
 
 
-def ajouter_au_sitemap(m):
-    p = DOCS / "sitemap.xml"
-    s = p.read_text(encoding="utf-8")
-    url = BASE + m["slug"] + ".html"
-    if f"<loc>{url}</loc>" in s:
-        return
-    ligne = f"  <url><loc>{url}</loc><lastmod>{m['date']}</lastmod><priority>0.7</priority></url>\n"
-    p.write_text(s.replace("</urlset>", ligne + "</urlset>"), encoding="utf-8")
-
-
 def main():
     if len(sys.argv) != 2:
         sys.exit(__doc__)
@@ -119,7 +111,7 @@ def main():
     cible.write_text(construire_page(m, corps), encoding="utf-8")
     ajouter_a_conseils(m)
     ajouter_a_accueil(m)
-    ajouter_au_sitemap(m)
+    langues.main()
     print(f"Publié : docs/{cible.name}")
 
 

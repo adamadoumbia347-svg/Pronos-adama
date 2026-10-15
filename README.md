@@ -14,14 +14,24 @@ Le site se trouve dans le dossier `docs/`. Site statique (HTML/CSS/JS, aucune d�
 | `docs/materiel.html` | Boutique : tout le matériel conseillé par animal |
 | `docs/conseils.html` | Liste des articles |
 | `docs/rappel-chien.html`, `marche-en-laisse.html`, `chat-griffe-canape.html`, `chiot-mord.html` | Articles optimisés pour Google |
-| `docs/sitemap.xml` | Plan du site à envoyer dans Google Search Console |
+| `docs/en/`, `docs/it/` | Versions anglaise et italienne des 13 pages |
+| `docs/sitemap.xml` | Plan du site (3 langues) à envoyer dans Google Search Console |
 | `docs/mentions-legales.html` | Mentions légales, déclaration d'affiliation |
 
-## Activer les commissions
+## Langues
 
-1. Créez un compte sur [Partenaires Amazon](https://partenaires.amazon.fr).
-2. Ouvrez `docs/js/config.js` et remplacez `VOTRE-TAG-21` par votre identifiant de suivi.
-3. (Optionnel) Pour un autre programme (Zooplus via Awin, Wanimo, etc.), ajoutez un lien précis dans `liensPersonnalises` avec la clé `data-aff` du produit (ex. `harnais`, `clicker`, `kong`).
+Le site existe en français (`docs/`), anglais (`docs/en/`) et italien (`docs/it/`), avec les mêmes noms de fichiers.
+Après tout ajout ou suppression de page, lancez `python3 tools/langues.py` : il met à jour le sélecteur FR · EN · IT,
+les balises `hreflang` et `docs/sitemap.xml` (`tools/publier_article.py` le fait automatiquement).
+
+## Activer les commissions (plusieurs pays)
+
+Ouvrez `docs/js/config.js` : chaque boutique Amazon (France, Italie, Espagne, Allemagne, Royaume-Uni, États-Unis, Canada)
+a son propre champ `tag`. Inscrivez-vous au programme Partenaires de chaque pays et collez l'identifiant correspondant.
+Le site choisit la boutique du visiteur (choix mémorisé dans le menu « Boutique », sinon pays du navigateur, sinon langue de la page).
+Une boutique sans tag fonctionne mais ne rapporte rien.
+
+Pour un autre programme (Zooplus via Awin, etc.), ajoutez un lien précis dans `liensPersonnalises`, par boutique et par clé `data-aff`.
 
 Tous les liens produits ont la classe `aff` et reçoivent automatiquement `rel="sponsored nofollow noopener"` (recommandé par Google pour les liens affiliés).
 

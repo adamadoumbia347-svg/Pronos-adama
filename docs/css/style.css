@@ -249,3 +249,17 @@ th { background: var(--soft); }
 .article .product-box .icon { font-size: 2.2rem; }
 .article .product-box div { flex: 1; min-width: 200px; }
 .article .product-box p { margin: 0; font-size: .95rem; color: var(--muted); }
+
+/* ---------- Langues et boutique ---------- */
+.lang-switch { display: flex; gap: 2px; margin-left: auto; margin-right: 8px; }
+.lang-switch a {
+  text-decoration: none; color: var(--muted); font-weight: 800; font-size: .85rem;
+  padding: 6px 8px; border-radius: 8px;
+}
+.lang-switch a[aria-current="true"] { background: var(--soft); color: var(--primary-dark); }
+@media (min-width: 821px) { .lang-switch { order: 2; margin-left: 12px; margin-right: 0; } .nav-links { order: 1; margin-left: auto; } }
+.shop { white-space: nowrap; }
+.shop select {
+  font: inherit; font-size: .85rem; color: var(--text); background: #fff;
+  border: 0; border-radius: 6px; padding: 1px 4px; margin-left: 4px;
+}

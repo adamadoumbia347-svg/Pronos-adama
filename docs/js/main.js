@@ -1,24 +1,68 @@
 (function () {
   var cfg = window.AFFILIATION || {};
-  var tagValide = cfg.amazonTag && cfg.amazonTag !== "VOTRE-TAG-21";
-  var domaine = cfg.amazonDomaine || "amazon.fr";
-  var perso = cfg.liensPersonnalises || {};
+  var boutiques = cfg.boutiques || { fr: { nom: "Amazon.fr", domaine: "amazon.fr", tag: "" } };
+  var langue = (document.documentElement.lang || "fr").slice(0, 2);
+  var CLE_STOCKAGE = "educanimaux-boutique";
+
+  function lireChoix() {
+    try { return localStorage.getItem(CLE_STOCKAGE); } catch (e) { return null; }
+  }
+  function ecrireChoix(v) {
+    try { localStorage.setItem(CLE_STOCKAGE, v); } catch (e) {}
+  }
+
+  // Boutique du visiteur : choix mémorisé > pays du navigateur > langue de la page.
+  function boutiqueDuVisiteur() {
+    var choix = lireChoix();
+    if (choix && boutiques[choix]) return choix;
+    var parPays = cfg.boutiqueParPays || {};
+    var langues = navigator.languages || [navigator.language || ""];
+    for (var i = 0; i < langues.length; i++) {
+      var pays = (langues[i].split("-")[1] || "").toUpperCase();
+      if (pays && parPays[pays] && boutiques[parPays[pays]]) return parPays[pays];
+    }
+    var defaut = (cfg.boutiqueParLangue || {})[langue];
+    return boutiques[defaut] ? defaut : Object.keys(boutiques)[0];
+  }
 
   // Construit chaque lien produit : lien personnalisé si défini, sinon recherche Amazon taguée.
-  document.querySelectorAll("a.aff").forEach(function (a) {
-    var id = a.getAttribute("data-aff");
-    var recherche = a.getAttribute("data-q") || a.textContent.trim();
-    var url;
-    if (id && perso[id]) {
-      url = perso[id];
-    } else {
-      url = "https://www." + domaine + "/s?k=" + encodeURIComponent(recherche);
-      if (tagValide) url += "&tag=" + encodeURIComponent(cfg.amazonTag);
-    }
-    a.href = url;
-    a.target = "_blank";
-    a.rel = "sponsored nofollow noopener";
-  });
+  function construireLiens(code) {
+    var b = boutiques[code];
+    var perso = (cfg.liensPersonnalises || {})[code] || {};
+    document.querySelectorAll("a.aff").forEach(function (a) {
+      var id = a.getAttribute("data-aff");
+      var recherche = a.getAttribute("data-q") || a.textContent.trim();
+      var url;
+      if (id && perso[id]) {
+        url = perso[id];
+      } else {
+        url = "https://www." + b.domaine + "/s?k=" + encodeURIComponent(recherche);
+        if (b.tag) url += "&tag=" + encodeURIComponent(b.tag);
+      }
+      a.href = url;
+      a.target = "_blank";
+      a.rel = "sponsored nofollow noopener";
+    });
+  }
+
+  var boutique = boutiqueDuVisiteur();
+  construireLiens(boutique);
+
+  // Menu « Boutique » : permet au visiteur de changer de pays.
+  var selecteur = document.getElementById("boutique");
+  if (selecteur) {
+    Object.keys(boutiques).forEach(function (code) {
+      var o = document.createElement("option");
+      o.value = code;
+      o.textContent = boutiques[code].nom;
+      selecteur.appendChild(o);
+    });
+    selecteur.value = boutique;
+    selecteur.addEventListener("change", function () {
+      ecrireChoix(selecteur.value);
+      construireLiens(selecteur.value);
+    });
+  }
 
   // Menu mobile
   var bouton = document.querySelector(".nav-toggle");
@@ -49,7 +93,8 @@
       m.hidden = !ok;
       if (ok) visibles++;
     });
-    if (compteur) compteur.textContent = visibles + " méthode" + (visibles > 1 ? "s" : "");
+    var mots = { fr: ["méthode", "méthodes"], en: ["method", "methods"], it: ["metodo", "metodi"] }[langue] || ["méthode", "méthodes"];
+    if (compteur) compteur.textContent = visibles + " " + mots[visibles > 1 ? 1 : 0];
   }
 
   filtres.forEach(function (groupe) {

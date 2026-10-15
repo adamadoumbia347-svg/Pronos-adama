@@ -1,16 +1,276 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://educanimaux.fr/chat-griffe-canape.html</loc><lastmod>2026-10-15</lastmod><priority>0.7</priority></url>
-  <url><loc>https://educanimaux.fr/chat.html</loc><lastmod>2026-10-15</lastmod><priority>0.7</priority></url>
-  <url><loc>https://educanimaux.fr/chien.html</loc><lastmod>2026-10-15</lastmod><priority>0.7</priority></url>
-  <url><loc>https://educanimaux.fr/chiot-mord.html</loc><lastmod>2026-10-15</lastmod><priority>0.7</priority></url>
-  <url><loc>https://educanimaux.fr/conseils.html</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
-  <url><loc>https://educanimaux.fr/</loc><lastmod>2026-10-15</lastmod><priority>1.0</priority></url>
-  <url><loc>https://educanimaux.fr/marche-en-laisse.html</loc><lastmod>2026-10-15</lastmod><priority>0.7</priority></url>
-  <url><loc>https://educanimaux.fr/materiel.html</loc><lastmod>2026-10-15</lastmod><priority>0.7</priority></url>
-  <url><loc>https://educanimaux.fr/mentions-legales.html</loc><lastmod>2026-10-15</lastmod><priority>0.3</priority></url>
-  <url><loc>https://educanimaux.fr/methodes.html</loc><lastmod>2026-10-15</lastmod><priority>0.9</priority></url>
-  <url><loc>https://educanimaux.fr/nac.html</loc><lastmod>2026-10-15</lastmod><priority>0.7</priority></url>
-  <url><loc>https://educanimaux.fr/rappel-chien.html</loc><lastmod>2026-10-15</lastmod><priority>0.7</priority></url>
-  <url><loc>https://educanimaux.fr/proprete-chiot.html</loc><lastmod>2026-10-15</lastmod><priority>0.7</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://educanimaux.fr/chat-griffe-canape.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/chat-griffe-canape.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/chat-griffe-canape.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/chat-griffe-canape.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/chat.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/chat.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/chat.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/chat.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/chien.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/chien.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/chien.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/chien.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/chiot-mord.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/chiot-mord.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/chiot-mord.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/chiot-mord.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/conseils.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/conseils.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/conseils.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/conseils.html"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/marche-en-laisse.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/marche-en-laisse.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/marche-en-laisse.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/marche-en-laisse.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/materiel.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/materiel.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/materiel.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/materiel.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/mentions-legales.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/mentions-legales.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/mentions-legales.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/mentions-legales.html"/>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/methodes.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/methodes.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/methodes.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/methodes.html"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/nac.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/nac.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/nac.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/nac.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/proprete-chiot.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/proprete-chiot.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/proprete-chiot.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/proprete-chiot.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/rappel-chien.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/rappel-chien.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/rappel-chien.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/rappel-chien.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/en/chat-griffe-canape.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/chat-griffe-canape.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/chat-griffe-canape.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/chat-griffe-canape.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/en/chat.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/chat.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/chat.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/chat.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/en/chien.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/chien.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/chien.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/chien.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/en/chiot-mord.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/chiot-mord.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/chiot-mord.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/chiot-mord.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/en/conseils.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/conseils.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/conseils.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/conseils.html"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/en/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/en/marche-en-laisse.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/marche-en-laisse.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/marche-en-laisse.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/marche-en-laisse.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/en/materiel.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/materiel.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/materiel.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/materiel.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/en/mentions-legales.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/mentions-legales.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/mentions-legales.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/mentions-legales.html"/>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/en/methodes.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/methodes.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/methodes.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/methodes.html"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/en/nac.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/nac.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/nac.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/nac.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/en/proprete-chiot.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/proprete-chiot.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/proprete-chiot.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/proprete-chiot.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/en/rappel-chien.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/rappel-chien.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/rappel-chien.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/rappel-chien.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/it/chat-griffe-canape.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/chat-griffe-canape.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/chat-griffe-canape.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/chat-griffe-canape.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/it/chat.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/chat.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/chat.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/chat.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/it/chien.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/chien.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/chien.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/chien.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/it/chiot-mord.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/chiot-mord.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/chiot-mord.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/chiot-mord.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/it/conseils.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/conseils.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/conseils.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/conseils.html"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/it/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/it/marche-en-laisse.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/marche-en-laisse.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/marche-en-laisse.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/marche-en-laisse.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/it/materiel.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/materiel.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/materiel.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/materiel.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/it/mentions-legales.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/mentions-legales.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/mentions-legales.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/mentions-legales.html"/>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/it/methodes.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/methodes.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/methodes.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/methodes.html"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/it/nac.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/nac.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/nac.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/nac.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/it/proprete-chiot.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/proprete-chiot.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/proprete-chiot.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/proprete-chiot.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/it/rappel-chien.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/rappel-chien.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/rappel-chien.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/rappel-chien.html"/>
+    <priority>0.7</priority>
+  </url>
 </urlset>
