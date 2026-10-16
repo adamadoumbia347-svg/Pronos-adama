@@ -14,7 +14,8 @@ Le script :
     les balises Google / réseaux sociaux et les données structurées Article ;
   - ajoute la carte de l'article en tête de docs/conseils.html ;
   - met l'article en tête des « derniers conseils » de docs/index.html (4 max) ;
-  - relie la page aux autres langues et régénère docs/sitemap.xml (tools/langues.py).
+  - relie la page aux autres langues et régénère docs/sitemap.xml (tools/langues.py) ;
+  - met à jour les blocs « À lire aussi » de tous les articles (tools/lire_aussi.py).
 """
 import html
 import json
@@ -23,6 +24,7 @@ import re
 import sys
 
 import langues
+import lire_aussi
 
 RACINE = pathlib.Path(__file__).resolve().parent.parent
 DOCS = RACINE / "docs"
@@ -114,6 +116,7 @@ def main():
     ajouter_a_conseils(m)
     ajouter_a_accueil(m)
     langues.main()
+    lire_aussi.main()
     print(f"Publié : docs/{cible.name}")
 
 

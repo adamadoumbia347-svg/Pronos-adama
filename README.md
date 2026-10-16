@@ -14,6 +14,7 @@ Le site se trouve dans le dossier `docs/`. Site statique (HTML/CSS/JS, aucune d�
 | `docs/materiel.html` | Boutique : tout le matériel conseillé par animal |
 | `docs/conseils.html` | Liste des articles |
 | `docs/rappel-chien.html`, `marche-en-laisse.html`, `chat-griffe-canape.html`, `chiot-mord.html` | Articles optimisés pour Google |
+| `docs/quiz.html`, `docs/age-humain.html` | Outils interactifs (quiz « quelle méthode ? », calculateur d'âge), logique dans `docs/js/outils.js` |
 | `docs/en/`, `docs/it/` | Versions anglaise et italienne des 13 pages |
 | `docs/sitemap.xml` | Plan du site (3 langues) à envoyer dans Google Search Console |
 | `docs/mentions-legales.html` | Mentions légales, déclaration d'affiliation |
@@ -54,6 +55,11 @@ Pour ajouter un produit n'importe où :
 ## Faire venir des visiteurs
 
 Voir `promotion.md` (Search Console, Pinterest, groupes Facebook, scripts vidéo, planning).
+
+## Articles : sommaire, progression, « À lire aussi »
+
+Le sommaire et la barre de progression sont générés automatiquement par `docs/js/main.js` sur toute page contenant `.container.article`.
+Le bloc « À lire aussi » est écrit dans le HTML par `python3 tools/lire_aussi.py` (lancé automatiquement par `tools/publier_article.py`).
 
 ## Publier un article
 

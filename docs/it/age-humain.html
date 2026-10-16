@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>L&#x27;età del tuo cane o gatto in anni umani – Éduc&#x27;Animaux</title>
+  <meta name="description" content="Calcola l&#x27;età del tuo cane o gatto in anni umani, scopri la sua fase di vita e i consigli di educazione adatti.">
+  <link rel="canonical" href="https://educanimaux.fr/it/age-humain.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Éduc'Animaux">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="L&#x27;età del tuo cane o gatto in anni umani – Éduc&#x27;Animaux">
+  <meta property="og:description" content="Calcola l&#x27;età del tuo cane o gatto in anni umani, scopri la sua fase di vita e i consigli di educazione adatti.">
+  <meta property="og:url" content="https://educanimaux.fr/it/age-humain.html">
+  <meta property="og:image" content="https://educanimaux.fr/img/partage.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="../fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
+<!-- langues -->
+  <link rel="alternate" hreflang="fr" href="https://educanimaux.fr/age-humain.html">
+  <link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/age-humain.html">
+  <link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/age-humain.html">
+  <link rel="alternate" hreflang="x-default" href="https://educanimaux.fr/age-humain.html">
+  <!-- /langues -->
+</head>
+<body>
+  <div class="disclosure">Questo sito contiene link di affiliazione: possiamo ricevere una commissione sui tuoi acquisti, senza alcun costo aggiuntivo per te. <a href="mentions-legales.html#affiliation">Info sui link di affiliazione</a></div>
+  <header class="site-header">
+    <nav class="container nav" aria-label="Navigazione principale">
+      <a class="logo" href="index.html">🐾 Éduc'<span>Animaux</span></a>
+      <!-- choix-langue --><div class="lang-switch"><a href="../age-humain.html" hreflang="fr" lang="fr" title="Français">FR</a><a href="../en/age-humain.html" hreflang="en" lang="en" title="English">EN</a><a href="../it/age-humain.html" hreflang="it" lang="it" title="Italiano" aria-current="true">IT</a></div><!-- /choix-langue -->
+<button class="nav-toggle" aria-expanded="false" aria-controls="menu">☰</button>
+      <ul class="nav-links" id="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="methodes.html">Metodi</a></li>
+        <li><a href="chien.html">Cane</a></li>
+        <li><a href="chat.html">Gatto</a></li>
+        <li><a href="nac.html">Conigli &amp; piccoli animali</a></li>
+        <li><a href="conseils.html">Consigli</a></li>
+        <li><a href="materiel.html">Accessori</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container outil">
+        <p class="breadcrumb"><a href="index.html">Home</a> › Calcolatore dell'età</p>
+        <h1>🎂 Quanti anni ha il tuo animale in età umana?</h1>
+        <p class="lead">Inserisci la sua età: calcoliamo l'equivalente umano e ti diamo i consigli adatti alla sua fase di vita.</p>
+        <div class="card" id="calc-age">
+          <form>
+            <div class="choix-espece" role="radiogroup" aria-label="Specie">
+              <label><input type="radio" name="espece" value="chien" checked><span>🐕 Cane</span></label>
+              <label><input type="radio" name="espece" value="chat"><span>🐈 Gatto</span></label>
+            </div>
+            <div class="duo">
+              <div><label for="annees">Età (anni)</label><input id="annees" name="annees" type="number" min="0" max="30" step="1" value="3" inputmode="numeric"></div>
+              <div><label for="mois">+ mesi</label><select id="mois" name="mois"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option></select></div>
+            </div>
+            <div data-taille><label for="taille">Taglia del cane</label>
+              <select id="taille" name="taille"><option value="petit">Piccola (meno di 10 kg)</option><option value="moyen" selected>Media (da 10 a 25 kg)</option><option value="grand">Grande (oltre 25 kg)</option></select></div>
+            <button class="btn" type="submit">Calcola</button>
+          </form>
+          <div class="resultat" aria-live="polite"></div>
+        </div>
+        <h2 style="margin-top:40px">Come viene calcolata?</h2>
+        <p>Usiamo la stima più diffusa: il primo anno di un cane o di un gatto equivale a circa 15 anni umani, il secondo a circa 9 in più, poi ogni anno vale da 4 a 6 anni secondo la specie e la taglia (i cani grandi invecchiano più in fretta). È solo una stima: contano anche razza, salute e stile di vita.</p>
+        <p>Vuoi saperne di più? Fai il nostro <a href="quiz.html">quiz per trovare il metodo giusto</a> o scopri <a href="methodes.html">tutti i metodi</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="logo" style="color:#fff">🐾 Éduc'Animaux</p>
+          <p>La guida indipendente ai metodi di educazione gentili ed efficaci per tutti gli animali domestici.</p>
+        </div>
+        <div>
+          <strong>Guide</strong>
+          <ul>
+            <li><a href="chien.html">Cane</a></li>
+            <li><a href="chat.html">Gatto</a></li>
+            <li><a href="nac.html">Conigli &amp; piccoli animali</a></li>
+            <li><a href="quiz.html">🧩 Quiz sui metodi</a></li>
+            <li><a href="age-humain.html">🎂 Calcolatore dell'età</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong>Il sito</strong>
+          <ul>
+            <li><a href="methodes.html">Tutti i metodi</a></li>
+            <li><a href="conseils.html">Articoli &amp; consigli</a></li>
+            <li><a href="materiel.html">Accessori</a></li>
+            <li><a href="mentions-legales.html">Note legali</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-legal">In qualità di Affiliato Amazon, riceviamo un guadagno dagli acquisti idonei. I consigli di questo sito non sostituiscono il parere di un veterinario. © <span id="annee"></span> Éduc'Animaux</p>
+    </div>
+  </footer>
+
+  <script src="../js/config.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/outils.js" defer></script>
+</body>
+</html>

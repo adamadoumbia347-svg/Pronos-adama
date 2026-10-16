@@ -15,10 +15,10 @@
   }
 
   // Construit chaque lien produit : lien personnalisé si défini, sinon recherche Amazon taguée.
-  function construireLiens(code) {
+  function construireLiens(code, racine) {
     var b = boutiques[code];
     var perso = (cfg.liensPersonnalises || {})[code] || {};
-    document.querySelectorAll("a.aff").forEach(function (a) {
+    (racine || document).querySelectorAll("a.aff").forEach(function (a) {
       var id = a.getAttribute("data-aff");
       var recherche = a.getAttribute("data-q") || a.textContent.trim();
       var url;
@@ -36,6 +36,46 @@
 
   var boutique = boutiqueDuVisiteur();
   construireLiens(boutique);
+  // Pour les contenus ajoutés après le chargement (quiz, calculateur)
+  window.lierProduits = function (racine) { construireLiens(boutique, racine); };
+
+  // Articles : sommaire automatique et barre de progression de lecture
+  var article = document.querySelector(".container.article");
+  if (article) {
+    var TXT = { fr: "Sommaire", en: "Contents", it: "Indice" };
+    var titres = article.querySelectorAll("h2");
+    if (titres.length >= 3) {
+      var details = document.createElement("details");
+      details.className = "toc-art";
+      details.open = window.innerWidth > 820;
+      var liste = document.createElement("ol");
+      titres.forEach(function (h, i) {
+        if (!h.id) h.id = "partie-" + (i + 1);
+        var li = document.createElement("li");
+        var a = document.createElement("a");
+        a.href = "#" + h.id;
+        a.textContent = h.textContent;
+        li.appendChild(a);
+        liste.appendChild(li);
+      });
+      details.innerHTML = "<summary>📑 " + (TXT[langue] || TXT.fr) + "</summary>";
+      details.appendChild(liste);
+      var apres = article.querySelector(".lead");
+      if (apres) apres.insertAdjacentElement("afterend", details);
+    }
+    var barre = document.createElement("div");
+    barre.className = "lecture";
+    barre.setAttribute("aria-hidden", "true");
+    document.body.appendChild(barre);
+    var majBarre = function () {
+      var r = article.getBoundingClientRect();
+      var total = r.height - window.innerHeight;
+      var k = total > 0 ? Math.min(1, Math.max(0, -r.top / total)) : 1;
+      barre.style.transform = "scaleX(" + k + ")";
+    };
+    window.addEventListener("scroll", majBarre, { passive: true });
+    majBarre();
+  }
 
   // Menu mobile
   var bouton = document.querySelector(".nav-toggle");

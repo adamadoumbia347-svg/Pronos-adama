@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://educanimaux.fr/age-humain.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/age-humain.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/age-humain.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/age-humain.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://educanimaux.fr/chat-griffe-canape.html</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/chat-griffe-canape.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/chat-griffe-canape.html"/>
@@ -100,10 +107,24 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://educanimaux.fr/quiz.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/quiz.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/quiz.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/quiz.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://educanimaux.fr/rappel-chien.html</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/rappel-chien.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/rappel-chien.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/rappel-chien.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/en/age-humain.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/age-humain.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/age-humain.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/age-humain.html"/>
     <priority>0.7</priority>
   </url>
   <url>
@@ -191,10 +212,24 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://educanimaux.fr/en/quiz.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/quiz.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/quiz.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/quiz.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://educanimaux.fr/en/rappel-chien.html</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/rappel-chien.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/rappel-chien.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/rappel-chien.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/it/age-humain.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/age-humain.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/age-humain.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/age-humain.html"/>
     <priority>0.7</priority>
   </url>
   <url>
@@ -279,6 +314,13 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/proprete-chiot.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/proprete-chiot.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/proprete-chiot.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/it/quiz.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/quiz.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/quiz.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/quiz.html"/>
     <priority>0.7</priority>
   </url>
   <url>
