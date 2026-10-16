@@ -38,7 +38,7 @@ class Analyse(HTMLParser):
             self.liens.append(a)
         if tag == "link" and a.get("rel") == "stylesheet" and not a["href"].startswith("http"):
             self.assets.append(a["href"])
-        if tag == "script" and a.get("src"):
+        if tag == "script" and a.get("src") and not a["src"].startswith(("http", "//")):
             self.assets.append(a["src"])
         if tag == "img" and a.get("src") and not a["src"].startswith(("http", "data:")):
             self.assets.append(a["src"])
