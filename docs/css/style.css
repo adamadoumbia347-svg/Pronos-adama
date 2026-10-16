@@ -338,3 +338,11 @@ th { background: var(--soft); }
 .nl-boite input { flex: 1 1 240px; max-width: 360px; padding: 12px 16px; border-radius: 999px; border: 1px solid var(--border); font: inherit; }
 .nl-boite .nl-mention { font-size: .82rem; color: var(--muted); margin: 0; }
 .nl-merci { background:#e6f3ef; border-radius:14px; padding:14px 18px; margin:16px 0 8px; color:#1f5a4e; font-weight:700; }
+.produit { display: grid; grid-template-columns: minmax(220px, 340px) 1fr; gap: 34px; align-items: start; margin: 10px 0 30px; }
+.produit-visuel img { width: 100%; height: auto; border-radius: 14px; box-shadow: 0 14px 40px rgba(60, 30, 10, .18); }
+.produit h1 { margin-top: 0; }
+.liste-avantages { list-style: none; padding: 0; margin: 18px 0; } .liste-avantages li { margin-bottom: 8px; }
+.achat { background: #fff; border: 1px solid var(--border); border-radius: 18px; padding: 18px 20px; }
+.achat .prix { font-size: 1.9rem; font-weight: 900; margin: 0 0 12px; } .achat .prix small { font-size: .85rem; font-weight: 600; color: var(--muted); }
+.bientot { margin: 0; color: var(--muted); }
+@media (max-width: 760px) { .produit { grid-template-columns: 1fr; } .produit-visuel { max-width: 260px; margin: 0 auto; } }

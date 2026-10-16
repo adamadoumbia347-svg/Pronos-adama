@@ -64,6 +64,12 @@ window.AFFILIATION = {
     champsCaches: { email_address_check: "", locale: "fr", html_type: "simple" }
   },
 
+  // Produits numériques vendus par le site (Payhip, Gumroad…) : collez le lien de la page d'achat.
+  // Tant qu'il est vide, la page du produit affiche « Bientôt disponible ».
+  produits: {
+    programmeChiot: { url: "", prix: "12 €" }
+  },
+
   // Liens précis qui remplacent la recherche Amazon pour un produit donné,
   // par boutique. La clé correspond à l'attribut data-aff du lien.
   // Exemple : liensPersonnalises: { fr: { harnais: "https://..." } }

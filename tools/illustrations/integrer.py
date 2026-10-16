@@ -133,7 +133,8 @@ for lang, page in (("fr", "index.html"), ("en", "en/index.html"), ("it", "it/ind
 CARTES = {"chien.html": "portrait-chien", "chat.html": "portrait-chat", "nac.html#lapin": "portrait-lapin", "nac.html#oiseau": "portrait-oiseau",
           "quiz.html": "quiz", "age-humain.html": "age", "meilleur-harnais-chien.html": "harnais", "meilleur-griffoir-chat.html": "griffoir",
           "meilleur-clicker.html": "chat-clicker", "proprete-chiot.html": "proprete-moments", "rappel-chien.html": "rappel",
-          "marche-en-laisse.html": "laisse", "chat-griffe-canape.html": "griffoir", "chiot-mord.html": "chiot-jouet"}
+          "marche-en-laisse.html": "laisse", "chat-griffe-canape.html": "griffoir", "chiot-mord.html": "chiot-jouet",
+          "kit-accueil-chiot.html": "chiot-jouet", "idees-cadeaux-noel-chien-chat.html": "accueil", "black-friday-animaux.html": "harnais"}
 CARTE = re.compile(r'(<a class="card card-link" href="([^"]+)">\s*)<span class="icon">([^<]*)</span>')
 for d in ("", "en/", "it/"):
     for page in ("index.html", "conseils.html"):

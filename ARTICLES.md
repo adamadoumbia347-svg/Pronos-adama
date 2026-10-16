@@ -182,3 +182,6 @@ Quand une liste est presque vide, ajouter 6 nouveaux sujets utiles et non trait�
 - 2026-10-16 — Quel clicker choisir pour éduquer son animal ? (`meilleur-clicker.html`)
 - 2026-10-16 — Quel griffoir choisir pour son chat ? Le comparatif (`meilleur-griffoir-chat.html`)
 - 2026-10-16 — Quel harnais choisir pour son chien ? Le comparatif (`meilleur-harnais-chien.html`)
+- 2026-10-16 — Idées cadeaux de Noël pour chien et chat : 15 cadeaux utiles qui leur font plaisir (`idees-cadeaux-noel-chien-chat.html`)
+- 2026-10-16 — Black Friday 2026 pour chien et chat : quoi acheter (et quoi éviter) (`black-friday-animaux.html`)
+- 2026-10-16 — Accueillir un chiot : la liste complète du matériel (`kit-accueil-chiot.html`)
