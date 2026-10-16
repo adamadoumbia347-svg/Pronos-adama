@@ -82,6 +82,10 @@ function setup(cfg) {
       <div class="small" style="margin-top:10px;color:#6b5f57">${tip.d}</div></div>`;
   });
   $("ctaT").innerHTML = cfg.cta;
+  $("ctaU").textContent = cfg.url || "educanimaux.fr";
+  $("ctaB").textContent = cfg.bio || "👆 Lien en bio";
+  $("ctaS").innerHTML = cfg.follow || "Abonne-toi : 1 astuce<br>par semaine 🐾";
+  document.documentElement.lang = cfg.lang || "fr";
   document.querySelectorAll(".scene .mid, .scene .big, .scene .small, .tagline").forEach(el => {
     if (!el.closest(".box")) el.style.color = cfg.ink;
   });

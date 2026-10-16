@@ -1,6 +1,6 @@
 const { chromium } = require('playwright');
-const [,, idx, mode, out] = process.argv;
-const cfg = require(__dirname + '/serie.json')[+idx];
+const [,, idx, mode, out, fichier = 'serie.json'] = process.argv;
+const cfg = require(require('path').resolve(__dirname, fichier))[+idx];
 (async () => {
   const b = await chromium.launch({executablePath: '/opt/pw-browsers/chromium'});
   const p = await b.newPage({ viewport: { width: 540, height: 960 }, deviceScaleFactor: 2 });
