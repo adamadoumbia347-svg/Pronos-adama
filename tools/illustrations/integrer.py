@@ -106,6 +106,12 @@ PLACES = [
  ("age-humain.html", "fr", "vous donnons les conseils adaptés à son étape de vie.</p>", "age"),
  ("en/age-humain.html", "en", "give you tips suited to its life stage.</p>", "age"),
  ("it/age-humain.html", "it", "ti diamo i consigli adatti alla sua fase di vita.</p>", "age"),
+ ("en/meilleur-harnais-chien.html", "en", "<h2>Why a harness rather than a collar?</h2>", "harnais"),
+ ("it/meilleur-harnais-chien.html", "it", "<h2>Perché una pettorina e non un collare?</h2>", "harnais"),
+ ("en/meilleur-griffoir-chat.html", "en", "<h2>The 4 criteria that really matter</h2>", "griffoir"),
+ ("it/meilleur-griffoir-chat.html", "it", "<h2>I 4 criteri che contano davvero</h2>", "griffoir"),
+ ("en/meilleur-clicker.html", "en", "<h2>Reminder: what is a clicker for?</h2>", "chat-clicker"),
+ ("it/meilleur-clicker.html", "it", "<h2>Promemoria: a cosa serve un clicker?</h2>", "chat-clicker"),
 ]
 HERO = {"fr": "Un chien et un chat assis côte à côte", "en": "A dog and a cat sitting side by side", "it": "Un cane e un gatto seduti fianco a fianco"}
 n = 0
