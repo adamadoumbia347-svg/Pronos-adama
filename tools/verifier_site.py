@@ -40,6 +40,10 @@ class Analyse(HTMLParser):
             self.assets.append(a["href"])
         if tag == "script" and a.get("src"):
             self.assets.append(a["src"])
+        if tag == "img" and a.get("src") and not a["src"].startswith(("http", "data:")):
+            self.assets.append(a["src"])
+            if not a.get("alt"):
+                self.erreurs.append(f"image sans texte alternatif ({a['src']})")
 
     def handle_endtag(self, tag):
         if tag == "a" and self.dans_lien:

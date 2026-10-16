@@ -318,3 +318,12 @@ th { background: var(--soft); }
 .quiz-choix:hover, .quiz-choix:focus-visible { border-color: var(--primary); background: var(--soft); }
 .quiz-retour { margin-top: 14px; background: none; border: 0; font: inherit; color: var(--primary-dark); cursor: pointer; font-weight: 800; padding: 6px 0; }
 .quiz-zone ul { padding-left: 1.2em; }
+
+/* ---------- Illustrations ---------- */
+.illu { margin: 18px 0 24px; }
+.illu img { display: block; width: 100%; height: auto; border-radius: 18px; border: 1px solid var(--border); background: #fffaf3; }
+.illu figcaption { font-size: .92rem; color: var(--muted); text-align: center; margin-top: 8px; line-height: 1.45; }
+.card .illu { margin: 12px 0 16px; }
+.hero-illu { text-align: center; }
+.hero-illu img { width: 100%; max-width: 460px; height: auto; }
+@media (max-width: 820px) { .hero-illu { order: -1; } .hero-illu img { max-width: 300px; } }
