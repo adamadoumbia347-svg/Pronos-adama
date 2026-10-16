@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Nunito'; src: url('../../docs/fonts/nunito-latin.woff2') format('woff2'); font-weight: 400 900; }
+@font-face { font-family: 'Nunito'; src: url('../../docs/fonts/nunito-latin-ext.woff2') format('woff2'); font-weight: 400 900; unicode-range: U+0100-024F; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 540px; height: 960px; overflow: hidden; }
+body { font-family: 'Nunito', sans-serif; color: #2b2420; position: relative; }
+#bg { position: absolute; inset: 0; }
+.scene { position: absolute; left: 0; top: 0; width: 540px; height: 960px; opacity: 0;
+  display: flex; flex-direction: column; align-items: center; padding: 215px 70px 0 40px; text-align: center; }
+.big { font-size: 62px; font-weight: 900; line-height: 1.05; letter-spacing: -1px; }
+.mid { font-size: 44px; font-weight: 900; line-height: 1.12; }
+.small { font-size: 28px; font-weight: 800; line-height: 1.28; }
+.emoji { font-size: 180px; line-height: 1; display: inline-block; }
+.hl { background: #ffd23f; color: #2b2420; padding: 0 12px; border-radius: 14px; display: inline-block; }
+.num { width: 110px; height: 110px; border-radius: 50%; background: #ffd23f; color: #2b2420; font-size: 66px; font-weight: 900;
+  display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 26px rgba(0,0,0,.25); }
+.box { background: #fff; color: #2b2420; border-radius: 26px; padding: 22px 24px; margin-top: 26px; width: 430px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.2); }
+.pill { background: #fff; color: #b44c1c; border-radius: 999px; padding: 16px 30px; font-size: 40px; font-weight: 900;
+  box-shadow: 0 12px 30px rgba(0,0,0,.25); display: inline-block; }
+.tagline { position: absolute; left: 40px; right: 70px; top: 70px; text-align: center; font-size: 22px; font-weight: 900; }
+.counter { position: absolute; left: 40px; right: 70px; top: 112px; display: flex; gap: 10px; justify-content: center; }
+.counter i { width: 46px; height: 8px; border-radius: 6px; background: rgba(255,255,255,.35); }
+.counter i.on { background: #ffd23f; }
+</style>
+</head>
+<body>
+<div id="bg"></div>
+
+<div class="scene" id="hook">
+  <div class="big" id="hookT"></div>
+  <div class="emoji" id="hookE" style="margin-top:60px;font-size:150px;white-space:nowrap"></div>
+</div>
+
+<div class="scene" id="intro">
+  <div class="mid" id="introT" style="margin-top:110px"></div>
+  <div class="emoji" id="introE" style="margin-top:50px;font-size:140px">👇</div>
+</div>
+
+<div class="scene" id="tip0"></div>
+<div class="scene" id="tip1"></div>
+<div class="scene" id="tip2"></div>
+
+<div class="scene" id="cta" style="padding-top:230px">
+  <div class="emoji" id="ctaE" style="font-size:130px">🐾</div>
+  <div class="mid" id="ctaT" style="margin-top:20px"></div>
+  <div style="margin-top:40px"><span class="pill" id="ctaU">educanimaux.fr</span></div>
+  <div class="mid" id="ctaB" style="margin-top:44px">👆 Lien en bio</div>
+  <div class="small" id="ctaS" style="margin-top:24px">Abonne-toi : 1 astuce<br>par semaine 🐾</div>
+</div>
+
+<div class="tagline" id="tag">🐾 educanimaux.fr</div>
+<div class="counter" id="counter"><i></i><i></i><i></i></div>
+
+<script>
+const $ = id => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const easeOut = x => 1 - Math.pow(1 - x, 3);
+const back = x => { const c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); };
+const p = (t, s, d) => clamp((t - s) / d);
+function pop(el, t, s, d = 0.45) { const k = p(t, s, d); el.style.opacity = k > 0 ? 1 : 0; el.style.transform = `scale(${k > 0 ? back(k) : 0})`; }
+function slide(el, t, s, d = 0.45, dx = 0, dy = 60) { const k = easeOut(p(t, s, d)); el.style.opacity = k; el.style.transform = `translate(${(1 - k) * dx}px, ${(1 - k) * dy}px)`; }
+
+// Chronologie (s)
+const T = { hook: [0, 3.2], intro: [3.2, 5.4], tip0: [5.4, 9.6], tip1: [9.6, 13.8], tip2: [13.8, 18.0], cta: [18.0, 22.0] };
+window.DUREE = 22.0;
+window.TRANSITIONS = [3.2, 5.4, 9.6, 13.8, 18.0];
+let C;
+
+function setup(cfg) {
+  C = cfg;
+  $("hookT").innerHTML = cfg.hook; $("hookE").textContent = cfg.hookEmoji;
+  $("introT").innerHTML = cfg.intro;
+  cfg.tips.forEach((tip, i) => {
+    $("tip" + i).innerHTML = `<div class="num" id="n${i}">${i + 1}</div>
+      <div class="emoji" id="e${i}" style="font-size:120px;margin-top:26px">${tip.e}</div>
+      <div class="box" id="b${i}"><div class="mid" style="font-size:38px">${tip.t}</div>
+      <div class="small" style="margin-top:10px;color:#6b5f57">${tip.d}</div></div>`;
+  });
+  $("ctaT").innerHTML = cfg.cta;
+  document.querySelectorAll(".scene .mid, .scene .big, .scene .small, .tagline").forEach(el => {
+    if (!el.closest(".box")) el.style.color = cfg.ink;
+  });
+  $("ctaU").style.color = cfg.colors[1];
+}
+
+function render(t) {
+  const cur = Object.entries(T).find(([, [a, b]]) => t >= a && t < b) || ["cta"];
+  const bgs = { hook: C.colors[2], intro: C.colors[0], tip0: C.colors[0], tip1: C.colors[0], tip2: C.colors[0], cta: C.colors[1] };
+  $("bg").style.background = cur[0] === "hook" ? `linear-gradient(160deg, ${C.colors[2]}, #fffaf3)` : `linear-gradient(160deg, ${bgs[cur[0]]}, ${C.colors[1]})`;
+  const dark = cur[0] !== "hook";
+  document.querySelectorAll(".scene .mid, .scene .big, .scene .small, .tagline").forEach(el => {
+    if (!el.closest(".box")) el.style.color = dark ? "#fff" : "#2b2420";
+  });
+  for (const [id, [a, b]] of Object.entries(T)) {
+    const inK = p(t, a, 0.25), outK = p(t, b - 0.25, 0.25);
+    const vis = t >= a && t < b + 0.01 ? inK * (1 - outK) : 0;
+    $(id).style.opacity = id === "hook" && t < 0.01 ? 1 : vis;
+    $(id).style.transform = `scale(${0.96 + 0.04 * inK + 0.06 * outK})`;
+  }
+  // accroche : visible dès la 1re image (important pour la miniature)
+  const k0 = t < 0.01 ? 1 : p(t, 0, 0.4);
+  $("hookT").style.opacity = 1; $("hookT").style.transform = `scale(${t < 0.01 ? 1 : back(k0)})`;
+  pop($("hookE"), t, 0.35, 0.5);
+  if (t < 0.01) { $("hookE").style.opacity = 1; $("hookE").style.transform = "scale(1)"; }
+  $("hookE").style.transform += ` rotate(${Math.sin(t * 12) * 9}deg)`;
+  // intro
+  pop($("introT"), t, 3.3, 0.45);
+  pop($("introE"), t, 3.8, 0.4);
+  $("introE").style.transform += ` translateY(${Math.abs(Math.sin((t - 3.8) * 6)) * 18}px)`;
+  // astuces
+  [0, 1, 2].forEach(i => {
+    const s = T["tip" + i][0];
+    pop($("n" + i), t, s + 0.05, 0.4);
+    pop($("e" + i), t, s + 0.35, 0.45);
+    $("e" + i).style.transform += ` rotate(${Math.sin(t * 6) * 6}deg)`;
+    slide($("b" + i), t, s + 0.7, 0.45);
+  });
+  // compteur 1-2-3
+  const step = t < 5.4 || t >= 18 ? -1 : t < 9.6 ? 0 : t < 13.8 ? 1 : 2;
+  $("counter").style.opacity = step < 0 ? 0 : 1;
+  [...$("counter").children].forEach((el, i) => el.className = i <= step ? "on" : "");
+  // appel à l'action
+  pop($("ctaE"), t, 18.1, 0.45);
+  $("ctaE").style.transform += ` rotate(${Math.sin(t * 5) * 8}deg)`;
+  slide($("ctaT"), t, 18.4, 0.45);
+  pop($("ctaU"), t, 18.9, 0.5);
+  if (t > 19.5) $("ctaU").style.transform = `scale(${1 + 0.06 * Math.sin((t - 19.5) * 7)})`;
+  slide($("ctaB"), t, 19.5, 0.4);
+  $("ctaB").style.transform += ` translateY(${t > 19.9 ? -Math.abs(Math.sin((t - 19.9) * 5)) * 12 : 0}px)`;
+  slide($("ctaS"), t, 20.1, 0.45);
+  $("tag").style.opacity = t >= 18 ? 0 : 1;
+}
+window.setup = setup; window.render = render;
+</script>
+</body>
+</html>
