@@ -277,11 +277,6 @@ th { background: var(--soft); }
 }
 .lang-switch a[aria-current="true"] { background: var(--soft); color: var(--primary-dark); }
 @media (min-width: 821px) { .lang-switch { order: 2; margin-left: 12px; margin-right: 0; } .nav-links { order: 1; margin-left: auto; } }
-.shop { white-space: nowrap; }
-.shop select {
-  font: inherit; font-size: .85rem; color: var(--text); background: #fff;
-  border: 0; border-radius: 6px; padding: 1px 4px; margin-left: 4px;
-}
 
 /* Texte réservé aux lecteurs d'écran */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }

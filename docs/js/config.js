@@ -16,10 +16,9 @@
  *   - Canada      : https://associates.amazon.ca          (tag en -20)
  * Une boutique sans tag fonctionne quand même, mais ne rapporte rien.
  *
- * Le site choisit la boutique du visiteur ainsi :
- *   1. celle qu'il a choisie dans le menu « Boutique » (mémorisée) ;
- *   2. sinon, d'après la langue et le pays de son navigateur (ex. en-GB → Royaume-Uni) ;
- *   3. sinon, la boutique par défaut de la langue de la page.
+ * Le site choisit automatiquement la boutique du visiteur :
+ *   1. d'après la langue et le pays de son navigateur (ex. en-GB → Royaume-Uni) ;
+ *   2. sinon, la boutique par défaut de la langue de la page.
  */
 window.AFFILIATION = {
   boutiques: {

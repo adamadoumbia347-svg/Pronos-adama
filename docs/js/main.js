@@ -2,19 +2,8 @@
   var cfg = window.AFFILIATION || {};
   var boutiques = cfg.boutiques || { fr: { nom: "Amazon.fr", domaine: "amazon.fr", tag: "" } };
   var langue = (document.documentElement.lang || "fr").slice(0, 2);
-  var CLE_STOCKAGE = "educanimaux-boutique";
-
-  function lireChoix() {
-    try { return localStorage.getItem(CLE_STOCKAGE); } catch (e) { return null; }
-  }
-  function ecrireChoix(v) {
-    try { localStorage.setItem(CLE_STOCKAGE, v); } catch (e) {}
-  }
-
-  // Boutique du visiteur : choix mémorisé > pays du navigateur > langue de la page.
+  // Boutique du visiteur : pays du navigateur, sinon langue de la page.
   function boutiqueDuVisiteur() {
-    var choix = lireChoix();
-    if (choix && boutiques[choix]) return choix;
     var parPays = cfg.boutiqueParPays || {};
     var langues = navigator.languages || [navigator.language || ""];
     for (var i = 0; i < langues.length; i++) {
@@ -47,22 +36,6 @@
 
   var boutique = boutiqueDuVisiteur();
   construireLiens(boutique);
-
-  // Menu « Boutique » : permet au visiteur de changer de pays.
-  var selecteur = document.getElementById("boutique");
-  if (selecteur) {
-    Object.keys(boutiques).forEach(function (code) {
-      var o = document.createElement("option");
-      o.value = code;
-      o.textContent = boutiques[code].nom;
-      selecteur.appendChild(o);
-    });
-    selecteur.value = boutique;
-    selecteur.addEventListener("change", function () {
-      ecrireChoix(selecteur.value);
-      construireLiens(selecteur.value);
-    });
-  }
 
   // Menu mobile
   var bouton = document.querySelector(".nav-toggle");

@@ -28,7 +28,7 @@ les balises `hreflang` et `docs/sitemap.xml` (`tools/publier_article.py` le fait
 
 Ouvrez `docs/js/config.js` : chaque boutique Amazon (France, Italie, Espagne, Allemagne, Royaume-Uni, États-Unis, Canada)
 a son propre champ `tag`. Inscrivez-vous au programme Partenaires de chaque pays et collez l'identifiant correspondant.
-Le site choisit la boutique du visiteur (choix mémorisé dans le menu « Boutique », sinon pays du navigateur, sinon langue de la page).
+Le site choisit automatiquement la boutique du visiteur (pays du navigateur, sinon langue de la page).
 Une boutique sans tag fonctionne mais ne rapporte rien.
 
 Pour un autre programme (Zooplus via Awin, etc.), ajoutez un lien précis dans `liensPersonnalises`, par boutique et par clé `data-aff`.
