@@ -156,5 +156,140 @@ S['accueil'] = (() => { const w = 600, h = 480, y = 430;
     ${at(250, y, 1.3, P.chienAssis({ tete: -6 }))}${at(462, y, 1.15, chatAssis(), true)}
     ${coeur(340, 110, 1.8)}${etoiles(120, 120)}${etoiles(470, 60)}`, 'transparent'); })();
 
+
+// ---------- NAC ----------
+const L = { poil: '#cdbfb0', fonce: '#a8978a', clair: '#f3ece4', rose: '#f2a7b0' };
+// Lapin assis (regarde à droite)
+function lapin() {
+  return `<g>
+    <circle cx="-58" cy="-30" r="15" fill="${L.clair}"/>
+    <ellipse cx="-10" cy="-50" rx="52" ry="48" fill="${L.poil}"/>
+    <ellipse cx="-18" cy="-8" rx="38" ry="11" fill="${L.fonce}"/>
+    <ellipse cx="14" cy="-52" rx="22" ry="34" fill="${L.clair}" opacity=".7"/>
+    <rect x="18" y="-42" width="13" height="42" rx="6.5" fill="${L.poil}"/><rect x="32" y="-40" width="13" height="40" rx="6.5" fill="${L.fonce}"/>
+    <g transform="translate(34,-112)">
+      <ellipse cx="-16" cy="-52" rx="12" ry="42" fill="${L.poil}" transform="rotate(-14 -16 -20)"/><ellipse cx="-16" cy="-52" rx="5" ry="30" fill="${L.rose}" transform="rotate(-14 -16 -20)"/>
+      <ellipse cx="6" cy="-54" rx="12" ry="42" fill="${L.poil}" transform="rotate(10 6 -20)"/><ellipse cx="6" cy="-54" rx="5" ry="30" fill="${L.rose}" transform="rotate(10 6 -20)"/>
+      <ellipse cx="0" cy="0" rx="36" ry="31" fill="${L.poil}"/>
+      <ellipse cx="20" cy="10" rx="16" ry="12" fill="${L.clair}"/>
+      <circle cx="10" cy="-6" r="5.5" fill="#2b2420"/><circle cx="11.5" cy="-7.5" r="1.7" fill="#fff"/>
+      <path d="M30 4 l7 0 l-3.5 5 z" fill="#e0566b"/>
+      <path d="M34 12 l22 -4 M34 15 l22 3" stroke="#8a7d72" stroke-width="1.6"/>
+    </g>
+  </g>`;
+}
+// Rat (de profil, regarde à droite)
+function rat(debout = false) {
+  if (debout) return `<g>
+    <path d="M-20 -8 q-60 10 -90 -20" stroke="${L.rose}" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <ellipse cx="0" cy="-50" rx="32" ry="50" fill="#9b8f86" transform="rotate(14 0 -50)"/>
+    <ellipse cx="8" cy="-48" rx="16" ry="34" fill="#d8cfc6" transform="rotate(14 8 -48)"/>
+    <ellipse cx="-14" cy="-6" rx="22" ry="8" fill="${L.rose}"/>
+    <rect x="18" y="-82" width="10" height="34" rx="5" fill="${L.rose}" transform="rotate(-50 22 -80)"/>
+    <g transform="translate(26,-106)">
+      <circle cx="-14" cy="-20" r="15" fill="${L.rose}" stroke="#9b8f86" stroke-width="5"/>
+      <ellipse cx="6" cy="0" rx="32" ry="21" fill="#9b8f86" transform="rotate(-18)"/>
+      <circle cx="34" cy="-12" r="5" fill="${L.rose}"/>
+      <circle cx="10" cy="-8" r="4.5" fill="#2b2420"/>
+      <path d="M34 -8 l22 -2 M34 -5 l20 6" stroke="#5d5650" stroke-width="1.4"/>
+    </g></g>`;
+  return `<g>
+    <path d="M-60 -24 q-60 20 -110 -12" stroke="${L.rose}" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <ellipse cx="-6" cy="-36" rx="60" ry="34" fill="#9b8f86"/>
+    <rect x="-40" y="-14" width="12" height="16" rx="6" fill="${L.rose}"/><rect x="26" y="-14" width="12" height="16" rx="6" fill="${L.rose}"/>
+    <ellipse cx="54" cy="-40" rx="34" ry="22" fill="#9b8f86" transform="rotate(10 54 -40)"/>
+    <circle cx="38" cy="-62" r="15" fill="${L.rose}" stroke="#9b8f86" stroke-width="5"/>
+    <circle cx="86" cy="-32" r="5" fill="${L.rose}"/><circle cx="62" cy="-46" r="4.5" fill="#2b2420"/>
+  </g>`;
+}
+// Furet (de profil, regarde à droite)
+function furet() {
+  const f = '#ead9bc', m = '#6e4f33';
+  return `<g>
+    <path d="M-86 -40 q-40 -4 -66 26" stroke="${m}" stroke-width="18" fill="none" stroke-linecap="round"/>
+    ${[-64, -46].map(x => `<rect x="${x}" y="-40" width="16" height="40" rx="8" fill="${m}"/>`).join('')}
+    ${[46, 64].map(x => `<rect x="${x}" y="-40" width="16" height="40" rx="8" fill="${m}"/>`).join('')}
+    <ellipse cx="0" cy="-46" rx="94" ry="26" fill="${f}"/>
+    <ellipse cx="-30" cy="-40" rx="60" ry="18" fill="#d9c29e" opacity=".6"/>
+    <ellipse cx="92" cy="-62" rx="24" ry="22" fill="${f}"/>
+    <g transform="translate(116,-78)">
+      <circle cx="-16" cy="-18" r="10" fill="${f}" stroke="${m}" stroke-width="4"/>
+      <ellipse cx="0" cy="0" rx="30" ry="22" fill="${f}"/>
+      <ellipse cx="6" cy="-4" rx="20" ry="9" fill="${m}" opacity=".85"/>
+      <circle cx="10" cy="-4" r="4.5" fill="#1d1714"/><circle cx="11.3" cy="-5.3" r="1.4" fill="#fff"/>
+      <circle cx="30" cy="4" r="5" fill="#e0566b"/>
+      <path d="M28 8 l20 -2 M28 11 l18 5" stroke="#8a7d72" stroke-width="1.4"/>
+    </g>
+  </g>`;
+}
+// Perroquet (pattes à l'origine, regarde à droite)
+function perroquet() {
+  return `<g>
+    <path d="M-12 -34 L-44 86 L-22 90 L6 -28 Z" fill="#2f7d4a"/><path d="M-22 40 L-38 88 L-28 90 Z" fill="#3d7bb3"/>
+    <ellipse cx="0" cy="-62" rx="34" ry="54" fill="#3c9a5f" transform="rotate(14 0 -62)"/>
+    <ellipse cx="12" cy="-58" rx="17" ry="38" fill="#7ccc95" transform="rotate(14 12 -58)"/>
+    <ellipse cx="-14" cy="-56" rx="20" ry="44" fill="#2f7d4a" transform="rotate(20 -14 -56)"/>
+    <ellipse cx="-24" cy="-26" rx="10" ry="20" fill="#3d7bb3" transform="rotate(20 -24 -26)"/>
+    <g transform="translate(16,-124)">
+      <circle r="31" fill="#3c9a5f"/>
+      <circle cx="10" cy="4" r="17" fill="#ffd23f"/><circle cx="-8" cy="-22" r="10" fill="#c9442f" opacity=".85"/>
+      <circle cx="12" cy="-4" r="7" fill="#fff"/><circle cx="13" cy="-4" r="4.2" fill="#1d1714"/>
+      <path d="M24 -10 q30 0 26 30 q-8 -10 -22 -8 z" fill="#4a4a52"/><path d="M26 10 q12 2 14 14 q-10 -2 -16 -8z" fill="#2b2420"/>
+    </g>
+    <g fill="#8a8f99"><ellipse cx="-6" cy="-2" rx="9" ry="6"/><ellipse cx="14" cy="-2" rx="9" ry="6"/></g>
+  </g>`;
+}
+const separation = (x, y) => `<line x1="${x}" y1="40" x2="${x}" y2="${y - 20}" stroke="#eadfd3" stroke-width="4" stroke-dasharray="10 12"/>`;
+const foin = (x, y, n = 18) => { let r = ''; for (let i = 0; i < n; i++) { const a = -0.9 + 1.8 * i / n, l = 34 + (i * 7) % 18; r += `<line x1="${x + i * 5 - n * 2.5}" y1="${y}" x2="${x + i * 5 - n * 2.5 + l * Math.sin(a)}" y2="${y - l * Math.cos(a)}" stroke="${i % 2 ? '#d6b45a' : '#b9973f'}" stroke-width="4" stroke-linecap="round"/>`; } return r; };
+const cible = (x1, y1, x2, y2) => `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#2b2420" stroke-width="7" stroke-linecap="round"/><circle cx="${x2}" cy="${y2}" r="15" fill="#c9442f"/>`;
+
+// 11. Lapin : bac à litière garni de foin (propreté) + main qui offre une feuille (confiance)
+S['lapin'] = (() => { const w = 1200, h = 460, y = 420;
+  const bac = `<path d="M110 ${y} l20 -90 h300 l20 90 z" fill="#5592c8"/><rect x="120" y="${y - 96}" width="320" height="16" rx="8" fill="#3d7bb3"/>`;
+  const feuille = (x, yy) => `<g transform="translate(${x},${yy}) rotate(-30)"><path d="M0 0 q30 -26 60 0 q-30 26 -60 0z" fill="#5fae5a"/><path d="M0 0 h60" stroke="#3c8a3a" stroke-width="3"/></g>`;
+  return svg(w, h, `${sol(y, w)}
+    ${foin(380, y - 80, 14)}${at(240, y - 36, 0.95, lapin())}${bac}${ok(520, 70)}
+    ${separation(600, y)}
+    ${at(820, y, 1.05, lapin())}<g transform="translate(990,300)"><rect x="0" y="-16" width="260" height="34" rx="17" fill="${C.habit}"/><circle cx="4" cy="0" r="22" fill="${C.peau}"/></g>${feuille(920, 304)}${coeur(980, 180, 1.5)}${etoiles(720, 110)}`); })();
+
+// 12. Rat qui touche une cible + furet qui joue avec une balle plutôt qu'avec les mains
+S['rat-furet'] = (() => { const w = 1200, h = 460, y = 420;
+  const balle = (x, yy) => `<g transform="translate(${x},${yy})"><circle r="26" fill="#ffd23f"/><path d="M-24 -8 q24 12 48 0 M-24 10 q24 -12 48 0" stroke="#fff" stroke-width="5" fill="none"/></g>`;
+  return svg(w, h, `${sol(y, w)}
+    ${at(250, y, 1.35, rat(true))}${cible(500, 170, 352, 238)}<g transform="translate(500,170) rotate(-60)"><rect x="0" y="-16" width="260" height="32" rx="16" fill="${C.habit}"/><circle cx="2" cy="0" r="20" fill="${C.peau}"/></g>${etoiles(380, 140)}
+    ${separation(600, y)}
+    ${at(800, y, 1.15, furet())}${balle(1080, y - 26)}<g stroke="#b44c1c" stroke-width="5" stroke-linecap="round"><path d="M1040 ${y - 70} l-10 -14"/><path d="M1080 ${y - 74} v-18"/><path d="M1120 ${y - 70} l10 -14"/></g>`); })();
+
+// 13. Perroquet : passer du perchoir à la main
+S['oiseau-main'] = (() => { const w = 1200, h = 460, y = 420;
+  const perchoir = `<rect x="140" y="250" width="300" height="16" rx="8" fill="#a86b3e"/><rect x="282" y="258" width="16" height="${y - 258}" fill="#a86b3e"/><rect x="220" y="${y - 14}" width="140" height="14" rx="6" fill="#8a5a33"/>`;
+  const bras = `<g transform="translate(760,262)"><rect x="0" y="-16" width="420" height="34" rx="17" fill="${C.habit}"/><rect x="-80" y="-14" width="96" height="30" rx="15" fill="${C.peau}"/><circle cx="8" cy="0" r="22" fill="${C.peau}"/></g>`;
+  return svg(w, h, `${sol(y, w)}${perchoir}${at(290, 250, 1, perroquet())}
+    ${fleche(470, 170, 640, 170)}
+    ${bras}${at(720, 250, 1, perroquet())}${coeur(830, 110, 1.4)}${etoiles(600, 80)}${ok(1110, 70)}`); })();
+
+// ---------- Portraits pour les cartes de l'accueil (600×400) ----------
+const portrait = (fondRond, contenu) => svg(600, 400, `<circle cx="300" cy="215" r="155" fill="${fondRond}"/>${sol(370, 600)}${contenu}`, '#fffaf3');
+S['portrait-chien'] = portrait('#ffe0c7', `${at(270, 370, 1.25, P.chienAssis({ tete: -8 }))}${etoiles(460, 90)}`);
+S['portrait-chat'] = portrait('#e3e6ee', `${at(280, 370, 1.35, chatAssis())}${coeur(450, 110, 1.6)}`);
+S['portrait-lapin'] = portrait('#e5f3d5', `${at(280, 370, 1.2, lapin())}${foin(460, 370, 14)}`);
+S['portrait-oiseau'] = portrait('#d6efe8', `<rect x="150" y="260" width="300" height="16" rx="8" fill="#a86b3e"/><rect x="292" y="268" width="16" height="102" fill="#a86b3e"/><rect x="230" y="358" width="140" height="12" rx="6" fill="#8a5a33"/>${at(300, 260, 1, perroquet())}${etoiles(450, 80)}`);
+
+// ---------- Outils ----------
+const pointInterro = (x, y, s, col) => `<g transform="translate(${x},${y}) scale(${s})" fill="none" stroke="${col}" stroke-width="12" stroke-linecap="round"><path d="M-18 -30 q0 -26 20 -26 q22 0 22 22 q0 16 -22 24 v14"/><circle cx="2" cy="30" r="3" fill="${col}"/></g>`;
+S['quiz'] = svg(1200, 460, `${sol(420, 1200)}<circle cx="600" cy="250" r="190" fill="#ffe0c7"/>
+  ${at(470, 420, 1.15, P.chienAssis({ tete: -12 }))}${at(760, 420, 1.15, chatAssis(), true)}
+  ${pointInterro(560, 110, 1, '#b44c1c')}${pointInterro(660, 80, 0.7, '#2f7d6d')}${pointInterro(470, 70, 0.6, '#3d7bb3')}
+  ${etoiles(880, 100)}${etoiles(250, 140)}`);
+S['age'] = (() => { const y = 420;
+  const gateau = (x) => `<g transform="translate(${x},${y})"><rect x="-80" y="-80" width="160" height="80" rx="12" fill="#f6dcbc"/><rect x="-80" y="-80" width="160" height="22" rx="10" fill="#e0566b"/>
+    <path d="M-80 -58 q20 16 40 0 q20 16 40 0 q20 16 40 0 q20 16 40 0" fill="#e0566b"/><rect x="-6" y="-130" width="12" height="50" rx="5" fill="#3d7bb3"/>
+    <path d="M0 -150 q12 12 0 22 q-12 -10 0 -22z" fill="#ffd23f"/></g>`;
+  return svg(1200, 460, `${sol(y, 1200)}
+    ${at(150, y, 0.6, P.chienAssis({ tete: -14 }))}${fleche(250, 330, 330, 330, '#eadfd3')}
+    ${at(440, y, 0.95, P.chienAssis({ tete: -6 }))}${fleche(580, 330, 660, 330, '#eadfd3')}
+    <g>${at(780, y, 0.95, P.chienAssis({ tete: 6 }))}<g transform="translate(780,${y}) scale(.95)"><g transform="translate(46,-150) rotate(6)"><path d="M0 -20 q9 -7 18 0" stroke="#f3ece4" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="8" cy="-10" r="12" fill="#fff" fill-opacity=".25" stroke="#2b2420" stroke-width="3.5"/><path d="M-4 -12 l-20 -8" stroke="#2b2420" stroke-width="3"/><circle cx="8" cy="-10" r="5" fill="#2b2420"/></g></g></g>
+    ${gateau(1060)}${etoiles(1090, 130)}`); })();
+
 for (const [nom, contenu] of Object.entries(S)) { fs.writeFileSync(path.join(OUT, nom + '.svg'), contenu); }
 console.log(Object.keys(S).length + ' illustrations écrites dans docs/img/illu/');

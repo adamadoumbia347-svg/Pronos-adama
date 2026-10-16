@@ -69,3 +69,8 @@ Voir `ARTICLES.md` (règles de rédaction, liste des sujets) :
 python3 tools/publier_article.py articles/AAAA-MM-JJ-slug.html
 python3 tools/verifier_site.py
 ```
+
+## Illustrations
+
+Dessins vectoriels sans texte (libres de droits) dans `docs/img/illu/`, générés par `node tools/illustrations/scenes.js`
+et placés dans les pages (légendes FR/EN/IT, images des cartes) par `python3 tools/illustrations/integrer.py`.

@@ -42,7 +42,7 @@ class Analyse(HTMLParser):
             self.assets.append(a["src"])
         if tag == "img" and a.get("src") and not a["src"].startswith(("http", "data:")):
             self.assets.append(a["src"])
-            if not a.get("alt"):
+            if a.get("alt") is None:
                 self.erreurs.append(f"image sans texte alternatif ({a['src']})")
 
     def handle_endtag(self, tag):

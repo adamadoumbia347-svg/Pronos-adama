@@ -34,6 +34,21 @@ L = {
  "assis-leurre": {"fr": ("Le leurre : la friandise guide la tête vers le haut et le chien s'assoit", "La friandise guide la tête vers le haut, les fesses descendent… et voilà l'assis !"),
                   "en": ("Luring: the treat guides the head up and the dog sits", "The treat guides the head up, the bottom goes down… and there's the sit!"),
                   "it": ("L'adescamento: il premio guida la testa in alto e il cane si siede", "Il premio guida la testa verso l'alto, il sedere scende… ed ecco il seduto!")},
+ "lapin": {"fr": ("Lapin dans un bac à litière garni de foin, puis lapin à qui l'on tend une feuille", "Du foin dans le bac aide le lapin à devenir propre ; une feuille tendue avec douceur l'aide à prendre confiance."),
+           "en": ("Rabbit in a litter tray filled with hay, then a rabbit being offered a leaf", "Hay in the tray helps rabbits learn to use it; a gently offered leaf helps them build trust."),
+           "it": ("Coniglio in una lettiera con il fieno, poi coniglio a cui si offre una foglia", "Il fieno nella lettiera aiuta il coniglio a diventare pulito; una foglia offerta con calma lo aiuta a fidarsi.")},
+ "rat-furet": {"fr": ("Rat qui touche une cible avec son nez, et furet qui joue avec une balle", "Le rat apprend vite à toucher une cible ; le furet se défoule sur un jouet plutôt que sur vos mains."),
+               "en": ("Rat touching a target with its nose, and a ferret playing with a ball", "Rats quickly learn to touch a target; ferrets let off steam on a toy rather than your hands."),
+               "it": ("Ratto che tocca un bersaglio con il naso e furetto che gioca con una palla", "Il ratto impara in fretta a toccare un bersaglio; il furetto si sfoga su un gioco invece che sulle tue mani.")},
+ "oiseau-main": {"fr": ("Perroquet qui passe de son perchoir à la main", "Main posée juste au-dessus des pattes, sous le ventre : l'oiseau apprend à monter tout seul."),
+                 "en": ("Parrot stepping from its perch onto a hand", "Hand held just above the feet, under the belly: the bird learns to step up on its own."),
+                 "it": ("Pappagallo che passa dal trespolo alla mano", "Mano appena sopra le zampe, sotto la pancia: l'uccello impara a salire da solo.")},
+ "quiz": {"fr": ("Un chien et un chat entourés de points d'interrogation", "Répondez à 4 questions : on vous indique la bonne méthode."),
+          "en": ("A dog and a cat surrounded by question marks", "Answer 4 questions and we'll point you to the right method."),
+          "it": ("Un cane e un gatto circondati da punti interrogativi", "Rispondi a 4 domande: ti indichiamo il metodo giusto.")},
+ "age": {"fr": ("Un chiot, un chien adulte, puis un chien âgé à lunettes, et un gâteau d'anniversaire", "Chiot, adulte, senior : chaque âge a ses besoins."),
+         "en": ("A puppy, an adult dog, then an older dog in glasses, and a birthday cake", "Puppy, adult, senior: every age has its own needs."),
+         "it": ("Un cucciolo, un cane adulto, poi un cane anziano con gli occhiali e una torta di compleanno", "Cucciolo, adulto, senior: ogni età ha i suoi bisogni.")},
 }
 # (page, langue, repère exact, illustration) : la figure est insérée juste après le repère
 PLACES = [
@@ -76,6 +91,21 @@ PLACES = [
  ("methodes.html", "fr", "<h3>🎯 Le ciblage (targeting)</h3>", "chat-clicker"),
  ("en/methodes.html", "en", "<h3>🎯 Targeting</h3>", "chat-clicker"),
  ("it/methodes.html", "it", "<h3>🎯 Il targeting</h3>", "chat-clicker"),
+ ("nac.html", "fr", "<h2>🐇 Le lapin</h2>", "lapin"),
+ ("en/nac.html", "en", "<h2>🐇 Rabbits</h2>", "lapin"),
+ ("it/nac.html", "it", "<h2>🐇 Il coniglio</h2>", "lapin"),
+ ("nac.html", "fr", "<h2 style=\"margin-top:48px\">🐀 Rats, souris et furets</h2>", "rat-furet"),
+ ("en/nac.html", "en", "<h2 style=\"margin-top:48px\">🐀 Rats, mice and ferrets</h2>", "rat-furet"),
+ ("it/nac.html", "it", "<h2 style=\"margin-top:48px\">🐀 Ratti, topi e furetti</h2>", "rat-furet"),
+ ("nac.html", "fr", "<h2>🦜 Les oiseaux</h2>", "oiseau-main"),
+ ("en/nac.html", "en", "<h2>🦜 Birds</h2>", "oiseau-main"),
+ ("it/nac.html", "it", "<h2>🦜 Gli uccelli</h2>", "oiseau-main"),
+ ("quiz.html", "fr", "recevez les méthodes, les articles et le matériel adaptés à votre situation.</p>", "quiz"),
+ ("en/quiz.html", "en", "get the methods, articles and gear that fit your situation.</p>", "quiz"),
+ ("it/quiz.html", "it", "ricevi i metodi, gli articoli e gli accessori adatti alla tua situazione.</p>", "quiz"),
+ ("age-humain.html", "fr", "vous donnons les conseils adaptés à son étape de vie.</p>", "age"),
+ ("en/age-humain.html", "en", "give you tips suited to its life stage.</p>", "age"),
+ ("it/age-humain.html", "it", "ti diamo i consigli adatti alla sua fase di vita.</p>", "age"),
 ]
 HERO = {"fr": "Un chien et un chat assis côte à côte", "en": "A dog and a cat sitting side by side", "it": "Un cane e un gatto seduti fianco a fianco"}
 n = 0
@@ -93,4 +123,21 @@ for lang, page in (("fr", "index.html"), ("en", "en/index.html"), ("it", "it/ind
     if old in s:
         s = s.replace(old, f'<div class="hero-illu"><img src="{pre}img/illu/accueil.svg" alt="{HERO[lang]}" width="600" height="480" fetchpriority="high"></div>')
         p.write_text(s, encoding="utf-8"); n += 1
+# Images en tête des cartes (accueil, page Conseils) : remplacent l'emoji de la carte
+CARTES = {"chien.html": "portrait-chien", "chat.html": "portrait-chat", "nac.html#lapin": "portrait-lapin", "nac.html#oiseau": "portrait-oiseau",
+          "quiz.html": "quiz", "age-humain.html": "age", "meilleur-harnais-chien.html": "harnais", "meilleur-griffoir-chat.html": "griffoir",
+          "meilleur-clicker.html": "chat-clicker", "proprete-chiot.html": "proprete-moments", "rappel-chien.html": "rappel",
+          "marche-en-laisse.html": "laisse", "chat-griffe-canape.html": "griffoir", "chiot-mord.html": "chiot-jouet"}
+CARTE = re.compile(r'(<a class="card card-link" href="([^"]+)">\s*)<span class="icon">([^<]*)</span>')
+for d in ("", "en/", "it/"):
+    for page in ("index.html", "conseils.html"):
+        p = DOCS / d / page; s = p.read_text(encoding="utf-8"); pre = "../" if d else ""
+        def rempl(m):
+            nom = CARTES.get(m.group(2))
+            if not nom: return m.group(0)
+            w, h = taille(nom)
+            return (f'{m.group(1)}<span class="icon"><img class="card-img" src="{pre}img/illu/{nom}.svg" alt="" '
+                    f'width="{w}" height="{h}" loading="lazy" decoding="async"></span>')
+        s2, k = CARTE.subn(rempl, s)
+        if s2 != s: p.write_text(s2, encoding="utf-8"); n += sum(1 for m in CARTE.finditer(s) if m.group(2) in CARTES)
 print(n, "illustrations insérées")
