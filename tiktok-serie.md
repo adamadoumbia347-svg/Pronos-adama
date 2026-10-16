@@ -129,3 +129,11 @@ Link nella bio: `https://educanimaux.fr/it/`. Stesso calendario: 00 lancio, poi 
 > #educationcanine #chien #chat #chiot #quiz #astuceanimaux #educationpositive #pourtoi
 
 Astuce : mets `https://educanimaux.fr/quiz.html` dans la bio pendant quelques jours après la publication.
+
+## Vidéo « Calculateur d'âge » (`tiktok-age.mp4`, 22 s)
+
+> Ton chien a 5 ans… mais en âge humain ? 🤔 Non, ce n'est pas « 1 an = 7 ans » ❌ Calcule l'âge de ton chien ou ton chat en 5 secondes 🎂 👉 lien en bio
+> #chien #chat #agechien #agechat #astuceanimaux #chiot #chaton #saviezvous #pourtoi
+
+Question à épingler en commentaire : « Ton animal a quel âge en âge humain ? Dis-le-nous 👇 »
+Lien de bio conseillé pendant quelques jours : `https://educanimaux.fr/age-humain.html`
