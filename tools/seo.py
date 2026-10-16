@@ -19,8 +19,8 @@ SITE = "https://educanimaux.fr"
 LANGUES = {"fr": "", "en": "en/", "it": "it/"}
 EXCLUES = {"404.html"}
 NOM = "Éduc'Animaux"
-# Statistiques de visite sans cookies (GoatCounter) : tableau de bord sur https://educanimaux.goatcounter.com
-STATS = ('<!-- stats --><script data-goatcounter="https://educanimaux.goatcounter.com/count" '
+# Statistiques de visite sans cookies (GoatCounter) : tableau de bord sur https://dobam.goatcounter.com
+STATS = ('<!-- stats --><script data-goatcounter="https://dobam.goatcounter.com/count" '
          'async src="https://gc.zgo.at/count.js"></script><!-- /stats -->')
 ORGA = {"@type": "Organization", "name": NOM, "url": SITE + "/", "logo": f"{SITE}/img/partage/fr-index.jpg"}
 
