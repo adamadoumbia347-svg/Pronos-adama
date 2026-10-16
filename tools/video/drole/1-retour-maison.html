@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><link rel="stylesheet" href="drole.css">
+<style>
+#haut { position:absolute; left:0; top:0; width:540px; height:520px; background:linear-gradient(170deg,#ffe0c7,#ffd0a8); }
+#bas { position:absolute; left:0; top:520px; width:540px; height:440px; background:linear-gradient(170deg,#e8e0ff,#d6cbff); }
+.bulle.j { white-space:nowrap; font-size:23px; padding:11px 16px; }
+.etiq { position:absolute; left:24px; font-size:22px; font-weight:900; background:#fff; padding:4px 14px; border-radius:999px; }
+</style></head><body>
+<div id="haut"></div><div id="bas"></div>
+<div class="titre" id="titre" style="top:60px">Quand tu rentres<br>à la maison 🏠</div>
+<div class="etiq" style="top:178px">🐕 LE CHIEN</div>
+<div class="etiq" style="top:540px">🐈 LE CHAT</div>
+<div class="abs emoji" id="chien" style="left:40px;top:300px;font-size:150px">🐕</div>
+<div class="abs emoji" id="chat" style="left:40px;top:690px;font-size:140px">🐈</div>
+<div class="bulle j" id="d1" style="left:195px;top:225px">TU ES LÀ !!! 🎉</div>
+<div class="bulle j" id="d2" style="left:215px;top:300px">JE T'AIME</div>
+<div class="bulle j" id="d3" style="left:195px;top:375px">T'ÉTAIS OÙ ???</div>
+<div class="bulle j" id="d4" style="left:195px;top:225px">ÇA FAISAIT 1000 ANS</div>
+<div class="bulle j" id="d5" style="left:205px;top:300px">JE T'AIME ENCORE 💛</div>
+<div class="bulle g" id="c1" style="left:215px;top:615px">Ah.</div>
+<div class="bulle g" id="c2" style="left:215px;top:615px">C'est toi.</div>
+<div class="bulle g" id="c3" style="left:215px;top:690px">Ma gamelle est vide.</div>
+<div class="bulle g" id="c4" style="left:215px;top:765px">Depuis 4 minutes. 😾</div>
+<div class="abs emoji" id="f1" style="font-size:46px;left:20px;top:230px">🎉</div>
+<div class="abs emoji" id="f2" style="font-size:46px;left:170px;top:450px">💛</div>
+<div class="abs emoji" id="f3" style="font-size:46px;left:440px;top:440px">✨</div>
+<script src="drole.js"></script>
+<script>
+window.DUREE = 16;
+[1.3,2.1,2.8,3.6,4.4].forEach(t=>son(t,"pop"));
+[6.0,7.6,9.4,11.0].forEach(t=>son(t,"pop2"));
+son(14.4,"ding");
+function render(t){
+  pop($("titre"),t,0,0.4);
+  const k = t>1.1 && t<14 ? 1 : 0;
+  $("chien").style.transform = `translateY(${-Math.abs(Math.sin(t*9))*28*k}px) rotate(${Math.sin(t*13)*9*k}deg)`;
+  ["d1","d2","d3","d4","d5"].forEach((id,i)=>{ const s=[1.3,2.1,2.8,3.6,4.4][i]; pop($(id),t,s,0.3);
+    if(t>=s) $(id).style.transform += ` rotate(${Math.sin(t*10+i)*4}deg)`;
+    hide($(id),t,[3.6,4.4,5.4,9.0,9.0][i]); });
+  // le chien recommence plus tard
+  if(t>9.3){ const e=$("d5"); e.textContent="JE T'AIME (BIS) 💛"; pop(e,t,9.3,0.3); hide(e,t,13.6); }
+  ["f1","f2","f3"].forEach((id,i)=>{ pop($(id),t,1.4+i*0.3,0.3); if(t>1.4) $(id).style.transform+=` rotate(${Math.sin(t*6+i)*20}deg)`; hide($(id),t,13.6); });
+  pop($("c1"),t,6.0,0.3); hide($("c1"),t,7.4);
+  pop($("c2"),t,7.6,0.3); pop($("c3"),t,9.4,0.3); pop($("c4"),t,11.0,0.3);
+  $("chat").style.transform = t>12.2 ? "scaleX(-1)" : "none";
+  // question finale
+  const fin = p(t,14.2,0.3);
+  $("titre").innerHTML = t<14.2 ? "Quand tu rentres<br>à la maison 🏠" : "Tu es plutôt<br>team 🐕 ou team 🐈 ?";
+  if(t>=14.2) $("titre").style.transform = `scale(${back(fin)})`;
+}
+render(0);
+</script></body></html>

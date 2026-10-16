@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><link rel="stylesheet" href="drole.css">
+<style>
+body{background:linear-gradient(170deg,#e8e0ff,#fffaf3);}
+.ligne{position:absolute;left:24px;width:432px;background:#fff;border-radius:22px;padding:11px 16px;box-shadow:0 8px 22px rgba(60,40,120,.15);opacity:0;}
+.ligne .son{font-size:22px;font-weight:900;color:#6b4fbb;}
+.ligne .trad{font-size:22px;font-weight:800;margin-top:2px;white-space:nowrap;}
+</style></head><body>
+<div class="titre" id="titre" style="top:70px">📖 Dictionnaire<br>chat → français</div>
+<div id="lignes"></div>
+<script src="drole.js"></script>
+<script>
+window.DUREE = 17;
+const L = [[1.2,"😺 « Miaou »","= J'ai faim."],[3.8,"🙀 « MIAOUUU »","= J'ai TOUJOURS faim."],[6.4,"🌙 « miaou » (à 4h du matin)","= Lève-toi. Je m'ennuie."],
+ [9.0,"😌 Ronron","= Tu peux rester. Pour l'instant."],[11.6,"🌀 Queue qui fouette","= Encore UNE caresse et je mords."],[14.2,"😽 Clignement lent","= Je t'aime. (Ne le dis à personne.)"]];
+const els = L.map(([s,a,b],i)=>{ const d=document.createElement("div"); d.className="ligne"; d.style.top=(200+i*104)+"px";
+  d.innerHTML=`<div class="son">${a}</div><div class="trad">${b}</div>`; document.body.appendChild(d); son(s,"miaou"); return d; });
+function render(t){
+  pop($("titre"),t,0,0.4);
+  els.forEach((d,i)=>slide(d,t,L[i][0],0.4,-300,0));
+}
+render(0);
+</script></body></html>

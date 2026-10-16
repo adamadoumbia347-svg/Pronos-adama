@@ -1,0 +1,48 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><link rel="stylesheet" href="drole.css">
+<style>
+#scene{position:absolute;inset:0;background:linear-gradient(180deg,#fff1c7 0,#ffe0c7 660px,#c98b5a 660px,#a86b3e 690px,#f3e3d3 690px);}
+</style></head><body>
+<div id="scene">
+<div class="abs emoji" id="chat" style="left:40px;top:490px;font-size:170px">🐈</div>
+<div class="abs emoji" id="yeux" style="left:120px;top:420px;font-size:56px">👀</div>
+<div class="abs emoji" id="verre" style="left:330px;top:560px;font-size:100px">🥛</div>
+<div class="abs emoji" id="patte" style="left:250px;top:590px;font-size:60px">🐾</div>
+<div class="abs emoji" id="boum" style="left:330px;top:760px;font-size:130px">💥</div>
+<div class="abs emoji" id="cool" style="left:95px;top:520px;font-size:60px">😎</div>
+</div>
+<div class="legende" id="l1" style="top:150px">Ton chat.<br>Ton verre.<br>La table.</div>
+<div class="legende" id="l2" style="top:180px">Il te regarde droit<br>dans les yeux… 👀</div>
+<div class="legende" id="l3" style="top:180px">Il pousse…<br>tout doucement…</div>
+<div class="legende" id="l4" style="top:180px">Il ne va pas oser.</div>
+<div class="legende" id="l5" style="top:180px;font-size:56px">IL A OSÉ. 😱</div>
+<div class="legende" id="l6" style="top:300px">Aucun regret.</div>
+<script src="drole.js"></script>
+<script>
+window.DUREE = 14;
+son(0.4,"ding"); son(2.2,"pop"); son(4.0,"pop2"); son(6.0,"pop"); son(8.3,"whoosh"); son(8.9,"crash"); son(9.6,"boom"); son(11.2,"fete");
+function render(t){
+  slide($("l1"),t,0.3,0.4); hide($("l1"),t,2.0);
+  slide($("l2"),t,2.2,0.4); hide($("l2"),t,3.8);
+  pop($("yeux"),t,2.2,0.3); hide($("yeux"),t,3.8);
+  slide($("l3"),t,4.0,0.4); hide($("l3"),t,5.8);
+  slide($("l4"),t,6.0,0.4); hide($("l4"),t,8.2);
+  // patte : deux poussées
+  const push1 = p(t,4.3,1.2), push2 = p(t,7.0,0.9);
+  const vx = 50*easeOut(push1) + 70*easeOut(push2);
+  $("patte").style.opacity = (t>4.1 && t<5.7) || (t>6.8 && t<8.3) ? 1 : 0;
+  $("patte").style.transform = `translateX(${vx}px) rotate(-20deg)`;
+  // chute du verre
+  let vy=0, vr=0;
+  if(t>=8.3){ const u=p(t,8.3,0.6); vy = 260*u*u; vr = 160*u; }
+  $("verre").style.opacity = t<8.9 ? 1 : 0;
+  $("verre").style.transform = `translate(${vx}px,${vy}px) rotate(${vr}deg)`;
+  pop($("boum"),t,8.9,0.25);
+  const sh = t>8.9 && t<9.4 ? Math.sin(t*90)*12*(1-p(t,8.9,0.5)) : 0;
+  $("scene").style.transform = `translate(${sh}px, ${sh/2}px)`;
+  pop($("l5"),t,9.6,0.35);
+  pop($("cool"),t,11.2,0.35);
+  slide($("l6"),t,11.6,0.4);
+  $("chat").style.transform = t>11.2 ? `rotate(${Math.sin(t*3)*3}deg)` : "none";
+}
+render(0);
+</script></body></html>

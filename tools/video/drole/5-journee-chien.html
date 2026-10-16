@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><link rel="stylesheet" href="drole.css">
+<style>
+#bg{position:absolute;inset:0;}
+.heure{position:absolute;left:150px;top:250px;width:240px;text-align:center;background:#2b2420;color:#fff;font-size:44px;font-weight:900;border-radius:999px;padding:8px 0;}
+</style></head><body>
+<div id="bg"></div>
+<div class="titre" id="titre" style="top:70px">Ce que fait ton chien<br>quand tu pars travailler 🐶</div>
+<div class="heure" id="h">8h00</div>
+<div class="abs emoji" id="e" style="left:0;width:540px;text-align:center;top:360px;font-size:190px">🥺</div>
+<div class="legende" id="l" style="top:600px"></div>
+<div class="abs emoji" id="f1" style="font-size:60px;left:40px;top:380px">🎉</div>
+<div class="abs emoji" id="f2" style="font-size:60px;left:410px;top:400px">🎊</div>
+<div class="abs emoji" id="f3" style="font-size:60px;left:60px;top:730px">💛</div>
+<div class="abs emoji" id="f4" style="font-size:60px;left:400px;top:740px">✨</div>
+<script src="drole.js"></script>
+<script>
+window.DUREE = 19.5;
+const E = [[0.8,"8h00","🥺","Tu pars. Il te regarde comme si c'était pour toujours.","#dceeff"],
+ [3.6,"8h01","😴","Dodo.","#e8e0ff"],[5.8,"10h00","🛋️","Sieste sur LE canapé interdit.","#ffe0c7"],
+ [8.2,"12h00","🐦","Aboie sur un oiseau. Mission accomplie.","#d6efe8"],[10.6,"14h00","😴","Re-dodo.","#e8e0ff"],
+ [12.6,"16h00","🧸","Dort encore. (Attendre, c'est épuisant.)","#ffe0ec"],[14.8,"17h59","🚗","Entend ta voiture…","#fff1c7"],
+ [16.2,"18h00","🐕","MEILLEUR JOUR DE SA VIE !!! 🎉","#ffd23f"]];
+E.forEach(([s])=>son(s,"ding")); son(16.2,"fete");
+function render(t){
+  pop($("titre"),t,0,0.4);
+  let cur = E[0]; E.forEach(x=>{ if(t>=x[0]) cur=x; });
+  const s = cur[0];
+  $("h").textContent = cur[1]; $("e").textContent = cur[2]; $("l").textContent = cur[3];
+  $("bg").style.background = `linear-gradient(170deg, ${cur[4]}, #fffaf3)`;
+  pop($("h"),t,s,0.3); pop($("e"),t,s+0.15,0.35); slide($("l"),t,s+0.35,0.35);
+  if(t<0.8){ $("h").style.opacity=0; $("e").style.opacity=0; $("l").style.opacity=0; }
+  if(cur[2]==="😴") $("e").style.transform += ` translateY(${Math.sin(t*3)*8}px)`;
+  if(t>=16.2) $("e").style.transform += ` translateY(${-Math.abs(Math.sin(t*10))*40}px) rotate(${Math.sin(t*14)*12}deg)`;
+  ["f1","f2","f3","f4"].forEach((id,i)=>{ pop($(id),t,16.4+i*0.15,0.3); if(t>16.4) $(id).style.transform+=` rotate(${Math.sin(t*8+i)*25}deg)`; });
+}
+render(0);
+</script></body></html>

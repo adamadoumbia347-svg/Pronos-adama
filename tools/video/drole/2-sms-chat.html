@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><link rel="stylesheet" href="drole.css">
+<style>
+body { background:#fff; }
+#tete { position:absolute; left:0; top:0; width:540px; height:170px; background:#f6f6f8; border-bottom:1px solid #ddd; text-align:center; padding-top:52px; }
+#tete .av { font-size:52px; line-height:1; }
+#tete .nom { font-size:22px; font-weight:900; margin-top:4px; }
+#tete .en { font-size:15px; color:#2a9d4b; font-weight:800; }
+#fil { position:absolute; left:0; top:180px; width:540px; height:640px; overflow:hidden; }
+#pile { position:absolute; left:0; top:0; width:540px; }
+.m { position:relative; max-width:350px; padding:13px 19px; border-radius:24px; font-size:26px; font-weight:700; line-height:1.25; margin:10px 0; opacity:0; }
+.m.g { background:#e9e9ee; color:#111; margin-left:24px; margin-right:auto; border-bottom-left-radius:7px; }
+.m.d { background:#1a8cff; color:#fff; margin-left:auto; margin-right:84px; border-bottom-right-radius:7px; }
+.ligne { display:flex; }
+.heure { text-align:center; font-size:16px; color:#888; font-weight:800; margin:6px 0 4px; }
+</style></head><body>
+<div id="tete"><div class="av">😼</div><div class="nom">Le Chat 👑</div><div class="en">en ligne</div></div>
+<div id="fil"><div id="pile"><div class="heure">Aujourd'hui 04:12</div></div></div>
+<script src="drole.js"></script>
+<script>
+window.DUREE = 19;
+const MSG = [[0.6,"g","Humain."],[1.6,"g","Tu dors ?"],[2.6,"g","HUMAIN."],[3.8,"d","Il est 4h du matin 😩"],
+ [5.0,"g","Je sais."],[6.1,"g","J'ai faim."],[7.3,"d","Ta gamelle est pleine"],[8.5,"g","Elle est pleine à 80 %."],
+ [9.7,"g","C'est inacceptable."],[11.0,"d","…"],[12.2,"g","Au fait."],[13.2,"g","Le verre sur ta table de nuit."],
+ [14.5,"g","Il est par terre maintenant."],[15.9,"g","Bonne nuit ❤️"],[17.1,"d","😭"]];
+const els = MSG.map(([s,c,txt])=>{ const l=document.createElement("div"); l.className="ligne";
+  const m=document.createElement("div"); m.className="m "+c; m.textContent=txt; l.appendChild(m); $("pile").appendChild(l); son(s,c==="g"?"pop":"pop2"); return m; });
+function render(t){
+  let bas = 40;
+  els.forEach((m,i)=>{ const s=MSG[i][0]; const k=easeOut(p(t,s,0.3)); m.style.opacity=k;
+    m.style.transform=`translateY(${(1-k)*20}px) scale(${0.9+0.1*k})`;
+    if(t>=s) bas = Math.max(bas, m.parentNode.offsetTop + (m.parentNode.offsetHeight + 10) * k); });
+  const deb = Math.max(0, bas - 640);
+  $("pile").style.transform = `translateY(${-deb}px)`;
+  $("pile").style.transition = "none";
+}
+render(0);
+</script></body></html>

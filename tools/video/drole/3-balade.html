@@ -1,0 +1,47 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><link rel="stylesheet" href="drole.css">
+<style>#bg{position:absolute;inset:0;background:linear-gradient(170deg,#dceeff,#fffaf3);}</style></head><body>
+<div id="bg"></div>
+<div class="titre" id="titre">Le mot interdit 🤫</div>
+<div class="bulle d" id="h1" style="right:84px;top:200px">Tu veux aller en…</div>
+<div class="bulle g" id="c1" style="left:30px;top:300px">en quoi ? 👀</div>
+<div class="bulle d" id="h2" style="right:84px;top:200px">…en B… A… L…</div>
+<div class="bulle d" id="h3" style="right:84px;top:200px;font-size:40px">BALADE ?</div>
+<div class="abs emoji" id="chien" style="left:170px;top:430px;font-size:190px">🐕</div>
+<div class="abs emoji" id="q" style="left:330px;top:380px;font-size:70px">❓</div>
+<div class="legende" id="turbo" style="top:300px;font-size:46px">MODE TURBO<br>ACTIVÉ 🚀</div>
+<div class="abs emoji" id="e1" style="font-size:60px;left:40px;top:690px">🎉</div>
+<div class="abs emoji" id="e2" style="font-size:60px;left:420px;top:700px">💨</div>
+<div class="abs emoji" id="e3" style="font-size:60px;left:60px;top:420px">⚡</div>
+<div class="abs emoji" id="e4" style="font-size:60px;left:400px;top:400px">🦮</div>
+<div class="bulle d" id="h4" style="right:84px;top:200px">Je rigolais 😅</div>
+<div class="abs emoji" id="regard" style="left:345px;top:385px;font-size:90px">😑</div>
+<div class="bulle d" id="h5" style="right:84px;top:200px">Bon… OK, on y va 🦮</div>
+<div class="legende" id="fin" style="top:720px">Impossible de lui<br>dire non 🥹</div>
+<script src="drole.js"></script>
+<script>
+window.DUREE = 16;
+son(0.5,"pop2"); son(2.6,"pop"); son(3.8,"pop2"); son(5.6,"pop2"); son(6.0,"boom");
+[6.9,7.8,8.7].forEach(t=>son(t,"whoosh")); son(10.2,"scratch"); son(12.8,"pop2"); son(13.8,"fete");
+function render(t){
+  pop($("titre"),t,0,0.4);
+  pop($("h1"),t,0.5); hide($("h1"),t,3.6);
+  pop($("c1"),t,2.6); hide($("c1"),t,5.4);
+  pop($("h2"),t,3.8); hide($("h2"),t,5.4);
+  pop($("h3"),t,5.6); hide($("h3"),t,6.4);
+  pop($("q"),t,1.8,0.3); hide($("q"),t,5.9);
+  let tilt = t<1.8 ? 0 : t<3.8 ? -14 : t<6 ? 18 : 0;
+  let x=0, y=0, rot=tilt, sc=1;
+  if(t>=6 && t<10){ const u=t-6; rot = u<0.8 ? 900*easeOut(u/0.8) : 0; sc = 1+0.25*Math.sin(Math.min(u,0.8)/0.8*Math.PI);
+    if(u>0.8){ x = Math.sin((u-0.8)*5.5)*150; y = -Math.abs(Math.sin((u-0.8)*11))*40; rot = Math.sin((u-0.8)*11)*15; } }
+  if(t>=13.8){ y = -Math.abs(Math.sin((t-13.8)*9))*30; }
+  $("chien").style.transform = `translate(${x}px,${y}px) rotate(${rot}deg) scale(${sc})`;
+  $("bg").style.background = (t>=6 && t<10) ? `hsl(${(t*400)%360},90%,85%)` : "linear-gradient(170deg,#dceeff,#fffaf3)";
+  pop($("turbo"),t,6.6,0.35); hide($("turbo"),t,9.8);
+  ["e1","e2","e3","e4"].forEach((id,i)=>{ pop($(id),t,6.2+i*0.2,0.3); if(t>6.2) $(id).style.transform+=` rotate(${Math.sin(t*9+i)*30}deg)`; hide($(id),t,9.8); });
+  pop($("h4"),t,10.2); hide($("h4"),t,12.6);
+  pop($("regard"),t,11.0,0.3); hide($("regard"),t,12.8);
+  pop($("h5"),t,12.8);
+  pop($("fin"),t,14.3,0.4);
+}
+render(0);
+</script></body></html>
