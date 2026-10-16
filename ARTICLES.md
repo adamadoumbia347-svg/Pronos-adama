@@ -4,15 +4,29 @@ Ce fichier décrit comment écrire et publier un nouvel article. Il sert aux ses
 automatiques hebdomadaires comme à toute personne qui ajoute un article à la main.
 Il n'est pas publié sur le site (seul le dossier `docs/` l'est).
 
-## Procédure (une publication = un article)
+## Rythme : chaque lundi, 3 articles
 
-1. Choisir le **premier sujet non coché** de la liste « Sujets à venir » ci-dessous.
-   Vérifier dans `docs/conseils.html` qu'aucun article ne traite déjà ce sujet.
+Chaque lundi, on publie **1 article de conseil + 2 comparatifs d'achat** :
+- l'article de conseil = le premier sujet non coché de « Conseils à venir » ;
+- les 2 comparatifs = les 2 premiers sujets non cochés de « Comparatifs à venir »
+  (on peut en prendre d'autres plus loin dans la liste s'ils sont plus proches du conseil du jour).
+
+**Maillage obligatoire entre les trois** : l'article de conseil renvoie vers les 2 comparatifs
+(dans le texte, là où le matériel est évoqué, et dans « Pour aller plus loin ») ; chaque comparatif
+renvoie vers l'article de conseil et vers au moins un article ou guide existant. C'est ce qui
+transforme un lecteur qui cherche une solution en acheteur, sans surcharger les articles de liens.
+
+## Procédure (pour chacun des 3 articles)
+
+1. Choisir le sujet comme indiqué ci-dessus.
+   Vérifier dans `docs/conseils.html` qu'aucun article ne traite déjà ce sujet (sinon le cocher et passer au suivant).
 2. Écrire le fichier source `articles/AAAA-MM-JJ-<slug>.html` (date du jour),
-   au format décrit plus bas. S'inspirer de `docs/rappel-chien.html` pour le ton et la mise en page.
+   au format décrit plus bas. Modèles : `docs/rappel-chien.html` (conseil),
+   `docs/meilleur-harnais-chien.html` (comparatif).
 3. Publier : `python3 tools/publier_article.py articles/AAAA-MM-JJ-<slug>.html`
+   (publier d'abord les 2 comparatifs, puis l'article de conseil, pour qu'il soit en tête).
 4. Vérifier : `python3 tools/verifier_site.py` doit afficher « Aucun problème ».
-5. Cocher le sujet dans la liste ci-dessous (`- [x]`) et ajouter le lien de l'article.
+5. Cocher les sujets dans les listes ci-dessous (`- [x]`) et ajouter les articles dans « Articles publiés ».
 6. Commiter sur `main` et pousser (`git push origin main`). GitHub Pages met le site
    à jour automatiquement en 1 à 2 minutes.
 
@@ -69,9 +83,21 @@ date: 2026-10-15
   `#aversif`), guides (`chien.html`, `chat.html`, `nac.html`) et autres articles.
   Finir par un paragraphe « Pour aller plus loin : … ».
 
+## Comparatifs d'achat (« Quel … choisir ? »)
+
+- Slug commençant par `meilleur-`, `meilleure-`, `meilleurs-` ou `meilleures-` ; `<p class="meta">… · Guide d'achat · Lecture N min</p>`.
+- **900 à 1 400 mots** : une boîte `callout` « En bref » en haut (la recommandation en 2 phrases),
+  les critères de choix, **un tableau comparatif par type** (`<div class="table-wrap"><table>…`),
+  une section par type avec sa boîte produit, la taille / le bon usage, les erreurs à éviter, « À retenir ».
+- **3 à 6 boîtes produit**, toujours vers des **recherches** Amazon par type de produit.
+  Ne citer une marque ou un modèle que s'il est réel et connu (sinon rester générique) ;
+  pas de prix, de notes ou de classement « n°1 » inventés, pas de faux tests (« nous avons testé… »).
+- Comparer des **types** de produits et dire honnêtement pour qui chacun convient, y compris les limites.
+
 ## Liens d'affiliation
 
-- **2 à 4 produits par article**, seulement s'ils sont réellement utiles au sujet.
+- **Articles de conseil : 2 à 4 produits**, seulement s'ils sont réellement utiles au sujet
+  (les comparatifs en ont 3 à 6, voir ci-dessus).
 - Toujours dans une « boîte produit » :
 
 ```html
@@ -89,13 +115,9 @@ date: 2026-10-15
   (ex. `harnais`, `longe`, `clicker`, `pochette`, `friandises`, `kong`, `tapis-fouille`,
   `griffoir`, `litiere`, `caisse-transport`, `diffuseur-apaisant`), sinon en créer une en minuscules avec tirets.
 
-## Sujets à venir
+## Conseils à venir
 
-Alterner si possible articles « comment faire » et comparatifs d'achat (« Quel … choisir ? »),
-qui rapportent davantage en affiliation : tableau comparatif par type, critères de choix, 3 à 6 produits.
-
-Les sessions hebdomadaires prennent le premier sujet non coché. On peut réordonner ou ajouter
-des sujets librement.
+Les sessions du lundi prennent le premier sujet non coché. On peut réordonner ou ajouter des sujets librement.
 
 - [x] Propreté du chiot : la méthode pour qu'il soit propre rapidement
 - [ ] Chien qui aboie quand il est seul : comprendre et agir
@@ -115,8 +137,38 @@ des sujets librement.
 - [ ] Chien réactif en laisse face aux autres chiens
 - [ ] Occuper son chien en appartement : 10 jeux d'intelligence
 - [ ] Chaton qui mord et griffe en jouant
-- [x] Choisir le bon harnais pour son chien (traité par le comparatif `meilleur-harnais-chien.html`)
 - [ ] Adopter un chien adulte : les premières semaines
+
+## Comparatifs à venir
+
+Chaque lundi, les 2 premiers non cochés (entre parenthèses : l'article de conseil lié).
+
+- [x] Quel harnais choisir pour son chien ? (`meilleur-harnais-chien.html`)
+- [x] Quel griffoir choisir pour son chat ? (`meilleur-griffoir-chat.html`)
+- [x] Quel clicker choisir ? (`meilleur-clicker.html`)
+- [ ] Jouets d'occupation pour chien seul : tapis de fouille, jouets à remplir… lequel choisir ? (chien qui aboie seul)
+- [ ] Quelle caméra pour surveiller son chien ou son chat ? (chien qui aboie seul)
+- [ ] Quelle litière choisir pour son chat ? (pipi hors litière)
+- [ ] Quel bac ou maison de toilette choisir pour son chat ? (pipi hors litière)
+- [ ] Quelles friandises d'éducation choisir pour son chien ? (assis, couché, pas bouger)
+- [ ] Quelle pochette à friandises choisir ? (clicker training)
+- [ ] Quelle laisse choisir pour son chien ? (chien qui saute sur les gens / marche en laisse)
+- [ ] Quelle longe choisir pour travailler le rappel ? (rappel)
+- [ ] Peur des pétards et de l'orage : quels accessoires peuvent aider ? (peur des pétards)
+- [ ] Quelle caisse de transport choisir pour son chat ? (caisse de transport)
+- [ ] Quel bac à litière et quel foin pour son lapin ? (lapin propre)
+- [ ] Quels jouets à mâcher pour un chiot ? (chiot qui pleure la nuit / chiot qui mord)
+- [ ] Quel parc ou quelle cage pour un chiot ? (chiot qui pleure la nuit)
+- [ ] Quelle muselière panier choisir (et comment l'habituer en douceur) ? (chien qui mange tout dehors)
+- [ ] Quels jouets choisir pour un chat d'intérieur ? (présenter un nouveau chat / chaton qui mord)
+- [ ] Quel arbre à chat choisir ? (chien et chat)
+- [ ] Quels jouets et perchoirs pour un perroquet ? (perroquet sur la main)
+- [ ] Quel coupe-griffes choisir pour son chien ? (couper les griffes)
+- [ ] Quelle gamelle anti-glouton choisir ? (chien réactif / occuper son chien)
+- [ ] Quels jeux d'intelligence pour chien ? (occuper son chien en appartement)
+- [ ] Quel lit ou panier pour un chien adopté adulte ? (adopter un chien adulte)
+
+Quand une liste est presque vide, ajouter 6 nouveaux sujets utiles et non traités.
 
 ## Articles publiés
 
