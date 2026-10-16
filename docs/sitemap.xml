@@ -9,6 +9,13 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://educanimaux.fr/apropos.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/apropos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/apropos.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/apropos.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://educanimaux.fr/chat-griffe-canape.html</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/chat-griffe-canape.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/chat-griffe-canape.html"/>
@@ -194,6 +201,13 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://educanimaux.fr/en/apropos.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/apropos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/apropos.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/apropos.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://educanimaux.fr/en/chat-griffe-canape.html</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/chat-griffe-canape.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/chat-griffe-canape.html"/>
@@ -376,6 +390,13 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/age-humain.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/age-humain.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/age.svg</image:loc></image:image>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/it/apropos.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/apropos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/apropos.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/apropos.html"/>
     <priority>0.7</priority>
   </url>
   <url>

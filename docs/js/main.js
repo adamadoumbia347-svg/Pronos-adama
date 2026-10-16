@@ -6,12 +6,22 @@
   function boutiqueDuVisiteur() {
     var parPays = cfg.boutiqueParPays || {};
     var langues = navigator.languages || [navigator.language || ""];
+    var defaut = (cfg.boutiqueParLangue || {})[langue];
+    if (!boutiques[defaut]) defaut = Object.keys(boutiques)[0];
     for (var i = 0; i < langues.length; i++) {
       var pays = (langues[i].split("-")[1] || "").toUpperCase();
-      if (pays && parPays[pays] && boutiques[parPays[pays]]) return parPays[pays];
+      if (!pays) continue;
+      var code = parPays[pays];
+      if (code && boutiques[code] && boutiques[code].tag) return code;
+      // Visiteur européen dont la boutique n'a pas encore d'identifiant : on l'envoie vers
+      // la boutique de la page si elle en a un, sinon vers la boutique de secours (Amazon.fr livre toute l'Europe).
+      if ((cfg.europe || []).indexOf(pays) !== -1) {
+        if (boutiques[defaut].tag) return defaut;
+        if (cfg.secoursEurope && boutiques[cfg.secoursEurope]) return cfg.secoursEurope;
+      }
+      if (code && boutiques[code]) return code;
     }
-    var defaut = (cfg.boutiqueParLangue || {})[langue];
-    return boutiques[defaut] ? defaut : Object.keys(boutiques)[0];
+    return defaut;
   }
 
   // Construit chaque lien produit : lien personnalisé si défini, sinon recherche Amazon taguée.
@@ -133,6 +143,37 @@
     if (b) b.click();
   }
   if (methodes.length) appliquer();
+
+  // Encadré « lettre d'information » : affiché seulement si un formulaire est configuré
+  // dans config.js (newsletter.action[langue]). Placé avant « À lire aussi », ou en bas de l'accueil.
+  (function () {
+    var nl = cfg.newsletter || {};
+    var action = (nl.action || {})[langue];
+    if (!action) return;
+    var T = {
+      fr: ["🎁 Le guide offert : les 10 ordres de base", "Recevez gratuitement notre guide PDF illustré, puis un conseil d'éducation par semaine. Désinscription en un clic.", "Votre adresse e-mail", "Je le reçois", "Votre adresse sert uniquement à vous envoyer la lettre d'Éduc'Animaux."],
+      en: ["🎁 Free guide: the 10 basic cues", "Get our free illustrated PDF guide, then one training tip a week. Unsubscribe in one click.", "Your email address", "Send it to me", "Your address is only used to send you the Éduc'Animaux newsletter."],
+      it: ["🎁 Guida in regalo: i 10 comandi di base", "Ricevi gratis la nostra guida PDF illustrata, poi un consiglio educativo a settimana. Disiscrizione in un clic.", "Il tuo indirizzo e-mail", "La voglio", "Il tuo indirizzo serve solo a inviarti la newsletter di Éduc'Animaux."]
+    }[langue] || [];
+    if (!T.length) return;
+    var bloc = document.createElement("section");
+    bloc.className = "newsletter";
+    bloc.innerHTML = '<div class="container"><div class="nl-boite"><h2></h2><p></p>' +
+      '<form method="post" target="_blank"><input type="email" required autocomplete="email"><button class="btn" type="submit"></button></form>' +
+      '<p class="nl-mention"></p></div></div>';
+    bloc.querySelector("h2").textContent = T[0];
+    bloc.querySelector("p").textContent = T[1];
+    var f = bloc.querySelector("form");
+    f.action = action;
+    var champ = f.querySelector("input");
+    champ.name = nl.champ || "EMAIL";
+    champ.placeholder = T[2];
+    champ.setAttribute("aria-label", T[2]);
+    f.querySelector("button").textContent = T[3];
+    bloc.querySelector(".nl-mention").textContent = T[4];
+    var ancre = document.querySelector(".lire-aussi") || document.querySelector("main > section:last-of-type");
+    if (ancre && ancre.parentNode) ancre.parentNode.insertBefore(bloc, document.querySelector(".lire-aussi") ? ancre : ancre.nextSibling);
+  })();
 
   var annee = document.getElementById("annee");
   if (annee) annee.textContent = new Date().getFullYear();

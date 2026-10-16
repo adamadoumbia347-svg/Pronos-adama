@@ -43,6 +43,21 @@ window.AFFILIATION = {
     US: "us", CA: "ca"
   },
 
+  // Visiteurs européens dont la boutique n'a pas d'identifiant (ex. Allemagne, Espagne) :
+  // ils sont envoyés vers la boutique de la page (fr ou it), sinon vers celle-ci, pour toucher la commission.
+  // Dès qu'un identifiant est ajouté pour leur pays, ils retrouvent leur propre boutique.
+  secoursEurope: "fr",
+  europe: ["AT", "BE", "BG", "CH", "CY", "CZ", "DE", "DK", "EE", "ES", "FI", "FR", "GR", "HR", "HU",
+           "IE", "IT", "LT", "LU", "LV", "MC", "MT", "NL", "PL", "PT", "RO", "SE", "SI", "SK"],
+
+  // Lettre d'information (Brevo, MailerLite…) : collez l'adresse « action » du formulaire d'inscription
+  // pour chaque langue. Tant qu'elle est vide, l'encadré n'apparaît pas sur le site.
+  // champ : nom du champ e-mail attendu par l'outil (Brevo : "EMAIL", MailerLite : "fields[email]").
+  newsletter: {
+    action: { fr: "", en: "", it: "" },
+    champ: "EMAIL"
+  },
+
   // Liens précis qui remplacent la recherche Amazon pour un produit donné,
   // par boutique. La clé correspond à l'attribut data-aff du lien.
   // Exemple : liensPersonnalises: { fr: { harnais: "https://..." } }

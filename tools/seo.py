@@ -6,7 +6,8 @@ Usage : python3 tools/seo.py   (lancé aussi par tools/publier_article.py)
   générée par `node tools/partage/rendu.js` ;
 - données structurées : fil d'Ariane (BreadcrumbList) sur toutes les pages, WebSite + Organization
   sur l'accueil, Article complété (image, éditeur, date de mise à jour) ;
-- robots.txt avec l'adresse du sitemap.
+- robots.txt avec l'adresse du sitemap ;
+- statistiques de visite sans cookies (GoatCounter) sur toutes les pages.
 """
 import html
 import json
@@ -18,7 +19,22 @@ SITE = "https://educanimaux.fr"
 LANGUES = {"fr": "", "en": "en/", "it": "it/"}
 EXCLUES = {"404.html"}
 NOM = "Éduc'Animaux"
+# Statistiques de visite sans cookies (GoatCounter) : tableau de bord sur https://educanimaux.goatcounter.com
+STATS = ('<!-- stats --><script data-goatcounter="https://educanimaux.goatcounter.com/count" '
+         'async src="https://gc.zgo.at/count.js"></script><!-- /stats -->')
 ORGA = {"@type": "Organization", "name": NOM, "url": SITE + "/", "logo": f"{SITE}/img/partage/fr-index.jpg"}
+
+
+MOIS = {"fr": "janvier février mars avril mai juin juillet août septembre octobre novembre décembre",
+        "en": "January February March April May June July August September October November December",
+        "it": "gennaio febbraio marzo aprile maggio giugno luglio agosto settembre ottobre novembre dicembre"}
+MAJ = {"fr": "Mis à jour le {}", "en": "Updated {}", "it": "Aggiornato il {}"}
+
+
+def date_longue(code, iso):
+    a, m, j = iso.split("-")
+    mois = MOIS[code].split()[int(m) - 1]
+    return f"{mois} {int(j)}, {a}" if code == "en" else f"{int(j)} {mois} {a}"
 
 
 def url(prefixe, nom):
@@ -79,6 +95,12 @@ def main():
                 return '<script type="application/ld+json">' + json.dumps(d, ensure_ascii=False) + "</script>"
             s = re.sub(r'<script type="application/ld\+json">(\{"@context": "https://schema.org", "@type": "Article".*?)</script>', article, s)
 
+            # Date de mise à jour visible sous le titre des articles (reprend dateModified)
+            dm = re.search(r'"@type": "Article".*?"dateModified": "([\d-]+)"', s)
+            if dm:
+                maj = f'<span class="maj"> · {MAJ[code].format(date_longue(code, dm.group(1)))}</span>'
+                s = re.sub(r'<span class="maj">.*?</span>', "", s)
+                s = re.sub(r'(<p class="meta">.*?)(</p>)', lambda x: x.group(1) + maj + x.group(2), s, count=1, flags=re.S)
             blocs = ""
             if nom == "index.html":
                 blocs += ld({"@type": "WebSite", "name": NOM, "url": url(prefixe, nom), "inLanguage": code, "publisher": ORGA})
@@ -87,6 +109,10 @@ def main():
             if fil:
                 blocs += ld(fil)
             bloc = f"<!-- seo -->\n{blocs}  <!-- /seo -->"
+            if "<!-- stats -->" in s:
+                s = re.sub(r"<!-- stats -->.*?<!-- /stats -->", lambda _: STATS, s, flags=re.S)
+            else:
+                s = s.replace("</head>", "  " + STATS + "\n</head>", 1)
             if "<!-- seo -->" in s:
                 s = re.sub(r"<!-- seo -->.*?<!-- /seo -->", lambda _: bloc, s, flags=re.S)
             else:
