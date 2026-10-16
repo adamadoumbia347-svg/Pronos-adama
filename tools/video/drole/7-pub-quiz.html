@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><link rel="stylesheet" href="drole.css">
+<style>
+#bg{position:absolute;inset:0;background:linear-gradient(165deg,#b44c1c,#7a3311);}
+.hook{position:absolute;left:30px;right:70px;top:230px;text-align:center;color:#fff;font-size:56px;font-weight:900;line-height:1.08;}
+.carte{position:absolute;left:36px;width:430px;top:270px;background:#fff;border-radius:30px;padding:24px 22px;box-shadow:0 20px 50px rgba(0,0,0,.35);opacity:0;}
+.etape{font-size:17px;font-weight:800;color:#6b5f57;}
+.barre{height:9px;background:#eadfd3;border-radius:9px;margin:8px 0 14px;overflow:hidden}
+.barre i{display:block;height:100%;background:#b44c1c;border-radius:9px}
+.q{font-size:31px;font-weight:900;line-height:1.15;margin-bottom:14px;}
+.opt{font-size:23px;font-weight:800;border:2px solid #eadfd3;border-radius:16px;padding:15px 16px;margin-top:12px;background:#fff;}
+.opt.on{border-color:#b44c1c;background:#fbefe2;}
+.res h3{font-size:22px;font-weight:900;margin:14px 0 6px;}
+.res li{font-size:21px;font-weight:800;color:#9a4016;margin:3px 0 3px 22px;}
+.res p{font-size:20px;font-weight:800;}
+.btnr{display:inline-block;background:#b44c1c;color:#fff;border-radius:999px;padding:9px 18px;font-size:19px;font-weight:900;margin-top:6px;}
+.pill{background:#fff;color:#9a4016;border-radius:999px;padding:16px 26px;font-size:36px;font-weight:900;box-shadow:0 12px 30px rgba(0,0,0,.3);display:inline-block;}
+.top{position:absolute;left:30px;right:70px;top:110px;text-align:center;color:#fff;font-size:34px;font-weight:900;line-height:1.12;opacity:0;}
+</style></head><body>
+<div id="bg"></div>
+<div class="hook" id="hook">Tu ne sais pas<br>comment éduquer<br>ton animal ? 🤔</div>
+<div class="abs emoji" id="ani" style="left:0;width:540px;text-align:center;top:560px;font-size:84px;white-space:nowrap">🐕 🐈 🐇 🦜</div>
+<div class="top" id="top1">Fais le quiz 🧩<br><span style="font-size:26px">4 questions · 30 secondes</span></div>
+<div class="top" id="top2">Ton plan perso 🎉</div>
+
+<div class="carte" id="q0"><div class="etape">Question 1 sur 4</div><div class="barre"><i style="width:0%"></i></div>
+ <div class="q">Quel est ton animal ?</div>
+ <div class="opt" id="o0-0">🐕 Un chien</div><div class="opt">🐈 Un chat</div><div class="opt">🐇 Un lapin, rongeur…</div><div class="opt">🦜 Un oiseau</div></div>
+<div class="carte" id="q1"><div class="etape">Question 2 sur 4</div><div class="barre"><i style="width:25%"></i></div>
+ <div class="q">Le problème principal ?</div>
+ <div class="opt">Il ne revient pas</div><div class="opt" id="o1-1">Il tire en laisse 🦮</div><div class="opt">Il mord ou mordille</div><div class="opt">Il aboie trop</div></div>
+<div class="carte" id="q2"><div class="etape">Question 3 sur 4</div><div class="barre"><i style="width:50%"></i></div>
+ <div class="q">Quel âge a-t-il ?</div>
+ <div class="opt">Bébé (moins d'un an)</div><div class="opt" id="o2-1">Adulte</div><div class="opt">Âgé</div></div>
+<div class="carte" id="q3"><div class="etape">Question 4 sur 4</div><div class="barre"><i style="width:75%"></i></div>
+ <div class="q">Combien de temps par jour&nbsp;?</div>
+ <div class="opt">⏱️ 5 minutes</div><div class="opt" id="o3-1">⏱️ 15 minutes</div><div class="opt">⏱️ 30 minutes ou plus</div></div>
+<div class="carte res" id="res"><div class="barre"><i style="width:100%"></i></div>
+ <div class="q" style="margin-bottom:4px">🎯 Notre recommandation pour ton chien</div>
+ <h3>Les méthodes à utiliser</h3><ul><li id="r1">Principe de Premack</li><li id="r2">Renforcement positif</li></ul>
+ <h3>À lire</h3><p id="r3">📖 Chien qui tire en laisse</p>
+ <h3>Le matériel utile</h3><span class="btnr" id="r4">🛒 Harnais en Y</span>
+ <p id="r5" style="margin-top:14px;background:#eaf6f2;border-radius:14px;padding:10px 12px;font-size:18px">⏱️ Idéal : 2 ou 3 séances de 5 minutes par jour</p></div>
+
+<div class="abs emoji" id="doigt" style="font-size:70px;left:0;top:0;opacity:0">👆</div>
+<div class="abs emoji" id="c1" style="font-size:56px;left:30px;top:200px">🎉</div>
+<div class="abs emoji" id="c2" style="font-size:56px;left:420px;top:190px">🎊</div>
+
+<div class="legende" id="f1" style="top:220px;color:#fff;font-size:54px;white-space:nowrap">100 % gratuit 🐾</div>
+<div class="legende" id="f2" style="top:330px;color:#fff;font-size:34px">Chien · chat · lapin · oiseau</div>
+<div class="legende" id="f3" style="top:430px"><span class="pill">educanimaux.fr/quiz</span></div>
+<div class="legende" id="f4" style="top:560px;color:#fff;font-size:46px">👆 Lien en bio</div>
+<script src="drole.js"></script>
+<script>
+window.DUREE = 20;
+// Q : [id carte, début, fin, option choisie, instant du clic]
+const Q = [["q0",3.0,5.0,"o0-0",4.4],["q1",5.0,7.0,"o1-1",6.4],["q2",7.0,8.8,"o2-1",8.2],["q3",8.8,10.6,"o3-1",10.0]];
+son(0.2,"ding"); son(2.9,"whoosh"); Q.forEach(q=>son(q[4],"pop")); son(10.6,"fete"); son(15.6,"whoosh"); son(16.0,"ding");
+function render(t){
+  // accroche
+  const kh = t<0.01 ? 1 : p(t,0,0.4);
+  $("hook").style.opacity = t<2.6 ? 1 : 1-p(t,2.6,0.3);
+  $("hook").style.transform = `scale(${t<0.01?1:back(kh)})`;
+  $("ani").style.opacity = t<2.6 ? 1 : 1-p(t,2.6,0.3);
+  $("ani").style.transform = `translateY(${Math.sin(t*7)*10}px)`;
+  slide($("top1"),t,2.8,0.4); hide($("top1"),t,10.5);
+  // questions
+  Q.forEach(([id,a,b,opt,tap])=>{
+    const el=$(id), kin=easeOut(p(t,a,0.35)), kout=p(t,b-0.25,0.25);
+    el.style.opacity = t>=a && t<b+0.01 ? kin*(1-kout) : 0;
+    el.style.transform = `translateX(${(1-kin)*120 - kout*120}px)`;
+    $(opt).className = "opt" + (t>=tap ? " on" : "");
+  });
+  // doigt : se déplace vers l'option puis « tape »
+  const cur = Q.find(q=>t>=q[1]+0.3 && t<q[2]-0.1);
+  if(cur){
+    const o=$(cur[3]), c=$(cur[0]);
+    const tx = 36+22+230, ty = c.offsetTop + o.offsetTop + o.offsetHeight/2 - 6;
+    const k = easeOut(p(t,cur[1]+0.3,cur[4]-cur[1]-0.5));
+    const tape = t>=cur[4]-0.12 && t<cur[4]+0.12 ? 0.82 : 1;
+    $("doigt").style.opacity = 1;
+    $("doigt").style.transform = `translate(${tx + (1-k)*90}px, ${ty + (1-k)*160}px) scale(${tape})`;
+  } else $("doigt").style.opacity = 0;
+  // résultat
+  const kr=easeOut(p(t,10.6,0.4));
+  $("res").style.opacity = t>=10.6 ? kr*(1-p(t,15.3,0.3)) : 0;
+  $("res").style.transform = `scale(${0.9+0.1*kr})`;
+  ["r1","r2","r3","r4","r5"].forEach((id,i)=>slide($(id),t,11.1+i*0.45,0.35,-60,0));
+  slide($("top2"),t,10.7,0.4); hide($("top2"),t,15.3);
+  ["c1","c2"].forEach((id,i)=>{ pop($(id),t,10.7+i*0.15,0.3); if(t>10.7) $(id).style.transform+=` rotate(${Math.sin(t*8+i)*25}deg)`; hide($(id),t,15.3); });
+  // fin
+  pop($("f1"),t,15.7,0.4); slide($("f2"),t,16.1,0.4); pop($("f3"),t,16.6,0.45);
+  if(t>17.2) $("f3").style.transform = `scale(${1+0.05*Math.sin((t-17.2)*7)})`;
+  slide($("f4"),t,17.3,0.4);
+  if(t>17.7) $("f4").style.transform += ` translateY(${-Math.abs(Math.sin((t-17.7)*5))*12}px)`;
+}
+render(0);
+</script></body></html>

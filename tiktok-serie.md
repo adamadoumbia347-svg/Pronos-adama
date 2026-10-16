@@ -118,3 +118,14 @@ Link nella bio: `https://educanimaux.fr/it/`. Stesso calendario: 00 lancio, poi 
 **06 – Clicker**
 > Il clicker funziona davvero? 🔘✨ Sì, con cani, gatti e perfino conigli! Inizia in 3 passi 👉 link nella bio
 > #clickertraining #rinforzopositivo #educazionecinofila #gatto #animali #perte
+
+---
+
+## Vidéo « Quiz » (`tiktok-quiz.mp4`, 20 s)
+
+À publier dès que possible, puis à épingler sur le profil.
+
+> Tu ne sais pas par où commencer pour éduquer ton animal ? 🤔 Fais le quiz gratuit : 4 questions, 30 secondes, et tu reçois ton plan perso 🧩🐾 👉 lien en bio
+> #educationcanine #chien #chat #chiot #quiz #astuceanimaux #educationpositive #pourtoi
+
+Astuce : mets `https://educanimaux.fr/quiz.html` dans la bio pendant quelques jours après la publication.
