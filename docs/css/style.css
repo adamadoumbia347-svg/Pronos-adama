@@ -337,3 +337,4 @@ th { background: var(--soft); }
 .nl-boite form { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 16px 0 8px; }
 .nl-boite input { flex: 1 1 240px; max-width: 360px; padding: 12px 16px; border-radius: 999px; border: 1px solid var(--border); font: inherit; }
 .nl-boite .nl-mention { font-size: .82rem; color: var(--muted); margin: 0; }
+.nl-merci { background:#e6f3ef; border-radius:14px; padding:14px 18px; margin:16px 0 8px; color:#1f5a4e; font-weight:700; }

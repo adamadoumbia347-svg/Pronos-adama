@@ -54,8 +54,14 @@ window.AFFILIATION = {
   // pour chaque langue. Tant qu'elle est vide, l'encadré n'apparaît pas sur le site.
   // champ : nom du champ e-mail attendu par l'outil (Brevo : "EMAIL", MailerLite : "fields[email]").
   newsletter: {
-    action: { fr: "", en: "", it: "" },
-    champ: "EMAIL"
+    action: {
+      fr: "https://a8a62cc8.sibforms.com/serve/MUIFAIFF-ztBeCjyRZ2UuK-qQIjy6hQXuy3_M4cZp2Jx85_ttvar1gAlzaomMD3bgUZjDTBvS4du0qN1aRekX3GSaWj-uu-DlyWjXO3MnMEZgOniVr_X-UFCJHRKSIAIe5iC8C3kLBMP6df2TU_6f0v3cINKbotWM4vRIAi4FHTZc349aa40ylN4Xk2kG2zkLUGmz66S8wOzu4R1qw==",
+      en: "",
+      it: ""
+    },
+    champ: "EMAIL",
+    // Champs cachés demandés par le formulaire Brevo
+    champsCaches: { email_address_check: "", locale: "fr", html_type: "simple" }
   },
 
   // Liens précis qui remplacent la recherche Amazon pour un produit donné,
