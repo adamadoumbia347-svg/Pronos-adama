@@ -67,7 +67,7 @@ window.AFFILIATION = {
   // Produits numériques vendus par le site (Payhip, Gumroad…) : collez le lien de la page d'achat.
   // Tant qu'il est vide, la page du produit affiche « Bientôt disponible ».
   produits: {
-    programmeChiot: { url: "", prix: "12 €" }
+    programmeChiot: { url: "https://payhip.com/b/yckpA", prix: "12 €" }
   },
 
   // Liens précis qui remplacent la recherche Amazon pour un produit donné,
