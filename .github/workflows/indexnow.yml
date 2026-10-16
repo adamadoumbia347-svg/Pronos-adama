@@ -1,0 +1,27 @@
+# Après chaque mise à jour du site, prévient Bing, Yandex, Seznam, Naver et Yep (protocole IndexNow)
+# que les pages ont changé, pour qu'ils les réindexent tout de suite.
+name: IndexNow
+on:
+  push:
+    branches: [main]
+    paths: ["docs/**"]
+  workflow_dispatch:
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Attendre la publication GitHub Pages
+        run: sleep 120
+      - name: Envoyer les adresses du sitemap à IndexNow
+        run: |
+          python3 - <<'PY'
+          import json, re, urllib.request
+          urls = re.findall(r"<loc>(.*?)</loc>", open("docs/sitemap.xml", encoding="utf-8").read())
+          corps = json.dumps({"host": "educanimaux.fr", "key": "8359818a651c1b5912876b16efee4d25",
+                              "keyLocation": "https://educanimaux.fr/8359818a651c1b5912876b16efee4d25.txt", "urlList": urls}).encode()
+          req = urllib.request.Request("https://api.indexnow.org/indexnow", data=corps,
+                                       headers={"Content-Type": "application/json; charset=utf-8"})
+          with urllib.request.urlopen(req) as r:
+              print("IndexNow :", r.status, len(urls), "adresses envoyées")
+          PY

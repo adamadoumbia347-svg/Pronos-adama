@@ -79,10 +79,15 @@ def main():
             alternates = "".join(
                 f'\n    <xhtml:link rel="alternate" hreflang="{c}" href="{url(c, nom)}"/>'
                 for c in LANGUES if nom in existantes[c])
-            lignes.append(f"  <url>\n    <loc>{url(code, nom)}</loc>{alternates}\n    <priority>{prio}</priority>\n  </url>")
+            contenu = (dossier(code) / nom).read_text(encoding="utf-8")
+            images = "".join(
+                f"\n    <image:image><image:loc>https://educanimaux.fr/img/illu/{i}.svg</image:loc></image:image>"
+                for i in dict.fromkeys(re.findall(r'img/illu/([\w-]+)\.svg', contenu)))
+            lignes.append(f"  <url>\n    <loc>{url(code, nom)}</loc>{alternates}{images}\n    <priority>{prio}</priority>\n  </url>")
     (DOCS / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" '
+        'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n'
         + "\n".join(lignes) + "\n</urlset>\n", encoding="utf-8")
     total = sum(len(v) for v in existantes.values())
     print(f"{total} pages reliées ({', '.join(f'{c}: {len(existantes[c])}' for c in LANGUES)}), sitemap régénéré.")

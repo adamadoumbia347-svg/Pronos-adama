@@ -15,7 +15,8 @@ Le script :
   - ajoute la carte de l'article en tête de docs/conseils.html ;
   - met l'article en tête des « derniers conseils » de docs/index.html (4 max) ;
   - relie la page aux autres langues et régénère docs/sitemap.xml (tools/langues.py) ;
-  - met à jour les blocs « À lire aussi » de tous les articles (tools/lire_aussi.py).
+  - met à jour les blocs « À lire aussi » de tous les articles (tools/lire_aussi.py) ;
+  - crée l'image de partage et l'épingle Pinterest, et les données structurées (tools/seo.py).
 """
 import html
 import json
@@ -23,8 +24,11 @@ import pathlib
 import re
 import sys
 
+import subprocess
+
 import langues
 import lire_aussi
+import seo
 
 RACINE = pathlib.Path(__file__).resolve().parent.parent
 DOCS = RACINE / "docs"
@@ -115,6 +119,13 @@ def main():
     cible.write_text(construire_page(m, corps), encoding="utf-8")
     ajouter_a_conseils(m)
     ajouter_a_accueil(m)
+    try:  # images de partage et épingles Pinterest (nécessite node + Playwright)
+        racine = subprocess.run(["npm", "root", "-g"], capture_output=True, text=True).stdout.strip()
+        subprocess.run(["node", str(pathlib.Path(__file__).parent / "partage" / "rendu.js")], check=True,
+                       env={**__import__("os").environ, "NODE_PATH": racine})
+    except Exception as e:
+        print("Images de partage non régénérées :", e)
+    seo.main()
     langues.main()
     lire_aussi.main()
     print(f"Publié : docs/{cible.name}")
