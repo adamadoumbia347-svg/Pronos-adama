@@ -196,6 +196,98 @@
     if (ancre && ancre.parentNode) ancre.parentNode.insertBefore(bloc, document.querySelector(".lire-aussi") ? ancre : ancre.nextSibling);
   })();
 
+  // Recherche dans le site : loupe dans le bandeau, résultats instantanés (index recherche.json de la langue)
+  (function () {
+    var nav = document.querySelector(".site-header .nav");
+    if (!nav) return;
+    var T = {
+      fr: ["Rechercher", "Rechercher un conseil, une méthode, un produit…", "Aucun résultat. Essayez un autre mot (ex. : rappel, griffoir, chiot).", "Fermer", "résultat", "résultats"],
+      en: ["Search", "Search for a tip, a method, some gear…", "No results. Try another word (e.g. recall, scratching post, puppy).", "Close", "result", "results"],
+      it: ["Cerca", "Cerca un consiglio, un metodo, un accessorio…", "Nessun risultato. Prova un'altra parola (es. richiamo, tiragraffi, cucciolo).", "Chiudi", "risultato", "risultati"]
+    }[langue] || [];
+    if (!T.length) return;
+    var btn = document.createElement("button");
+    btn.className = "btn-recherche";
+    btn.type = "button";
+    btn.setAttribute("aria-label", T[0]);
+    btn.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>';
+    var toggle = nav.querySelector(".nav-toggle");
+    nav.insertBefore(btn, toggle);
+
+    var fenetre = document.createElement("div");
+    fenetre.className = "recherche";
+    fenetre.hidden = true;
+    fenetre.setAttribute("role", "dialog");
+    fenetre.setAttribute("aria-label", T[0]);
+    fenetre.innerHTML = '<div class="recherche-boite"><div class="recherche-ligne"><input type="search" autocomplete="off"><button type="button" class="recherche-fermer">✕</button></div><p class="recherche-info"></p><ul class="recherche-resultats"></ul></div>';
+    document.body.appendChild(fenetre);
+    var champ = fenetre.querySelector("input"), liste = fenetre.querySelector("ul"), info = fenetre.querySelector(".recherche-info");
+    champ.placeholder = T[1];
+    champ.setAttribute("aria-label", T[0]);
+    fenetre.querySelector(".recherche-fermer").setAttribute("aria-label", T[3]);
+
+    var index = null;
+    function normal(t) { return (t || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, ""); }
+    function charger() {
+      if (index) return Promise.resolve(index);
+      return fetch("recherche.json").then(function (r) { return r.json(); }).then(function (d) {
+        index = d.map(function (p) { return { p: p, t: normal(p.t), h: normal(p.h), d: normal(p.d), x: normal(p.x) }; });
+        return index;
+      });
+    }
+    function chercher() {
+      var q = normal(champ.value).trim();
+      liste.innerHTML = "";
+      info.textContent = "";
+      if (q.length < 2 || !index) return;
+      var mots = q.split(/\s+/).filter(function (m) { return m.length > 1; });
+      var res = index.map(function (e) {
+        var score = 0;
+        for (var i = 0; i < mots.length; i++) {
+          var m = mots[i], s = 0;
+          if (e.t.indexOf(m) !== -1) s += 10;
+          if (e.h.indexOf(m) !== -1) s += 4;
+          if (e.d.indexOf(m) !== -1) s += 3;
+          if (e.x.indexOf(m) !== -1) s += 1;
+          if (!s) return null;   // tous les mots doivent être trouvés
+          score += s;
+        }
+        return { e: e, score: score };
+      }).filter(Boolean).sort(function (a, b) { return b.score - a.score; }).slice(0, 12);
+      if (!res.length) { info.textContent = T[2]; return; }
+      info.textContent = res.length + " " + T[res.length > 1 ? 5 : 4];
+      res.forEach(function (r) {
+        var li = document.createElement("li"), a = document.createElement("a"), t = document.createElement("strong"), d = document.createElement("span");
+        a.href = r.e.p.u;
+        t.textContent = r.e.p.t;
+        d.textContent = r.e.p.d;
+        a.appendChild(t); a.appendChild(d); li.appendChild(a); liste.appendChild(li);
+      });
+    }
+    function ouvrir() {
+      fenetre.hidden = false;
+      document.body.classList.add("recherche-ouverte");
+      champ.focus();
+      charger().then(chercher);
+    }
+    function fermer() {
+      fenetre.hidden = true;
+      document.body.classList.remove("recherche-ouverte");
+      btn.focus();
+    }
+    btn.addEventListener("click", ouvrir);
+    fenetre.querySelector(".recherche-fermer").addEventListener("click", fermer);
+    fenetre.addEventListener("click", function (e) { if (e.target === fenetre) fermer(); });
+    champ.addEventListener("input", chercher);
+    champ.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") { var a = liste.querySelector("a"); if (a) location.href = a.href; }
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !fenetre.hidden) fermer();
+      if (e.key === "/" && fenetre.hidden && !/input|textarea/i.test((document.activeElement || {}).tagName || "")) { e.preventDefault(); ouvrir(); }
+    });
+  })();
+
   var annee = document.getElementById("annee");
   if (annee) annee.textContent = new Date().getFullYear();
 })();

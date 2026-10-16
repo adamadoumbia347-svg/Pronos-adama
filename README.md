@@ -79,3 +79,8 @@ et placés dans les pages (légendes FR/EN/IT, images des cartes) par `python3 t
 
 `python3 tools/lettre.py` écrit `lettres/AAAA-MM-JJ.html` avec les 3 derniers articles de `docs/conseils.html`.
 Dans Brevo : Campagnes > Créer une campagne e-mail > Éditeur « Coller votre code HTML », puis coller le contenu du fichier.
+
+## Recherche
+
+La loupe du bandeau (touche « / » au clavier) cherche dans `recherche.json` de chaque langue,
+généré par `python3 tools/recherche.py` (lancé automatiquement par `tools/publier_article.py`).

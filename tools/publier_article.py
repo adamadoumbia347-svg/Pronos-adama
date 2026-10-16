@@ -28,6 +28,7 @@ import subprocess
 
 import langues
 import lire_aussi
+import recherche
 import seo
 
 RACINE = pathlib.Path(__file__).resolve().parent.parent
@@ -128,6 +129,7 @@ def main():
     seo.main()
     langues.main()
     lire_aussi.main()
+    recherche.main()
     print(f"Publié : docs/{cible.name}")
 
 
