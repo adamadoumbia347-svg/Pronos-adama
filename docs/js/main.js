@@ -196,19 +196,6 @@
     if (ancre && ancre.parentNode) ancre.parentNode.insertBefore(bloc, document.querySelector(".lire-aussi") ? ancre : ancre.nextSibling);
   })();
 
-  // Page produit : bouton d'achat si un lien est configuré, sinon « Bientôt disponible »
-  (function () {
-    var bouton = document.getElementById("bouton-achat");
-    if (!bouton) return;
-    var prod = (cfg.produits || {}).programmeChiot || {};
-    if (prod.prix) document.getElementById("prix-produit").textContent = prod.prix;
-    if (prod.url) {
-      bouton.href = prod.url;
-      bouton.hidden = false;
-      document.getElementById("bientot").hidden = true;
-    }
-  })();
-
   var annee = document.getElementById("annee");
   if (annee) annee.textContent = new Date().getFullYear();
 })();
