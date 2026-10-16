@@ -25,8 +25,11 @@ def dossier(code):
     return DOCS / LANGUES[code] if LANGUES[code] else DOCS
 
 
+EXCLUES = {"404.html"}  # pages techniques, hors sélecteur de langue et hors sitemap
+
+
 def pages(code):
-    return sorted(p.name for p in dossier(code).glob("*.html"))
+    return sorted(p.name for p in dossier(code).glob("*.html") if p.name not in EXCLUES)
 
 
 def url(code, nom):

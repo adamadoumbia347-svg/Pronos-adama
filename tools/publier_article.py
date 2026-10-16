@@ -51,6 +51,8 @@ def construire_page(m, corps):
     entete = modele[: modele.index("<main>")]
     pied = modele[modele.index("</main>") + len("</main>"):]
     titre_page = f"{m['titre']} – Éduc'Animaux"
+    if len(titre_page) > 60:  # Google coupe les titres trop longs
+        titre_page = m["titre"]
     url = BASE + m["slug"] + ".html"
     e = lambda x: html.escape(x, quote=True)
     entete = re.sub(r"<title>.*?</title>", f"<title>{e(titre_page)}</title>", entete)

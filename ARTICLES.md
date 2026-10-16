@@ -91,6 +91,9 @@ date: 2026-10-15
 
 ## Sujets à venir
 
+Alterner si possible articles « comment faire » et comparatifs d'achat (« Quel … choisir ? »),
+qui rapportent davantage en affiliation : tableau comparatif par type, critères de choix, 3 à 6 produits.
+
 Les sessions hebdomadaires prennent le premier sujet non coché. On peut réordonner ou ajouter
 des sujets librement.
 
@@ -112,7 +115,7 @@ des sujets librement.
 - [ ] Chien réactif en laisse face aux autres chiens
 - [ ] Occuper son chien en appartement : 10 jeux d'intelligence
 - [ ] Chaton qui mord et griffe en jouant
-- [ ] Choisir le bon harnais pour son chien
+- [x] Choisir le bon harnais pour son chien (traité par le comparatif `meilleur-harnais-chien.html`)
 - [ ] Adopter un chien adulte : les premières semaines
 
 ## Articles publiés
@@ -122,3 +125,6 @@ des sujets librement.
 - 2026-10-15 — Chat qui griffe le canapé : 6 solutions qui marchent (`chat-griffe-canape.html`)
 - 2026-10-15 — Mon chiot mord : que faire ? (`chiot-mord.html`)
 - 2026-10-15 — Propreté du chiot : la méthode pour qu'il soit propre rapidement (`proprete-chiot.html`)
+- 2026-10-16 — Quel clicker choisir pour éduquer son animal ? (`meilleur-clicker.html`)
+- 2026-10-16 — Quel griffoir choisir pour son chat ? Le comparatif (`meilleur-griffoir-chat.html`)
+- 2026-10-16 — Quel harnais choisir pour son chien ? Le comparatif (`meilleur-harnais-chien.html`)

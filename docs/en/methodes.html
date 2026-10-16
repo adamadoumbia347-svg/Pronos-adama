@@ -4,20 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Every pet training method explained – Éduc&#x27;Animaux</title>
-  <meta name="description" content="The complete catalogue of training methods for dogs, cats, rabbits and birds: positive reinforcement, clicker, luring, shaping, targeting, desensitisation, BAT, model/rival…">
+  <meta name="description" content="Every training method for dogs, cats, rabbits and birds: positive reinforcement, clicker, luring, shaping, targeting, desensitisation, BAT…">
   <link rel="canonical" href="https://educanimaux.fr/en/methodes.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Éduc'Animaux">
   <meta property="og:locale" content="en_GB">
   <meta property="og:title" content="Every pet training method explained – Éduc&#x27;Animaux">
-  <meta property="og:description" content="The complete catalogue of training methods for dogs, cats, rabbits and birds: positive reinforcement, clicker, luring, shaping, targeting, desensitisation, BAT, model/rival…">
+  <meta property="og:description" content="Every training method for dogs, cats, rabbits and birds: positive reinforcement, clicker, luring, shaping, targeting, desensitisation, BAT…">
   <meta property="og:url" content="https://educanimaux.fr/en/methodes.html">
   <meta property="og:image" content="https://educanimaux.fr/img/partage.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <link rel="preload" href="../fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
 <!-- langues -->
@@ -28,7 +27,7 @@
   <!-- /langues -->
 </head>
 <body>
-  <div class="disclosure">This site contains affiliate links: we may earn a commission on your purchases, at no extra cost to you. <a href="mentions-legales.html#affiliation">Learn more</a> · <label class="shop">Shop: <select id="boutique"></select></label></div>
+  <div class="disclosure">This site contains affiliate links: we may earn a commission on your purchases, at no extra cost to you. <a href="mentions-legales.html#affiliation">About our affiliate links</a> · <label class="shop">Shop: <select id="boutique"></select></label></div>
   <header class="site-header">
     <nav class="container nav" aria-label="Main navigation">
       <a class="logo" href="index.html">🐾 Éduc'<span>Animaux</span></a>
@@ -77,6 +76,7 @@
           <span id="method-count" aria-live="polite"></span>
         </div>
 
+        <h2 class="sr-only">List of methods</h2>
         <div class="grid grid-2">
 
           <article class="card method" id="renforcement-positif" data-animals="chien chat nac oiseau" data-level="debutant">
@@ -393,7 +393,7 @@
     </div>
   </footer>
 
-  <script src="../js/config.js"></script>
-  <script src="../js/main.js"></script>
+  <script src="../js/config.js" defer></script>
+  <script src="../js/main.js" defer></script>
 </body>
 </html>

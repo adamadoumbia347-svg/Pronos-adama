@@ -57,6 +57,21 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://educanimaux.fr/meilleur-clicker.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/meilleur-clicker.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/meilleur-griffoir-chat.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/meilleur-griffoir-chat.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/meilleur-harnais-chien.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/meilleur-harnais-chien.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://educanimaux.fr/mentions-legales.html</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/mentions-legales.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/mentions-legales.html"/>

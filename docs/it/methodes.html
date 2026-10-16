@@ -4,20 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tutti i metodi di educazione degli animali – Éduc&#x27;Animaux</title>
-  <meta name="description" content="Il catalogo completo dei metodi per educare cane, gatto, coniglio e uccello: rinforzo positivo, clicker, adescamento, shaping, targeting, desensibilizzazione, BAT, modello/rivale…">
+  <meta name="description" content="Tutti i metodi per educare cane, gatto, coniglio e uccello: rinforzo positivo, clicker, adescamento, shaping, targeting, desensibilizzazione…">
   <link rel="canonical" href="https://educanimaux.fr/it/methodes.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Éduc'Animaux">
   <meta property="og:locale" content="it_IT">
   <meta property="og:title" content="Tutti i metodi di educazione degli animali – Éduc&#x27;Animaux">
-  <meta property="og:description" content="Il catalogo completo dei metodi per educare cane, gatto, coniglio e uccello: rinforzo positivo, clicker, adescamento, shaping, targeting, desensibilizzazione, BAT, modello/rivale…">
+  <meta property="og:description" content="Tutti i metodi per educare cane, gatto, coniglio e uccello: rinforzo positivo, clicker, adescamento, shaping, targeting, desensibilizzazione…">
   <meta property="og:url" content="https://educanimaux.fr/it/methodes.html">
   <meta property="og:image" content="https://educanimaux.fr/img/partage.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <link rel="preload" href="../fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
 <!-- langues -->
@@ -28,7 +27,7 @@
   <!-- /langues -->
 </head>
 <body>
-  <div class="disclosure">Questo sito contiene link di affiliazione: possiamo ricevere una commissione sui tuoi acquisti, senza alcun costo aggiuntivo per te. <a href="mentions-legales.html#affiliation">Scopri di più</a> · <label class="shop">Negozio: <select id="boutique"></select></label></div>
+  <div class="disclosure">Questo sito contiene link di affiliazione: possiamo ricevere una commissione sui tuoi acquisti, senza alcun costo aggiuntivo per te. <a href="mentions-legales.html#affiliation">Info sui link di affiliazione</a> · <label class="shop">Negozio: <select id="boutique"></select></label></div>
   <header class="site-header">
     <nav class="container nav" aria-label="Navigazione principale">
       <a class="logo" href="index.html">🐾 Éduc'<span>Animaux</span></a>
@@ -77,6 +76,7 @@
           <span id="method-count" aria-live="polite"></span>
         </div>
 
+        <h2 class="sr-only">Elenco dei metodi</h2>
         <div class="grid grid-2">
 
           <article class="card method" id="renforcement-positif" data-animals="chien chat nac oiseau" data-level="debutant">
@@ -393,7 +393,7 @@
     </div>
   </footer>
 
-  <script src="../js/config.js"></script>
-  <script src="../js/main.js"></script>
+  <script src="../js/config.js" defer></script>
+  <script src="../js/main.js" defer></script>
 </body>
 </html>

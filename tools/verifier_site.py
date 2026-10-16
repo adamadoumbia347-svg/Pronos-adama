@@ -62,7 +62,8 @@ def main():
         for err in sorted(set(an.erreurs)):
             problemes.append(f"{nom} : {err}")
         for asset in an.assets:
-            if not (DOCS / posixpath.normpath(posixpath.join(dossier, asset))).exists():
+            chemin = asset.lstrip("/") if asset.startswith("/") else posixpath.normpath(posixpath.join(dossier, asset))
+            if not (DOCS / chemin).exists():
                 problemes.append(f"{nom} : fichier introuvable {asset}")
         for a in an.liens:
             href = a["href"]
@@ -76,7 +77,13 @@ def main():
                 continue
             fichier, _, ancre = href.partition("#")
             fichier = fichier.split("?")[0]
-            cible = posixpath.normpath(posixpath.join(dossier, fichier)) if fichier else nom
+            if fichier.startswith("/"):  # lien absolu depuis la racine du site
+                fichier = fichier.lstrip("/")
+                if fichier == "" or fichier.endswith("/"):
+                    fichier += "index.html"
+                cible = posixpath.normpath(fichier)
+            else:
+                cible = posixpath.normpath(posixpath.join(dossier, fichier)) if fichier else nom
             if cible not in pages:
                 problemes.append(f"{nom} : lien cassé vers {href}")
             elif ancre and ancre not in analyses[cible].ids:
@@ -84,6 +91,8 @@ def main():
     sitemap = (DOCS / "sitemap.xml").read_text(encoding="utf-8")
     xml.dom.minidom.parseString(sitemap)
     for nom in pages:
+        if nom == "404.html":
+            continue
         dossier, fichier = posixpath.split(nom)
         loc = BASE + (dossier + "/" if dossier else "") + ("" if fichier == "index.html" else fichier)
         if f"<loc>{loc}</loc>" not in sitemap:
