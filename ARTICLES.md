@@ -26,10 +26,8 @@ transforme un lecteur qui cherche une solution en acheteur, sans surcharger les 
 3. Publier : `python3 tools/publier_article.py articles/AAAA-MM-JJ-<slug>.html`
    (publier d'abord les 2 comparatifs, puis l'article de conseil, pour qu'il soit en tête).
 4. Vérifier : `python3 tools/verifier_site.py` doit afficher « Aucun problème ».
-5. Préparer l'e-mail de la semaine : `python3 tools/lettre.py` (écrit `lettres/AAAA-MM-JJ.html` avec les 3 nouveaux articles,
-   à coller dans Brevo par le propriétaire du site).
-6. Cocher les sujets dans les listes ci-dessous (`- [x]`) et ajouter les articles dans « Articles publiés ».
-7. Commiter sur `main` et pousser (`git push origin main`). GitHub Pages met le site
+5. Cocher les sujets dans les listes ci-dessous (`- [x]`) et ajouter les articles dans « Articles publiés ».
+6. Commiter sur `main` et pousser (`git push origin main`). GitHub Pages met le site
    à jour automatiquement en 1 à 2 minutes.
 
 ## Langues

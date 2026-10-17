@@ -75,10 +75,6 @@ python3 tools/verifier_site.py
 Dessins vectoriels sans texte (libres de droits) dans `docs/img/illu/`, générés par `node tools/illustrations/scenes.js`
 et placés dans les pages (légendes FR/EN/IT, images des cartes) par `python3 tools/illustrations/integrer.py`.
 
-## Lettre d'information (Brevo)
-
-`python3 tools/lettre.py` écrit `lettres/AAAA-MM-JJ.html` avec les 3 derniers articles de `docs/conseils.html`.
-Dans Brevo : Campagnes > Créer une campagne e-mail > Éditeur « Coller votre code HTML », puis coller le contenu du fichier.
 
 ## Recherche
 
