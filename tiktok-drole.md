@@ -45,3 +45,11 @@ Fichiers : `drole-….mp4` (musique originale + bruitages) et `sans-son-….mp4`
 - Les questions en fin de légende (« team 🐕 ou 🐈 ? ») font réagir en commentaire : réponds à un maximum.
 - Ces vidéos sont faites pour être partagées : publie-les plutôt le week-end ou le soir.
 - Pour varier, tu peux mettre ta propre voix off par-dessus la version sans son.
+
+## 9. Le langage de la queue du chat (23 s) — `videos/fr/chat-langage-queue.mp4`
+
+**Légende :**
+Ce que la queue de ton chat essaie de te dire 🐈 Le n°3, tout le monde l'ignore… 😾 Et ton chat, il fait laquelle ? 👇
+Tous nos conseils pour comprendre ton chat : educanimaux.fr (lien en bio)
+
+**Hashtags :** #chat #chats #catsoftiktok #chatdrole #comportementchat #langagechat #astucechat #educanimaux
