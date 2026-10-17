@@ -39,12 +39,18 @@ function yeux(type) {
   if (type === "dort") return `<path d="M192 114 q8 5 16 0 M222 114 q8 5 16 0" stroke="#2b2420" stroke-width="5" fill="none" stroke-linecap="round"/>`;
   return `<ellipse cx="200" cy="112" rx="5" ry="8" fill="#2b2420"/><ellipse cx="230" cy="112" rx="5" ry="8" fill="#2b2420"/>`;
 }
-function chat(q, y, oreilles) {
+const OREILLES = {
+  "": `<path d="M178 92 L176 46 L204 80 Z M244 92 L250 46 L222 80 Z" fill="${F}"/>`,
+  plaquees: `<path d="M176 92 L156 76 L192 82 Z M246 92 L266 78 L232 82 Z" fill="${F}"/>`,
+  avion: `<path d="M178 96 L134 86 L182 78 Z M246 96 L294 88 L244 78 Z" fill="${F}"/>`,
+  detendues: `<path d="M178 92 L166 52 L202 80 Z M244 92 L258 52 L224 80 Z" fill="${F}"/>`,
+  radar: `<path class="og" d="M178 92 L176 46 L204 80 Z" fill="${F}"/><path class="od" d="M244 92 L250 46 L222 80 Z" fill="${F}"/>`
+};
+function chat(q, y, oreilles, deco) {
   const epais = q === "gonflee" ? 40 : 16;
   const poils = q === "gonflee" ? `<path d="${Q[q]}" stroke="${F}" stroke-width="52" fill="none" stroke-linecap="round" stroke-dasharray="3 7" opacity=".7"/>` : "";
   const queue = `<g class="queue">${poils}<path d="${Q[q]}" stroke="${G}" stroke-width="${epais}" fill="none" stroke-linecap="round"/></g>`;
-  const or = oreilles === "plaquees" ? `<path d="M176 92 L156 76 L192 82 Z M246 92 L266 78 L232 82 Z" fill="${F}"/>`
-                                     : `<path d="M178 92 L176 46 L204 80 Z M244 92 L250 46 L222 80 Z" fill="${F}"/>`;
+  const or = OREILLES[oreilles || ""];
   return `<svg viewBox="0 0 300 300"><ellipse cx="150" cy="286" rx="110" ry="9" fill="#eadfd3"/>
     ${q === "enroulee" ? "" : queue}
     <ellipse cx="158" cy="214" rx="72" ry="64" fill="${G}"/><ellipse cx="196" cy="206" rx="28" ry="48" fill="${C}"/>
@@ -52,7 +58,7 @@ function chat(q, y, oreilles) {
     ${q === "enroulee" ? queue : ""}
     ${or}<circle cx="214" cy="120" r="46" fill="${G}"/><ellipse cx="226" cy="138" rx="20" ry="13" fill="${C}"/>
     ${yeux(y)}<path d="M222 130 l9 0 l-4.5 6 z" fill="#e0566b"/>
-    <path d="M238 140 l34 -6 M238 145 l34 4" stroke="#2b2420" stroke-width="2"/></svg>`;
+    <path d="M238 140 l34 -6 M238 145 l34 4" stroke="#2b2420" stroke-width="2"/>${deco || ""}</svg>`;
 }
 // [queue, yeux, oreilles, position, signification, conseil]
 const L = [
@@ -65,7 +71,7 @@ const L = [
 const T0 = 2.6, DT = 3.4;
 const cartes = L.map((l, i) => {
   const d = document.createElement("div"); d.className = "carte";
-  d.innerHTML = `<span class="num">${i + 1} / 5</span>${chat(l[0], l[1], l[2])}<div class="quoi">${l[3]}</div><div class="sens">${l[4]}</div><div class="conseil">${l[5]}</div>`;
+  d.innerHTML = `<span class="num">${i + 1} / 5</span>${chat(l[0], l[1], l[2], l[6])}<div class="quoi">${l[3]}</div><div class="sens">${l[4]}</div><div class="conseil">${l[5]}</div>`;
   document.body.appendChild(d);
   son(T0 + i * DT, "whoosh"); son(T0 + i * DT + 0.9, i === 2 ? "scratch" : i === 3 ? "boom" : "miaou");
   return d;
@@ -85,6 +91,10 @@ function render(t) {
     if (L[i][0] === "fouette") q.setAttribute("transform", `rotate(${Math.sin((t - s) * 14) * 22} 95 232)`);
     else if (L[i][0] === "question" || L[i][0] === "droite") q.setAttribute("transform", `rotate(${Math.sin((t - s) * 3) * 4} 95 232)`);
     if (L[i][0] === "gonflee") c.querySelector("svg").style.transform = `translateX(${Math.sin((t - s) * 40) * 2}px)`;
+    const og = c.querySelector(".og"), od = c.querySelector(".od");
+    if (og) { og.setAttribute("transform", `rotate(${Math.sin((t - s) * 4) * 25} 190 88)`); od.setAttribute("transform", `rotate(${Math.sin((t - s) * 4 + 2) * 25} 236 88)`); }
+    const anim = c.querySelector(".anim");
+    if (anim) anim.setAttribute("transform", `translate(0 ${Math.sin((t - s) * 5) * 6})`);
   });
   const fin = T0 + 5 * DT;
   $("compteur").style.opacity = (t >= T0 && t < fin) ? 1 : 0;

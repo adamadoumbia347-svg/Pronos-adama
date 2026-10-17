@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><link rel="stylesheet" href="drole.css">
+<style>
+#bg{position:absolute;inset:0;background:linear-gradient(170deg,#ffe9d6,#fffaf3 55%,#e6f3ef);}
+.hook{position:absolute;left:28px;right:66px;top:150px;text-align:center;font-size:50px;font-weight:900;line-height:1.08;}
+.hook em{font-style:normal;color:#b44c1c}
+.carte{position:absolute;left:24px;width:440px;top:140px;background:#fff;border-radius:34px;padding:18px 18px 22px;box-shadow:0 18px 44px rgba(90,50,20,.18);opacity:0;text-align:center}
+.num{display:inline-block;background:#b44c1c;color:#fff;border-radius:999px;padding:6px 16px;font-size:20px;font-weight:900}
+.carte svg{display:block;width:370px;height:370px;margin:4px auto 0}
+.quoi{font-size:29px;font-weight:900;color:#6b5f57;margin-top:2px}
+.sens{font-size:40px;font-weight:900;line-height:1.1;margin-top:8px}
+.conseil{font-size:24px;font-weight:800;color:#2f7d6d;margin-top:10px;line-height:1.25}
+.pill{background:#b44c1c;color:#fff;border-radius:999px;padding:16px 26px;font-size:36px;font-weight:900;box-shadow:0 12px 30px rgba(120,50,10,.3);display:inline-block;}
+.compteur{position:absolute;left:0;right:44px;top:86px;text-align:center;font-size:22px;font-weight:900;color:#9a4016;opacity:0}
+</style></head><body>
+<div id="bg"></div>
+<div class="hook" id="hook">Ce que les <em>oreilles</em><br>de ton chat<br>te disent 👂</div>
+<div class="abs emoji" id="chathook" style="left:0;width:540px;text-align:center;top:520px;font-size:120px">🐱</div>
+<div class="compteur" id="compteur">🐾 Le langage des oreilles</div>
+<div class="legende" id="f1" style="top:220px;font-size:46px">Et les oreilles<br>de ton chat, là ? 👇</div>
+<div class="legende" id="f2" style="top:400px;font-size:30px">Tous nos conseils pour<br>comprendre ton chat 🐾</div>
+<div class="legende" id="f3" style="top:520px"><span class="pill">educanimaux.fr</span></div>
+<div class="legende" id="f4" style="top:650px;font-size:34px">Abonne-toi pour la suite 💛</div>
+<script src="drole.js"></script>
+<script>
+window.DUREE = 23;
+const G = "#8a8f99", F = "#5d626b", C = "#d9dce2";
+// queue : chemin depuis la base (95,232) selon la position
+const Q = {
+  droite:  "M95 232 C 78 200, 72 130, 82 58",
+  question:"M95 232 C 76 196, 70 120, 84 70 C 92 38, 132 40, 124 76",
+  fouette: "M95 232 C 62 236, 34 222, 22 192",
+  gonflee: "M95 232 C 78 200, 72 130, 82 58",
+  enroulee:"M96 250 C 92 290, 170 292, 238 272"
+};
+function yeux(type) {
+  if (type === "content") return `<path d="M192 112 q8 -8 16 0 M222 112 q8 -8 16 0" stroke="#2b2420" stroke-width="5" fill="none" stroke-linecap="round"/>`;
+  if (type === "peur") return `<circle cx="200" cy="112" r="11" fill="#fff"/><circle cx="230" cy="112" r="11" fill="#fff"/><circle cx="200" cy="112" r="8" fill="#2b2420"/><circle cx="230" cy="112" r="8" fill="#2b2420"/>`;
+  if (type === "agace") return `<path d="M190 104 l18 8 M240 104 l-18 8" stroke="#2b2420" stroke-width="5" stroke-linecap="round"/><ellipse cx="200" cy="115" rx="5" ry="4" fill="#2b2420"/><ellipse cx="230" cy="115" rx="5" ry="4" fill="#2b2420"/>`;
+  if (type === "dort") return `<path d="M192 114 q8 5 16 0 M222 114 q8 5 16 0" stroke="#2b2420" stroke-width="5" fill="none" stroke-linecap="round"/>`;
+  return `<ellipse cx="200" cy="112" rx="5" ry="8" fill="#2b2420"/><ellipse cx="230" cy="112" rx="5" ry="8" fill="#2b2420"/>`;
+}
+const OREILLES = {
+  "": `<path d="M178 92 L176 46 L204 80 Z M244 92 L250 46 L222 80 Z" fill="${F}"/>`,
+  plaquees: `<path d="M176 92 L156 76 L192 82 Z M246 92 L266 78 L232 82 Z" fill="${F}"/>`,
+  avion: `<path d="M178 96 L134 86 L182 78 Z M246 96 L294 88 L244 78 Z" fill="${F}"/>`,
+  detendues: `<path d="M178 92 L166 52 L202 80 Z M244 92 L258 52 L224 80 Z" fill="${F}"/>`,
+  radar: `<path class="og" d="M178 92 L176 46 L204 80 Z" fill="${F}"/><path class="od" d="M244 92 L250 46 L222 80 Z" fill="${F}"/>`
+};
+function chat(q, y, oreilles, deco) {
+  const epais = q === "gonflee" ? 40 : 16;
+  const poils = q === "gonflee" ? `<path d="${Q[q]}" stroke="${F}" stroke-width="52" fill="none" stroke-linecap="round" stroke-dasharray="3 7" opacity=".7"/>` : "";
+  const queue = `<g class="queue">${poils}<path d="${Q[q]}" stroke="${G}" stroke-width="${epais}" fill="none" stroke-linecap="round"/></g>`;
+  const or = OREILLES[oreilles || ""];
+  return `<svg viewBox="0 0 300 300"><ellipse cx="150" cy="286" rx="110" ry="9" fill="#eadfd3"/>
+    ${q === "enroulee" ? "" : queue}
+    <ellipse cx="158" cy="214" rx="72" ry="64" fill="${G}"/><ellipse cx="196" cy="206" rx="28" ry="48" fill="${C}"/>
+    <rect x="182" y="232" width="16" height="50" rx="8" fill="${F}"/><rect x="204" y="232" width="16" height="50" rx="8" fill="${G}"/>
+    ${q === "enroulee" ? queue : ""}
+    ${or}<circle cx="214" cy="120" r="46" fill="${G}"/><ellipse cx="226" cy="138" rx="20" ry="13" fill="${C}"/>
+    ${yeux(y)}<path d="M222 130 l9 0 l-4.5 6 z" fill="#e0566b"/>
+    <path d="M238 140 l34 -6 M238 145 l34 4" stroke="#2b2420" stroke-width="2"/>${deco || ""}</svg>`;
+}
+// [queue, yeux, oreilles, position, signification, conseil]
+const L = [
+  ["droite", "normal", "", "Oreilles dressées vers l'avant", "Il est curieux et attentif 👀", "→ Quelque chose l'intéresse : propose-lui un jeu", ""],
+  ["droite", "normal", "radar", "Oreilles qui pivotent comme des radars", "Il écoute tout autour de lui 📡", "→ Normal : il surveille son territoire", ""],
+  ["droite", "agace", "avion", "Oreilles « en avion »", "Il est agacé ou inquiet 😾", "→ Fais une pause, laisse-lui de l'espace", ""],
+  ["gonflee", "peur", "plaquees", "Oreilles plaquées en arrière", "Il a très peur 🙀", "→ Recule et laisse-le se calmer seul", ""],
+  ["enroulee", "dort", "detendues", "Oreilles détendues, un peu sur le côté", "Il est serein 😌", "→ Tout va bien, profite du calme", ""]
+];
+const T0 = 2.6, DT = 3.4;
+const cartes = L.map((l, i) => {
+  const d = document.createElement("div"); d.className = "carte";
+  d.innerHTML = `<span class="num">${i + 1} / 5</span>${chat(l[0], l[1], l[2], l[6])}<div class="quoi">${l[3]}</div><div class="sens">${l[4]}</div><div class="conseil">${l[5]}</div>`;
+  document.body.appendChild(d);
+  son(T0 + i * DT, "whoosh"); son(T0 + i * DT + 0.9, ["miaou","pop","scratch","boom","miaou"][i]);
+  return d;
+});
+son(0.2, "ding"); son(T0 + 5 * DT + 0.2, "fete"); son(T0 + 5 * DT + 2.4, "ding");
+function render(t) {
+  const kh = t < 0.01 ? 1 : p(t, 0, 0.35);
+  $("hook").style.opacity = kh; $("hook").style.transform = `scale(${0.9 + 0.1 * back(kh)})`;
+  $("chathook").style.opacity = 1; $("chathook").style.transform = `rotate(${Math.sin(t * 6) * 8}deg)`;
+  hide($("hook"), t, T0 - 0.3); hide($("chathook"), t, T0 - 0.3);
+  cartes.forEach((c, i) => {
+    const s = T0 + i * DT;
+    if (t < s) { c.style.opacity = 0; return; }
+    slide(c, t, s, 0.4, 420, 0);
+    if (t > s + DT - 0.3) hide(c, t, s + DT - 0.3, 0.25);
+    const q = c.querySelector(".queue");
+    if (L[i][0] === "fouette") q.setAttribute("transform", `rotate(${Math.sin((t - s) * 14) * 22} 95 232)`);
+    else if (L[i][0] === "question" || L[i][0] === "droite") q.setAttribute("transform", `rotate(${Math.sin((t - s) * 3) * 4} 95 232)`);
+    if (L[i][0] === "gonflee") c.querySelector("svg").style.transform = `translateX(${Math.sin((t - s) * 40) * 2}px)`;
+    const og = c.querySelector(".og"), od = c.querySelector(".od");
+    if (og) { og.setAttribute("transform", `rotate(${Math.sin((t - s) * 4) * 25} 190 88)`); od.setAttribute("transform", `rotate(${Math.sin((t - s) * 4 + 2) * 25} 236 88)`); }
+    const anim = c.querySelector(".anim");
+    if (anim) anim.setAttribute("transform", `translate(0 ${Math.sin((t - s) * 5) * 6})`);
+  });
+  const fin = T0 + 5 * DT;
+  $("compteur").style.opacity = (t >= T0 && t < fin) ? 1 : 0;
+  slide($("f1"), t, fin, 0.4); slide($("f2"), t, fin + 1.6, 0.4); pop($("f3"), t, fin + 2.4); slide($("f4"), t, fin + 3.4, 0.4);
+}
+render(0);
+</script></body></html>

@@ -53,3 +53,19 @@ Ce que la queue de ton chat essaie de te dire 🐈 Le n°3, tout le monde l'igno
 Tous nos conseils pour comprendre ton chat : educanimaux.fr (lien en bio)
 
 **Hashtags :** #chat #chats #catsoftiktok #chatdrole #comportementchat #langagechat #astucechat #educanimaux
+
+## 10. Le langage des oreilles du chat (23 s) — `videos/fr/chat-langage-oreilles.mp4`
+
+**Légende :**
+Ce que les oreilles de ton chat te disent 👂🐈 Les oreilles « en avion », tu connais ? 😾 Et les oreilles de ton chat, là, elles disent quoi ? 👇
+Tous nos conseils : educanimaux.fr (lien en bio)
+
+**Hashtags :** #chat #chats #catsoftiktok #comportementchat #langagechat #oreilleschat #astucechat #educanimaux
+
+## 11. 5 signes que ton chat t'aime (23 s) — `videos/fr/chat-signes-amour.mp4`
+
+**Légende :**
+5 signes que ton chat t'aime (vraiment) 💛 Le n°1 est un vrai « bisou » de chat 😽 Le tien en fait combien ? 👇
+Tous nos conseils pour comprendre ton chat : educanimaux.fr (lien en bio)
+
+**Hashtags :** #chat #chats #catsoftiktok #chatmignon #amourdechat #comportementchat #catlover #educanimaux
