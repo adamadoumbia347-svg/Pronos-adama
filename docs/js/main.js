@@ -144,58 +144,6 @@
   }
   if (methodes.length) appliquer();
 
-  // Encadré « lettre d'information » : affiché seulement si un formulaire est configuré
-  // dans config.js (newsletter.action[langue]). Placé avant « À lire aussi », ou en bas de l'accueil.
-  (function () {
-    var nl = cfg.newsletter || {};
-    var action = (nl.action || {})[langue];
-    if (!action) return;
-    var T = {
-      fr: ["🎁 Le guide offert : les 10 ordres de base", "Recevez gratuitement notre guide PDF illustré, puis un conseil d'éducation par semaine. Désinscription en un clic.", "Votre adresse e-mail", "Je le reçois", "Votre adresse sert uniquement à vous envoyer la lettre d'Éduc'Animaux.", "Merci ! Ouvrez l'e-mail de confirmation que nous venons de vous envoyer (pensez aux spams) : le guide s'ouvre dès que vous cliquez sur le lien."],
-      en: ["🎁 Free guide: the 10 basic cues", "Get our free illustrated PDF guide, then one training tip a week. Unsubscribe in one click.", "Your email address", "Send it to me", "Your address is only used to send you the Éduc'Animaux newsletter.", "Thank you! Open the confirmation email we have just sent you (check your spam folder): the guide opens as soon as you click the link."],
-      it: ["🎁 Guida in regalo: i 10 comandi di base", "Ricevi gratis la nostra guida PDF illustrata, poi un consiglio educativo a settimana. Disiscrizione in un clic.", "Il tuo indirizzo e-mail", "La voglio", "Il tuo indirizzo serve solo a inviarti la newsletter di Éduc'Animaux.", "Grazie! Apri l'e-mail di conferma che ti abbiamo appena inviato (controlla lo spam): la guida si apre appena clicchi sul link."]
-    }[langue] || [];
-    if (!T.length) return;
-    var bloc = document.createElement("section");
-    bloc.className = "newsletter";
-    bloc.innerHTML = '<div class="container"><div class="nl-boite"><h2></h2><p></p>' +
-      '<form method="post" target="_blank"><input type="email" required autocomplete="email"><button class="btn" type="submit"></button></form>' +
-      '<p class="nl-mention"></p></div></div>';
-    bloc.querySelector("h2").textContent = T[0];
-    bloc.querySelector("p").textContent = T[1];
-    var f = bloc.querySelector("form");
-    f.action = action;
-    var champ = f.querySelector("input");
-    champ.name = nl.champ || "EMAIL";
-    champ.placeholder = T[2];
-    champ.setAttribute("aria-label", T[2]);
-    f.querySelector("button").textContent = T[3];
-    var caches = nl.champsCaches || {};
-    Object.keys(caches).forEach(function (nom) {
-      var h = document.createElement("input");
-      h.type = "hidden"; h.name = nom; h.value = caches[nom];
-      f.appendChild(h);
-    });
-    // Envoi en arrière-plan puis message de remerciement ; en cas d'échec réseau, envoi classique.
-    f.addEventListener("submit", function (e) {
-      if (!window.fetch || !window.FormData) return;
-      e.preventDefault();
-      var bouton = f.querySelector("button");
-      bouton.disabled = true;
-      fetch(f.action, { method: "POST", body: new FormData(f), mode: "no-cors" })
-        .then(function () {
-          var merci = document.createElement("p");
-          merci.className = "nl-merci";
-          merci.textContent = T[5];
-          f.replaceWith(merci);
-        })
-        .catch(function () { bouton.disabled = false; f.submit(); });
-    });
-    bloc.querySelector(".nl-mention").textContent = T[4];
-    var ancre = document.querySelector(".lire-aussi") || document.querySelector("main > section:last-of-type");
-    if (ancre && ancre.parentNode) ancre.parentNode.insertBefore(bloc, document.querySelector(".lire-aussi") ? ancre : ancre.nextSibling);
-  })();
-
   // Recherche dans le site : loupe dans le bandeau, résultats instantanés (index recherche.json de la langue)
   (function () {
     var nav = document.querySelector(".site-header .nav");
