@@ -1,0 +1,17 @@
+{
+ "hook": "5 signes que<br>ton chat <em>s'ennuie</em><br>(et quoi faire) 🐈",
+ "emoji_hook": "🥱",
+ "bandeau": "🐾 Ton chat s'ennuie ?",
+ "musique": 5,
+ "fond": ["#e6f3ef", "#ffe9d6"],
+ "cartes": [
+  {"visuel": {"type": "chat", "queue": "question", "yeux": "agace"}, "quoi": "Il fait tomber les objets", "sens": "Il cherche de l'action… et ton attention 👀", "conseil": "→ Une séance de canne à plumes", "son": "crash"},
+  {"visuel": {"type": "chat", "queue": "fouette", "yeux": "normal", "oreilles": "avion"}, "quoi": "Il court partout la nuit", "sens": "Il a trop d'énergie en réserve ⚡", "conseil": "→ Fais-le jouer le soir, avant de dormir", "son": "whoosh"},
+  {"visuel": {"type": "chat", "queue": "droite", "yeux": "normal"}, "quoi": "Il miaule beaucoup pour rien", "sens": "Il réclame de l'occupation 🗣️", "conseil": "→ Joue avec lui… quand il est calme", "son": "miaou"},
+  {"visuel": {"type": "emoji", "texte": "🍽️"}, "quoi": "Il réclame à manger sans arrêt", "sens": "Parfois, il mange… par ennui 😿", "conseil": "→ Essaie une balle à croquettes", "son": "pop"},
+  {"visuel": {"type": "chat", "queue": "enroulee", "yeux": "dort"}, "quoi": "Il se lèche vraiment trop", "sens": "Ça peut être de l'ennui ou du stress 🩺", "conseil": "→ Parles-en à ton vétérinaire", "son": "pop"}
+ ],
+ "fin": ["Le tien fait<br>lequel ? 👇", "Tous nos conseils pour<br>un chat heureux 🐾"],
+ "legende": "5 signes que ton chat s'ennuie (et quoi faire) 🐈 Le n°2, c'est toutes les nuits chez toi ? 😅 Le tien fait lequel ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chat #chats #catsoftiktok #chatdinterieur #comportementchat #astucechat #catlover #educanimaux"
+}

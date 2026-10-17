@@ -1,0 +1,17 @@
+{
+ "hook": "Il pleut ? 🌧️<br>5 jeux pour <em>occuper</em><br>ton chien à la maison",
+ "emoji_hook": "🌧️",
+ "bandeau": "🐾 Jeux d'intérieur",
+ "musique": 0,
+ "fond": ["#e3eefc", "#ffe9d6"],
+ "cartes": [
+  {"visuel": {"type": "chien", "pose": "debout", "tete": 12, "deco": "friandise"}, "quoi": "Cache des friandises dans la pièce", "sens": "Utiliser son flair le fatigue beaucoup 👃", "conseil": "→ Commence par des cachettes faciles", "son": "pop"},
+  {"visuel": {"type": "emoji", "texte": "🧺"}, "quoi": "Le tapis de fouille", "sens": "Il cherche ses croquettes dans le tissu 🔍", "conseil": "→ Facile à faire avec un vieux tissu polaire", "son": "pop"},
+  {"visuel": {"type": "emoji", "texte": "🦴"}, "quoi": "Un jouet à garnir", "sens": "Mâchonner, ça le calme 😌", "conseil": "→ Remplis-le de sa ration et c'est parti", "son": "ouaf"},
+  {"visuel": {"type": "illu", "nom": "assis-leurre"}, "quoi": "Apprends-lui un nouveau tour", "sens": "Réfléchir, c'est aussi une dépense 🧠", "conseil": "→ Séances courtes, avec récompense", "son": "ding"},
+  {"visuel": {"type": "illu", "nom": "rappel"}, "quoi": "Cache-cache avec toi", "sens": "Il adore te retrouver 🥳", "conseil": "→ Et en plus, ça travaille le rappel !", "son": "ouaf"}
+ ],
+ "fin": ["Lequel tu testes<br>en premier ? 👇", "Tous nos conseils pour<br>occuper ton chien 🐾"],
+ "legende": "Il pleut ? 5 jeux pour occuper ton chien à la maison 🌧️🐕 Le n°5 travaille même le rappel 😉 Lequel tu testes en premier ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chien #chiens #dogsoftiktok #jeuxchien #educationcanine #chiot #astucechien #educanimaux"
+}

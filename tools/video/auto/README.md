@@ -1,4 +1,7 @@
-# Vidéos TikTok automatiques (chiens et chats) — 3 par semaine
+# Vidéos TikTok automatiques (chiens et chats)
+
+Rythme : **1 vidéo par jour du 19 octobre au 17 novembre 2026** (lundi 18 h, autres jours 10 h),
+puis **3 par semaine** à partir du 18 novembre (lundi 18 h, mercredi 10 h, vendredi 10 h). Fuseau Europe/Rome.
 
 Chaque vidéo = un fichier JSON dans `sujets/AAAA-MM-JJ-<nom>.json` (date de publication prévue).
 
@@ -51,13 +54,13 @@ Sons : pop, pop2, ding, miaou, ouaf, whoosh, boom, crash, scratch, fete.
 - [x] 5 erreurs qui stressent ton chien (2026-10-19)
 - [x] 5 choses que ton chat déteste (2026-10-21)
 - [x] Ton chien fait ça ? Ce que ça veut dire (2026-10-23)
-- [ ] 5 signes que ton chien t'aime
+- [x] 5 signes que ton chien t'aime (2026-10-22)
 - [ ] Pourquoi ton chat fait ses griffes sur le canapé (et la solution)
 - [ ] 5 aliments dangereux pour ton chien
 - [ ] 5 aliments dangereux pour ton chat
-- [ ] Ton chat fait ça ? Ce que ça veut dire (pétrir, ronronner, apporter des « cadeaux »…)
-- [ ] 5 jeux pour occuper ton chien quand il pleut
-- [ ] 5 signes que ton chat s'ennuie
+- [x] Ton chat fait ça ? Ce que ça veut dire (2026-10-20)
+- [x] 5 jeux pour occuper ton chien quand il pleut (2026-10-25)
+- [x] 5 signes que ton chat s'ennuie (2026-10-24)
 - [ ] Chiot : les 5 règles de la première semaine
 - [ ] Pourquoi ton chien tire en laisse (et comment arrêter)
 - [ ] Mythe ou réalité : les idées reçues sur les chats
@@ -73,3 +76,29 @@ Sons : pop, pop2, ding, miaou, ouaf, whoosh, boom, crash, scratch, fete.
 - [ ] 5 signes que ton chat te fait confiance
 - [ ] Préparer son chien aux pétards du Nouvel An (à publier fin décembre)
 - [ ] 5 cadeaux de Noël utiles pour chien et chat (à publier début décembre)
+- [ ] Ton chien mange trop vite ? 5 astuces
+- [ ] Pourquoi ton chat ronronne (pas que de bonheur)
+- [ ] 5 erreurs quand on adopte un chaton
+- [ ] Chien seul à la maison : 5 conseils
+- [ ] Pourquoi ton chat te mordille pendant les caresses
+- [ ] 5 signes que ton chien a mal (vétérinaire)
+- [ ] Comment présenter un chat à un chien
+- [ ] 5 plantes toxiques pour les chats
+- [ ] Pourquoi ton chien mange de l'herbe
+- [ ] Chiot qui mordille : que faire
+- [ ] Pourquoi ton chat miaule la nuit
+- [ ] 5 règles pour une balade réussie
+- [ ] Brosser son chat : 5 astuces
+- [ ] Ton chien aboie à la porte ? 4 étapes
+- [ ] 5 signes que ton chat est stressé
+- [ ] Apprendre « couché » en 3 étapes
+- [ ] Pourquoi ton chat dort autant
+- [ ] 5 erreurs de récompense avec ton chien
+- [ ] Le bon griffoir pour ton chat
+- [ ] Chien qui saute sur les gens : la solution
+- [ ] Pourquoi ton chat renverse son verre d'eau
+- [ ] 5 choses à faire avant d'adopter un chien
+- [ ] Ton chat et le transport chez le vétérinaire
+- [ ] Chien et chaleur/froid : 5 conseils
+- [ ] Comment apprendre « au pied » en douceur
+- [ ] Pourquoi ton chat aime les cartons

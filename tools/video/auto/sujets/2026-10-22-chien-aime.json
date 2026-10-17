@@ -1,0 +1,17 @@
+{
+ "hook": "5 signes que<br>ton chien <em>t'aime</em><br>vraiment 🐕💛",
+ "emoji_hook": "🥰",
+ "bandeau": "🐾 Les preuves d'amour",
+ "musique": 3,
+ "fond": ["#ffe3ec", "#ffe9d6"],
+ "cartes": [
+  {"visuel": {"type": "chien", "pose": "debout", "tete": -6}, "quoi": "Il te suit partout", "sens": "Tu es son repère 🧭", "conseil": "→ Apprends-lui aussi à rester seul en douceur", "son": "ouaf"},
+  {"visuel": {"type": "chien", "pose": "debout", "tete": 8, "deco": "coeur"}, "quoi": "Tout son corps remue quand tu rentres", "sens": "Il est heureux de te retrouver 🎉", "conseil": "→ Attends qu'il se calme pour le caresser", "son": "ouaf"},
+  {"visuel": {"type": "chien", "pose": "assis", "deco": "balle"}, "quoi": "Il t'apporte ses jouets", "sens": "Il veut partager un moment avec toi 🎾", "conseil": "→ Prends 5 minutes pour jouer", "son": "pop"},
+  {"visuel": {"type": "chien", "pose": "couche", "deco": "zzz"}, "quoi": "Il dort collé à toi", "sens": "Il se sent en sécurité 😴", "conseil": "→ Laisse-lui aussi son propre panier", "son": "pop"},
+  {"visuel": {"type": "chien", "pose": "assis", "tete": -4, "deco": "coeur"}, "quoi": "Il te regarde avec des yeux doux", "sens": "C'est un vrai signe d'attachement 💛", "conseil": "→ Réponds par un regard doux", "son": "ouaf"}
+ ],
+ "fin": ["Ton chien en fait<br>combien ? 👇", "Tous nos conseils pour<br>comprendre ton chien 🐾"],
+ "legende": "5 signes que ton chien t'aime vraiment 🐕💛 Le n°5 est le plus beau 🥹 Ton chien en fait combien ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chien #chiens #dogsoftiktok #chienmignon #amourdechien #comportementchien #dogmom #educanimaux"
+}

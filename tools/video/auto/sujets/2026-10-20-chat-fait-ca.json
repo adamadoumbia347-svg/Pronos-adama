@@ -1,0 +1,17 @@
+{
+ "hook": "Ton chat fait ça ?<br>Voici ce que<br>ça <em>veut dire</em> 🐈",
+ "emoji_hook": "😺",
+ "bandeau": "🐾 Le langage du chat",
+ "musique": 1,
+ "fond": ["#ffe9d6", "#e8e0ff"],
+ "cartes": [
+  {"visuel": {"type": "chat", "queue": "droite", "yeux": "content", "oreilles": "detendues"}, "quoi": "Il te « pétrit » avec ses pattes", "sens": "Il est bien, comme quand il tétait 🥰", "conseil": "→ Mets une couverture sur tes genoux", "son": "miaou"},
+  {"visuel": {"type": "chat", "queue": "enroulee", "yeux": "dort"}, "quoi": "Il cligne lentement des yeux", "sens": "C'est un signe de confiance 😌", "conseil": "→ Cligne lentement en retour", "son": "pop"},
+  {"visuel": {"type": "chat", "queue": "question", "yeux": "content", "deco": "coeur"}, "quoi": "Il frotte sa tête contre toi", "sens": "Il te met son odeur : tu es de la famille 💛", "conseil": "→ Laisse-le faire, c'est un compliment", "son": "miaou"},
+  {"visuel": {"type": "emoji", "texte": "🐭"}, "quoi": "Il t'apporte une « proie »", "sens": "C'est son instinct de chasseur 🐾", "conseil": "→ Ne le gronde pas, joue avec lui", "son": "pop"},
+  {"visuel": {"type": "chat", "queue": "droite", "yeux": "normal", "oreilles": "", "deco": "interdit"}, "quoi": "Il te montre son ventre", "sens": "Il se sent en sécurité… 😼", "conseil": "→ Mais ce n'est pas forcément pour une caresse !", "son": "scratch"}
+ ],
+ "fin": ["Le tien fait<br>lequel ? 👇", "Tous nos conseils pour<br>comprendre ton chat 🐾"],
+ "legende": "Ton chat fait ça ? Voici ce que ça veut dire 🐈 Le n°5, attention aux griffes 😼 Le tien fait lequel ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chat #chats #catsoftiktok #langagechat #comportementchat #chatmignon #catlover #educanimaux"
+}
