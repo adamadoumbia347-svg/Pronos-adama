@@ -60,6 +60,7 @@ def main():
       </td></tr></table>
     </td></tr>
     <tr><td style="padding:18px 28px 26px;border-top:1px solid #eadfd3;font:12px/1.6 Arial,Helvetica,sans-serif;color:#9a8a7e;text-align:center">
+      Une question ou une idée d'article ? Répondez simplement à cet e-mail, ou écrivez à <a href="mailto:diantoua1@gmail.com" style="color:#9a8a7e">diantoua1@gmail.com</a>.<br>
       Vous recevez cet e-mail car vous vous êtes inscrit(e) sur <a href="{SITE}" style="color:#9a8a7e">educanimaux.fr</a>.<br>
       Certains liens du site sont des liens d'affiliation : nous pouvons toucher une commission, sans surcoût pour vous.<br>
       <a href="{{{{ mirror }}}}" style="color:#9a8a7e">Voir dans le navigateur</a> · <a href="{{{{ unsubscribe }}}}" style="color:#9a8a7e">Se désinscrire</a>
