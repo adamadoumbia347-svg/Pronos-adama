@@ -1,0 +1,75 @@
+# Vidéos TikTok automatiques (chiens et chats) — 3 par semaine
+
+Chaque vidéo = un fichier JSON dans `sujets/AAAA-MM-JJ-<nom>.json` (date de publication prévue).
+
+```
+python3 tools/video/auto/fabriquer.py tools/video/auto/sujets/<fichier>.json --apercu   # 6 images de contrôle
+python3 tools/video/auto/fabriquer.py tools/video/auto/sujets/<fichier>.json            # vidéo finale
+```
+Sortie : `videos/auto/<nom>.mp4` (1080×1920, ~25 s, musique + bruitages) et `videos/auto/<nom>.txt` (légende + hashtags).
+Publication : la vidéo est poussée sur `main`, puis programmée sur TikTok via Metricool avec l'adresse
+`https://raw.githubusercontent.com/adamadoumbia347-svg/Pronos-adama/main/videos/auto/<nom>.mp4`.
+
+## Format du JSON
+
+```json
+{
+ "hook": "Texte d'accroche (HTML : <br>, <em>mot en orange</em>)",
+ "emoji_hook": "😼",
+ "bandeau": "🐾 Petit titre affiché au-dessus des cartes",
+ "musique": 1,                       // 0 à 5 : variante de la musique
+ "fond": ["#ffe9d6", "#e6f3ef"],     // facultatif : dégradé de fond
+ "cartes": [                          // 4 à 6 cartes (5 conseillé)
+  {"visuel": {...}, "quoi": "Le comportement / la situation", "sens": "Ce que ça veut dire 😮",
+   "conseil": "→ Le conseil pratique", "son": "pop", "badge": "facultatif (sinon 1 / 5)", "couleur": "vert|rouge (facultatif)"}
+ ],
+ "fin": ["Question pour les commentaires ? 👇", "Tous nos conseils pour…<br>… 🐾"],
+ "legende": "Légende TikTok (avec la question et « educanimaux.fr (lien en bio) »)",
+ "hashtags": "#chien #chat … #educanimaux"
+}
+```
+
+Visuels possibles :
+- chat : `{"type":"chat","queue":"droite|question|fouette|gonflee|enroulee","yeux":"normal|content|agace|peur|dort","oreilles":"|plaquees|avion|detendues","deco":"coeur|zzz|os|balle|friandise|interdit|ok"}`
+- chien : `{"type":"chien","pose":"assis|debout|couche","tete":-15..15,"deco":"coeur|zzz|os|balle|friandise|interdit|ok"}`
+- illustration du site : `{"type":"illu","nom":"laisse|rappel|harnais|griffoir|chiot-jouet|assis-leurre|chat-clicker|lapin|…"}`
+- emoji : `{"type":"emoji","texte":"🦴"}`
+
+Sons : pop, pop2, ding, miaou, ouaf, whoosh, boom, crash, scratch, fete.
+
+## Règles de contenu
+
+- Tutoiement (ton TikTok), phrases très courtes, 1 emoji par ligne maximum.
+- Uniquement des conseils exacts et bienveillants (comme sur le site) : jamais de punition, pas de chiffres inventés,
+  renvoi au vétérinaire pour la santé.
+- Accroche forte (« 5 erreurs… », « Ton chat fait ça ? », « Ce que ton chien essaie de te dire »…),
+  question à la fin pour faire commenter.
+- Varier : chien / chat / chien la même semaine ou chat / chien / chat, et alterner les formats.
+
+## Sujets à venir (cocher quand la vidéo est faite)
+
+- [x] 5 erreurs qui stressent ton chien (2026-10-19)
+- [x] 5 choses que ton chat déteste (2026-10-21)
+- [x] Ton chien fait ça ? Ce que ça veut dire (2026-10-23)
+- [ ] 5 signes que ton chien t'aime
+- [ ] Pourquoi ton chat fait ses griffes sur le canapé (et la solution)
+- [ ] 5 aliments dangereux pour ton chien
+- [ ] 5 aliments dangereux pour ton chat
+- [ ] Ton chat fait ça ? Ce que ça veut dire (pétrir, ronronner, apporter des « cadeaux »…)
+- [ ] 5 jeux pour occuper ton chien quand il pleut
+- [ ] 5 signes que ton chat s'ennuie
+- [ ] Chiot : les 5 règles de la première semaine
+- [ ] Pourquoi ton chien tire en laisse (et comment arrêter)
+- [ ] Mythe ou réalité : les idées reçues sur les chats
+- [ ] Mythe ou réalité : les idées reçues sur les chiens
+- [ ] 5 signes que ton chien est stressé
+- [ ] 5 bruits du quotidien qui font peur aux chats
+- [ ] Comment apprendre « assis » en 3 étapes
+- [ ] 5 erreurs avec la litière
+- [ ] Ce que la position de sommeil de ton chien veut dire
+- [ ] 5 choses que ton chien déteste
+- [ ] Chat d'intérieur : 5 idées pour qu'il soit heureux
+- [ ] Le rappel du chien en 4 étapes
+- [ ] 5 signes que ton chat te fait confiance
+- [ ] Préparer son chien aux pétards du Nouvel An (à publier fin décembre)
+- [ ] 5 cadeaux de Noël utiles pour chien et chat (à publier début décembre)

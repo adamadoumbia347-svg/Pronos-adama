@@ -47,13 +47,22 @@ def crash():
     return 0.35 * n + 0.08 * tinkle
 def scratch():
     t = tt(0.35); f = 900 * np.exp(-t * 6) + 80; return 0.3 * np.sign(np.sin(2*np.pi*np.cumsum(f)/SR)) * np.exp(-t*4)
+def ouaf():
+    s = np.zeros(int(0.45 * SR))
+    for k, d0 in enumerate([0.0, 0.2]):
+        t = tt(0.16); f = 330 + 260 * np.exp(-t * 18)
+        ph = 2*np.pi*np.cumsum(f)/SR
+        b = (np.sin(ph) + 0.6*np.sin(2*ph) + 0.3*np.sin(3*ph)) + 0.25*rng.standard_normal(len(t))
+        b *= np.exp(-t * 16) * np.minimum(1, t * 120) * 0.3
+        i0 = int(d0 * SR); s[i0:i0+len(b)] += b
+    return s
 def fete():
     s = np.zeros(int(0.8 * SR))
     for i, m in enumerate([72, 76, 79, 84, 88]):
         p = pluck(midi(m), 0.3, 0.18); i0 = int(i * 0.07 * SR); s[i0:i0+len(p)] += p[:len(s)-i0]
     return s
 FX = {"pop": lambda: pop_(500), "pop2": lambda: pop_(700), "ding": ding, "miaou": miaou, "whoosh": whoosh,
-      "boom": boom, "crash": crash, "scratch": scratch, "fete": fete}
+      "boom": boom, "crash": crash, "scratch": scratch, "fete": fete, "ouaf": ouaf}
 musique = out.copy(); out[:] = 0
 for e in cfg["sons"]: add(FX[e["type"]](), e["t"])
 # baisse la musique pendant les bruitages forts, puis mixe

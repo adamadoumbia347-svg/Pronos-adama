@@ -1,0 +1,17 @@
+{
+ "hook": "5 choses que<br>ton chat <em>déteste</em><br>(et tu le fais peut-être) 🐈",
+ "emoji_hook": "😾",
+ "bandeau": "🐾 Ce que ton chat déteste",
+ "musique": 2,
+ "fond": ["#e8e0ff", "#ffe9d6"],
+ "cartes": [
+  {"visuel": {"type": "chat", "queue": "fouette", "yeux": "agace", "oreilles": "avion"}, "quoi": "Une litière pas assez propre", "sens": "Il peut aller faire… ailleurs 🙈", "conseil": "→ Retire les selles chaque jour", "son": "scratch"},
+  {"visuel": {"type": "emoji", "texte": "🍋"}, "quoi": "Les odeurs fortes (agrumes, parfums)", "sens": "Son nez est bien plus sensible que le tien 👃", "conseil": "→ Litière et produits sans parfum", "son": "pop"},
+  {"visuel": {"type": "chat", "queue": "gonflee", "yeux": "peur", "oreilles": "plaquees"}, "quoi": "Les bruits forts et soudains", "sens": "Ça lui fait vraiment peur 🙀", "conseil": "→ Laisse-lui une cachette au calme", "son": "boom"},
+  {"visuel": {"type": "emoji", "texte": "💧"}, "quoi": "L'eau collée à sa nourriture", "sens": "Beaucoup de chats boivent alors moins 🚱", "conseil": "→ Place l'eau un peu plus loin", "son": "pop"},
+  {"visuel": {"type": "chat", "queue": "droite", "yeux": "content", "oreilles": "", "deco": "coeur"}, "quoi": "Être câliné de force", "sens": "Il préfère choisir le moment 😼", "conseil": "→ Laisse-le venir… il viendra 💛", "son": "miaou"}
+ ],
+ "fin": ["Tu en fais<br>combien ? 👇", "Tous nos conseils pour<br>comprendre ton chat 🐾"],
+ "legende": "5 choses que ton chat déteste (et tu le fais peut-être) 🐈 La n°4, presque personne ne le sait 💧 Tu en fais combien ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chat #chats #catsoftiktok #comportementchat #astucechat #chatdrole #catlover #educanimaux"
+}

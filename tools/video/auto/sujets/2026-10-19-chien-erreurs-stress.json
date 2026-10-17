@@ -1,0 +1,16 @@
+{
+ "hook": "5 erreurs qui<br><em>stressent</em> ton chien<br>(sans que tu le saches) 🐕",
+ "emoji_hook": "😰",
+ "bandeau": "🐾 Ce qui stresse ton chien",
+ "musique": 1,
+ "cartes": [
+  {"visuel": {"type": "chien", "pose": "assis", "deco": "interdit"}, "quoi": "Le serrer fort dans tes bras", "sens": "Beaucoup de chiens détestent ça 😬", "conseil": "→ Préfère une caresse sur le poitrail", "son": "pop"},
+  {"visuel": {"type": "chien", "pose": "debout", "tete": -6, "deco": "interdit"}, "quoi": "Le fixer dans les yeux, de près", "sens": "Pour lui, c'est une menace 👀", "conseil": "→ Regard doux, un peu de côté", "son": "pop"},
+  {"visuel": {"type": "chien", "pose": "couche", "deco": "zzz"}, "quoi": "Le réveiller brusquement", "sens": "Il peut sursauter… et mordre 😴", "conseil": "→ Appelle-le doucement avant de le toucher", "son": "ouaf"},
+  {"visuel": {"type": "emoji", "texte": "🔀"}, "quoi": "Changer les règles tout le temps", "sens": "Il ne sait plus quoi faire 🤯", "conseil": "→ Toute la famille, les mêmes règles", "son": "pop"},
+  {"visuel": {"type": "chien", "pose": "couche", "tete": 10, "deco": "os"}, "quoi": "Le laisser s'ennuyer des heures", "sens": "L'ennui crée stress et bêtises 💥", "conseil": "→ Jouets d'occupation et balades « flair »", "son": "ouaf"}
+ ],
+ "fin": ["Tu en faisais<br>combien ? 👇", "Tous nos conseils pour<br>un chien heureux 🐾"],
+ "legende": "5 erreurs qui stressent ton chien (sans que tu le saches) 🐕 La n°2, presque tout le monde la fait 👀 Tu en faisais combien ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chien #chiens #dogsoftiktok #educationcanine #conseilchien #comportementchien #chiot #educanimaux"
+}

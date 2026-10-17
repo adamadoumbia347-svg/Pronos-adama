@@ -1,0 +1,17 @@
+{
+ "hook": "Ton chien fait ça ?<br>Voici ce que<br>ça <em>veut dire</em> 🐕",
+ "emoji_hook": "🤔",
+ "bandeau": "🐾 Le langage du chien",
+ "musique": 4,
+ "fond": ["#ffe9d6", "#e5f3d5"],
+ "cartes": [
+  {"visuel": {"type": "chien", "pose": "assis", "tete": -14}, "quoi": "Il bâille sans être fatigué", "sens": "Il est un peu stressé 😬", "conseil": "→ C'est un « signal d'apaisement »", "son": "pop"},
+  {"visuel": {"type": "chien", "pose": "assis", "tete": 4}, "quoi": "Il se lèche la truffe", "sens": "Il est mal à l'aise 😕", "conseil": "→ Fais une pause dans ce que tu fais", "son": "pop"},
+  {"visuel": {"type": "chien", "pose": "debout", "tete": -10}, "quoi": "Il remue la queue", "sens": "Pas toujours de la joie ! 😮", "conseil": "→ Regarde tout son corps, pas que la queue", "son": "ouaf"},
+  {"visuel": {"type": "chien", "pose": "couche", "deco": "zzz"}, "quoi": "Il tourne en rond avant de se coucher", "sens": "Un instinct de ses ancêtres 🐺", "conseil": "→ Il prépare son « lit », c'est normal", "son": "pop"},
+  {"visuel": {"type": "chien", "pose": "assis", "deco": "coeur"}, "quoi": "Il pose sa tête sur toi", "sens": "Il cherche ton attention 🥰", "conseil": "→ Profite… ou récompense-le s'il est calme", "son": "ouaf"}
+ ],
+ "fin": ["Le tien fait<br>lequel ? 👇", "Tous nos conseils pour<br>comprendre ton chien 🐾"],
+ "legende": "Ton chien fait ça ? Voici ce que ça veut dire 🐕 Le n°3 va te surprendre 😮 Le tien fait lequel ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chien #chiens #dogsoftiktok #langagechien #comportementchien #educationcanine #chiot #educanimaux"
+}
