@@ -4,6 +4,7 @@ Usage : python3 tools/lire_aussi.py
 
 Les articles sont lus dans la page Conseils de chaque langue (cartes .card-link) :
 on propose d'abord les articles de la même catégorie, puis les plus récents.
+En français, un encadré « promos du moment » précède ce bloc.
 Le script est idempotent (bloc entre <!-- lire-aussi --> et <!-- /lire-aussi -->).
 """
 import html
@@ -13,6 +14,9 @@ import re
 DOCS = pathlib.Path(__file__).resolve().parent.parent / "docs"
 DOSSIERS = {"fr": DOCS, "en": DOCS / "en", "it": DOCS / "it"}
 TITRE = {"fr": "À lire aussi", "en": "Read next", "it": "Leggi anche"}
+# Encadré « promos du moment » placé avant « À lire aussi » (pages françaises : la page promos n'existe qu'en français)
+PROMO = {"fr": '        <div class="callout encadre-promo"><span><strong>🏷️ Bons plans :</strong> retrouvez les offres du jour et les meilleures ventes animalerie, '
+               'mises à jour en direct.</span> <a class="btn btn-sm" href="promos-animaux.html">Voir les promos du moment</a></div>\n'}
 CARTE = re.compile(
     r'<a class="card card-link" href="([^"]+)">\s*<span class="icon">(.*?)</span>\s*'
     r'<span class="tag">(.*?)</span>\s*<h3>(.*?)</h3>\s*<p>(.*?)</p>\s*</a>', re.S)
@@ -33,7 +37,8 @@ def main():
             blocs = "".join(
                 f'\n          <a class="card card-link" href="{x["href"]}"><span class="icon">{x["icone"]}</span>'
                 f'<h3>{x["titre"]}</h3><p>{x["resume"]}</p></a>' for x in choix)
-            section = (f'<!-- lire-aussi -->\n    <section class="lire-aussi" style="padding-top:0">\n      <div class="container">\n'
+            promo = PROMO.get(code, "") if c["href"] != "promos-animaux.html" else ""
+            section = (f'<!-- lire-aussi -->\n    <section class="lire-aussi" style="padding-top:0">\n      <div class="container">\n{promo}'
                        f'        <h2>{html.escape(TITRE[code])}</h2>\n        <div class="grid grid-3">{blocs}\n        </div>\n'
                        f'      </div>\n    </section>\n    <!-- /lire-aussi -->')
             s = page.read_text(encoding="utf-8")
