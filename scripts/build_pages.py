@@ -212,9 +212,9 @@ HEAD = """<!doctype html>
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@700&display=swap">
+<link rel="preload" href="/fonts/instrument-sans-latin-f587e7.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/bricolage-grotesque-latin-40c2cb.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
 <link rel="stylesheet" href="/pages.css">
 {ld}
 </head>
@@ -250,8 +250,8 @@ def route_page(r):
     fr, to, cf, ct, country, airport, dur, peak, note = r
     s = route_slug(r)
     title = f"Vol pas cher {cf} {ct} : comparer les prix"
-    desc = (f"Trouvez un billet d'avion pas cher {cf} – {ct} ({fr} → {to}) : durée du vol, aéroport, meilleure période pour réserver "
-            f"et comparaison des prix sur Skyscanner, Kayak, momondo et Aviasales.")
+    desc = (f"Billet d'avion pas cher {cf} – {ct} ({fr} → {to}) : durée du vol, meilleure période pour réserver "
+            f"et prix comparés sur Skyscanner, Kayak et momondo.")
     app = "/?" + urllib.parse.urlencode({"type": "vols", "from": fr, "to": to})
     back = "/?" + urllib.parse.urlencode({"type": "vols", "from": to, "to": fr})
     hp = next((h for h in HOTELS if h[0] == ct), None)
@@ -326,8 +326,8 @@ def hotel_page(h):
     city, country, areas, tip, code = h
     s = hotel_slug(h)
     title = f"Hôtel pas cher à {city} : comparer les prix"
-    desc = (f"Trouvez un hôtel pas cher à {city} ({country}) : quartiers où dormir, conseils pour payer moins cher et "
-            f"comparaison des prix sur Booking, Google Hôtels, Kayak, Hotels.com, Agoda et Airbnb.")
+    desc = (f"Hôtel pas cher à {city} ({country}) : quartiers où dormir, conseils pour payer moins cher "
+            f"et prix comparés sur Booking, Agoda et Airbnb.")
     app = "/?" + urllib.parse.urlencode({"type": "hotels", "dest": city})
     booking = "https://www.booking.com/searchresults.fr.html?" + urllib.parse.urlencode({"ss": city, "order": "price"})
     google = "https://www.google.com/travel/search?" + urllib.parse.urlencode({"q": f"hôtels {city}", "hl": "fr", "curr": "EUR"})
@@ -484,7 +484,8 @@ def main():
     links += group("Hôtels pas chers", [f'<li><a href="/{hotel_slug(h)}/">Hôtel pas cher à {E(h[0])}</a></li>' for h in HOTELS])
     links += group("Guides pratiques", ['<li><a href="/guides/bagages-avion/">Bagages : ne pas payer plus cher</a></li>',
                                         '<li><a href="/guides/quand-reserver/">Quand réserver son billet</a></li>',
-                                        '<li><a href="/guides/voyager-avec-enfants/">Voyager avec des enfants</a></li>'])
+                                        '<li><a href="/guides/voyager-avec-enfants/">Voyager avec des enfants</a></li>',
+                                        '<li><a href="/guides/check-list-depart/">Check-list avant de partir</a></li>'])
     links += '<p class="lead guides-langs">Guides in English, en español, em português, بالعربية : ' + " · ".join(
         f'<a href="/{l}/" hreflang="{l}" lang="{l}">{build_i18n.NAMES[l]}</a>' for l in build_i18n.LANGS) + "</p>"
     s = re.sub(r"<!-- TRAVELPAYOUTS:START -->.*?<!-- TRAVELPAYOUTS:END -->",
