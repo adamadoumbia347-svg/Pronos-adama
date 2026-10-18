@@ -1,0 +1,72 @@
+{
+ "hook": "5 bruits qui font<br><em>peur</em> à ton chat<br>(et quoi faire) 🙀",
+ "emoji_hook": "🙀",
+ "bandeau": "🐾 Ton chat a peur ?",
+ "musique": 1,
+ "fond": [
+  "#e6f3ef",
+  "#e8e0ff"
+ ],
+ "cartes": [
+  {
+   "visuel": {
+    "type": "emoji",
+    "texte": "🧹"
+   },
+   "quoi": "L'aspirateur",
+   "sens": "Bruyant… et il bouge 😱",
+   "conseil": "→ Laisse-le partir dans une autre pièce avant",
+   "son": "crash"
+  },
+  {
+   "visuel": {
+    "type": "chat",
+    "queue": "gonflee",
+    "yeux": "peur",
+    "oreilles": "plaquees"
+   },
+   "quoi": "La sonnette",
+   "sens": "Des inconnus arrivent 😾",
+   "conseil": "→ Une cachette en hauteur le rassure",
+   "son": "boom"
+  },
+  {
+   "visuel": {
+    "type": "emoji",
+    "texte": "💨"
+   },
+   "quoi": "Le sèche-cheveux",
+   "sens": "Bruit + air chaud 🌬️",
+   "conseil": "→ Ne le dirige jamais vers lui",
+   "son": "whoosh"
+  },
+  {
+   "visuel": {
+    "type": "emoji",
+    "texte": "🎆"
+   },
+   "quoi": "Pétards et orage",
+   "sens": "Il ne sait pas d'où ça vient ⚡",
+   "conseil": "→ Ferme les volets, reste calme",
+   "son": "boom"
+  },
+  {
+   "visuel": {
+    "type": "chat",
+    "queue": "fouette",
+    "yeux": "agace",
+    "oreilles": "avion"
+   },
+   "quoi": "Les portes qui claquent",
+   "sens": "Les sursauts le stressent 😿",
+   "conseil": "→ Bloque les portes s'il y a du vent",
+   "son": "crash"
+  }
+ ],
+ "fin": [
+  "Le tien a peur<br>de quoi ? 👇",
+  "Tous nos conseils pour<br>un chat serein 🐾"
+ ],
+ "legende": "5 bruits qui font peur à ton chat (et quoi faire) 🙀 Le n°1, c'est la guerre chez toi aussi ? 😅 Le tien a peur de quoi ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chat #chats #catsoftiktok #chatpeureux #comportementchat #astucechat #catlover #educanimaux"
+}

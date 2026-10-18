@@ -1,0 +1,73 @@
+{
+ "hook": "5 dangers<br>pour ton <em>chat</em><br>dans ta maison ⚠️",
+ "emoji_hook": "🐈",
+ "bandeau": "🐾 Attention danger",
+ "musique": 4,
+ "fond": [
+  "#e6f3ef",
+  "#ffe3e3"
+ ],
+ "cartes": [
+  {
+   "visuel": {
+    "type": "emoji",
+    "texte": "🥛"
+   },
+   "quoi": "Le lait de vache",
+   "sens": "Beaucoup de chats adultes le digèrent mal 😿",
+   "conseil": "→ De l'eau fraîche, c'est parfait",
+   "son": "pop",
+   "couleur": "rouge"
+  },
+  {
+   "visuel": {
+    "type": "emoji",
+    "texte": "🧅"
+   },
+   "quoi": "Oignon et ail",
+   "sens": "Toxiques, même cuits ou en poudre ❌",
+   "conseil": "→ Pas de restes de plats en sauce",
+   "son": "boom",
+   "couleur": "rouge"
+  },
+  {
+   "visuel": {
+    "type": "emoji",
+    "texte": "🍫"
+   },
+   "quoi": "Le chocolat",
+   "sens": "Toxique pour lui aussi ❌",
+   "conseil": "→ Range-le bien",
+   "son": "boom",
+   "couleur": "rouge"
+  },
+  {
+   "visuel": {
+    "type": "emoji",
+    "texte": "🍗"
+   },
+   "quoi": "Les os cuits",
+   "sens": "Ils peuvent se casser en éclats ⚠️",
+   "conseil": "→ Poubelle bien fermée",
+   "son": "boom",
+   "couleur": "rouge"
+  },
+  {
+   "visuel": {
+    "type": "emoji",
+    "texte": "💐"
+   },
+   "quoi": "Les lys (fleurs)",
+   "sens": "Très toxiques pour les chats, même le pollen ❌",
+   "conseil": "→ Pas de lys dans une maison avec chat",
+   "son": "boom",
+   "couleur": "rouge"
+  }
+ ],
+ "fin": [
+  "Tu connaissais<br>le n°5 ? 👇",
+  "Un doute ? Appelle tout de suite<br>ton vétérinaire 🩺"
+ ],
+ "legende": "5 dangers pour ton chat dans ta maison ⚠️🐈 Le n°5, beaucoup l'ignorent 💐 Tu le savais ? 👇 Un doute : appelle ton vétérinaire.\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chat #chats #catsoftiktok #santechat #chatdinterieur #astucechat #catlover #educanimaux"
+}

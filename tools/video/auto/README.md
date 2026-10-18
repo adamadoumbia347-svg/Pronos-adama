@@ -55,18 +55,18 @@ Sons : pop, pop2, ding, miaou, ouaf, whoosh, boom, crash, scratch, fete.
 - [x] 5 choses que ton chat déteste (2026-10-21)
 - [x] Ton chien fait ça ? Ce que ça veut dire (2026-10-23)
 - [x] 5 signes que ton chien t'aime (2026-10-22)
-- [ ] Pourquoi ton chat fait ses griffes sur le canapé (et la solution)
-- [ ] 5 aliments dangereux pour ton chien
-- [ ] 5 aliments dangereux pour ton chat
+- [x] Pourquoi ton chat fait ses griffes sur le canapé (et la solution) (2026-10-26)
+- [x] 5 aliments dangereux pour ton chien (2026-10-27)
+- [x] 5 aliments dangereux pour ton chat (2026-10-28)
 - [x] Ton chat fait ça ? Ce que ça veut dire (2026-10-20)
 - [x] 5 jeux pour occuper ton chien quand il pleut (2026-10-25)
 - [x] 5 signes que ton chat s'ennuie (2026-10-24)
-- [ ] Chiot : les 5 règles de la première semaine
-- [ ] Pourquoi ton chien tire en laisse (et comment arrêter)
-- [ ] Mythe ou réalité : les idées reçues sur les chats
+- [x] Chiot : les 5 règles de la première semaine (2026-10-29)
+- [x] Pourquoi ton chien tire en laisse (et comment arrêter) (2026-10-31)
+- [x] Mythe ou réalité : les idées reçues sur les chats (2026-10-30)
 - [ ] Mythe ou réalité : les idées reçues sur les chiens
 - [ ] 5 signes que ton chien est stressé
-- [ ] 5 bruits du quotidien qui font peur aux chats
+- [x] 5 bruits du quotidien qui font peur aux chats (2026-11-01)
 - [ ] Comment apprendre « assis » en 3 étapes
 - [ ] 5 erreurs avec la litière
 - [ ] Ce que la position de sommeil de ton chien veut dire

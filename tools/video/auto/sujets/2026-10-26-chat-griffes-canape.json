@@ -1,0 +1,77 @@
+{
+ "hook": "Ton chat griffe<br>ton <em>canapé</em> ?<br>Voici pourquoi 🐈",
+ "emoji_hook": "😼",
+ "bandeau": "🐾 Les griffes du chat",
+ "musique": 2,
+ "fond": [
+  "#ffe9d6",
+  "#e8e0ff"
+ ],
+ "cartes": [
+  {
+   "visuel": {
+    "type": "chat",
+    "queue": "droite",
+    "yeux": "normal",
+    "oreilles": ""
+   },
+   "quoi": "Il entretient ses griffes",
+   "sens": "Il enlève la vieille couche 💅",
+   "conseil": "→ C'est un besoin, pas une bêtise",
+   "son": "scratch"
+  },
+  {
+   "visuel": {
+    "type": "chat",
+    "queue": "question",
+    "yeux": "content",
+    "oreilles": ""
+   },
+   "quoi": "Il laisse son odeur",
+   "sens": "Ses coussinets marquent « chez lui » 🐾",
+   "conseil": "→ Le canapé compte beaucoup pour lui",
+   "son": "miaou"
+  },
+  {
+   "visuel": {
+    "type": "chat",
+    "queue": "droite",
+    "yeux": "content",
+    "oreilles": "detendues"
+   },
+   "quoi": "Il s'étire",
+   "sens": "Griffer, c'est aussi son sport 🧘",
+   "conseil": "→ Il lui faut un griffoir haut et stable",
+   "son": "pop"
+  },
+  {
+   "visuel": {
+    "type": "illu",
+    "nom": "griffoir"
+   },
+   "quoi": "La solution : un griffoir juste à côté",
+   "sens": "Là où il griffe déjà 📍",
+   "conseil": "→ Récompense-le quand il l'utilise",
+   "son": "ding"
+  },
+  {
+   "visuel": {
+    "type": "chat",
+    "queue": "gonflee",
+    "yeux": "peur",
+    "oreilles": "plaquees",
+    "deco": "interdit"
+   },
+   "quoi": "Ne le gronde pas",
+   "sens": "Il aurait peur… et grifferait en cachette 🙀",
+   "conseil": "→ Couvre plutôt le canapé d'un plaid",
+   "son": "boom"
+  }
+ ],
+ "fin": [
+  "Ton chat griffe<br>quoi chez toi ? 👇",
+  "Tous nos conseils pour<br>un chat heureux 🐾"
+ ],
+ "legende": "Ton chat griffe ton canapé ? Voici pourquoi (et la solution) 🐈 Le n°5, beaucoup font l'erreur 😬 Ton chat griffe quoi chez toi ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chat #chats #catsoftiktok #griffoir #comportementchat #astucechat #catlover #educanimaux"
+}

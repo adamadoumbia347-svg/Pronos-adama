@@ -1,0 +1,74 @@
+{
+ "hook": "Nouveau <em>chiot</em> ?<br>Les 5 règles de<br>la 1re semaine 🐶",
+ "emoji_hook": "🐶",
+ "bandeau": "🐾 Bienvenue petit chiot",
+ "musique": 3,
+ "fond": [
+  "#ffe9d6",
+  "#e5f3d5"
+ ],
+ "cartes": [
+  {
+   "visuel": {
+    "type": "chien",
+    "pose": "assis",
+    "tete": 10
+   },
+   "quoi": "Laisse-le découvrir à son rythme",
+   "sens": "Tout est nouveau pour lui 🏠",
+   "conseil": "→ Pas trop de visites au début",
+   "son": "ouaf"
+  },
+  {
+   "visuel": {
+    "type": "illu",
+    "nom": "proprete-moments"
+   },
+   "quoi": "Sors-le très souvent",
+   "sens": "Après le repas, la sieste et le jeu 🌳",
+   "conseil": "→ Félicite-le quand il fait dehors",
+   "son": "ding"
+  },
+  {
+   "visuel": {
+    "type": "chien",
+    "pose": "couche",
+    "tete": 0,
+    "deco": "zzz"
+   },
+   "quoi": "Un coin calme pour dormir",
+   "sens": "Un chiot dort beaucoup 😴",
+   "conseil": "→ Ne le réveille pas pour jouer",
+   "son": "pop"
+  },
+  {
+   "visuel": {
+    "type": "chien",
+    "pose": "assis",
+    "tete": -6
+   },
+   "quoi": "Des règles dès le 1er jour",
+   "sens": "Les mêmes pour toute la famille 👨‍👩‍👧",
+   "conseil": "→ Sinon, il ne comprend pas",
+   "son": "pop"
+  },
+  {
+   "visuel": {
+    "type": "chien",
+    "pose": "assis",
+    "tete": 6,
+    "deco": "coeur"
+   },
+   "quoi": "Jamais de punition",
+   "sens": "Il apprendrait à avoir peur de toi 😢",
+   "conseil": "→ Récompense ce qu'il fait bien 💛",
+   "son": "ouaf"
+  }
+ ],
+ "fin": [
+  "Ton chiot a<br>quel âge ? 👇",
+  "Tous nos conseils pour<br>bien élever ton chiot 🐾"
+ ],
+ "legende": "Nouveau chiot ? Les 5 règles de la première semaine 🐶 La n°4, toute la famille doit la suivre 👨‍👩‍👧 Ton chiot a quel âge ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chiot #chien #dogsoftiktok #educationcanine #puppy #conseilchien #propretechiot #educanimaux"
+}

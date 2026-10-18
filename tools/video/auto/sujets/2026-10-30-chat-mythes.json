@@ -1,0 +1,88 @@
+{
+ "hook": "Mythe ou réalité ?<br>5 idées reçues<br>sur les <em>chats</em> 🐈",
+ "emoji_hook": "🤔",
+ "bandeau": "🐾 Vrai ou faux ?",
+ "musique": 5,
+ "fond": [
+  "#e8e0ff",
+  "#ffe9d6"
+ ],
+ "cartes": [
+  {
+   "visuel": {
+    "type": "chat",
+    "queue": "gonflee",
+    "yeux": "peur",
+    "oreilles": "plaquees"
+   },
+   "quoi": "« Il retombe toujours sur ses pattes »",
+   "sens": "FAUX ❌ Il peut se blesser gravement",
+   "conseil": "→ Sécurise fenêtres et balcons",
+   "son": "crash",
+   "couleur": "rouge",
+   "badge": "FAUX"
+  },
+  {
+   "visuel": {
+    "type": "chat",
+    "queue": "enroulee",
+    "yeux": "dort",
+    "oreilles": ""
+   },
+   "quoi": "« Il ronronne seulement quand il est content »",
+   "sens": "FAUX ❌ Aussi quand il est stressé ou a mal",
+   "conseil": "→ Regarde le reste de son corps",
+   "son": "pop",
+   "couleur": "rouge",
+   "badge": "FAUX"
+  },
+  {
+   "visuel": {
+    "type": "chat",
+    "queue": "droite",
+    "yeux": "content",
+    "oreilles": "",
+    "deco": "coeur"
+   },
+   "quoi": "« Le chat n'a pas besoin de nous »",
+   "sens": "FAUX ❌ Il s'attache à ses humains 💛",
+   "conseil": "→ Passe du temps avec lui",
+   "son": "miaou",
+   "couleur": "rouge",
+   "badge": "FAUX"
+  },
+  {
+   "visuel": {
+    "type": "chat",
+    "queue": "enroulee",
+    "yeux": "dort",
+    "oreilles": "",
+    "deco": "zzz"
+   },
+   "quoi": "« Le chat dort beaucoup »",
+   "sens": "VRAI ✅ Une grande partie de la journée",
+   "conseil": "→ Laisse-le dormir tranquille",
+   "son": "ding",
+   "couleur": "vert",
+   "badge": "VRAI"
+  },
+  {
+   "visuel": {
+    "type": "illu",
+    "nom": "chat-clicker"
+   },
+   "quoi": "« Un chat, ça ne s'éduque pas »",
+   "sens": "FAUX ❌ Il apprend avec des récompenses 🎯",
+   "conseil": "→ Essaie le clicker !",
+   "son": "pop",
+   "couleur": "rouge",
+   "badge": "FAUX"
+  }
+ ],
+ "fin": [
+  "Tu croyais<br>lequel ? 👇",
+  "Tous nos conseils pour<br>comprendre ton chat 🐾"
+ ],
+ "legende": "Mythe ou réalité ? 5 idées reçues sur les chats 🐈 Le n°1, presque tout le monde y croit 😮 Tu croyais lequel ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chat #chats #catsoftiktok #mytheouréalité #comportementchat #astucechat #catlover #educanimaux"
+}

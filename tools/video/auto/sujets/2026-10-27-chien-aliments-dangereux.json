@@ -1,0 +1,73 @@
+{
+ "hook": "5 aliments<br><em>dangereux</em><br>pour ton chien ⚠️",
+ "emoji_hook": "🐕",
+ "bandeau": "🐾 Attention danger",
+ "musique": 1,
+ "fond": [
+  "#fff1d6",
+  "#ffe3e3"
+ ],
+ "cartes": [
+  {
+   "visuel": {
+    "type": "emoji",
+    "texte": "🍫"
+   },
+   "quoi": "Le chocolat",
+   "sens": "Plus il est noir, plus il est dangereux ⚠️",
+   "conseil": "→ Range-le hors de sa portée",
+   "son": "boom",
+   "couleur": "rouge"
+  },
+  {
+   "visuel": {
+    "type": "emoji",
+    "texte": "🍇"
+   },
+   "quoi": "Le raisin (frais ou sec)",
+   "sens": "Toxique, même en petite quantité ❌",
+   "conseil": "→ Attention aux gâteaux aux raisins secs",
+   "son": "boom",
+   "couleur": "rouge"
+  },
+  {
+   "visuel": {
+    "type": "emoji",
+    "texte": "🧅"
+   },
+   "quoi": "Oignon et ail",
+   "sens": "Toxiques, même cuits ou en poudre ❌",
+   "conseil": "→ Pas de restes de plats en sauce",
+   "son": "boom",
+   "couleur": "rouge"
+  },
+  {
+   "visuel": {
+    "type": "emoji",
+    "texte": "🍬"
+   },
+   "quoi": "Le xylitol",
+   "sens": "Dans les chewing-gums et bonbons sans sucre 😮",
+   "conseil": "→ Vérifie les étiquettes",
+   "son": "boom",
+   "couleur": "rouge"
+  },
+  {
+   "visuel": {
+    "type": "emoji",
+    "texte": "🥜"
+   },
+   "quoi": "Les noix de macadamia",
+   "sens": "Faiblesse, tremblements… ❌",
+   "conseil": "→ Garde l'apéro hors de portée",
+   "son": "boom",
+   "couleur": "rouge"
+  }
+ ],
+ "fin": [
+  "Tu connaissais<br>le n°4 ? 👇",
+  "Un doute ? Appelle tout de suite<br>ton vétérinaire 🩺"
+ ],
+ "legende": "5 aliments dangereux pour ton chien ⚠️🐕 Le n°4 se cache dans plein de produits 😮 Tu le connaissais ? 👇 Un doute : appelle ton vétérinaire.\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chien #chiens #dogsoftiktok #santechien #alimentationchien #conseilchien #chiot #educanimaux"
+}

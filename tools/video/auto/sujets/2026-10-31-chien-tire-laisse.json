@@ -1,0 +1,74 @@
+{
+ "hook": "Ton chien <em>tire</em><br>en laisse ?<br>Voici pourquoi 🐕",
+ "emoji_hook": "😵‍💫",
+ "bandeau": "🐾 Balade sans tirer",
+ "musique": 0,
+ "fond": [
+  "#e3eefc",
+  "#ffe9d6"
+ ],
+ "cartes": [
+  {
+   "visuel": {
+    "type": "chien",
+    "pose": "debout",
+    "tete": -8
+   },
+   "quoi": "Il marche plus vite que toi",
+   "sens": "Ton rythme est lent pour lui 🐕",
+   "conseil": "→ Ce n'est pas de la « dominance »",
+   "son": "ouaf"
+  },
+  {
+   "visuel": {
+    "type": "illu",
+    "nom": "laisse"
+   },
+   "quoi": "Tirer… ça marche !",
+   "sens": "Quand il tire, il avance 😅",
+   "conseil": "→ Arrête-toi dès que la laisse se tend",
+   "son": "whoosh"
+  },
+  {
+   "visuel": {
+    "type": "chien",
+    "pose": "debout",
+    "tete": 4,
+    "deco": "ok"
+   },
+   "quoi": "Laisse détendue = on repart",
+   "sens": "Il comprend vite la règle ✅",
+   "conseil": "→ Récompense-le quand il est à côté de toi",
+   "son": "ding",
+   "couleur": "vert"
+  },
+  {
+   "visuel": {
+    "type": "illu",
+    "nom": "harnais"
+   },
+   "quoi": "Un harnais en Y",
+   "sens": "Plus confortable que le collier 🦺",
+   "conseil": "→ Évite les colliers étrangleurs",
+   "son": "pop"
+  },
+  {
+   "visuel": {
+    "type": "chien",
+    "pose": "debout",
+    "tete": 12,
+    "deco": "friandise"
+   },
+   "quoi": "Laisse-le renifler",
+   "sens": "Renifler, c'est SA balade 👃",
+   "conseil": "→ Alterne marche et pauses reniflage",
+   "son": "ouaf"
+  }
+ ],
+ "fin": [
+  "Ton chien tire<br>beaucoup ? 👇",
+  "Tous nos conseils pour<br>des balades sereines 🐾"
+ ],
+ "legende": "Ton chien tire en laisse ? Voici pourquoi (et comment arrêter) 🐕 Le n°2 change tout 😉 Le tien tire beaucoup ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chien #chiens #dogsoftiktok #laisse #educationcanine #balade #chiot #educanimaux"
+}
