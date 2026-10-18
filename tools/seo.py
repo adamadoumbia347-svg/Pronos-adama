@@ -17,7 +17,7 @@ import re
 DOCS = pathlib.Path(__file__).resolve().parent.parent / "docs"
 SITE = "https://educanimaux.fr"
 LANGUES = {"fr": "", "en": "en/", "it": "it/"}
-EXCLUES = {"404.html"}
+EXCLUES = {"404.html", "bienvenue.html"}
 NOM = "Éduc'Animaux"
 # Statistiques de visite sans cookies (GoatCounter) : tableau de bord sur https://dobam.goatcounter.com
 STATS = ('<!-- stats --><script data-goatcounter="https://dobam.goatcounter.com/count" '

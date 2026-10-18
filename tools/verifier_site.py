@@ -98,8 +98,8 @@ def main():
     sitemap = (DOCS / "sitemap.xml").read_text(encoding="utf-8")
     xml.dom.minidom.parseString(sitemap)
     for nom in pages:
-        if nom == "404.html":
-            continue
+        if nom == "404.html" or 'content="noindex' in (DOCS / nom).read_text(encoding="utf-8"):
+            continue  # pages volontairement hors index (404, page d'atterrissage des annonces)
         dossier, fichier = posixpath.split(nom)
         loc = BASE + (dossier + "/" if dossier else "") + ("" if fichier == "index.html" else fichier)
         if f"<loc>{loc}</loc>" not in sitemap:

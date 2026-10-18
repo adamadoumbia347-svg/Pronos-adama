@@ -10,7 +10,7 @@ import re
 
 DOCS = pathlib.Path(__file__).resolve().parent.parent / "docs"
 LANGUES = {"fr": DOCS, "en": DOCS / "en", "it": DOCS / "it"}
-EXCLUES = {"404.html", "mentions-legales.html"}
+EXCLUES = {"404.html", "mentions-legales.html", "bienvenue.html"}
 
 
 def texte(fragment):

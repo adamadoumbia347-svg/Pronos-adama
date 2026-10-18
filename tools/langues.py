@@ -25,7 +25,7 @@ def dossier(code):
     return DOCS / LANGUES[code] if LANGUES[code] else DOCS
 
 
-EXCLUES = {"404.html"}  # pages techniques, hors sélecteur de langue et hors sitemap
+EXCLUES = {"404.html", "bienvenue.html"}  # pages techniques (et page d'atterrissage des annonces), hors sélecteur de langue et hors sitemap
 
 
 def pages(code):
