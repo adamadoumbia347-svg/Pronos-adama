@@ -1,0 +1,99 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><link rel="stylesheet" href="../drole/drole.css">
+<style>
+body{background:#2b3035}
+#photo{position:absolute;left:0;top:0;width:1179px;height:1018px;transform-origin:0 0}
+#photo img{display:block;width:1179px;height:1018px}
+#voile{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,0) 30%,rgba(0,0,0,0) 62%,rgba(0,0,0,.55))}
+#pluie{position:absolute;inset:0;overflow:hidden}
+.goutte{position:absolute;width:2px;height:26px;border-radius:2px;background:linear-gradient(rgba(255,255,255,0),rgba(255,255,255,.75))}
+.hook{position:absolute;left:24px;right:24px;text-align:center;font-weight:900;line-height:1.08;color:#fff;text-shadow:0 4px 18px rgba(0,0,0,.55);opacity:0}
+.hook em{font-style:normal;color:#ffd23f}
+.cap{position:absolute;left:16px;right:16px;top:70px;text-align:center;font-size:33px;font-weight:900;line-height:1.12;color:#fff;text-shadow:0 3px 14px rgba(0,0,0,.6);opacity:0}
+.cap em{font-style:normal;color:#ffd23f}
+.etiq{position:absolute;left:30px;right:30px;top:735px;text-align:center;opacity:0}
+.etiq span{display:inline-block;background:#fff;color:#2b2420;border-radius:22px;padding:14px 22px;font-size:31px;font-weight:900;line-height:1.15;box-shadow:0 12px 30px rgba(0,0,0,.35)}
+#anneau{position:absolute;width:150px;height:150px;margin:-75px 0 0 -75px;border-radius:50%;border:5px solid #ffd23f;box-shadow:0 0 0 6px rgba(255,210,63,.25);opacity:0}
+#astuce{position:absolute;left:34px;right:34px;top:640px;background:#fff;border-radius:26px;padding:18px 22px;font-size:27px;font-weight:800;line-height:1.25;color:#2b2420;box-shadow:0 14px 34px rgba(0,0,0,.35);opacity:0}
+#astuce b{color:#2f7d6d}
+#panier{position:absolute;left:24px;right:24px;top:500px;text-align:center;opacity:0}
+.gros{display:inline-block;background:#fe2c55;color:#fff;border-radius:999px;padding:16px 28px;font-size:34px;white-space:nowrap;font-weight:900;box-shadow:0 14px 34px rgba(254,44,85,.45)}
+#fleche{position:absolute;left:50px;top:740px;font-size:90px;opacity:0}
+#site{position:absolute;left:0;right:0;top:895px;text-align:center;font-size:21px;font-weight:800;color:rgba(255,255,255,.85);opacity:0}
+</style></head><body>
+<div id="photo"><img src="impermeable.jpg"></div>
+<div id="voile"></div>
+<div id="pluie"></div>
+<div id="anneau"></div>
+<div class="hook" id="h1" style="top:250px;font-size:64px">Il pleut ? 🌧️</div>
+<div class="hook" id="h2" style="top:380px;font-size:50px">Et ton chien rentre<br><em>trempé</em> de la balade ? 😩</div>
+<div id="caps"></div>
+<div id="etiqs"></div>
+<div id="astuce">📏 <b>Astuce :</b> mesure le dos de ton chien (du cou à la base de la queue) avant de choisir la taille</div>
+<div id="panier"><span class="gros">🛒 Clique sur le panier</span><div style="margin-top:18px;font-size:34px;font-weight:900;color:#fff;text-shadow:0 3px 14px rgba(0,0,0,.6)">Petit prix, gros confort 💛</div></div>
+<div id="fleche">👇</div>
+<div id="site">Plus de conseils : educanimaux.fr 🐾</div>
+<script src="../drole/drole.js"></script>
+<script>
+window.DUREE = 31;
+const easeIO = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+const IW = 1179, IH = 1018;
+// cadrages : [t, centre x, centre y, zoom] (zoom 1 = image à la hauteur de l'écran)
+const K = [[0, 760, 420, 1.15], [3.2, 760, 420, 1.15], [6.6, 800, 480, 1.0], [7.4, 800, 480, 1.0], [8.2, 840, 170, 1.55],
+  [11.0, 840, 170, 1.55], [11.8, 800, 420, 1.35], [15.0, 800, 420, 1.35], [15.8, 790, 710, 1.6], [19.0, 790, 710, 1.6],
+  [19.8, 380, 700, 1.6], [22.6, 380, 700, 1.6], [23.4, 800, 480, 1.0], [31, 820, 460, 1.06]];
+// [début, fin, point x, point y (image), texte]
+const E = [[8.4, 11.0, 830, 75, "☔ Une capuche<br>pour protéger sa tête"],
+  [12.0, 15.0, 760, 330, "✨ Transparent :<br>on voit son joli pelage"],
+  [16.0, 19.0, 828, 630, "🔘 Des boutons pression,<br>faciles à fermer"],
+  [20.0, 22.6, 360, 700, "👜 Et même une petite poche !"]];
+const C = [[3.4, 7.6, "La solution 👉<br><em>l'imperméable transparent</em> 🐶"], [23.6, 26.6, "Fini les balades<br>sous la pluie ratées 🙌"]];
+function cadre(t) {
+  let i = 0; while (i < K.length - 2 && t >= K[i + 1][0]) i++;
+  const [a, b] = [K[i], K[i + 1]], k = easeIO(clamp((t - a[0]) / (b[0] - a[0])));
+  const L = j => a[j] + (b[j] - a[j]) * k;
+  const s = 960 / IH * L(3);
+  let x = 270 - L(1) * s, y = 480 - L(2) * s;
+  x = Math.min(0, Math.max(540 - IW * s, x)); y = Math.min(0, Math.max(960 - IH * s, y));
+  return { s, x, y };
+}
+const pl = $("pluie");
+const G = Array.from({ length: 80 }, (_, i) => {
+  const g = document.createElement("div"); g.className = "goutte"; pl.appendChild(g);
+  return { g, x: (i * 97.3) % 560 - 10, o: (i * 0.137) % 1, v: 1.1 + (i % 5) * 0.12 };
+});
+const caps = C.map(c => { const d = document.createElement("div"); d.className = "cap"; d.innerHTML = c[2]; $("caps").appendChild(d); return d; });
+const etiqs = E.map(e => { const d = document.createElement("div"); d.className = "etiq"; d.innerHTML = `<span>${e[4]}</span>`; $("etiqs").appendChild(d); return d; });
+son(0.3, "pop"); son(1.3, "pop"); son(3.2, "whoosh"); son(3.5, "ding");
+E.forEach(e => { son(e[0] - 0.6, "whoosh"); son(e[0] + 0.1, "pop2"); });
+son(23.4, "whoosh"); son(24.4, "pop"); son(26.8, "fete"); son(27.4, "ding");
+function render(t) {
+  const c = cadre(t), ph = $("photo");
+  ph.style.transform = `translate(${c.x}px, ${c.y}px) scale(${c.s})`;
+  const flou = 6 * (1 - p(t, 2.9, 0.6));
+  ph.style.filter = `blur(${flou}px) brightness(${0.6 + 0.4 * p(t, 2.9, 0.6)})`;
+  // pluie (plus forte au début)
+  const force = t < 3.2 ? 1 : 0.45;
+  G.forEach((d, i) => {
+    const y = (((t * d.v + d.o) % 1) * 1100) - 60;
+    d.g.style.transform = `translate(${d.x + y * 0.12}px, ${y}px) rotate(-7deg)`;
+    d.g.style.opacity = i % 2 && force < 1 ? 0 : force;
+  });
+  [["h1", 0.3], ["h2", 1.3]].forEach(([id, s]) => { pop($(id), t, s); hide($(id), t, 3.0, 0.2); });
+  C.forEach((cc, i) => { slide(caps[i], t, cc[0], 0.4, 0, -20); if (t > cc[1] - 0.25) hide(caps[i], t, cc[1] - 0.25); if (t < cc[0]) caps[i].style.opacity = 0; });
+  const an = $("anneau"); an.style.opacity = 0;
+  E.forEach((e, i) => {
+    const d = etiqs[i];
+    if (t < e[0] || t > e[1]) { d.style.opacity = 0; return; }
+    slide(d, t, e[0] + 0.15, 0.35, 0, 30); if (t > e[1] - 0.3) hide(d, t, e[1] - 0.3);
+    an.style.left = (c.x + e[2] * c.s) + "px"; an.style.top = (c.y + e[3] * c.s) + "px";
+    const q = p(t, e[0], 0.4);
+    an.style.opacity = t > e[1] - 0.3 ? 1 - p(t, e[1] - 0.3, 0.25) : q;
+    an.style.transform = `scale(${(0.6 + 0.4 * back(q)) * (1 + Math.sin((t - e[0]) * 5) * 0.06)})`;
+  });
+  slide($("astuce"), t, 24.0, 0.4, 0, 40); if (t > 26.4) hide($("astuce"), t, 26.4); if (t < 24) $("astuce").style.opacity = 0;
+  pop($("panier"), t, 26.8);
+  const f = $("fleche"); f.style.opacity = t > 27.6 ? 1 : 0; f.style.transform = `translateY(${Math.abs(Math.sin(t * 5)) * 26}px)`;
+  slide($("site"), t, 3.6, 0.4, 0, 10);
+}
+render(0);
+</script></body></html>
