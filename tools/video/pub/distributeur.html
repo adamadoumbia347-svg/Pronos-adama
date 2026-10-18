@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><link rel="stylesheet" href="../drole/drole.css">
+<style>
+#bg{position:absolute;inset:0;background:linear-gradient(165deg,#ffe3cc 0%,#fff8ef 50%,#dff1ea 100%)}
+.patte{position:absolute;font-size:34px;opacity:.12}
+.hook{position:absolute;left:24px;right:24px;text-align:center;font-weight:900;line-height:1.1;opacity:0}
+.hook em{font-style:normal;color:#b44c1c}
+#carte{position:absolute;left:25px;top:215px;width:490px;height:470px;border-radius:34px;background:#fff;overflow:hidden;box-shadow:0 22px 50px rgba(90,50,20,.22);opacity:0}
+#photo{position:absolute;left:0;top:0;width:1179px;height:1026px;transform-origin:0 0}
+#photo img{display:block;width:1179px;height:1026px}
+#anneau{position:absolute;width:130px;height:130px;margin:-65px 0 0 -65px;border-radius:50%;border:5px solid #ffb703;box-shadow:0 0 0 6px rgba(255,183,3,.22);opacity:0}
+.cap{position:absolute;left:18px;right:18px;top:70px;text-align:center;font-size:34px;font-weight:900;line-height:1.12;opacity:0}
+.cap em{font-style:normal;color:#b44c1c}
+.etiq{position:absolute;left:24px;right:24px;top:715px;text-align:center;opacity:0}
+.etiq span{display:inline-block;background:#2f7d6d;color:#fff;border-radius:22px;padding:14px 22px;font-size:30px;font-weight:900;line-height:1.15;box-shadow:0 12px 28px rgba(30,80,70,.3)}
+.fl{position:absolute;font-size:40px;opacity:0}
+.astuce{position:absolute;left:30px;right:30px;background:#fff;border-radius:24px;padding:16px 20px;font-size:26px;font-weight:800;line-height:1.25;box-shadow:0 12px 30px rgba(90,50,20,.18);opacity:0}
+.astuce b{color:#b44c1c}
+#panier{position:absolute;left:20px;right:20px;top:720px;text-align:center;opacity:0}
+.gros{display:inline-block;background:#fe2c55;color:#fff;border-radius:999px;padding:16px 28px;font-size:36px;font-weight:900;white-space:nowrap;box-shadow:0 14px 34px rgba(254,44,85,.4)}
+#fleche{position:absolute;left:50px;top:820px;font-size:80px;opacity:0}
+#site{position:absolute;left:0;right:0;top:905px;text-align:center;font-size:20px;font-weight:800;color:#8a7b70;opacity:0}
+</style></head><body>
+<div id="bg"></div><div id="pattes"></div>
+<div class="hook" id="h1" style="top:190px;font-size:48px">Marre de remplir<br>les gamelles<br><em>10 fois</em> par jour ? 🙄</div>
+<div class="abs emoji" id="h2" style="left:0;right:0;text-align:center;top:520px;font-size:110px;opacity:0">🐈 🍽️ 🐕</div>
+<div class="hook" id="h3" style="top:720px;font-size:42px"><span class="hl">Regarde ça 👇</span></div>
+<div id="caps"></div>
+<div id="carte"><div id="photo"><img src="distributeur.jpg"></div><div id="anneau"></div>
+  <div class="fl" id="fa">⬇️</div><div class="fl" id="fb">⬇️</div></div>
+<div id="etiqs"></div>
+<div class="astuce" id="a1" style="top:705px">⚖️ <b>Astuce :</b> si ton animal est gourmand, mets seulement sa ration du jour 😉</div>
+<div class="astuce" id="a2" style="top:812px">🧽 Change l'eau et lave les gamelles souvent</div>
+<div id="panier"><span class="gros">🛒 Clique sur le panier</span></div>
+<div id="fleche">👇</div>
+<div id="site">Plus de conseils : educanimaux.fr 🐾</div>
+<script src="../drole/drole.js"></script>
+<script>
+window.DUREE = 31;
+const easeIO = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+const IW = 1179, IH = 1026, CW = 490, CH = 470;
+// cadrages : [t, centre x, centre y, zoom] (zoom 1 = image entière dans la carte)
+const K = [[0, 590, 513, 1], [7.0, 590, 513, 1], [7.8, 440, 330, 2.0], [10.4, 440, 330, 2.0], [11.2, 775, 420, 2.0],
+  [13.8, 775, 420, 2.0], [14.6, 720, 880, 2.2], [17.2, 720, 880, 2.2], [18.0, 590, 513, 1], [31, 590, 513, 1.04]];
+// [début, fin, x, y, texte]
+const E = [[7.9, 10.4, 440, 330, "💧 Un réservoir d'eau transparent"],
+  [11.3, 13.8, 775, 420, "👀 Une fenêtre pour voir<br>le niveau de croquettes"],
+  [14.7, 17.2, 720, 880, "🥣 Une gamelle en inox"],
+  [18.2, 21.0, -1, -1, "🔄 Les gamelles se remplissent<br>toutes seules"]];
+const C = [[3.2, 7.0, "Le distributeur <em>2 en 1</em> :<br>eau + croquettes 💧🍖"], [7.0, 21.0, "Le distributeur <em>2 en 1</em> 🐾"],
+  [21.2, 25.6, "Pour qu'il ait toujours<br>de l'eau fraîche 💛"], [25.8, 31.2, "Pour ton chat<br>ou ton chien 🐈🐕"]];
+const caps = C.map(c => { const d = document.createElement("div"); d.className = "cap"; d.innerHTML = c[2]; $("caps").appendChild(d); return d; });
+const etiqs = E.map(e => { const d = document.createElement("div"); d.className = "etiq"; d.innerHTML = `<span>${e[4]}</span>`; $("etiqs").appendChild(d); return d; });
+for (let i = 0; i < 9; i++) {
+  const e = document.createElement("div"); e.className = "patte"; e.textContent = "🐾";
+  e.style.left = (20 + (i * 137) % 480) + "px"; e.style.top = (40 + (i * 251) % 880) + "px"; $("pattes").appendChild(e);
+}
+function cadre(t) {
+  let i = 0; while (i < K.length - 2 && t >= K[i + 1][0]) i++;
+  const [a, b] = [K[i], K[i + 1]], k = easeIO(clamp((t - a[0]) / (b[0] - a[0])));
+  const L = j => a[j] + (b[j] - a[j]) * k;
+  const s = Math.min(CW / IW, CH / IH) * L(3);
+  let x = CW / 2 - L(1) * s, y = CH / 2 - L(2) * s;
+  if (IW * s > CW) x = Math.min(0, Math.max(CW - IW * s, x)); else x = (CW - IW * s) / 2;
+  if (IH * s > CH) y = Math.min(0, Math.max(CH - IH * s, y)); else y = (CH - IH * s) / 2;
+  return { s, x, y };
+}
+son(0.3, "pop"); son(1.2, "pop2"); son(2.2, "ding"); son(3.0, "whoosh"); son(3.4, "pop");
+E.forEach(e => { son(e[0] - 0.6, "whoosh"); son(e[0] + 0.1, "pop2"); });
+son(21.3, "pop"); son(22.0, "pop2"); son(23.2, "pop2"); son(25.8, "whoosh"); son(26.4, "fete"); son(27.2, "ding");
+function render(t) {
+  [...$("pattes").children].forEach((e, i) => e.style.transform = `translateY(${Math.sin(t * 1.2 + i) * 10}px) rotate(${(i * 40) % 360 - 20}deg)`);
+  pop($("h1"), t, 0.3); pop($("h2"), t, 1.2); pop($("h3"), t, 2.2);
+  $("h2").style.transform += ` rotate(${Math.sin(t * 9) * 6}deg)`;
+  ["h1", "h2", "h3"].forEach(id => hide($(id), t, 2.9, 0.2));
+  const ca = $("carte"), kin = p(t, 3.0, 0.5);
+  ca.style.opacity = t < 3.0 ? 0 : 1;
+  ca.style.transform = `translateY(${(1 - easeOut(kin)) * 500}px) scale(${0.85 + 0.15 * back(kin)})`;
+  const c = cadre(t);
+  $("photo").style.transform = `translate(${c.x}px, ${c.y}px) scale(${c.s})`;
+  C.forEach((cc, i) => {
+    const d = caps[i];
+    if (t < cc[0] || t > cc[1]) { d.style.opacity = 0; return; }
+    if (i === 1) d.style.opacity = 1; else slide(d, t, cc[0], 0.4, 0, -20);
+    if (t > cc[1] - 0.25 && i !== 0) hide(d, t, cc[1] - 0.25);
+  });
+  const an = $("anneau"); an.style.opacity = 0;
+  E.forEach((e, i) => {
+    const d = etiqs[i];
+    if (t < e[0] || t > e[1]) { d.style.opacity = 0; return; }
+    slide(d, t, e[0] + 0.15, 0.35, 0, 30); if (t > e[1] - 0.3) hide(d, t, e[1] - 0.3);
+    if (e[2] < 0) return;
+    an.style.left = (c.x + e[2] * c.s) + "px"; an.style.top = (c.y + e[3] * c.s) + "px";
+    const q = p(t, e[0] + 0.2, 0.4);
+    an.style.opacity = t > e[1] - 0.3 ? 1 - p(t, e[1] - 0.3, 0.25) : q;
+    an.style.transform = `scale(${(0.6 + 0.4 * back(q)) * (1 + Math.sin((t - e[0]) * 5) * 0.06)})`;
+  });
+  // flèches « ça descend tout seul »
+  [["fa", 270, 640], ["fb", 720, 700]].forEach(([id, ix, iy], j) => {
+    const f = $(id), on = t > 18.3 && t < 21.0;
+    f.style.opacity = on ? 1 - p(t, 20.7, 0.3) : 0;
+    f.style.left = (c.x + ix * c.s - 20) + "px";
+    f.style.top = (c.y + iy * c.s - 40 + ((t * 1.4 + j * 0.5) % 1) * 40) + "px";
+  });
+  slide($("a1"), t, 21.8, 0.4, 0, 30); slide($("a2"), t, 23.0, 0.4, 0, 30);
+  if (t < 21.8) $("a1").style.opacity = 0; if (t < 23.0) $("a2").style.opacity = 0;
+  hide($("a1"), t, 25.4); hide($("a2"), t, 25.4);
+  pop($("panier"), t, 26.4);
+  const f = $("fleche"); f.style.opacity = t > 27.0 ? 1 : 0; f.style.transform = `translateY(${Math.abs(Math.sin(t * 5)) * 22}px)`;
+  slide($("site"), t, 3.4, 0.4, 0, 10); if (t > 21.6 && t < 25.8) $("site").style.opacity = 0;
+}
+render(0);
+</script></body></html>
