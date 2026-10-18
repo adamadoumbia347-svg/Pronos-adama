@@ -236,6 +236,64 @@
     });
   })();
 
+  // Boutons de partage (articles et pages du site)
+  (function () {
+    var main = document.querySelector("main");
+    if (!main || document.querySelector(".partage")) return;
+    var lang = (document.documentElement.lang || "fr").slice(0, 2);
+    var T = {
+      fr: { titre: "Partager cette page", partager: "Partager", copier: "Copier le lien", copie: "Lien copié ✓", mail: "E-mail" },
+      en: { titre: "Share this page", partager: "Share", copier: "Copy link", copie: "Link copied ✓", mail: "Email" },
+      it: { titre: "Condividi questa pagina", partager: "Condividi", copier: "Copia link", copie: "Link copiato ✓", mail: "E-mail" }
+    }[lang] || {};
+    var can = document.querySelector('link[rel="canonical"]');
+    var url = can ? can.href : location.href;
+    var titre = document.title;
+    var img = document.querySelector('meta[property="og:image"]');
+    var u = encodeURIComponent(url), t = encodeURIComponent(titre);
+    var liens = [
+      ["whatsapp", "💬", "WhatsApp", "https://wa.me/?text=" + t + "%20" + u],
+      ["facebook", "f", "Facebook", "https://www.facebook.com/sharer/sharer.php?u=" + u],
+      ["pinterest", "P", "Pinterest", "https://pinterest.com/pin/create/button/?url=" + u + "&description=" + t + (img ? "&media=" + encodeURIComponent(img.content) : "")],
+      ["x", "𝕏", "X", "https://twitter.com/intent/tweet?url=" + u + "&text=" + t],
+      ["mail", "✉", T.mail, "mailto:?subject=" + t + "&body=" + u]
+    ];
+    function bloc() {
+      var d = document.createElement("div"); d.className = "partage";
+      var h = document.createElement("p"); h.className = "partage-titre"; h.textContent = T.titre; d.appendChild(h);
+      var r = document.createElement("div"); r.className = "partage-liens"; d.appendChild(r);
+      if (navigator.share) {
+        var n = document.createElement("button"); n.type = "button"; n.className = "partage-btn partage-natif";
+        n.innerHTML = '<span class="partage-ic" aria-hidden="true">↗</span>' + T.partager;
+        n.addEventListener("click", function () { navigator.share({ title: titre, url: url }).catch(function () {}); });
+        r.appendChild(n);
+      }
+      liens.forEach(function (l) {
+        var a = document.createElement("a"); a.className = "partage-btn partage-" + l[0]; a.href = l[3];
+        if (l[0] !== "mail") { a.target = "_blank"; a.rel = "noopener"; }
+        a.innerHTML = '<span class="partage-ic" aria-hidden="true">' + l[1] + "</span>" + l[2];
+        r.appendChild(a);
+      });
+      var c = document.createElement("button"); c.type = "button"; c.className = "partage-btn partage-copier";
+      c.innerHTML = '<span class="partage-ic" aria-hidden="true">🔗</span><span>' + T.copier + "</span>";
+      c.addEventListener("click", function () {
+        var ok = function () { c.lastChild.textContent = T.copie; setTimeout(function () { c.lastChild.textContent = T.copier; }, 2000); };
+        if (navigator.clipboard) navigator.clipboard.writeText(url).then(ok, function () {});
+        else { var i = document.createElement("input"); i.value = url; document.body.appendChild(i); i.select(); try { document.execCommand("copy"); ok(); } catch (e) {} i.remove(); }
+      });
+      r.appendChild(c);
+      return d;
+    }
+    var article = document.querySelector(".article");
+    if (article) article.appendChild(bloc());
+    else {
+      var wrap = document.createElement("section"); wrap.className = "container";
+      wrap.appendChild(bloc());
+      var avant = main.querySelector(".lire-aussi");
+      if (avant) main.insertBefore(wrap, avant); else main.appendChild(wrap);
+    }
+  })();
+
   var annee = document.getElementById("annee");
   if (annee) annee.textContent = new Date().getFullYear();
 })();

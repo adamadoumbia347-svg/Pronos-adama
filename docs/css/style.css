@@ -355,3 +355,18 @@ body.recherche-ouverte { overflow: hidden; }
   .lang-switch a { padding-left: 6px; padding-right: 6px; }
   .btn-recherche { width: 38px; height: 38px; margin-right: 6px; }
 }
+
+/* Partage */
+.partage { margin: 36px 0 8px; padding: 18px 20px; background: var(--soft); border: 1px solid var(--border); border-radius: var(--radius); }
+.partage-titre { margin: 0 0 10px; font-weight: 800; color: var(--text); }
+.partage-liens { display: flex; flex-wrap: wrap; gap: 8px; }
+.partage-btn { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px 7px 8px; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; color: var(--text); font: inherit; font-size: .92rem; font-weight: 700; text-decoration: none; cursor: pointer; }
+.partage-btn:hover { border-color: var(--primary); color: var(--primary-dark); }
+.partage-ic { width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: #fff; font-weight: 900; font-size: 14px; line-height: 1; background: var(--muted); }
+.partage-whatsapp .partage-ic { background: #25d366; }
+.partage-facebook .partage-ic { background: #1877f2; font-family: Arial, sans-serif; }
+.partage-pinterest .partage-ic { background: #e60023; font-family: Georgia, serif; }
+.partage-x .partage-ic { background: #111; }
+.partage-mail .partage-ic { background: var(--accent); }
+.partage-natif .partage-ic, .partage-copier .partage-ic { background: var(--primary); }
+.partage-copier .partage-ic { background: var(--soft); }
