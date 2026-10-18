@@ -373,3 +373,8 @@ body.recherche-ouverte { overflow: hidden; }
 
 .encadre-promo { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-bottom: 28px; }
 .encadre-promo .btn { margin-left: auto; }
+
+/* Performance : les sections sous la ligne de flottaison ne sont calculées qu'à l'approche de l'écran */
+main > section ~ section { content-visibility: auto; contain-intrinsic-size: auto 900px; }
+/* Liens seuls sur leur ligne : zone de clic d'au moins 24 px (accessibilité) */
+.container > p > a:only-child { display: inline-block; padding-block: 3px; }
