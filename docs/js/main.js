@@ -32,8 +32,13 @@
       var id = a.getAttribute("data-aff");
       var recherche = a.getAttribute("data-q") || a.textContent.trim();
       var url;
+      var chemin = a.getAttribute("data-chemin");
       if (id && perso[id]) {
         url = perso[id];
+      } else if (chemin) {
+        // Page Amazon précise (offres du jour, meilleures ventes…), avec l'identifiant
+        url = "https://www." + b.domaine + chemin;
+        if (b.tag) url += (chemin.indexOf("?") === -1 ? "?" : "&") + "tag=" + encodeURIComponent(b.tag);
       } else {
         url = "https://www." + b.domaine + "/s?k=" + encodeURIComponent(recherche);
         if (b.tag) url += "&tag=" + encodeURIComponent(b.tag);

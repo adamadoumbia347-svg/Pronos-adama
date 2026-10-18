@@ -30,7 +30,6 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/chat-griffe-canape.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/griffoir.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/accueil.svg</image:loc></image:image>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/chiot-jouet.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -58,7 +57,6 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/chiot-mord.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/chiot-jouet.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/proprete-moments.svg</image:loc></image:image>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/accueil.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -66,8 +64,8 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/conseils.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/conseils.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/conseils.html"/>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/accueil.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/chiot-jouet.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/accueil.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/harnais.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/griffoir.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/chat-clicker.svg</image:loc></image:image>
@@ -96,7 +94,6 @@
     <image:image><image:loc>https://educanimaux.fr/img/illu/quiz.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/age.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/chiot-jouet.svg</image:loc></image:image>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/harnais.svg</image:loc></image:image>
     <priority>1.0</priority>
   </url>
   <url>
@@ -104,7 +101,6 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/kit-accueil-chiot.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/proprete-moments.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/chiot-jouet.svg</image:loc></image:image>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/accueil.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -141,7 +137,6 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/meilleur-griffoir-chat.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/griffoir.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/accueil.svg</image:loc></image:image>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/chiot-jouet.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -183,6 +178,14 @@
   <url>
     <loc>https://educanimaux.fr/produits-tendance-animaux.html</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/produits-tendance-animaux.html"/>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/accueil.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/chiot-jouet.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/harnais.svg</image:loc></image:image>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/promos-animaux.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/promos-animaux.html"/>
     <priority>0.7</priority>
   </url>
   <url>
@@ -192,7 +195,6 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/proprete-chiot.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/proprete-moments.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/chiot-jouet.svg</image:loc></image:image>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/accueil.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>

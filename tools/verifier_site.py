@@ -74,7 +74,10 @@ def main():
             if "aff" in a.get("class", "").split():
                 nb_aff += 1
                 u = urlparse(href)
-                if u.netloc not in DOMAINES_AMAZON or u.path != "/s" or not a.get("data-q") or not a.get("data-aff"):
+                chemin = a.get("data-chemin")
+                if chemin and (u.netloc not in DOMAINES_AMAZON or u.path != chemin or not a.get("data-aff")):
+                    problemes.append(f"{nom} : lien d'affiliation mal formé ({href})")
+                elif not chemin and (u.netloc not in DOMAINES_AMAZON or u.path != "/s" or not a.get("data-q") or not a.get("data-aff")):
                     problemes.append(f"{nom} : lien d'affiliation mal formé ({href})")
                 continue
             if href.startswith(("http://", "https://", "mailto:")):
