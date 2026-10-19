@@ -120,7 +120,7 @@ date: 2026-10-15
 Les sessions du lundi prennent le premier sujet non coché. On peut réordonner ou ajouter des sujets librement.
 
 - [x] Propreté du chiot : la méthode pour qu'il soit propre rapidement
-- [ ] Chien qui aboie quand il est seul : comprendre et agir
+- [x] Chien qui aboie quand il est seul : comprendre et agir
 - [ ] Chat qui fait pipi hors de sa litière : causes et solutions
 - [ ] Apprendre « assis », « couché » et « pas bouger » à son chien
 - [ ] Le clicker training expliqué aux débutants (chien et chat)
@@ -146,8 +146,8 @@ Chaque lundi, les 2 premiers non cochés (entre parenthèses : l'article de cons
 - [x] Quel harnais choisir pour son chien ? (`meilleur-harnais-chien.html`)
 - [x] Quel griffoir choisir pour son chat ? (`meilleur-griffoir-chat.html`)
 - [x] Quel clicker choisir ? (`meilleur-clicker.html`)
-- [ ] Jouets d'occupation pour chien seul : tapis de fouille, jouets à remplir… lequel choisir ? (chien qui aboie seul)
-- [ ] Quelle caméra pour surveiller son chien ou son chat ? (chien qui aboie seul)
+- [x] Jouets d'occupation pour chien seul : tapis de fouille, jouets à remplir… lequel choisir ? (chien qui aboie seul)
+- [x] Quelle caméra pour surveiller son chien ou son chat ? (chien qui aboie seul)
 - [ ] Quelle litière choisir pour son chat ? (pipi hors litière)
 - [ ] Quel bac ou maison de toilette choisir pour son chat ? (pipi hors litière)
 - [ ] Quelles friandises d'éducation choisir pour son chien ? (assis, couché, pas bouger)
@@ -183,3 +183,6 @@ Quand une liste est presque vide, ajouter 6 nouveaux sujets utiles et non trait�
 - 2026-10-16 — Idées cadeaux de Noël pour chien et chat : 15 cadeaux utiles qui leur font plaisir (`idees-cadeaux-noel-chien-chat.html`)
 - 2026-10-16 — Black Friday 2026 pour chien et chat : quoi acheter (et quoi éviter) (`black-friday-animaux.html`)
 - 2026-10-16 — Accueillir un chiot : la liste complète du matériel (`kit-accueil-chiot.html`)
+- 2026-10-19 — Quels jouets d'occupation choisir pour un chien seul ? Le comparatif (`meilleurs-jouets-occupation-chien.html`)
+- 2026-10-19 — Quelle caméra choisir pour surveiller son chien ou son chat ? Le comparatif (`meilleure-camera-animaux.html`)
+- 2026-10-19 — Chien qui aboie quand il est seul : comprendre et agir (`chien-aboie-seul.html`)
