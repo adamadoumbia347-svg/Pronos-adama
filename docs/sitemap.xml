@@ -17,12 +17,13 @@
   </url>
   <url>
     <loc>https://educanimaux.fr/black-friday-animaux.html</loc>
+    <lastmod>2026-10-16</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/black-friday-animaux.html"/>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/accueil.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://educanimaux.fr/chat-griffe-canape.html</loc>
+    <lastmod>2026-10-15</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/chat-griffe-canape.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/chat-griffe-canape.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/chat-griffe-canape.html"/>
@@ -40,7 +41,9 @@
   </url>
   <url>
     <loc>https://educanimaux.fr/chien-aboie-seul.html</loc>
+    <lastmod>2026-10-19</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/chien-aboie-seul.html"/>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/accueil.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -54,6 +57,7 @@
   </url>
   <url>
     <loc>https://educanimaux.fr/chiot-mord.html</loc>
+    <lastmod>2026-10-15</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/chiot-mord.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/chiot-mord.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/chiot-mord.html"/>
@@ -66,9 +70,10 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/conseils.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/conseils.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/conseils.html"/>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/harnais.svg</image:loc></image:image>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/chiot-jouet.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/portrait-chien.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/accueil.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/chiot-jouet.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/harnais.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/griffoir.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/chat-clicker.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/proprete-moments.svg</image:loc></image:image>
@@ -78,8 +83,8 @@
   </url>
   <url>
     <loc>https://educanimaux.fr/idees-cadeaux-noel-chien-chat.html</loc>
+    <lastmod>2026-10-16</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/idees-cadeaux-noel-chien-chat.html"/>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/harnais.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -94,11 +99,13 @@
     <image:image><image:loc>https://educanimaux.fr/img/illu/portrait-oiseau.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/quiz.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/age.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/chiot-jouet.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/harnais.svg</image:loc></image:image>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://educanimaux.fr/kit-accueil-chiot.html</loc>
+    <lastmod>2026-10-16</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/kit-accueil-chiot.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/proprete-moments.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/chiot-jouet.svg</image:loc></image:image>
@@ -106,12 +113,12 @@
   </url>
   <url>
     <loc>https://educanimaux.fr/marche-en-laisse.html</loc>
+    <lastmod>2026-10-15</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/marche-en-laisse.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/marche-en-laisse.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/marche-en-laisse.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/laisse.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/harnais.svg</image:loc></image:image>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/accueil.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -123,15 +130,16 @@
   </url>
   <url>
     <loc>https://educanimaux.fr/meilleur-clicker.html</loc>
+    <lastmod>2026-10-16</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/meilleur-clicker.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/meilleur-clicker.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/meilleur-clicker.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/chat-clicker.svg</image:loc></image:image>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/accueil.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://educanimaux.fr/meilleur-griffoir-chat.html</loc>
+    <lastmod>2026-10-16</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/meilleur-griffoir-chat.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/meilleur-griffoir-chat.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/meilleur-griffoir-chat.html"/>
@@ -140,25 +148,25 @@
   </url>
   <url>
     <loc>https://educanimaux.fr/meilleur-harnais-chien.html</loc>
+    <lastmod>2026-10-16</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/meilleur-harnais-chien.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/meilleur-harnais-chien.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/meilleur-harnais-chien.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/harnais.svg</image:loc></image:image>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/accueil.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://educanimaux.fr/meilleure-camera-animaux.html</loc>
+    <lastmod>2026-10-19</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/meilleure-camera-animaux.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/accueil.svg</image:loc></image:image>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/harnais.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://educanimaux.fr/meilleurs-jouets-occupation-chien.html</loc>
+    <lastmod>2026-10-19</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/meilleurs-jouets-occupation-chien.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/accueil.svg</image:loc></image:image>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/harnais.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -189,18 +197,19 @@
   </url>
   <url>
     <loc>https://educanimaux.fr/produits-tendance-animaux.html</loc>
+    <lastmod>2026-10-18</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/produits-tendance-animaux.html"/>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/harnais.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://educanimaux.fr/promos-animaux.html</loc>
+    <lastmod>2026-10-18</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/promos-animaux.html"/>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/chiot-jouet.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://educanimaux.fr/proprete-chiot.html</loc>
+    <lastmod>2026-10-15</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/proprete-chiot.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/proprete-chiot.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/proprete-chiot.html"/>
@@ -218,11 +227,11 @@
   </url>
   <url>
     <loc>https://educanimaux.fr/rappel-chien.html</loc>
+    <lastmod>2026-10-15</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/rappel-chien.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/rappel-chien.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/rappel-chien.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/rappel.svg</image:loc></image:image>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/accueil.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -242,6 +251,7 @@
   </url>
   <url>
     <loc>https://educanimaux.fr/en/chat-griffe-canape.html</loc>
+    <lastmod>2026-10-15</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/chat-griffe-canape.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/chat-griffe-canape.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/chat-griffe-canape.html"/>
@@ -270,6 +280,7 @@
   </url>
   <url>
     <loc>https://educanimaux.fr/en/chiot-mord.html</loc>
+    <lastmod>2026-10-15</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/chiot-mord.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/chiot-mord.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/chiot-mord.html"/>
@@ -313,6 +324,7 @@
   </url>
   <url>
     <loc>https://educanimaux.fr/en/marche-en-laisse.html</loc>
+    <lastmod>2026-10-15</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/marche-en-laisse.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/marche-en-laisse.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/marche-en-laisse.html"/>
@@ -331,6 +343,7 @@
   </url>
   <url>
     <loc>https://educanimaux.fr/en/meilleur-clicker.html</loc>
+    <lastmod>2026-10-16</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/meilleur-clicker.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/meilleur-clicker.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/meilleur-clicker.html"/>
@@ -342,6 +355,7 @@
   </url>
   <url>
     <loc>https://educanimaux.fr/en/meilleur-griffoir-chat.html</loc>
+    <lastmod>2026-10-16</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/meilleur-griffoir-chat.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/meilleur-griffoir-chat.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/meilleur-griffoir-chat.html"/>
@@ -352,6 +366,7 @@
   </url>
   <url>
     <loc>https://educanimaux.fr/en/meilleur-harnais-chien.html</loc>
+    <lastmod>2026-10-16</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/meilleur-harnais-chien.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/meilleur-harnais-chien.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/meilleur-harnais-chien.html"/>
@@ -389,6 +404,7 @@
   </url>
   <url>
     <loc>https://educanimaux.fr/en/proprete-chiot.html</loc>
+    <lastmod>2026-10-15</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/proprete-chiot.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/proprete-chiot.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/proprete-chiot.html"/>
@@ -408,6 +424,7 @@
   </url>
   <url>
     <loc>https://educanimaux.fr/en/rappel-chien.html</loc>
+    <lastmod>2026-10-15</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/rappel-chien.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/rappel-chien.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/rappel-chien.html"/>
@@ -434,6 +451,7 @@
   </url>
   <url>
     <loc>https://educanimaux.fr/it/chat-griffe-canape.html</loc>
+    <lastmod>2026-10-15</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/chat-griffe-canape.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/chat-griffe-canape.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/chat-griffe-canape.html"/>
@@ -462,6 +480,7 @@
   </url>
   <url>
     <loc>https://educanimaux.fr/it/chiot-mord.html</loc>
+    <lastmod>2026-10-15</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/chiot-mord.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/chiot-mord.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/chiot-mord.html"/>
@@ -505,6 +524,7 @@
   </url>
   <url>
     <loc>https://educanimaux.fr/it/marche-en-laisse.html</loc>
+    <lastmod>2026-10-15</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/marche-en-laisse.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/marche-en-laisse.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/marche-en-laisse.html"/>
@@ -523,6 +543,7 @@
   </url>
   <url>
     <loc>https://educanimaux.fr/it/meilleur-clicker.html</loc>
+    <lastmod>2026-10-16</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/meilleur-clicker.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/meilleur-clicker.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/meilleur-clicker.html"/>
@@ -534,6 +555,7 @@
   </url>
   <url>
     <loc>https://educanimaux.fr/it/meilleur-griffoir-chat.html</loc>
+    <lastmod>2026-10-16</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/meilleur-griffoir-chat.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/meilleur-griffoir-chat.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/meilleur-griffoir-chat.html"/>
@@ -544,6 +566,7 @@
   </url>
   <url>
     <loc>https://educanimaux.fr/it/meilleur-harnais-chien.html</loc>
+    <lastmod>2026-10-16</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/meilleur-harnais-chien.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/meilleur-harnais-chien.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/meilleur-harnais-chien.html"/>
@@ -581,6 +604,7 @@
   </url>
   <url>
     <loc>https://educanimaux.fr/it/proprete-chiot.html</loc>
+    <lastmod>2026-10-15</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/proprete-chiot.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/proprete-chiot.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/proprete-chiot.html"/>
@@ -600,6 +624,7 @@
   </url>
   <url>
     <loc>https://educanimaux.fr/it/rappel-chien.html</loc>
+    <lastmod>2026-10-15</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/rappel-chien.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/rappel-chien.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/rappel-chien.html"/>

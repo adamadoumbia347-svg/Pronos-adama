@@ -16,7 +16,7 @@ DOSSIERS = {"fr": DOCS, "en": DOCS / "en", "it": DOCS / "it"}
 TITRE = {"fr": "À lire aussi", "en": "Read next", "it": "Leggi anche"}
 # Encadré « promos du moment » placé avant « À lire aussi » (pages françaises : la page promos n'existe qu'en français)
 PROMO = {"fr": '        <div class="callout encadre-promo"><span><strong>🏷️ Bons plans :</strong> retrouvez les offres du jour et les meilleures ventes animalerie, '
-               'mises à jour en direct.</span> <a class="btn btn-sm" href="promos-animaux.html">Voir les promos du moment</a></div>\n'}
+               'mises à jour en direct.</span> <a class="btn btn-sm" href="promos-animaux.html">Voir les promos du moment</a> <a class="btn btn-sm btn-outline" href="produits-tendance-animaux.html">Produits tendance</a></div>\n'}
 CARTE = re.compile(
     r'<a class="card card-link" href="([^"]+)">\s*<span class="icon">(.*?)</span>\s*'
     r'<span class="tag">(.*?)</span>\s*<h3>(.*?)</h3>\s*<p>(.*?)</p>\s*</a>', re.S)

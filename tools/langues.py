@@ -83,7 +83,9 @@ def main():
             images = "".join(
                 f"\n    <image:image><image:loc>https://educanimaux.fr/img/illu/{i}.svg</image:loc></image:image>"
                 for i in dict.fromkeys(re.findall(r'img/illu/([\w-]+)\.svg', contenu)))
-            lignes.append(f"  <url>\n    <loc>{url(code, nom)}</loc>{alternates}{images}\n    <priority>{prio}</priority>\n  </url>")
+            m = re.search(r'"dateModified": "(\d{4}-\d{2}-\d{2})"', contenu) or re.search(r'"datePublished": "(\d{4}-\d{2}-\d{2})"', contenu)
+            lastmod = f"\n    <lastmod>{m.group(1)}</lastmod>" if m else ""
+            lignes.append(f"  <url>\n    <loc>{url(code, nom)}</loc>{lastmod}{alternates}{images}\n    <priority>{prio}</priority>\n  </url>")
     (DOCS / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" '

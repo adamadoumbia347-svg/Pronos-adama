@@ -2,7 +2,9 @@
 
 Usage : python3 tools/verifier_site.py   (code de sortie 1 en cas de problème)
 """
+import html
 import pathlib
+import re
 import posixpath
 import sys
 import xml.dom.minidom
@@ -105,6 +107,19 @@ def main():
         if f"<loc>{loc}</loc>" not in sitemap:
             problemes.append(f"sitemap.xml : {nom} absent")
     print(f"{len(pages)} pages, {nb_aff} liens d'affiliation vérifiés.")
+    # Avertissements SEO (non bloquants) : Google coupe les titres et descriptions trop longs
+    for nom, p in sorted(pages.items()):
+        s = p.read_text(encoding="utf-8")
+        if nom.endswith("404.html") or 'content="noindex' in s:
+            continue
+        t = re.search(r"<title>(.*?)</title>", s, re.S)
+        d = re.search(r'<meta name="description" content="([^"]*)"', s)
+        lt = len(html.unescape(t.group(1).strip())) if t else 0
+        ld = len(html.unescape(d.group(1))) if d else 0
+        if not 10 <= lt <= 65:
+            print(f"Avertissement SEO : {nom} : titre de {lt} caractères (65 max conseillé)")
+        if not 70 <= ld <= 160:
+            print(f"Avertissement SEO : {nom} : description de {ld} caractères (70 à 160 conseillé)")
     if problemes:
         print("PROBLÈMES :\n" + "\n".join(problemes))
         sys.exit(1)
