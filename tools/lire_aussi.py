@@ -14,9 +14,13 @@ import re
 DOCS = pathlib.Path(__file__).resolve().parent.parent / "docs"
 DOSSIERS = {"fr": DOCS, "en": DOCS / "en", "it": DOCS / "it"}
 TITRE = {"fr": "À lire aussi", "en": "Read next", "it": "Leggi anche"}
-# Encadré « promos du moment » placé avant « À lire aussi » (pages françaises : la page promos n'existe qu'en français)
+# Encadré « promos du moment » placé avant « À lire aussi » (dans les trois langues)
 PROMO = {"fr": '        <div class="callout encadre-promo"><span><strong>🏷️ Bons plans :</strong> retrouvez les offres du jour et les meilleures ventes animalerie, '
-               'mises à jour en direct.</span> <a class="btn btn-sm" href="promos-animaux.html">Voir les promos du moment</a> <a class="btn btn-sm btn-outline" href="produits-tendance-animaux.html">Produits tendance</a></div>\n'}
+               'mises à jour en direct.</span> <a class="btn btn-sm" href="promos-animaux.html">Voir les promos du moment</a> <a class="btn btn-sm btn-outline" href="produits-tendance-animaux.html">Produits tendance</a></div>\n',
+         "en": '        <div class="callout encadre-promo"><span><strong>🏷️ Deals:</strong> today\'s deals and pet-supply bestsellers, '
+               'updated live.</span> <a class="btn btn-sm" href="promos-animaux.html">See current deals</a> <a class="btn btn-sm btn-outline" href="produits-tendance-animaux.html">Trending products</a></div>\n',
+         "it": '        <div class="callout encadre-promo"><span><strong>🏷️ Offerte:</strong> le offerte del giorno e i più venduti per animali, '
+               'aggiornati in tempo reale.</span> <a class="btn btn-sm" href="promos-animaux.html">Vedi le offerte</a> <a class="btn btn-sm btn-outline" href="produits-tendance-animaux.html">Prodotti di tendenza</a></div>\n'}
 CARTE = re.compile(
     r'<a class="card card-link" href="([^"]+)">\s*<span class="icon">(.*?)</span>\s*'
     r'<span class="tag">(.*?)</span>\s*<h3>(.*?)</h3>\s*<p>(.*?)</p>\s*</a>', re.S)

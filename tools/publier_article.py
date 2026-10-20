@@ -7,7 +7,8 @@ Le fichier source commence par des lignes « clé: valeur », puis une ligne
 contenant <div class="container article">…</div>).
 
 Clés obligatoires : slug, titre, titre_court, description, resume, icone,
-categorie, date (AAAA-MM-JJ).
+categorie, date (AAAA-MM-JJ). Clé facultative : lang (fr par défaut, en ou it pour
+publier une traduction dans docs/en/ ou docs/it/ ; même slug que l'article français).
 
 Le script :
   - crée docs/<slug>.html avec l'en-tête, le menu et le pied de page du site,
@@ -43,6 +44,9 @@ def lire_source(chemin):
     meta, corps = texte.split("\n---\n", 1)
     m = dict(l.split(":", 1) for l in meta.strip().splitlines() if l.strip())
     m = {k.strip(): v.strip() for k, v in m.items()}
+    m.setdefault("lang", "fr")
+    if m["lang"] not in ("fr", "en", "it"):
+        sys.exit("lang doit valoir fr, en ou it.")
     manquantes = [k for k in CLES if not m.get(k)]
     if manquantes:
         sys.exit(f"Clés manquantes : {', '.join(manquantes)}")
@@ -53,14 +57,18 @@ def lire_source(chemin):
     return m, corps.strip()
 
 
+def dossier(m):
+    return DOCS / m["lang"] if m["lang"] != "fr" else DOCS
+
+
 def construire_page(m, corps):
-    modele = MODELE.read_text(encoding="utf-8")
+    modele = (dossier(m) / MODELE.name).read_text(encoding="utf-8")
     entete = modele[: modele.index("<main>")]
     pied = modele[modele.index("</main>") + len("</main>"):]
     titre_page = f"{m['titre']} – Éduc'Animaux"
     if len(titre_page) > 60:  # Google coupe les titres trop longs
         titre_page = m["titre"]
-    url = BASE + m["slug"] + ".html"
+    url = BASE + ("" if m["lang"] == "fr" else m["lang"] + "/") + m["slug"] + ".html"
     e = lambda x: html.escape(x, quote=True)
     entete = re.sub(r"<title>.*?</title>", f"<title>{e(titre_page)}</title>", entete)
     entete = re.sub(r'<meta name="description" content=".*?">', f'<meta name="description" content="{e(m["description"])}">', entete)
@@ -69,7 +77,7 @@ def construire_page(m, corps):
     entete = re.sub(r'<meta property="og:description" content=".*?">', f'<meta property="og:description" content="{e(m["description"])}">', entete)
     entete = re.sub(r'<meta property="og:url" content=".*?">', f'<meta property="og:url" content="{url}">', entete)
     ld = {"@context": "https://schema.org", "@type": "Article", "headline": m["titre"],
-          "description": m["description"], "inLanguage": "fr", "datePublished": m["date"],
+          "description": m["description"], "inLanguage": m["lang"], "datePublished": m["date"],
           "author": {"@type": "Organization", "name": "Éduc'Animaux"}}
     entete = re.sub(r'<script type="application/ld\+json">.*?</script>',
                     lambda _: '<script type="application/ld+json">' + json.dumps(ld, ensure_ascii=False) + "</script>",
@@ -78,7 +86,7 @@ def construire_page(m, corps):
 
 
 def ajouter_a_conseils(m):
-    p = DOCS / "conseils.html"
+    p = dossier(m) / "conseils.html"
     s = p.read_text(encoding="utf-8")
     if f'href="{m["slug"]}.html"' in s:
         return
@@ -114,12 +122,13 @@ def main():
     if len(sys.argv) != 2:
         sys.exit(__doc__)
     m, corps = lire_source(sys.argv[1])
-    cible = DOCS / f"{m['slug']}.html"
+    cible = dossier(m) / f"{m['slug']}.html"
     if cible.exists():
         sys.exit(f"{cible.name} existe déjà : choisissez un autre slug.")
     cible.write_text(construire_page(m, corps), encoding="utf-8")
     ajouter_a_conseils(m)
-    ajouter_a_accueil(m)
+    if m["lang"] == "fr":
+        ajouter_a_accueil(m)
     try:  # images de partage et épingles Pinterest (nécessite node + Playwright)
         racine = subprocess.run(["npm", "root", "-g"], capture_output=True, text=True).stdout.strip()
         subprocess.run(["node", str(pathlib.Path(__file__).parent / "partage" / "rendu.js")], check=True,
@@ -130,7 +139,7 @@ def main():
     langues.main()
     lire_aussi.main()
     recherche.main()
-    print(f"Publié : docs/{cible.name}")
+    print(f"Publié : {cible.relative_to(DOCS.parent)}")
 
 
 if __name__ == "__main__":
