@@ -18,6 +18,7 @@ import time
 import courriel
 import donnees
 import strategie
+import tableau
 
 ICI = os.path.dirname(os.path.abspath(__file__))
 FICHIER_ETAT = os.path.join(ICI, "etat.json")
@@ -117,8 +118,7 @@ def chercher_signal(etat, bougies, peur, envois):
     return a
 
 
-def traiter_actus(etat, maintenant, prix, var4h):
-    articles = donnees.lire_flux()
+def traiter_actus(etat, articles, maintenant, prix, var4h):
     deja = set(etat.get("actus_envoyees", []))
     forts = [a for a in donnees.actualites_fortes(articles, maintenant) if donnees.cle_article(a) not in deja]
     print(f"  {len(articles)} articles lus, {len(forts)} actualité(s) forte(s) nouvelle(s)")
@@ -159,8 +159,10 @@ def executer():
             _, tr, evt, px = envoi
             courriel.envoyer(*courriel.bilan(tr, evt, px, stats, maintenant))
 
-    traiter_actus(etat, maintenant, prix, var4h)
+    articles = donnees.lire_flux()
+    traiter_actus(etat, articles, maintenant, prix, var4h)
     sauver_etat(etat)
+    tableau.ecrire(tableau.construire(bougies, source, peur, peur_txt, etat, articles, maintenant, SEUIL))
 
 
 # ---------------------------------------------------------------- essai et démonstration
@@ -211,12 +213,19 @@ def demo():
          "lien": "https://example.com/b", "resume": "", "t": maintenant - 1500},
         {"source": "Cointelegraph", "titre": "Bitcoin liquidations top $400M as Fed's Powell signals rate cut pause",
          "lien": "https://example.com/c", "resume": "Les positions longues ont été liquidées.", "t": maintenant - 3000},
+        {"source": "Journal du Coin", "titre": "Bitcoin : les ETF américains enregistrent 5 jours d'entrées consécutives",
+         "lien": "https://example.com/e", "resume": "Les fonds BlackRock et Fidelity mènent la danse.", "t": maintenant - 9000},
+        {"source": "Cryptoast", "titre": "Bitcoin : le CPI américain attendu jeudi, les traders prudents",
+         "lien": "https://example.com/f", "resume": "L'inflation américaine reste la donnée clé de la semaine.", "t": maintenant - 20000},
         {"source": "Decrypt", "titre": "Ethereum developer call recap", "lien": "https://example.com/d",
          "resume": "", "t": maintenant - 600},
     ]
     forts = donnees.actualites_fortes(fausses, maintenant)
     sujet, h, _ = courriel.actus(forts, toutes[-1]["c"], 1.8, maintenant)
     print("actus :", sujet, "->", courriel.sauver_apercu(dossier, "actus", sujet, h))
+    page = tableau.construire(toutes, "Kraken (simulation)", 22, "Extreme Fear", etat, fausses, maintenant, SEUIL)
+    tableau.ecrire(page, os.path.join(dossier, "tableau"))
+    print("tableau de bord : copiez docs/btc-cffec35843/index.html dans", os.path.join(dossier, "tableau"))
 
 
 def test():

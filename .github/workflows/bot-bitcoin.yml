@@ -1,6 +1,7 @@
 # Bot Bitcoin 4H : toutes les heures, cherche un signal fort sur la dernière bougie 4H fermée
 # et lit les actualités. N'envoie un courriel que pour un signal fort, un objectif/stop atteint
-# ou une actualité forte. La mémoire du bot (bot-bitcoin/etat.json) est enregistrée dans le dépôt.
+# ou une actualité forte. La mémoire du bot (bot-bitcoin/etat.json) et les données du tableau de bord
+# (docs/btc-cffec35843/donnees.json) sont enregistrées dans le dépôt.
 name: Bot Bitcoin 4H
 on:
   schedule:
@@ -43,7 +44,7 @@ jobs:
         run: |
           git config user.name "bot-bitcoin"
           git config user.email "bot-bitcoin@users.noreply.github.com"
-          git add bot-bitcoin/etat.json
+          git add bot-bitcoin/etat.json docs/btc-cffec35843/donnees.json
           git diff --cached --quiet && exit 0
           git commit -m "Bot Bitcoin 4H : mise à jour de l'état"
           for i in 1 2 3; do git pull --rebase -q && git push -q && exit 0; sleep 5; done

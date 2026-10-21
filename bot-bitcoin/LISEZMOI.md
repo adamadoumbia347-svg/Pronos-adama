@@ -28,6 +28,16 @@ Il tourne tout seul sur GitHub (gratuit), toutes les heures. Pas de Telegram : t
 - **Météo du marché** : indice Fear & Greed affiché en ⛈️ 🌧️ ⛅ ☀️ 🔥.
 - **Option notification instantanée** avec l'application gratuite **ntfy** (pas Telegram), en plus du courriel.
 
+## Tableau de bord (page web privée)
+
+**https://educanimaux.fr/btc-cffec35843/** — à ajouter à l'écran d'accueil du téléphone.
+
+Graphique 4H (EMA 21/50/200, Supertrend, niveaux du trade, signaux passés), prix en direct, compte à rebours
+jusqu'à la clôture de la bougie, rapport de force acheteurs/vendeurs, radar des 8 critères, trade suivi avec
+position en direct, actualités notées des dernières 24 h, historique et courbe de gains, météo Fear & Greed.
+Le bot met à jour `docs/btc-cffec35843/donnees.json` à chaque passage. La page n'est pas référencée par Google
+(`noindex`, absente du plan du site) mais reste publique pour qui connaît l'adresse.
+
 ## Mise en route (10 minutes)
 
 1. **Mot de passe d'application Gmail** : sur https://myaccount.google.com/apppasswords (validation en 2 étapes
@@ -66,6 +76,7 @@ Installez l'application **ntfy** (Android / iPhone), abonnez-vous à un nom secr
 | `indicateurs.py` | EMA, RSI, MACD, ATR, ADX, Supertrend, Bollinger (aucune bibliothèque externe) |
 | `donnees.py` | bougies 4H (Kraken, puis Bitstamp, puis Binance en secours), Fear & Greed, flux d'actualités |
 | `courriel.py` | les trois designs de courriel et l'envoi |
+| `tableau.py` | données du tableau de bord (`docs/btc-cffec35843/donnees.json`) |
 | `etat.json` | mémoire du bot, mise à jour automatiquement |
 
 > Outil d'aide à la décision, pas un conseil financier. Aucun indicateur ne gagne à tous les coups :
