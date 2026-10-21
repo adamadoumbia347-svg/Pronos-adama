@@ -1,0 +1,50 @@
+# Bot Bitcoin 4H : toutes les heures, cherche un signal fort sur la dernière bougie 4H fermée
+# et lit les actualités. N'envoie un courriel que pour un signal fort, un objectif/stop atteint
+# ou une actualité forte. La mémoire du bot (bot-bitcoin/etat.json) est enregistrée dans le dépôt.
+name: Bot Bitcoin 4H
+on:
+  schedule:
+    - cron: "7 * * * *"
+  workflow_dispatch:
+    inputs:
+      test:
+        description: "Envoyer un courriel d'essai (vérifie la configuration)"
+        type: boolean
+        default: false
+permissions:
+  contents: write
+concurrency:
+  group: bot-bitcoin
+  cancel-in-progress: false
+jobs:
+  bot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Lancer le bot
+        working-directory: bot-bitcoin
+        env:
+          MAIL_EXPEDITEUR: ${{ secrets.MAIL_EXPEDITEUR }}
+          MAIL_MOT_DE_PASSE: ${{ secrets.MAIL_MOT_DE_PASSE }}
+          MAIL_DESTINATAIRE: ${{ secrets.MAIL_DESTINATAIRE }}
+          NTFY_SUJET: ${{ secrets.NTFY_SUJET }}
+          FUSEAU: ${{ vars.FUSEAU || 'Europe/Paris' }}
+          SEUIL_SIGNAL: ${{ vars.SEUIL_SIGNAL || '70' }}
+          CAPITAL: ${{ vars.CAPITAL || '1000' }}
+          RISQUE_PCT: ${{ vars.RISQUE_PCT || '1' }}
+          ENVOYER_BILANS: ${{ vars.ENVOYER_BILANS || '1' }}
+        run: python3 bot.py ${{ inputs.test && '--test' || '' }}
+      - name: Enregistrer la mémoire du bot
+        if: ${{ !inputs.test }}
+        run: |
+          git config user.name "bot-bitcoin"
+          git config user.email "bot-bitcoin@users.noreply.github.com"
+          git add bot-bitcoin/etat.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Bot Bitcoin 4H : mise à jour de l'état"
+          for i in 1 2 3; do git pull --rebase -q && git push -q && exit 0; sleep 5; done
+          exit 1
