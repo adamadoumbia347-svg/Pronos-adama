@@ -1,7 +1,7 @@
 """Fabrique une vidéo TikTok « cartes » (chiens / chats) à partir d'un fichier de description JSON.
 
 Usage : python3 tools/video/auto/fabriquer.py tools/video/auto/sujets/<nom>.json [--apercu]
-Sortie : videos/auto/<nom>.mp4 (1080×1920, ~20-25 s, musique + bruitages) et videos/auto/<nom>.txt (légende).
+Sortie : videos/auto/<nom>.mp4 (1080×1920, ~25 s, motion design, musique + bruitages) et videos/auto/<nom>.txt (légende).
 Avec --apercu : 6 images de contrôle dans un dossier temporaire (affiché), sans vidéo.
 
 Format du JSON : voir tools/video/auto/README.md.
@@ -18,7 +18,9 @@ nom = spec_path.stem
 env = {**os.environ, "NODE_PATH": subprocess.run(["npm", "root", "-g"], capture_output=True, text=True).stdout.strip()}
 tmp = pathlib.Path(tempfile.mkdtemp(prefix="video-" + nom + "-"))
 rendu = ICI.parent / "drole" / "rendu.js"
-shutil.copy(ICI / "modele.html", ICI / "_video.html")
+# Style : « motion » (motion design, par défaut) ou « cartes » (ancien modèle)
+modele = "modele.html" if spec.get("style") == "cartes" else "modele-motion.html"
+shutil.copy(ICI / modele, ICI / "_video.html")
 subprocess.run(["node", str(rendu), str(ICI / "_video.html"), str(tmp)] + (["preview"] if apercu else []), check=True, env=env)
 if apercu:
     print("Aperçu :", tmp)

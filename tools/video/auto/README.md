@@ -5,6 +5,10 @@ puis **3 par semaine** à partir du 18 novembre (lundi 18 h, mercredi 10 h, vend
 
 Chaque vidéo = un fichier JSON dans `sujets/AAAA-MM-JJ-<nom>.json` (date de publication prévue).
 
+**Style : motion design** (par défaut, `modele-motion.html`) : texte cinétique mot par mot, mots-clés surlignés,
+formes qui flottent, cercle coloré qui « pousse » derrière l'animal, transitions en iris, numéros 01–05, barre de
+progression, soulignés dessinés, fin avec patte dessinée. Pour revenir à l'ancien style « cartes » : `"style": "cartes"` dans le JSON.
+
 ```
 python3 tools/video/auto/fabriquer.py tools/video/auto/sujets/<fichier>.json --apercu   # 6 images de contrôle
 python3 tools/video/auto/fabriquer.py tools/video/auto/sujets/<fichier>.json            # vidéo finale
