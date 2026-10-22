@@ -1,0 +1,70 @@
+{
+ "hook": "Changement d'heure : ton chien, lui, <em>ne le sait pas</em> ⏰",
+ "emoji_hook": "🕐",
+ "bandeau": "🐾 Changement d'heure",
+ "musique": 1,
+ "cartes": [
+  {
+   "visuel": {
+    "type": "chien",
+    "pose": "assis",
+    "tete": -8
+   },
+   "quoi": "Dimanche, on recule d'une heure",
+   "sens": "Mais son horloge interne, elle, ne bouge pas 🕐",
+   "conseil": "→ Pour lui, rien n'a changé",
+   "son": "pop"
+  },
+  {
+   "visuel": {
+    "type": "emoji",
+    "texte": "🍽️"
+   },
+   "quoi": "Le repas arrive « en retard »",
+   "sens": "Il peut réclamer ou s'agiter 😅",
+   "conseil": "→ Décale l'heure du repas petit à petit",
+   "son": "pop"
+  },
+  {
+   "visuel": {
+    "type": "chien",
+    "pose": "debout",
+    "tete": 6
+   },
+   "quoi": "La balade aussi est décalée",
+   "sens": "Il t'attend devant la porte 🚪",
+   "conseil": "→ Décale de quelques minutes chaque jour",
+   "son": "ouaf"
+  },
+  {
+   "visuel": {
+    "type": "chat",
+    "queue": "droite",
+    "yeux": "normal",
+    "oreilles": ""
+   },
+   "quoi": "Ton chat te réveille une heure plus tôt",
+   "sens": "Pour lui, c'est l'heure du petit-déj 😼",
+   "conseil": "→ Décale aussi son repas en douceur",
+   "son": "miaou"
+  },
+  {
+   "visuel": {
+    "type": "chien",
+    "pose": "couche",
+    "tete": 0,
+    "deco": "coeur"
+   },
+   "quoi": "En quelques jours",
+   "sens": "Il s'adapte au nouvel horaire 💛",
+   "conseil": "→ Reste patient et régulier",
+   "son": "ding"
+  }
+ ],
+ "fin": [
+  "Le tien est déjà<br>perdu ? 😂👇",
+  "Tous nos conseils pour<br>chiens et chats 🐾"
+ ],
+ "legende": "Changement d'heure : ton chien, lui, ne le sait pas ⏰ Le n°4, les propriétaires de chats comprendront 😅 Le tien réclame déjà ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#changementdheure #chien #chat #educanimaux"
+}

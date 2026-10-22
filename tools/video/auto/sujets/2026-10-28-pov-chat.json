@@ -1,0 +1,75 @@
+{
+ "hook": "POV : tu rentres et ton chat fait <em>semblant</em> de ne pas t'avoir vu 😼",
+ "emoji_hook": "😼",
+ "bandeau": "🐾 POV : ton chat",
+ "musique": 2,
+ "cartes": [
+  {
+   "visuel": {
+    "type": "chat",
+    "queue": "enroulee",
+    "yeux": "dort",
+    "oreilles": ""
+   },
+   "quoi": "Tu ouvres la porte : « Coucou ! »",
+   "sens": "Il ne bouge pas une moustache 😑",
+   "conseil": "→ Il t'a entendu… il reste juste zen",
+   "son": "pop"
+  },
+  {
+   "visuel": {
+    "type": "chat",
+    "queue": "droite",
+    "yeux": "normal",
+    "oreilles": "detendues"
+   },
+   "quoi": "Une oreille se tourne vers toi",
+   "sens": "Il t'écoute, l'air de rien 👂",
+   "conseil": "→ Ses oreilles bougent indépendamment",
+   "son": "pop"
+  },
+  {
+   "visuel": {
+    "type": "chat",
+    "queue": "droite",
+    "yeux": "content",
+    "oreilles": ""
+   },
+   "quoi": "Il passe devant toi, queue dressée",
+   "sens": "En fait, il est content de te voir 😏",
+   "conseil": "→ Queue bien droite = bonne humeur",
+   "son": "miaou"
+  },
+  {
+   "visuel": {
+    "type": "chat",
+    "queue": "question",
+    "yeux": "content",
+    "oreilles": "",
+    "deco": "coeur"
+   },
+   "quoi": "Il se frotte contre tes jambes",
+   "sens": "Il te dépose son odeur 💛",
+   "conseil": "→ Tu fais partie de sa famille",
+   "son": "miaou"
+  },
+  {
+   "visuel": {
+    "type": "chat",
+    "queue": "enroulee",
+    "yeux": "content",
+    "oreilles": "detendues"
+   },
+   "quoi": "Il cligne lentement des yeux",
+   "sens": "C'est un « je t'aime » de chat 😻",
+   "conseil": "→ Cligne lentement en retour",
+   "son": "ding"
+  }
+ ],
+ "fin": [
+  "Le tien fait<br>pareil ? 😂👇",
+  "Tous nos conseils pour<br>comprendre ton chat 🐾"
+ ],
+ "legende": "POV : tu rentres et ton chat fait semblant de ne pas t'avoir vu 😼 Attends la fin 😻 Le tien fait pareil ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chat #catsoftiktok #chatdrole #educanimaux"
+}

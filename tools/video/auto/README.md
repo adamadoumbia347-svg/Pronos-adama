@@ -69,7 +69,7 @@ Sons : pop, pop2, ding, miaou, ouaf, whoosh, boom, crash, scratch, fete.
 - [x] Chiot : les 5 règles de la première semaine (2026-10-29)
 - [x] Pourquoi ton chien tire en laisse (et comment arrêter) (2026-10-31)
 - [x] Mythe ou réalité : les idées reçues sur les chats (2026-10-30)
-- [ ] Mythe ou réalité : les idées reçues sur les chiens
+- [x] Mythe ou réalité : les idées reçues sur les chiens (2026-10-27)
 - [x] 5 signes que ton chien est stressé (2026-10-22)
 - [x] 5 bruits du quotidien qui font peur aux chats (2026-11-01)
 - [ ] Comment apprendre « assis » en 3 étapes
@@ -80,7 +80,7 @@ Sons : pop, pop2, ding, miaou, ouaf, whoosh, boom, crash, scratch, fete.
 - [ ] Le rappel du chien en 4 étapes
 - [ ] 5 signes que ton chat te fait confiance
 - [ ] Préparer son chien aux pétards du Nouvel An (à publier fin décembre)
-- [ ] 5 cadeaux de Noël utiles pour chien et chat (à publier début décembre)
+- [x] 5 cadeaux de Noël utiles pour chien et chat (2026-12-02)
 - [ ] Ton chien mange trop vite ? 5 astuces
 - [ ] Pourquoi ton chat ronronne (pas que de bonheur)
 - [ ] 5 erreurs quand on adopte un chaton
@@ -107,3 +107,6 @@ Sons : pop, pop2, ding, miaou, ouaf, whoosh, boom, crash, scratch, fete.
 - [ ] Chien et chaleur/froid : 5 conseils
 - [ ] Comment apprendre « au pied » en douceur
 - [ ] Pourquoi ton chat aime les cartons
+- [x] Changement d'heure : ton chien ne le sait pas (2026-10-24)
+- [x] POV : ton chat fait semblant de ne pas t'avoir vu (2026-10-28)
+- [x] Halloween : 5 dangers pour chien et chat (2026-10-30)

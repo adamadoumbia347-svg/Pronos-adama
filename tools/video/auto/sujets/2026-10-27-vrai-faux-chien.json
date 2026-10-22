@@ -1,0 +1,79 @@
+{
+ "hook": "Vrai ou faux ? 5 idées reçues sur les <em>chiens</em> 🐕",
+ "emoji_hook": "🤔",
+ "bandeau": "🐾 Vrai ou faux ?",
+ "musique": 4,
+ "cartes": [
+  {
+   "visuel": {
+    "type": "chien",
+    "pose": "debout",
+    "tete": -6
+   },
+   "quoi": "« Un chien qui remue la queue est content »",
+   "sens": "FAUX ❌ Pas toujours !",
+   "conseil": "→ Regarde tout son corps, pas que la queue",
+   "son": "pop",
+   "badge": "FAUX",
+   "couleur": "rouge"
+  },
+  {
+   "visuel": {
+    "type": "chien",
+    "pose": "assis",
+    "tete": 6,
+    "deco": "ok"
+   },
+   "quoi": "« Un vieux chien ne peut plus apprendre »",
+   "sens": "FAUX ❌ Il apprend à tout âge",
+   "conseil": "→ Avec des récompenses et de la patience",
+   "son": "ding",
+   "badge": "FAUX",
+   "couleur": "rouge"
+  },
+  {
+   "visuel": {
+    "type": "chien",
+    "pose": "assis",
+    "tete": -4
+   },
+   "quoi": "« Il faut être le dominant »",
+   "sens": "FAUX ❌ Cette théorie est dépassée",
+   "conseil": "→ Mise sur la coopération et les récompenses",
+   "son": "pop",
+   "badge": "FAUX",
+   "couleur": "rouge"
+  },
+  {
+   "visuel": {
+    "type": "emoji",
+    "texte": "🍫"
+   },
+   "quoi": "« Le chocolat est toxique pour lui »",
+   "sens": "VRAI ✅ Surtout le chocolat noir",
+   "conseil": "→ Range-le hors de sa portée",
+   "son": "ding",
+   "badge": "VRAI",
+   "couleur": "vert"
+  },
+  {
+   "visuel": {
+    "type": "chien",
+    "pose": "couche",
+    "tete": -10
+   },
+   "quoi": "« Un chien qui bâille est fatigué »",
+   "sens": "FAUX ❌ Ça peut aussi être du stress",
+   "conseil": "→ Regarde dans quelle situation il bâille",
+   "son": "pop",
+   "badge": "FAUX",
+   "couleur": "rouge"
+  }
+ ],
+ "fin": [
+  "Tu as eu combien<br>de bonnes réponses ? 👇",
+  "Tous nos conseils pour<br>comprendre ton chien 🐾"
+ ],
+ "legende": "Vrai ou faux ? 5 idées reçues sur les chiens 🐕 Le n°3, beaucoup y croient encore 😮 Tu as eu combien de bonnes réponses ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chien #vraioufaux #dogsoftiktok #educanimaux"
+}

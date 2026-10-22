@@ -1,0 +1,71 @@
+{
+ "hook": "5 cadeaux de Noël que ton chien va <em>vraiment</em> aimer 🎄",
+ "emoji_hook": "🎁",
+ "bandeau": "🐾 Cadeaux de Noël",
+ "musique": 3,
+ "cartes": [
+  {
+   "visuel": {
+    "type": "chien",
+    "pose": "couche",
+    "tete": 0,
+    "deco": "os"
+   },
+   "quoi": "Un jouet à garnir",
+   "sens": "Il l'occupe longtemps 🦴",
+   "conseil": "→ Rempli de sa ration, c'est encore mieux",
+   "son": "ouaf"
+  },
+  {
+   "visuel": {
+    "type": "emoji",
+    "texte": "🧺"
+   },
+   "quoi": "Un tapis de fouille",
+   "sens": "Son flair adore ça 👃",
+   "conseil": "→ Parfait les jours de pluie",
+   "son": "pop"
+  },
+  {
+   "visuel": {
+    "type": "chien",
+    "pose": "couche",
+    "tete": -6,
+    "deco": "zzz"
+   },
+   "quoi": "Un panier tout doux",
+   "sens": "Pour ses longues siestes 😴",
+   "conseil": "→ Place-le dans un coin calme",
+   "son": "pop"
+  },
+  {
+   "visuel": {
+    "type": "chien",
+    "pose": "debout",
+    "tete": 4
+   },
+   "quoi": "Un harnais confortable",
+   "sens": "Des balades plus agréables 🦺",
+   "conseil": "→ Choisis-le en Y",
+   "son": "pop"
+  },
+  {
+   "visuel": {
+    "type": "chien",
+    "pose": "assis",
+    "tete": 6,
+    "deco": "coeur"
+   },
+   "quoi": "Du temps avec toi",
+   "sens": "Son cadeau préféré 💛",
+   "conseil": "→ Une longue balade où il peut renifler",
+   "son": "ding"
+  }
+ ],
+ "fin": [
+  "Tu lui offres quoi<br>cette année ? 👇",
+  "Toutes nos idées cadeaux<br>sur educanimaux.fr 🎁"
+ ],
+ "legende": "5 cadeaux de Noël que ton chien va vraiment aimer 🎄 Le n°5 ne coûte rien 💛 Tu lui offres quoi cette année ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#noel #chien #cadeaudenoel #educanimaux"
+}

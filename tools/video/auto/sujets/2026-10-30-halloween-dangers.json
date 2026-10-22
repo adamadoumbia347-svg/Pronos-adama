@@ -1,0 +1,68 @@
+{
+ "hook": "Halloween : 5 <em>dangers</em> pour ton chien et ton chat 🎃",
+ "emoji_hook": "🎃",
+ "bandeau": "🐾 Halloween sans danger",
+ "musique": 0,
+ "cartes": [
+  {
+   "visuel": {
+    "type": "emoji",
+    "texte": "🍫"
+   },
+   "quoi": "Le chocolat et les bonbons",
+   "sens": "Toxiques pour chiens et chats ❌",
+   "conseil": "→ Garde le saladier de bonbons en hauteur",
+   "son": "boom",
+   "couleur": "rouge"
+  },
+  {
+   "visuel": {
+    "type": "emoji",
+    "texte": "🔔"
+   },
+   "quoi": "La sonnette qui sonne sans arrêt",
+   "sens": "Ça peut le stresser 😟",
+   "conseil": "→ Installe-le dans une pièce calme",
+   "son": "pop"
+  },
+  {
+   "visuel": {
+    "type": "chat",
+    "queue": "gonflee",
+    "yeux": "peur",
+    "oreilles": "plaquees"
+   },
+   "quoi": "Le déguisement",
+   "sens": "Beaucoup d'animaux le supportent mal 🙀",
+   "conseil": "→ S'il se fige ou veut l'enlever, retire-le",
+   "son": "scratch"
+  },
+  {
+   "visuel": {
+    "type": "emoji",
+    "texte": "🕯️"
+   },
+   "quoi": "Les bougies dans les citrouilles",
+   "sens": "Risque de brûlure 🔥",
+   "conseil": "→ Préfère des bougies LED",
+   "son": "pop"
+  },
+  {
+   "visuel": {
+    "type": "chien",
+    "pose": "debout",
+    "tete": 10
+   },
+   "quoi": "La porte souvent ouverte",
+   "sens": "Risque de fugue 🚪",
+   "conseil": "→ Vérifie sa médaille et son identification",
+   "son": "ouaf"
+  }
+ ],
+ "fin": [
+  "Ton animal aime<br>Halloween ? 👇",
+  "Tous nos conseils pour<br>chiens et chats 🐾"
+ ],
+ "legende": "Halloween : 5 dangers pour ton chien et ton chat 🎃 Le n°1, on l'oublie souvent 🍫 Ton animal aime Halloween ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#halloween #chien #chat #educanimaux"
+}
