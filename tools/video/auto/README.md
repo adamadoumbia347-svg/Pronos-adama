@@ -69,7 +69,7 @@ Sons : pop, pop2, ding, miaou, ouaf, whoosh, boom, crash, scratch, fete.
 - [x] Pourquoi ton chien tire en laisse (et comment arrêter) (2026-10-31)
 - [x] Mythe ou réalité : les idées reçues sur les chats (2026-10-30)
 - [ ] Mythe ou réalité : les idées reçues sur les chiens
-- [ ] 5 signes que ton chien est stressé
+- [x] 5 signes que ton chien est stressé (2026-10-22)
 - [x] 5 bruits du quotidien qui font peur aux chats (2026-11-01)
 - [ ] Comment apprendre « assis » en 3 étapes
 - [ ] 5 erreurs avec la litière

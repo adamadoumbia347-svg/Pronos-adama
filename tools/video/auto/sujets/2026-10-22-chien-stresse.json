@@ -1,0 +1,16 @@
+{
+ "hook": "5 signes que ton chien est <em>stressé</em> (et que tu rates) 🐕",
+ "emoji_hook": "😰",
+ "bandeau": "🐾 Ton chien est stressé ?",
+ "musique": 3,
+ "cartes": [
+  {"visuel": {"type": "chien", "pose": "assis", "tete": -14}, "quoi": "Il bâille sans être fatigué", "sens": "C'est un signe de malaise 😬", "conseil": "→ Laisse-lui un peu d'espace", "son": "pop"},
+  {"visuel": {"type": "chien", "pose": "assis", "tete": 4}, "quoi": "Il se lèche la truffe", "sens": "Il est mal à l'aise 😕", "conseil": "→ Fais une pause dans ce que tu fais", "son": "pop"},
+  {"visuel": {"type": "chien", "pose": "couche", "tete": 10}, "quoi": "Il détourne la tête", "sens": "Il demande qu'on le laisse tranquille 🙈", "conseil": "→ Respecte son choix", "son": "whoosh"},
+  {"visuel": {"type": "emoji", "texte": "👀"}, "quoi": "On voit le blanc de ses yeux", "sens": "Il est inquiet ou crispé 😟", "conseil": "→ Éloigne-le de ce qui le gêne", "son": "pop"},
+  {"visuel": {"type": "chien", "pose": "debout", "tete": -6}, "quoi": "Il halète sans avoir chaud ni couru", "sens": "Ça peut être du stress 😰", "conseil": "→ Si ça dure, parle-en à ton vétérinaire", "son": "ouaf"}
+ ],
+ "fin": ["Le tien fait<br>lequel ? 👇", "Tous nos conseils pour<br>un chien serein 🐾"],
+ "legende": "5 signes que ton chien est stressé (et que tu rates) 🐕 Le n°3, presque personne ne le remarque 👀 Le tien fait lequel ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chien #educationcanine #dogsoftiktok #educanimaux"
+}
