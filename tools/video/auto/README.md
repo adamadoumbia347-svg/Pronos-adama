@@ -32,7 +32,7 @@ Publication : la vidéo est poussée sur `main`, puis programmée sur TikTok via
  ],
  "fin": ["Question pour les commentaires ? 👇", "Tous nos conseils pour…<br>… 🐾"],
  "legende": "Légende TikTok (avec la question et « educanimaux.fr (lien en bio) »)",
- "hashtags": "#chien #chat … #educanimaux"
+ "hashtags": "#chien #educationcanine #dogsoftiktok #educanimaux"   // 4 maximum
 }
 ```
 
@@ -47,6 +47,7 @@ Sons : pop, pop2, ding, miaou, ouaf, whoosh, boom, crash, scratch, fete.
 ## Règles de contenu
 
 - Tutoiement (ton TikTok), phrases très courtes, 1 emoji par ligne maximum.
+- **4 hashtags maximum** dans le champ `hashtags`, dont toujours `#educanimaux` (ex. chien : `#chien #educationcanine #dogsoftiktok #educanimaux` ; chat : `#chat #comportementchat #catsoftiktok #educanimaux`).
 - Uniquement des conseils exacts et bienveillants (comme sur le site) : jamais de punition, pas de chiffres inventés,
   renvoi au vétérinaire pour la santé.
 - Accroche forte (« 5 erreurs… », « Ton chat fait ça ? », « Ce que ton chien essaie de te dire »…),
