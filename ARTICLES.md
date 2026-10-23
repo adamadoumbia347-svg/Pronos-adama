@@ -121,7 +121,8 @@ Les sessions du lundi prennent le premier sujet non coché. On peut réordonner 
 
 - [x] Propreté du chiot : la méthode pour qu'il soit propre rapidement
 - [x] Chien qui aboie quand il est seul : comprendre et agir
-- [ ] Chat qui fait pipi hors de sa litière : causes et solutions
+- [x] Chat qui fait pipi hors de sa litière : causes et solutions (2026-10-23)
+- [x] Chat qui miaule la nuit : pourquoi et comment dormir enfin (2026-10-23)
 - [ ] Apprendre « assis », « couché » et « pas bouger » à son chien
 - [ ] Le clicker training expliqué aux débutants (chien et chat)
 - [ ] Chien qui saute sur les gens : la méthode douce
@@ -148,7 +149,7 @@ Chaque lundi, les 2 premiers non cochés (entre parenthèses : l'article de cons
 - [x] Quel clicker choisir ? (`meilleur-clicker.html`)
 - [x] Jouets d'occupation pour chien seul : tapis de fouille, jouets à remplir… lequel choisir ? (chien qui aboie seul)
 - [x] Quelle caméra pour surveiller son chien ou son chat ? (chien qui aboie seul)
-- [ ] Quelle litière choisir pour son chat ? (pipi hors litière)
+- [x] Quelle litière choisir pour son chat ? (pipi hors litière) (2026-10-23)
 - [ ] Quel bac ou maison de toilette choisir pour son chat ? (pipi hors litière)
 - [ ] Quelles friandises d'éducation choisir pour son chien ? (assis, couché, pas bouger)
 - [ ] Quelle pochette à friandises choisir ? (clicker training)
