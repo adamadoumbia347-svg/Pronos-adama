@@ -110,3 +110,6 @@ Sons : pop, pop2, ding, miaou, ouaf, whoosh, boom, crash, scratch, fete.
 - [x] Changement d'heure : ton chien ne le sait pas (2026-10-24)
 - [x] POV : ton chat fait semblant de ne pas t'avoir vu (2026-10-28)
 - [x] Halloween : 5 dangers pour chien et chat (2026-10-30)
+- [x] Ton chat fait pipi à côté de sa litière ? 5 raisons (2026-11-02)
+- [x] Ton chat te réveille à 4 h du matin ? (2026-11-04)
+- [x] Quelle litière ton chat préfère vraiment ? (2026-11-06)

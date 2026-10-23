@@ -1,0 +1,51 @@
+{
+ "hook": "Quelle litière <em>ton chat</em> préfère vraiment ? 🧺",
+ "emoji_hook": "🤔",
+ "bandeau": "🐾 Le bon choix de litière",
+ "musique": 3,
+ "cartes": [
+  {
+   "visuel": {"type": "emoji", "texte": "🪨"},
+   "quoi": "La minérale agglomérante",
+   "sens": "Grain fin, comme du sable ✅",
+   "conseil": "→ La plus appréciée des chats",
+   "son": "ding",
+   "couleur": "vert"
+  },
+  {
+   "visuel": {"type": "emoji", "texte": "🌱"},
+   "quoi": "La végétale",
+   "sens": "Légère et peu poussiéreuse 🍃",
+   "conseil": "→ Choisis-la en grain fin",
+   "son": "pop"
+  },
+  {
+   "visuel": {"type": "emoji", "texte": "💎"},
+   "quoi": "La silice",
+   "sens": "Absorbe bien, mais grains durs 🤨",
+   "conseil": "→ Certains chats la refusent",
+   "son": "pop"
+  },
+  {
+   "visuel": {"type": "emoji", "texte": "🌸"},
+   "quoi": "Le parfum",
+   "sens": "Son nez déteste ça ❌",
+   "conseil": "→ Toujours sans parfum",
+   "son": "boom",
+   "couleur": "rouge"
+  },
+  {
+   "visuel": {"type": "chat", "queue": "droite", "yeux": "content", "oreilles": "", "deco": "ok"},
+   "quoi": "Pour changer de litière",
+   "sens": "En douceur, sur 1 à 2 semaines 🐢",
+   "conseil": "→ Mélange l'ancienne et la nouvelle",
+   "son": "miaou"
+  }
+ ],
+ "fin": [
+  "Tu utilises quelle<br>litière ? 👇",
+  "Le comparatif complet<br>des litières 🧺"
+ ],
+ "legende": "Quelle litière ton chat préfère vraiment ? 🧺 Le n°4, beaucoup se trompent 🌸 Tu utilises laquelle ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chat #litiere #astucechat #educanimaux"
+}

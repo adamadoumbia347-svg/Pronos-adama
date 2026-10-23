@@ -1,0 +1,50 @@
+{
+ "hook": "Ton chat fait pipi <em>à côté</em> de sa litière ? 5 raisons 🐈",
+ "emoji_hook": "😿",
+ "bandeau": "🐾 Pipi hors de la litière",
+ "musique": 1,
+ "cartes": [
+  {
+   "visuel": {"type": "emoji", "texte": "🩺"},
+   "quoi": "Il a peut-être mal",
+   "sens": "Cystite, calculs… d'abord le véto 🩺",
+   "conseil": "→ Il force sans uriner ? Véto le jour même",
+   "son": "boom",
+   "couleur": "rouge"
+  },
+  {
+   "visuel": {"type": "chat", "queue": "fouette", "yeux": "agace", "oreilles": "avion"},
+   "quoi": "Son bac n'est pas assez propre",
+   "sens": "Il est très exigeant 😾",
+   "conseil": "→ Retire les besoins chaque jour",
+   "son": "scratch"
+  },
+  {
+   "visuel": {"type": "emoji", "texte": "🧺"},
+   "quoi": "Pas assez de bacs",
+   "sens": "La règle : 1 par chat, plus 1",
+   "conseil": "→ Dans un coin calme, loin de sa gamelle",
+   "son": "pop"
+  },
+  {
+   "visuel": {"type": "emoji", "texte": "🌸"},
+   "quoi": "Une litière parfumée",
+   "sens": "Son nez est bien plus sensible 👃",
+   "conseil": "→ Préfère une litière fine sans parfum",
+   "son": "pop"
+  },
+  {
+   "visuel": {"type": "chat", "queue": "gonflee", "yeux": "peur", "oreilles": "plaquees"},
+   "quoi": "Il est stressé",
+   "sens": "Déménagement, nouveau chat, travaux 🙀",
+   "conseil": "→ Ne le gronde jamais, ça aggrave tout",
+   "son": "miaou"
+  }
+ ],
+ "fin": [
+  "Ton chat a déjà<br>fait ça ? 👇",
+  "La méthode complète<br>étape par étape 🐾"
+ ],
+ "legende": "Ton chat fait pipi à côté de sa litière ? Voici 5 raisons 🐈 Le n°1 peut être urgent 🩺 Ton chat a déjà fait ça ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chat #litiere #catsoftiktok #educanimaux"
+}

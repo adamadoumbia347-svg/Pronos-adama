@@ -1,0 +1,49 @@
+{
+ "hook": "Ton chat te réveille <em>à 4 h du matin</em> ? 😾",
+ "emoji_hook": "🌙",
+ "bandeau": "🐾 Des nuits calmes",
+ "musique": 2,
+ "cartes": [
+  {
+   "visuel": {"type": "chat", "queue": "fouette", "yeux": "normal", "oreilles": "detendues"},
+   "quoi": "Pourquoi il fait ça",
+   "sens": "Il est actif à l'aube, c'est un chasseur 🐾",
+   "conseil": "→ Ce n'est pas un caprice",
+   "son": "miaou"
+  },
+  {
+   "visuel": {"type": "emoji", "texte": "🪶"},
+   "quoi": "Astuce 1 : jouer le soir",
+   "sens": "10 à 15 min de jeu de chasse 🎯",
+   "conseil": "→ Termine par une capture réussie",
+   "son": "pop"
+  },
+  {
+   "visuel": {"type": "chat", "queue": "enroulee", "yeux": "content", "oreilles": "", "deco": "friandise"},
+   "quoi": "Astuce 2 : un repas après le jeu",
+   "sens": "Chasser, manger, dormir 😋",
+   "conseil": "→ C'est son cycle naturel",
+   "son": "ding"
+  },
+  {
+   "visuel": {"type": "emoji", "texte": "⏰"},
+   "quoi": "Astuce 3 : un distributeur programmé",
+   "sens": "Le petit-déj, ce n'est plus toi ⏰",
+   "conseil": "→ Il arrête peu à peu de te réveiller",
+   "son": "pop"
+  },
+  {
+   "visuel": {"type": "chat", "queue": "enroulee", "yeux": "dort", "oreilles": "", "deco": "zzz"},
+   "quoi": "Astuce 4 : ne pas répondre la nuit",
+   "sens": "Ni gamelle, ni câlin, ni parole 🤫",
+   "conseil": "→ Chat âgé ou changement soudain ? Véto",
+   "son": "pop"
+  }
+ ],
+ "fin": [
+  "Il te réveille<br>à quelle heure ? 👇",
+  "Tous nos conseils pour<br>des nuits calmes 🌙"
+ ],
+ "legende": "Ton chat te réveille à 4 h du matin ? 4 astuces pour des nuits calmes 🌙 L'astuce 3 change tout ⏰ Il te réveille à quelle heure ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chat #chatdrole #catsoftiktok #educanimaux"
+}
