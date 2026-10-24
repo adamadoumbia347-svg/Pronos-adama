@@ -1,0 +1,178 @@
+[
+ {
+  "code": "DSS",
+  "city": "Dakar",
+  "img": "/img/villes/dakar.webp",
+  "img_small": "/img/villes/dakar-480.webp",
+  "file": "File:Gorée 2024 - coucher de soleil sur Dakar - 25.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Gor%C3%A9e_2024_-_coucher_de_soleil_sur_Dakar_-_25.jpg",
+  "author": "Fawaz.tairou",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0"
+ },
+ {
+  "code": "RAK",
+  "city": "Marrakech",
+  "img": "/img/villes/marrakech.webp",
+  "img_small": "/img/villes/marrakech-480.webp",
+  "file": "File:Mosquée de la Koutoubia - marakesh.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Mosqu%C3%A9e_de_la_Koutoubia_-_marakesh.jpg",
+  "author": "Baca12",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+ },
+ {
+  "code": "CMN",
+  "city": "Casablanca",
+  "img": "/img/villes/casablanca.webp",
+  "img_small": "/img/villes/casablanca-480.webp",
+  "file": "File:Sunshine on mosque Hassan II in Casablanca, Morocco - Flickr - Milamber's portfolio.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Sunshine_on_mosque_Hassan_II_in_Casablanca,_Morocco_-_Flickr_-_Milamber%27s_portfolio.jpg",
+  "author": "Milamber's portfolio",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0"
+ },
+ {
+  "code": "ABJ",
+  "city": "Abidjan",
+  "img": "/img/villes/abidjan.webp",
+  "img_small": "/img/villes/abidjan-480.webp",
+  "file": "File:Le Plateau depuis le Pont ADO – Abidjan.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Le_Plateau_depuis_le_Pont_ADO_%E2%80%93_Abidjan.jpg",
+  "author": "Edison McCullen",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0"
+ },
+ {
+  "code": "TUN",
+  "city": "Tunis",
+  "img": "/img/villes/tunis.webp",
+  "img_small": "/img/villes/tunis-480.webp",
+  "file": "File:Super moon over Medina of Tunis.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Super_moon_over_Medina_of_Tunis.jpg",
+  "author": "IssamBarhoumi",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+ },
+ {
+  "code": "ALG",
+  "city": "Alger",
+  "img": "/img/villes/alger.webp",
+  "img_small": "/img/villes/alger-480.webp",
+  "file": "File:Notre Dame d'Afrique2.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Notre_Dame_d%27Afrique2.jpg",
+  "author": "Chettouh Nabil",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+ },
+ {
+  "code": "IST",
+  "city": "Istanbul",
+  "img": "/img/villes/istanbul.webp",
+  "img_small": "/img/villes/istanbul-480.webp",
+  "file": "File:Hagia Sophia Mars 2013.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Hagia_Sophia_Mars_2013.jpg",
+  "author": "Arild Vågen",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+ },
+ {
+  "code": "DXB",
+  "city": "Dubaï",
+  "img": "/img/villes/dubai.webp",
+  "img_small": "/img/villes/dubai-480.webp",
+  "file": "File:Burj Khalifa (16260269606).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Burj_Khalifa_(16260269606).jpg",
+  "author": "Laika ac",
+  "license": "CC BY-SA 2.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+ },
+ {
+  "code": "LIS",
+  "city": "Lisbonne",
+  "img": "/img/villes/lisbonne.webp",
+  "img_small": "/img/villes/lisbonne-480.webp",
+  "file": "File:Alfama, Lisbon (DSC03367).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Alfama,_Lisbon_(DSC03367).jpg",
+  "author": "Matti Blume",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+ },
+ {
+  "code": "BCN",
+  "city": "Barcelone",
+  "img": "/img/villes/barcelone.webp",
+  "img_small": "/img/villes/barcelone-480.webp",
+  "file": "File:Sagrada Família 2010.JPG",
+  "page": "https://commons.wikimedia.org/wiki/File:Sagrada_Fam%C3%ADlia_2010.JPG",
+  "author": "Jopparn",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+ },
+ {
+  "code": "JFK",
+  "city": "New York",
+  "img": "/img/villes/new-york.webp",
+  "img_small": "/img/villes/new-york-480.webp",
+  "file": "File:Lower Manhattan from Jersey City September 2020 panorama.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Lower_Manhattan_from_Jersey_City_September_2020_panorama.jpg",
+  "author": "King of Hearts",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+ },
+ {
+  "code": "CAI",
+  "city": "Le Caire",
+  "img": "/img/villes/le-caire.webp",
+  "img_small": "/img/villes/le-caire-480.webp",
+  "file": "File:All Gizah Pyramids.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:All_Gizah_Pyramids.jpg",
+  "author": "Ricardo Liberato",
+  "license": "CC BY-SA 2.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+ },
+ {
+  "code": "BKO",
+  "city": "Bamako",
+  "img": "/img/villes/bamako.webp",
+  "img_small": "/img/villes/bamako-480.webp",
+  "file": "File:Pont des Martyrs Bamako (cropped).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Pont_des_Martyrs_Bamako_(cropped).jpg",
+  "author": "Gregor Rom",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+ },
+ {
+  "code": "DJE",
+  "city": "Djerba",
+  "img": "/img/villes/djerba.webp",
+  "img_small": "/img/villes/djerba-480.webp",
+  "file": "File:Mosquée Shikh Djerba 10.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Mosqu%C3%A9e_Shikh_Djerba_10.jpg",
+  "author": "Majbri wael",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+ },
+ {
+  "code": "TNG",
+  "city": "Tanger",
+  "img": "/img/villes/tanger.webp",
+  "img_small": "/img/villes/tanger-480.webp",
+  "file": "File:Kasbah, Tánger, Marruecos, 2015-12-11, DD 27.JPG",
+  "page": "https://commons.wikimedia.org/wiki/File:Kasbah,_T%C3%A1nger,_Marruecos,_2015-12-11,_DD_27.JPG",
+  "author": "Diego Delso",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+ },
+ {
+  "code": "ACC",
+  "city": "Accra",
+  "img": "/img/villes/accra.webp",
+  "img_small": "/img/villes/accra-480.webp",
+  "file": "File:Independence Square, Korle-Klottey (IMG 20230201 124359 1).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Independence_Square,_Korle-Klottey_(IMG_20230201_124359_1).jpg",
+  "author": "Matti Blume",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+ }
+]
