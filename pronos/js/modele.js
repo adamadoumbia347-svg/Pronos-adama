@@ -200,7 +200,7 @@ const Modele = (() => {
 
 const Noms = (() => {
   const OTER = new Set(['FC', 'AFC', 'CF', 'SC', 'AC', 'AS', 'SSC', 'SV', 'VfB', 'VfL', 'TSG', 'FSV', 'RC', 'SL', 'CD',
-    'UD', 'RCD', 'SD', 'CA', 'OGC', 'ACF', 'US', 'SS', 'BC', 'FK', 'SK', 'CP', 'GD', 'SBV', 'PSV', 'BV', 'Calcio']);
+    'UD', 'RCD', 'CFC', 'SD', 'CA', 'OGC', 'ACF', 'US', 'SS', 'BC', 'FK', 'SK', 'CP', 'GD', 'SBV', 'PSV', 'BV', 'Calcio']);
   const garder = new Set(['PSV']);
   function court(nom) {
     const mots = nom.split(' ').filter(m => garder.has(m) || (!OTER.has(m) && !/^\d+\.?$/.test(m)));

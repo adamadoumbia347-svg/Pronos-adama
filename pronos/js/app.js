@@ -50,26 +50,41 @@
     } catch { return null; } finally { clearTimeout(minuterie); }
   }
 
+  // Matchs d'une ligue (copie locale + saison en cours en direct), mémorisés pour la session.
+  const ligues = {};
+  function preparerLigue(code) {
+    return ligues[code] ||= (async () => {
+      if (!D[code]) await chargerScript(`data/${code}.js`);
+      let matchs = versObjets(D[code].matchs), enLigne = false;
+      const saison = D.saisons[D.saisons.length - 1];
+      const frais = await saisonEnLigne(code, saison);
+      if (frais && frais.length) {
+        const avant = matchs.filter(m => m.bd !== null).length;
+        const fusion = matchs.filter(m => m.saison !== saison).concat(frais);
+        if (fusion.filter(m => m.bd !== null).length >= avant) { matchs = fusion; enLigne = true; }
+      }
+      matchs.sort((a, b) => (a.date + a.heure).localeCompare(b.date + b.heure));
+      return { code, matchs, saison, enLigne, fits: {} };
+    })();
+  }
+
+  // Forces ajustées sur les matchs joués avant la date (pas de triche sur les jours passés).
+  function fitAu(l, date) {
+    return l.fits[date] ||= Modele.ajuster(l.matchs, date);
+  }
+
   async function chargerLigue(code) {
     etat.code = code;
     ecrire('pronos-ligue', code);
     dessinerLigues();
     vue.innerHTML = '<p class="chargement">Chargement des résultats…</p>';
-    if (!D[code]) await chargerScript(`data/${code}.js`);
-    let matchs = versObjets(D[code].matchs);
-    const saison = D.saisons[D.saisons.length - 1];
-    const frais = await saisonEnLigne(code, saison);
+    const l = await preparerLigue(code);
     if (etat.code !== code) return; // l'utilisateur a changé de ligue entre-temps
-    etat.enLigne = false;
-    if (frais && frais.length) {
-      const avant = matchs.filter(m => m.bd !== null).length;
-      const fusion = matchs.filter(m => m.saison !== saison).concat(frais);
-      if (fusion.filter(m => m.bd !== null).length >= avant) { matchs = fusion; etat.enLigne = true; }
-    }
-    matchs.sort((a, b) => (a.date + a.heure).localeCompare(b.date + b.heure));
+    const { matchs, saison } = l;
+    etat.enLigne = l.enLigne;
     etat.matchs = matchs;
     etat.saison = saison;
-    etat.fit = Modele.ajuster(matchs, auj);
+    etat.fit = fitAu(l, auj);
     etat.elo = Modele.elo(matchs);
     etat.nbAffiches = PAR_PAGE;
     const joues = matchs.filter(m => m.bd !== null);
@@ -150,11 +165,17 @@
     return p.scores.find(ok);
   }
 
-  function carteMatch(m) {
-    const p = Modele.predire(etat.fit, m.dom, m.ext);
+  function carteMatch(m, fit = etat.fit, code = etat.code) {
+    const p = Modele.predire(fit, m.dom, m.ext);
     const s = scoreProbable(p);
-    return `<a class="carte match" href="${lien('analyse', etat.code, m.dom, m.ext)}">
-      <div class="heure"><span>${esc(m.heure || '')}</span><span>Buts attendus ${nb(p.ld, 1)} – ${nb(p.le, 1)}</span></div>
+    let reel = '';
+    if (m.bd !== null) {
+      const mx = Math.max(p.p1, p.pN, p.p2), choix = mx === p.p1 ? '1' : mx === p.pN ? 'N' : '2';
+      const ok = choix === (m.bd > m.be ? '1' : m.bd === m.be ? 'N' : '2');
+      reel = `<span class="${ok ? 'resultat-ok' : 'resultat-ko'}">Score final ${m.bd}-${m.be} ${ok ? '✔' : '✘'}</span>`;
+    }
+    return `<a class="carte match" href="${lien('analyse', code, m.dom, m.ext)}">
+      <div class="heure"><span>${esc(m.heure || '')}</span>${reel || `<span>Buts attendus ${nb(p.ld, 1)} – ${nb(p.le, 1)}</span>`}</div>
       <div class="match-equipes">
         <span class="eq">${esc(court(m.dom))}</span>
         <span class="score-prevu num">${s.x} - ${s.y}<small>score probable</small></span>
@@ -166,6 +187,50 @@
   }
 
   // ---------- vues ----------
+  const decaler = (iso, j) => new Date(Date.parse(iso) + j * 864e5).toISOString().slice(0, 10);
+
+  async function vueJour(date) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(date || '')) date = auj;
+    vue.innerHTML = '<p class="chargement">Chargement des 7 championnats…</p>';
+    const toutes = await Promise.all(D.index.map(l => preparerLigue(l.code)));
+    if (location.hash.slice(1).split('/')[0] !== 'jour') return; // l'utilisateur est parti ailleurs
+    const jours = [...new Set(toutes.flatMap(l => l.matchs.map(m => m.date)))].sort();
+    const avant = jours.filter(j => j < date).pop(), apres = jours.find(j => j > date);
+    const blocs = [], tops = [];
+    let total = 0;
+    for (const l of toutes) {
+      const duJour = l.matchs.filter(m => m.date === date);
+      if (!duJour.length) continue;
+      const fit = fitAu(l, date);
+      total += duJour.length;
+      for (const m of duJour) {
+        if (m.bd !== null) continue;
+        const c = Modele.conseil(Modele.predire(fit, m.dom, m.ext))[0];
+        tops.push({ c, m, code: l.code });
+      }
+      blocs.push(`<h2 class="jour">${esc(D[l.code].ligue)} <span class="discret">· ${duJour.length} match${duJour.length > 1 ? 's' : ''}</span></h2>
+        <div class="matchs">${duJour.map(m => carteMatch(m, fit, l.code)).join('')}</div>`);
+    }
+    tops.sort((a, b) => b.c.proba - a.c.proba);
+    const nav = (j, txt, titre) => j ? `<a class="bouton secondaire" href="${lien('jour', j)}" title="${titre}" aria-label="${titre}">${txt}</a>`
+      : `<span class="bouton secondaire inactif" aria-hidden="true">${txt}</span>`;
+    vue.innerHTML = `<div class="titre-section"><h1>Matchs du ${date === auj ? 'jour' : dateLongue(date)}</h1>
+        <span class="discret">${date === auj ? dateLongue(date) + ' · ' : ''}${total} match${total > 1 ? 's' : ''} dans les 7 championnats</span></div>
+      <div class="nav-jour">
+        ${nav(avant, '◀', 'Jour de match précédent')}
+        <input type="date" id="choix-date" value="${date}" aria-label="Choisir une date">
+        ${date !== auj ? `<a class="bouton secondaire" href="#jour">Aujourd'hui</a>` : ''}
+        ${nav(apres, '▶', 'Jour de match suivant')}
+      </div>
+      ${tops.length >= 3 ? `<div class="carte top-jour"><h2>Les 3 pronos les plus sûrs du jour</h2><ol>${tops.slice(0, 3).map(({ c, m, code }) =>
+        `<li><a href="${lien('analyse', code, m.dom, m.ext)}">${esc(court(m.dom))} – ${esc(court(m.ext))}</a> :
+          <b>${esc(c.libelle)}</b> <span class="discret">${pct(c.proba)} · cote juste ${cote(c.proba)}</span></li>`).join('')}</ol></div>` : ''}
+      ${blocs.length ? blocs.join('') : `<p class="carte">Aucun match ce jour-là dans les 7 championnats.
+        ${apres ? `Prochains matchs : <a href="${lien('jour', apres)}">${dateLongue(apres)}</a>.` : ''}</p>`}
+      ${date < auj && blocs.length ? '<p class="discret">Pour les jours passés, les pronostics sont recalculés sans connaître les résultats du jour, pour comparer honnêtement.</p>' : ''}`;
+    document.getElementById('choix-date').onchange = ev => { if (ev.target.value) location.hash = lien('jour', ev.target.value); };
+  }
+
   function vuePronostics() {
     const aVenir = etat.matchs.filter(m => m.saison === etat.saison && m.bd === null && m.date >= auj);
     const retard = etat.dernier && (Date.parse(auj) - Date.parse(etat.dernier)) / 864e5 > 10;
@@ -519,8 +584,10 @@
     const [onglet = 'pronostics', ...args] = location.hash.slice(1).split('/').map(decodeURIComponent);
     if (args[0] && args[0] !== etat.code && D.index.some(l => l.code === args[0])) { chargerLigue(args[0]); return; }
     if (!etat.fit) return;
+    document.getElementById('ligues').hidden = onglet === 'jour';
     document.querySelectorAll('.onglets a').forEach(a => a.classList.toggle('actif', a.dataset.onglet === (onglet || 'pronostics')));
-    if (onglet === 'analyse') vueAnalyse(args[1], args[2]);
+    if (onglet === 'jour') vueJour(args[0]);
+    else if (onglet === 'analyse') vueAnalyse(args[1], args[2]);
     else if (onglet === 'classement') vueClassement();
     else if (onglet === 'fiabilite') vueFiabilite();
     else if (onglet === 'methode') vueMethode();
