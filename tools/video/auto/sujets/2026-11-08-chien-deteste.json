@@ -1,0 +1,16 @@
+{
+ "hook": "5 choses que ton chien <em>déteste</em> (et que tu fais peut-être) 🐕",
+ "emoji_hook": "😬",
+ "bandeau": "🐾 Ton chien n'aime pas ça",
+ "musique": 0,
+ "cartes": [
+  {"visuel": {"type": "chien", "pose": "assis", "tete": -14}, "quoi": "Les câlins qui serrent fort", "sens": "Beaucoup de chiens se sentent coincés 😟", "conseil": "→ Préfère les caresses sur le poitrail", "son": "pop"},
+  {"visuel": {"type": "emoji", "texte": "👋"}, "quoi": "La main sur le dessus de la tête", "sens": "Ça peut l'impressionner 😕", "conseil": "→ Approche-toi par le côté, doucement", "son": "pop"},
+  {"visuel": {"type": "emoji", "texte": "👃"}, "quoi": "Les balades sans renifler", "sens": "Flairer, c'est sa façon de lire le monde 📰", "conseil": "→ Laisse-lui du temps pour sentir", "son": "whoosh"},
+  {"visuel": {"type": "emoji", "texte": "🌸"}, "quoi": "Les parfums forts", "sens": "Son nez est très sensible 🤧", "conseil": "→ Évite les sprays près de lui", "son": "pop"},
+  {"visuel": {"type": "chien", "pose": "couche", "tete": 10, "deco": "interdit"}, "quoi": "Être grondé sans comprendre", "sens": "Il a peur, mais n'apprend rien ❌", "conseil": "→ Récompense ce qu'il fait de bien", "son": "boom", "couleur": "rouge"}
+ ],
+ "fin": ["Ton chien déteste<br>quoi d'autre ? 👇", "Tous nos conseils pour<br>un chien heureux 🐾"],
+ "legende": "5 choses que ton chien déteste (et que tu fais peut-être) 🐕 Le n°1, on le fait tous 😅 Le tien déteste quoi d'autre ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chien #educationcanine #dogsoftiktok #educanimaux"
+}

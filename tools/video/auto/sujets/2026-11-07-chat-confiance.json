@@ -1,0 +1,16 @@
+{
+ "hook": "5 signes que ton chat te fait <em>vraiment</em> confiance 🐈",
+ "emoji_hook": "😻",
+ "bandeau": "🐾 Ton chat t'aime ?",
+ "musique": 4,
+ "cartes": [
+  {"visuel": {"type": "chat", "queue": "enroulee", "yeux": "content", "oreilles": ""}, "quoi": "Il cligne lentement des yeux", "sens": "Un vrai « je t'aime » de chat 😽", "conseil": "→ Fais pareil, tout doucement", "son": "miaou"},
+  {"visuel": {"type": "chat", "queue": "question", "yeux": "content", "oreilles": ""}, "quoi": "Sa queue en point d'interrogation", "sens": "Il est content de te voir 💛", "conseil": "→ Salue-le en tendant un doigt", "son": "pop"},
+  {"visuel": {"type": "chat", "queue": "enroulee", "yeux": "dort", "oreilles": "", "deco": "zzz"}, "quoi": "Il dort près de toi", "sens": "Il se sent en sécurité 😴", "conseil": "→ Laisse-le venir quand il veut", "son": "pop"},
+  {"visuel": {"type": "emoji", "texte": "🤚"}, "quoi": "Il te montre son ventre", "sens": "Confiance… pas une invitation aux caresses 😼", "conseil": "→ Beaucoup de chats n'aiment pas qu'on le touche", "son": "scratch"},
+  {"visuel": {"type": "chat", "queue": "droite", "yeux": "content", "oreilles": "detendues", "deco": "coeur"}, "quoi": "Il pétrit avec ses pattes", "sens": "Un souvenir de chaton, il est bien 🥰", "conseil": "→ Mets un plaid si ses griffes piquent", "son": "miaou"}
+ ],
+ "fin": ["Ton chat fait<br>lequel ? 👇", "Tous nos conseils pour<br>comprendre ton chat 🐾"],
+ "legende": "5 signes que ton chat te fait vraiment confiance 🐈 Le n°4, attention au piège 😼 Le tien fait lequel ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chat #comportementchat #catsoftiktok #educanimaux"
+}

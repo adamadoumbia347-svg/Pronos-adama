@@ -74,11 +74,11 @@ Sons : pop, pop2, ding, miaou, ouaf, whoosh, boom, crash, scratch, fete.
 - [x] 5 bruits du quotidien qui font peur aux chats (2026-11-01)
 - [ ] Comment apprendre « assis » en 3 étapes
 - [ ] 5 erreurs avec la litière
-- [ ] Ce que la position de sommeil de ton chien veut dire
-- [ ] 5 choses que ton chien déteste
+- [x] Ce que la position de sommeil de ton chien veut dire (2026-11-03)
+- [x] 5 choses que ton chien déteste (2026-11-08)
 - [ ] Chat d'intérieur : 5 idées pour qu'il soit heureux
-- [ ] Le rappel du chien en 4 étapes
-- [ ] 5 signes que ton chat te fait confiance
+- [x] Le rappel du chien en 4 étapes (2026-11-05)
+- [x] 5 signes que ton chat te fait confiance (2026-11-07)
 - [ ] Préparer son chien aux pétards du Nouvel An (à publier fin décembre)
 - [x] 5 cadeaux de Noël utiles pour chien et chat (2026-12-02)
 - [ ] Ton chien mange trop vite ? 5 astuces
@@ -91,7 +91,7 @@ Sons : pop, pop2, ding, miaou, ouaf, whoosh, boom, crash, scratch, fete.
 - [ ] 5 plantes toxiques pour les chats
 - [ ] Pourquoi ton chien mange de l'herbe
 - [ ] Chiot qui mordille : que faire
-- [ ] Pourquoi ton chat miaule la nuit
+- [x] Pourquoi ton chat miaule la nuit (2026-11-04)
 - [ ] 5 règles pour une balade réussie
 - [ ] Brosser son chat : 5 astuces
 - [ ] Ton chien aboie à la porte ? 4 étapes

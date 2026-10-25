@@ -1,0 +1,16 @@
+{
+ "hook": "Ce que la <em>position de sommeil</em> de ton chien veut dire 😴",
+ "emoji_hook": "💤",
+ "bandeau": "🐾 Comment dort ton chien ?",
+ "musique": 2,
+ "cartes": [
+  {"visuel": {"type": "emoji", "texte": "🛌"}, "quoi": "Sur le dos, pattes en l'air", "sens": "Il se sent en sécurité chez toi 💛", "conseil": "→ Laisse-le dormir, ne touche pas son ventre", "son": "pop", "couleur": "vert"},
+  {"visuel": {"type": "chien", "pose": "couche", "tete": 14, "deco": "zzz"}, "quoi": "En boule, la truffe sous la queue", "sens": "Il garde sa chaleur 🧣", "conseil": "→ Offre-lui un plaid quand il fait froid", "son": "pop"},
+  {"visuel": {"type": "chien", "pose": "couche", "tete": 0}, "quoi": "Sur le côté, bien étalé", "sens": "Il est détendu, sommeil profond 😌", "conseil": "→ Il peut même rêver et bouger les pattes", "son": "whoosh"},
+  {"visuel": {"type": "emoji", "texte": "🦸"}, "quoi": "À plat ventre, pattes étendues", "sens": "Prêt à repartir… ou il se rafraîchit ❄️", "conseil": "→ Fréquent chez les chiots joueurs", "son": "pop"},
+  {"visuel": {"type": "chien", "pose": "couche", "tete": -10, "deco": "coeur"}, "quoi": "Collé contre toi", "sens": "Il aime ta compagnie 🥰", "conseil": "→ Ça montre votre lien", "son": "ouaf"}
+ ],
+ "fin": ["Le tien dort<br>comment ? 👇", "Tous nos conseils pour<br>comprendre ton chien 🐾"],
+ "legende": "Ce que la position de sommeil de ton chien veut dire 😴 Le n°1, c'est le plus beau compliment 💛 Le tien dort comment ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chien #chiendort #dogsoftiktok #educanimaux"
+}

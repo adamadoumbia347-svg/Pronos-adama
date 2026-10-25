@@ -1,0 +1,16 @@
+{
+ "hook": "Ton chien ne revient pas quand tu l'appelles ? <em>4 étapes</em> 🐕",
+ "emoji_hook": "📣",
+ "bandeau": "🐾 Le rappel en douceur",
+ "musique": 1,
+ "cartes": [
+  {"visuel": {"type": "chien", "pose": "assis", "tete": -8, "deco": "friandise"}, "quoi": "Étape 1 : un mot magique", "sens": "« Viens ! » = une super friandise 🍗", "conseil": "→ À la maison, sans distraction", "son": "ding"},
+  {"visuel": {"type": "chien", "pose": "debout", "tete": 6}, "quoi": "Étape 2 : à quelques mètres", "sens": "Appelle-le d'une voix joyeuse 🎉", "conseil": "→ Fête-le à chaque fois qu'il arrive", "son": "ouaf"},
+  {"visuel": {"type": "emoji", "texte": "🌳"}, "quoi": "Étape 3 : dehors, en longe", "sens": "Une longue laisse pour la sécurité 🦮", "conseil": "→ Augmente les distractions petit à petit", "son": "pop"},
+  {"visuel": {"type": "chien", "pose": "debout", "tete": -4, "deco": "balle"}, "quoi": "Étape 4 : rappel puis jeu", "sens": "Revenir ne veut pas dire « fin du jeu » 🎾", "conseil": "→ Rappelle-le, récompense, puis relâche-le", "son": "pop"},
+  {"visuel": {"type": "chien", "pose": "assis", "tete": 10, "deco": "interdit"}, "quoi": "L'erreur à éviter", "sens": "Gronder quand il revient enfin ❌", "conseil": "→ Il doit toujours être content de revenir", "son": "boom", "couleur": "rouge"}
+ ],
+ "fin": ["Il revient<br>du premier coup ? 👇", "La méthode complète<br>du rappel 🐾"],
+ "legende": "Ton chien ne revient pas quand tu l'appelles ? 4 étapes en douceur 🐕 L'erreur du n°5, presque tout le monde la fait 😬 Le tien revient du premier coup ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chien #educationcanine #dogsoftiktok #educanimaux"
+}
