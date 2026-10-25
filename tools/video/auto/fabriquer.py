@@ -19,14 +19,16 @@ for c in spec.get("cartes", []):
     v = c.get("visuel") or {}
     if v.get("type") == "illu":
         v["svg"] = (RACINE / "docs" / "img" / "illu" / f"{v['nom']}.svg").read_text(encoding="utf-8")
-(ICI / "spec.js").write_text("window.SPEC = " + json.dumps(spec, ensure_ascii=False) + ";", encoding="utf-8")
+# Fichiers de travail propres à chaque vidéo : plusieurs rendus peuvent tourner en parallèle
+(ICI / f"_spec-{nom}.js").write_text("window.SPEC = " + json.dumps(spec, ensure_ascii=False) + ";", encoding="utf-8")
 env = {**os.environ, "NODE_PATH": subprocess.run(["npm", "root", "-g"], capture_output=True, text=True).stdout.strip()}
 tmp = pathlib.Path(tempfile.mkdtemp(prefix="video-" + nom + "-"))
 rendu = ICI.parent / "drole" / "rendu.js"
 # Style : « 3d » (motion design 3D, Three.js, par défaut), « motion » (motion design 2D) ou « cartes » (ancien modèle)
 modele = {"cartes": "modele.html", "motion": "modele-motion.html"}.get(spec.get("style"), "modele-3d.html")
-shutil.copy(ICI / modele, ICI / "_video.html")
-subprocess.run(["node", str(rendu), str(ICI / "_video.html"), str(tmp)] + (["preview"] if apercu else []), check=True, env=env)
+page = ICI / f"_video-{nom}.html"
+page.write_text((ICI / modele).read_text(encoding="utf-8").replace('<script src="spec.js">', f'<script src="_spec-{nom}.js">'), encoding="utf-8")
+subprocess.run(["node", str(rendu), str(page), str(tmp)] + (["preview"] if apercu else []), check=True, env=env)
 if apercu:
     print("Aperçu :", tmp)
     sys.exit(0)
