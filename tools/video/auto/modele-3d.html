@@ -88,6 +88,12 @@ function chien(v) {
   const deco = v.deco && DECOS[v.deco] ? DECOS[v.deco](pos[0], pos[1]) : "";
   return `<svg ${SVGNS} viewBox="${vb}">${corps}${deco}</svg>`;
 }
+function illu(src) {   // illustration du site : taille fixe pour la texture
+  const d = new DOMParser().parseFromString(src, "image/svg+xml").documentElement;
+  d.setAttribute("xmlns", "http://www.w3.org/2000/svg"); d.setAttribute("width", "600"); d.setAttribute("height", "600");
+  if (!d.getAttribute("viewBox")) d.setAttribute("viewBox", "0 0 600 600");
+  return new XMLSerializer().serializeToString(d);
+}
 function image(src) { return new Promise(ok => { const i = new Image(); i.onload = () => ok(i); i.onerror = () => ok(null); i.src = src; }); }
 // Texture de la face avant d'une carte : disque coloré + personnage ou emoji
 async function faceCarte(v, acc) {
@@ -95,9 +101,9 @@ async function faceCarte(v, acc) {
   const g = x.createRadialGradient(384, 400, 40, 384, 400, 330); g.addColorStop(0, acc + "30"); g.addColorStop(1, acc + "10");
   x.fillStyle = g; x.beginPath(); x.arc(384, 400, 320, 0, 7); x.fill();
   x.strokeStyle = acc + "55"; x.lineWidth = 6; x.setLineDash([18, 16]); x.beginPath(); x.arc(384, 400, 345, 0, 7); x.stroke();
-  const svg = !v ? null : v.type === "chat" ? chat(v) : v.type === "chien" ? chien(v) : null;
+  const svg = !v ? null : v.type === "chat" ? chat(v) : v.type === "chien" ? chien(v) : v.type === "illu" && v.svg ? illu(v.svg) : null;
   const img = svg ? await image("data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg)) : null;
-  if (img) x.drawImage(img, 84, 84, 600, 600);
+  if (img) v.type === "illu" ? x.drawImage(img, 34, 50, 700, 700) : x.drawImage(img, 84, 84, 600, 600);
   else { x.font = "330px 'Noto Color Emoji', sans-serif"; x.textAlign = "center"; x.textBaseline = "middle"; x.fillText((v && v.texte) || "🐾", 384, 420); }
   return c;
 }

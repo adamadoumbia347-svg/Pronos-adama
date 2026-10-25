@@ -5,7 +5,7 @@ puis **3 par semaine** à partir du 18 novembre (lundi 18 h, mercredi 10 h, vend
 
 Chaque vidéo = un fichier JSON dans `sujets/AAAA-MM-JJ-<nom>.json` (date de publication prévue).
 
-**Style : motion design** (par défaut, `modele-motion.html`) : texte cinétique mot par mot, mots-clés surlignés,
+**Style : motion design 3D** par défaut (voir « Style 3D » ci-dessous). Le motion design 2D (`"style": "motion"`, `modele-motion.html`) : texte cinétique mot par mot, mots-clés surlignés,
 formes qui flottent, cercle coloré qui « pousse » derrière l'animal, transitions en iris, numéros 01–05, barre de
 progression, soulignés dessinés, fin avec patte dessinée. Pour revenir à l'ancien style « cartes » : `"style": "cartes"` dans le JSON.
 
@@ -17,9 +17,9 @@ Sortie : `videos/auto/<nom>.mp4` (1080×1920, ~25 s, musique + bruitages) et `vi
 Publication : la vidéo est poussée sur `main`, puis programmée sur TikTok via Metricool avec l'adresse
 `https://raw.githubusercontent.com/adamadoumbia347-svg/Pronos-adama/main/videos/auto/<nom>.mp4`.
 
-## Style 3D
+## Style 3D (par défaut)
 
-Ajoute `"style": "3d"` dans le JSON pour le **motion design 3D** (modèle `modele-3d.html`, Three.js dans `vendor/`) : cartes en relief qui tournent, pièces 3D numérotées, formes brillantes et caméra en mouvement. Même format de JSON que le style motion.
+Toutes les vidéos sont en **motion design 3D** (modèle `modele-3d.html`, Three.js dans `vendor/`) : cartes en relief qui tournent, pièces 3D numérotées, formes brillantes et caméra en mouvement. `"style": "motion"` redonne le motion design 2D, `"style": "cartes"` l'ancien modèle (à ne plus utiliser).
 
 ## Format du JSON
 

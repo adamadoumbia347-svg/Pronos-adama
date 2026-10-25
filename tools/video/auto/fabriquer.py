@@ -14,12 +14,17 @@ spec_path = pathlib.Path(sys.argv[1]).resolve()
 apercu = "--apercu" in sys.argv
 spec = json.loads(spec_path.read_text(encoding="utf-8"))
 nom = spec_path.stem
+# Illustrations du site : intégrées au JSON (le modèle 3D les dessine en texture)
+for c in spec.get("cartes", []):
+    v = c.get("visuel") or {}
+    if v.get("type") == "illu":
+        v["svg"] = (RACINE / "docs" / "img" / "illu" / f"{v['nom']}.svg").read_text(encoding="utf-8")
 (ICI / "spec.js").write_text("window.SPEC = " + json.dumps(spec, ensure_ascii=False) + ";", encoding="utf-8")
 env = {**os.environ, "NODE_PATH": subprocess.run(["npm", "root", "-g"], capture_output=True, text=True).stdout.strip()}
 tmp = pathlib.Path(tempfile.mkdtemp(prefix="video-" + nom + "-"))
 rendu = ICI.parent / "drole" / "rendu.js"
-# Style : « motion » (motion design, par défaut), « 3d » (motion design 3D, Three.js) ou « cartes » (ancien modèle)
-modele = {"cartes": "modele.html", "3d": "modele-3d.html"}.get(spec.get("style"), "modele-motion.html")
+# Style : « 3d » (motion design 3D, Three.js, par défaut), « motion » (motion design 2D) ou « cartes » (ancien modèle)
+modele = {"cartes": "modele.html", "motion": "modele-motion.html"}.get(spec.get("style"), "modele-3d.html")
 shutil.copy(ICI / modele, ICI / "_video.html")
 subprocess.run(["node", str(rendu), str(ICI / "_video.html"), str(tmp)] + (["preview"] if apercu else []), check=True, env=env)
 if apercu:
