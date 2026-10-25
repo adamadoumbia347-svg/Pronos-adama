@@ -1,0 +1,300 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><link rel="stylesheet" href="../drole/drole.css">
+<style>
+/* Modèle « motion design 3D » (Three.js) : cartes en relief qui tournent, pièces 3D, formes brillantes (même JSON que modele-motion.html) */
+#gl{position:absolute;inset:0;width:540px;height:960px}
+.w{display:inline-block;opacity:0;white-space:pre}
+.relief{text-shadow:0 1px 0 #e3cdb8,0 2px 0 #d9bfa6,0 3px 0 #cfb196,0 4px 0 #c4a386,0 5px 0 #b99576,0 8px 14px rgba(60,30,10,.28)}
+.hook{position:absolute;left:28px;right:28px;top:150px;text-align:center;font-size:58px;font-weight:900;line-height:1.1;color:#2b2420;z-index:5;perspective:700px}
+.hook .em{position:relative;color:#fff;padding:0 10px;isolation:isolate;text-shadow:0 4px 0 rgba(0,0,0,.18)}
+.hook .em i{position:absolute;left:0;top:8%;height:88%;background:#b44c1c;border-radius:12px;z-index:-1;width:0;box-shadow:0 6px 0 #7e3412}
+.scene{position:absolute;inset:0;opacity:0;z-index:4}
+.barre{position:absolute;left:30px;right:30px;top:58px;display:flex;gap:8px;z-index:6}
+.barre i{flex:1;height:8px;border-radius:9px;background:rgba(43,36,32,.12);overflow:hidden;position:relative}
+.barre i b{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:9px}
+.lab{position:absolute;right:34px;top:100px;font-size:20px;font-weight:900;text-align:right;max-width:300px;opacity:.85}
+.txt{position:absolute;left:32px;right:32px;top:590px;text-align:center;perspective:700px}
+.quoi{font-size:27px;font-weight:900;color:#6b5f57;line-height:1.15}
+.sens{font-size:42px;font-weight:900;line-height:1.1;margin-top:10px;color:#2b2420}
+.sens.long{font-size:36px}
+.cons{display:inline-block;margin-top:18px;font-size:23px;font-weight:900;color:#fff;border-radius:18px;padding:12px 18px;line-height:1.2;opacity:0}
+#fin{position:absolute;inset:0;z-index:8;opacity:0;text-align:center;color:#fff;perspective:700px}
+#fin .t1{position:absolute;left:30px;right:30px;top:170px;font-size:54px;font-weight:900;line-height:1.1;text-shadow:0 2px 0 #8f3a14,0 4px 0 #7e3412,0 6px 0 #6c2c0f,0 10px 18px rgba(0,0,0,.3)}
+#fin .t2{position:absolute;left:40px;right:40px;top:370px;font-size:28px;font-weight:800;line-height:1.25;opacity:.95}
+#fin .pill{position:absolute;left:0;right:0;top:668px}
+#fin .pill span{display:inline-block;background:#fff;color:#b44c1c;border-radius:999px;padding:16px 28px;font-size:38px;font-weight:900;box-shadow:0 7px 0 #e6c9b8,0 18px 30px rgba(0,0,0,.25)}
+#fin .t3{position:absolute;left:0;right:0;top:775px;font-size:32px;font-weight:900}
+#flash{position:absolute;inset:0;background:#fff;opacity:0;z-index:20}
+</style></head><body>
+<canvas id="gl"></canvas>
+<div class="hook relief" id="hook"></div>
+<div class="barre" id="barre"></div>
+<div id="scenes"></div>
+<div id="fin"><div class="t1" id="t1"></div><div class="t2" id="t2"></div>
+  <div class="pill"><span>educanimaux.fr</span></div><div class="t3" id="t3">Abonne-toi pour la suite 💛</div></div>
+<div id="flash"></div>
+<script src="../drole/drole.js"></script>
+<script>var module = {};</script><script src="../../illustrations/persos.js"></script>
+<script src="vendor/three.min.js"></script>
+<script src="spec.js"></script>
+<script>
+window.PRET = false;
+const P = module.exports, SP = window.SPEC;
+const G = "#8a8f99", F = "#5d626b", Cc = "#d9dce2";
+const ACC = ["#b44c1c", "#2f7d6d", "#3d7bb3", "#c9741f", "#8a4fbf", "#c9442f"];
+const FONDS = ["#fff1e6", "#e6f4ef", "#e8f0fb", "#fff3dc", "#f2ebfb", "#fdecea"];
+const elastic = x => x <= 0 ? 0 : x >= 1 ? 1 : Math.pow(2, -10 * x) * Math.sin((x * 10 - 0.75) * (2 * Math.PI / 3)) + 1;
+const easeIn = x => x * x * x;
+const easeInOut = x => x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+// --- dessins des personnages (identiques à modele-motion.html), rendus en texture ---
+const QUEUES = { droite: "M95 232 C 78 200, 72 130, 82 58", question: "M95 232 C 76 196, 70 120, 84 70 C 92 38, 132 40, 124 76",
+  fouette: "M95 232 C 62 236, 34 222, 22 192", gonflee: "M95 232 C 78 200, 72 130, 82 58", enroulee: "M96 250 C 92 290, 170 292, 238 272" };
+const OREILLES = { "": `<path d="M178 92 L176 46 L204 80 Z M244 92 L250 46 L222 80 Z" fill="${F}"/>`,
+  plaquees: `<path d="M176 92 L156 76 L192 82 Z M246 92 L266 78 L232 82 Z" fill="${F}"/>`,
+  avion: `<path d="M178 96 L134 86 L182 78 Z M246 96 L294 88 L244 78 Z" fill="${F}"/>`,
+  detendues: `<path d="M178 92 L166 52 L202 80 Z M244 92 L258 52 L224 80 Z" fill="${F}"/>` };
+function yeux(t) {
+  if (t === "content") return `<path d="M192 112 q8 -8 16 0 M222 112 q8 -8 16 0" stroke="#2b2420" stroke-width="5" fill="none" stroke-linecap="round"/>`;
+  if (t === "peur") return `<circle cx="200" cy="112" r="11" fill="#fff"/><circle cx="230" cy="112" r="11" fill="#fff"/><circle cx="200" cy="112" r="8" fill="#2b2420"/><circle cx="230" cy="112" r="8" fill="#2b2420"/>`;
+  if (t === "agace") return `<path d="M190 104 l18 8 M240 104 l-18 8" stroke="#2b2420" stroke-width="5" stroke-linecap="round"/><ellipse cx="200" cy="115" rx="5" ry="4" fill="#2b2420"/><ellipse cx="230" cy="115" rx="5" ry="4" fill="#2b2420"/>`;
+  if (t === "dort") return `<path d="M192 114 q8 5 16 0 M222 114 q8 5 16 0" stroke="#2b2420" stroke-width="5" fill="none" stroke-linecap="round"/>`;
+  return `<ellipse cx="200" cy="112" rx="5" ry="8" fill="#2b2420"/><ellipse cx="230" cy="112" rx="5" ry="8" fill="#2b2420"/>`;
+}
+const DECOS = {
+  coeur: (x, y) => `<path transform="translate(${x} ${y}) scale(1.6)" d="M0 8 C -20 -8 -10 -24 0 -12 C 10 -24 20 -8 0 8 Z" fill="#e0566b"/>`,
+  zzz: (x, y) => `<g font-family="Arial" font-weight="900" fill="#3d7bb3"><text x="${x}" y="${y}" font-size="34">Z</text><text x="${x + 22}" y="${y - 24}" font-size="26">z</text><text x="${x + 40}" y="${y - 44}" font-size="20">z</text></g>`,
+  os: (x, y) => `<g transform="translate(${x} ${y})"><rect x="-30" y="-7" width="60" height="14" rx="7" fill="#fff" stroke="#d0c3b3" stroke-width="3"/><circle cx="-30" cy="-8" r="10" fill="#fff" stroke="#d0c3b3" stroke-width="3"/><circle cx="-30" cy="8" r="10" fill="#fff" stroke="#d0c3b3" stroke-width="3"/><circle cx="30" cy="-8" r="10" fill="#fff" stroke="#d0c3b3" stroke-width="3"/><circle cx="30" cy="8" r="10" fill="#fff" stroke="#d0c3b3" stroke-width="3"/></g>`,
+  balle: (x, y) => `<g transform="translate(${x} ${y})"><circle r="22" fill="#c6e23a"/><path d="M-20 -6 q20 10 40 0 M-20 8 q20 -10 40 0" stroke="#fff" stroke-width="4" fill="none"/></g>`,
+  friandise: (x, y) => `<g transform="translate(${x} ${y})"><rect x="-14" y="-5" width="28" height="10" rx="5" fill="#b8763a"/><circle cx="-14" cy="-5" r="6" fill="#b8763a"/><circle cx="-14" cy="5" r="6" fill="#b8763a"/><circle cx="14" cy="-5" r="6" fill="#b8763a"/><circle cx="14" cy="5" r="6" fill="#b8763a"/></g>`,
+  interdit: (x, y) => `<g transform="translate(${x} ${y})"><circle r="30" fill="#c9442f"/><path d="M-11 -11 l22 22 M11 -11 l-22 22" stroke="#fff" stroke-width="7" stroke-linecap="round"/></g>`,
+  ok: (x, y) => `<g transform="translate(${x} ${y})"><circle r="30" fill="#2f7d6d"/><path d="M-13 1 l9 10 l18 -20" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>`
+};
+const SVGNS = `xmlns="http://www.w3.org/2000/svg" width="600" height="600"`;
+function chat(v) {
+  const q = v.queue || "droite", ep = q === "gonflee" ? 40 : 16;
+  const poils = q === "gonflee" ? `<path d="${QUEUES[q]}" stroke="${F}" stroke-width="52" fill="none" stroke-linecap="round" stroke-dasharray="3 7" opacity=".7"/>` : "";
+  const queue = `<g>${poils}<path d="${QUEUES[q]}" stroke="${G}" stroke-width="${ep}" fill="none" stroke-linecap="round"/></g>`;
+  const deco = v.deco && DECOS[v.deco] ? DECOS[v.deco](258, 52) : "";
+  return `<svg ${SVGNS} viewBox="0 0 300 300">${q === "enroulee" ? "" : queue}
+    <ellipse cx="158" cy="214" rx="72" ry="64" fill="${G}"/><ellipse cx="196" cy="206" rx="28" ry="48" fill="${Cc}"/>
+    <rect x="182" y="232" width="16" height="50" rx="8" fill="${F}"/><rect x="204" y="232" width="16" height="50" rx="8" fill="${G}"/>${q === "enroulee" ? queue : ""}
+    ${OREILLES[v.oreilles || ""] || OREILLES[""]}<circle cx="214" cy="120" r="46" fill="${G}"/><ellipse cx="226" cy="138" rx="20" ry="13" fill="${Cc}"/>
+    ${yeux(v.yeux)}<path d="M222 130 l9 0 l-4.5 6 z" fill="#e0566b"/><path d="M238 140 l34 -6 M238 145 l34 4" stroke="#2b2420" stroke-width="2"/>${deco}</svg>`;
+}
+function chien(v) {
+  const pose = v.pose || "assis";
+  const corps = pose === "debout" ? P.chienDebout({ tete: v.tete || 0, queue: -30 }) : pose === "couche" ? P.chienCouche({ tete: v.tete || 0 }) : P.chienAssis({ tete: v.tete ?? -8 });
+  const vb = pose === "debout" ? "-115 -190 265 200" : pose === "couche" ? "-140 -150 285 160" : "-105 -205 230 215";
+  const pos = pose === "debout" ? [120, -160] : pose === "couche" ? [105, -118] : [92, -175];
+  const deco = v.deco && DECOS[v.deco] ? DECOS[v.deco](pos[0], pos[1]) : "";
+  return `<svg ${SVGNS} viewBox="${vb}">${corps}${deco}</svg>`;
+}
+function image(src) { return new Promise(ok => { const i = new Image(); i.onload = () => ok(i); i.onerror = () => ok(null); i.src = src; }); }
+// Texture de la face avant d'une carte : disque coloré + personnage ou emoji
+async function faceCarte(v, acc) {
+  const c = document.createElement("canvas"); c.width = c.height = 768; const x = c.getContext("2d");
+  const g = x.createRadialGradient(384, 400, 40, 384, 400, 330); g.addColorStop(0, acc + "30"); g.addColorStop(1, acc + "10");
+  x.fillStyle = g; x.beginPath(); x.arc(384, 400, 320, 0, 7); x.fill();
+  x.strokeStyle = acc + "55"; x.lineWidth = 6; x.setLineDash([18, 16]); x.beginPath(); x.arc(384, 400, 345, 0, 7); x.stroke();
+  const svg = !v ? null : v.type === "chat" ? chat(v) : v.type === "chien" ? chien(v) : null;
+  const img = svg ? await image("data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg)) : null;
+  if (img) x.drawImage(img, 84, 84, 600, 600);
+  else { x.font = "330px 'Noto Color Emoji', sans-serif"; x.textAlign = "center"; x.textBaseline = "middle"; x.fillText((v && v.texte) || "🐾", 384, 420); }
+  return c;
+}
+// Texture de la face d'une pièce : numéro, badge ou emoji
+function facePiece(txt, fond, coul, taille) {
+  const c = document.createElement("canvas"); c.width = c.height = 512; const x = c.getContext("2d");
+  x.fillStyle = fond; x.fillRect(0, 0, 512, 512);
+  x.strokeStyle = "rgba(255,255,255,.55)"; x.lineWidth = 14; x.beginPath(); x.arc(256, 256, 214, 0, 7); x.stroke();
+  x.fillStyle = coul; x.textAlign = "center"; x.textBaseline = "middle";
+  x.font = `900 ${taille}px Nunito, 'Noto Color Emoji', sans-serif`; x.fillText(txt, 256, 270);
+  return c;
+}
+// --- texte cinétique (mots qui basculent en 3D) ---
+function mots(el, html) {
+  const tmp = document.createElement("div"); tmp.innerHTML = html; el.innerHTML = "";
+  const out = [];
+  tmp.childNodes.forEach(n => {
+    if (n.nodeType === 3) n.textContent.replace(/ ([?!:;»])/g, " $1").replace(/« /g, "« ").split(/([ \n\t]+)/).forEach(m => {
+      if (!m) return;
+      if (/^[ \n\t]+$/.test(m)) { el.appendChild(document.createTextNode(" ")); return; }
+      const s = document.createElement("span"); s.className = "w"; s.textContent = m; el.appendChild(s); out.push(s);
+    });
+    else if (n.nodeName === "BR") el.appendChild(document.createElement("br"));
+    else { const s = document.createElement("span"); s.className = "w em"; s.innerHTML = "<i></i>" + n.textContent; el.appendChild(s); out.push(s); }
+  });
+  return out;
+}
+function animMots(ws, t, s, pas = 0.09) {
+  ws.forEach((w, i) => {
+    const k = p(t, s + i * pas, 0.4);
+    w.style.opacity = k > 0 ? 1 : 0;
+    w.style.transform = `translateY(${(1 - easeOut(k)) * 30}px) rotateX(${(1 - back(k)) * 95}deg) scale(${0.7 + 0.3 * easeOut(k)})`;
+    const bar = w.querySelector("i"); if (bar) bar.style.width = (easeOut(p(t, s + i * pas + 0.2, 0.35)) * 100) + "%";
+  });
+}
+// --- scène 3D ---
+const rendu = new THREE.WebGLRenderer({ canvas: $("gl"), antialias: true, preserveDrawingBuffer: true });
+rendu.setPixelRatio(2); rendu.setSize(540, 960, false);
+rendu.outputEncoding = THREE.sRGBEncoding;
+const scene3 = new THREE.Scene();
+const cam = new THREE.PerspectiveCamera(35, 540 / 960, 0.1, 100); cam.position.set(0, 0, 12);
+scene3.add(new THREE.HemisphereLight(0xffffff, 0xd8c4b0, 0.85));
+const soleil = new THREE.DirectionalLight(0xffffff, 0.95); soleil.position.set(4, 6, 8); scene3.add(soleil);
+const contre = new THREE.DirectionalLight(0xffe6cc, 0.35); contre.position.set(-6, -2, 3); scene3.add(contre);
+const U = 960 / (2 * 12 * Math.tan(17.5 * Math.PI / 180));   // pixels par unité au plan z = 0
+const Y = px => (480 - px) / U, X = px => (px - 270) / U;
+function rectArrondi(w, h, r) {
+  const s = new THREE.Shape(), x = -w / 2, y = -h / 2;
+  s.moveTo(x + r, y); s.lineTo(x + w - r, y); s.quadraticCurveTo(x + w, y, x + w, y + r); s.lineTo(x + w, y + h - r);
+  s.quadraticCurveTo(x + w, y + h, x + w - r, y + h); s.lineTo(x + r, y + h); s.quadraticCurveTo(x, y + h, x, y + h - r);
+  s.lineTo(x, y + r); s.quadraticCurveTo(x, y, x + r, y); return s;
+}
+const geoCarte = new THREE.ExtrudeGeometry(rectArrondi(2.8, 2.8, 0.38), { depth: 0.3, bevelEnabled: true, bevelThickness: 0.08, bevelSize: 0.08, bevelSegments: 5, curveSegments: 14 });
+geoCarte.translate(0, 0, -0.15);
+const geoFace = new THREE.PlaneGeometry(2.8, 2.8);
+function carte3D(canvas, acc) {
+  const g = new THREE.Group();
+  const corps = new THREE.Mesh(geoCarte, [new THREE.MeshPhysicalMaterial({ color: 0xfffaf4, roughness: 0.45, clearcoat: 0.6 }),
+    new THREE.MeshPhysicalMaterial({ color: acc, roughness: 0.35, clearcoat: 0.8 })]);
+  const tex = new THREE.CanvasTexture(canvas); tex.encoding = THREE.sRGBEncoding; tex.anisotropy = 4;
+  const face = new THREE.Mesh(geoFace, new THREE.MeshStandardMaterial({ map: tex, transparent: true, roughness: 0.6 }));
+  face.position.z = 0.24; g.add(corps, face); g.visible = false; scene3.add(g); return g;
+}
+const geoPiece = new THREE.CylinderGeometry(1, 1, 0.22, 64);
+function piece3D(canvas, acc, r) {
+  const tex = new THREE.CanvasTexture(canvas); tex.encoding = THREE.sRGBEncoding; tex.center.set(0.5, 0.5); tex.rotation = Math.PI / 2;
+  const cote = new THREE.MeshPhysicalMaterial({ color: acc, roughness: 0.3, metalness: 0.15, clearcoat: 1 });
+  const face = new THREE.MeshPhysicalMaterial({ map: tex, roughness: 0.35, clearcoat: 1 });
+  const m = new THREE.Mesh(geoPiece, [cote, face, face]);
+  m.rotation.x = Math.PI / 2; const g = new THREE.Group(); g.add(m); g.scale.setScalar(r); g.visible = false; scene3.add(g); return g;
+}
+// anneau 3D qui tourne autour de la carte
+const anneau = new THREE.Mesh(new THREE.TorusGeometry(2.25, 0.045, 16, 120), new THREE.MeshPhysicalMaterial({ color: 0xb44c1c, roughness: 0.25, clearcoat: 1 }));
+scene3.add(anneau);
+// formes brillantes qui flottent
+const FORMES = [];
+const geos = [new THREE.SphereGeometry(0.38, 32, 24), new THREE.TorusGeometry(0.32, 0.12, 20, 48), new THREE.CapsuleGeometry(0.16, 0.5, 8, 20),
+  new THREE.IcosahedronGeometry(0.34, 0), new THREE.TorusKnotGeometry(0.22, 0.08, 80, 12)];
+for (let i = 0; i < 14; i++) {
+  const m = new THREE.Mesh(geos[i % geos.length], new THREE.MeshPhysicalMaterial({ color: 0xb44c1c, roughness: 0.22, clearcoat: 1, clearcoatRoughness: 0.15 }));
+  const z = -8 + (i * 37) % 6;
+  const larg = 2.6 + (-z) * 0.32;
+  FORMES.push({ m, x: ((i * 0.618) % 1 * 2 - 1) * larg, y0: -6 + (i * 0.37 % 1) * 12, z, v: 0.25 + (i % 4) * 0.08, ph: i * 1.3, s: 0.7 + (i % 3) * 0.3 });
+  scene3.add(m);
+}
+// --- intro, scènes, fin ---
+const hookMots = mots($("hook"), SP.hook);
+const N = SP.cartes.length, DT = SP.duree_carte || 3.6;
+const T0 = Math.max(3.0, 0.25 + hookMots.length * 0.1 + 1.6);
+window.DUREE = T0 + N * DT + 5.6;
+const FIN = T0 + N * DT;
+const segs = SP.cartes.map(() => { const i = document.createElement("i"); i.innerHTML = "<b></b>"; $("barre").appendChild(i); return i.firstChild; });
+const scenes = SP.cartes.map((c, i) => {
+  const acc = c.couleur === "vert" ? "#2f7d6d" : c.couleur === "rouge" ? "#c9442f" : ACC[i % ACC.length];
+  const d = document.createElement("div"); d.className = "scene";
+  const sensLong = (c.sens || "").length > 38 ? " long" : "";
+  d.innerHTML = `<div class="lab" style="color:${acc}">${SP.bandeau || ""}</div>` +
+    `<div class="txt"><div class="quoi"></div><div class="sens relief${sensLong}"></div>` +
+    `<div class="cons" style="background:${acc};box-shadow:0 6px 0 ${acc}99,0 12px 20px rgba(0,0,0,.18)">${(c.conseil || "").replace(/^→\s*/, "➜ ")}</div></div>`;
+  $("scenes").appendChild(d);
+  const s = T0 + i * DT;
+  son(s - 0.25, "whoosh"); son(s + 0.35, c.son || "pop"); son(s + 1.3, "pop2");
+  return { d, c, acc, fond: FONDS[i % FONDS.length], s, quoi: mots(d.querySelector(".quoi"), c.quoi || ""), sens: mots(d.querySelector(".sens"), c.sens || "") };
+});
+mots($("t1"), (SP.fin || [])[0] || "");
+$("t2").innerHTML = (SP.fin || [])[1] || "Tous nos conseils<br>sur educanimaux.fr 🐾";
+const finMots = [...$("t1").querySelectorAll(".w")];
+son(0.2, "ding"); son(FIN - 0.25, "whoosh"); son(FIN + 0.4, "fete"); son(FIN + 2.6, "ding");
+let carteHook, pieceFin;
+(async () => {
+  await document.fonts.load("900 100px Nunito");
+  carteHook = carte3D(await faceCarte({ type: "emoji", texte: SP.emoji_hook || "🐾" }, "#b44c1c"), "#b44c1c");
+  for (const sc of scenes) {
+    sc.carte = carte3D(await faceCarte(sc.c.visuel, sc.acc), sc.acc);
+    const badge = sc.c.badge;
+    sc.piece = piece3D(facePiece(badge || String(scenes.indexOf(sc) + 1).padStart(2, "0"), sc.acc, "#fff", badge ? (badge.length > 4 ? 120 : 150) : 230), sc.acc, 0.5);
+  }
+  pieceFin = piece3D(facePiece("🐾", "#fff", "#b44c1c", 300), "#ffffff", 0.62);
+  window.PRET = true; render(0);
+})();
+const col = (a, b, k) => new THREE.Color(a).lerp(new THREE.Color(b), k);
+function render(t) {
+  if (!window.PRET) return;
+  const idx = scenes.findIndex((sc, i) => t >= sc.s && (i === N - 1 || t < scenes[i + 1].s));
+  // couleurs (fondu entre scènes)
+  const etats = [[0, "#fff6ec", "#b44c1c"]].concat(scenes.map(sc => [sc.s, sc.fond, sc.acc])).concat([[FIN, "#b44c1c", "#d9693a"]]);
+  let fond = new THREE.Color(etats[0][1]), acc = new THREE.Color(etats[0][2]);
+  for (let i = 1; i < etats.length; i++) {
+    const k = easeInOut(p(t, etats[i][0] - 0.3, 0.55));
+    if (k > 0) { fond = col(etats[i - 1][1], etats[i][1], k); acc = col(etats[i - 1][2], etats[i][2], k); }
+  }
+  scene3.background = fond;
+  // caméra : léger mouvement continu + coup de roulis aux transitions
+  let roulis = 0;
+  etats.slice(1).forEach(([c]) => { const k = p(t, c - 0.35, 0.8); if (k > 0 && k < 1) roulis += Math.sin(k * Math.PI) * 0.12 * (Math.sin(c) > 0 ? 1 : -1); });
+  cam.position.x = Math.sin(t * 0.35) * 0.6; cam.position.y = Math.cos(t * 0.27) * 0.35;
+  cam.lookAt(0, 0, 0); cam.rotation.z += roulis;
+  FORMES.forEach((f, i) => {
+    const y = ((f.y0 + t * f.v + 6) % 12 + 12) % 12 - 6;
+    f.m.position.set(f.x + Math.sin(t * 0.6 + f.ph) * 0.3, y, f.z);
+    f.m.rotation.set(t * 0.5 + f.ph, t * 0.7 * (i % 2 ? 1 : -1), 0);
+    f.m.scale.setScalar(f.s);
+    f.m.material.color.copy(i % 3 === 0 ? acc : col(acc.getStyle(), "#ffffff", 0.35));
+  });
+  anneau.material.color.copy(acc);
+  // intro
+  animMots(hookMots, t, 0.25);
+  $("hook").style.opacity = t >= T0 - 0.3 ? 0 : 1;
+  const kh = p(t, 0.35 + hookMots.length * 0.1, 0.9), sortieH = easeIn(p(t, T0 - 0.45, 0.45));
+  carteHook.visible = kh > 0 && t < T0;
+  carteHook.position.set(sortieH * 7, Y(660) + Math.sin(t * 2) * 0.08, -6 * (1 - easeOut(kh)));
+  carteHook.rotation.set(-0.1 + Math.sin(t * 1.3) * 0.1, (1 - back(kh)) * -Math.PI * 2 + Math.sin(t * 1.6) * 0.35 - sortieH * 2, 0);
+  carteHook.scale.setScalar(0.85);
+  // barre de progression
+  $("barre").style.opacity = t >= T0 && t < FIN ? 1 : 0;
+  segs.forEach((b, i) => { b.style.width = (clamp((t - scenes[i].s) / DT) * 100) + "%"; b.style.background = scenes[i].acc; });
+  // scènes
+  let anneauVis = t < T0 ? kh : 0, anneauY = Y(660);
+  scenes.forEach((sc, i) => {
+    const s = sc.s, actif = i === idx && t < FIN;
+    sc.d.style.opacity = actif ? 1 : 0;
+    sc.carte.visible = sc.piece.visible = actif;
+    if (!actif) return;
+    const u = t - s;
+    const ke = p(t, s + 0.02, 0.85), ks = easeIn(p(t, s + DT - 0.42, 0.42));
+    sc.carte.position.set(-ks * 7, Y(375) + Math.sin(u * 2.2) * 0.07, -7 * (1 - easeOut(ke)) + ks * 1.5);
+    sc.carte.rotation.set(-0.08 + Math.sin(u * 1.1) * 0.1, (1 - back(ke)) * Math.PI * 1.5 + Math.sin(u * 1.4) * 0.3 + ks * 1.8, Math.sin(u * 0.9) * 0.04);
+    const kp = p(t, s + 0.15, 0.7);
+    sc.piece.position.set(X(78) - ks * 7, Y(135) + Math.sin(u * 3) * 0.06, 1 - (1 - easeOut(kp)) * 6);
+    sc.piece.rotation.set(0.12, (1 - easeOut(kp)) * Math.PI * 4 + Math.sin(u * 2) * 0.35, 0);
+    anneauVis = easeOut(p(t, s + 0.2, 0.6)) * (1 - ks); anneauY = Y(375);
+    sc.d.querySelector(".lab").style.opacity = 0.85 * p(t, s + 0.3, 0.4);
+    animMots(sc.quoi, t, s + 0.45, 0.06);
+    animMots(sc.sens, t, s + 0.75, 0.08);
+    const kc = p(t, s + 1.35 + sc.sens.length * 0.06, 0.45), cons = sc.d.querySelector(".cons");
+    cons.style.opacity = kc > 0 ? 1 : 0; cons.style.transform = `perspective(600px) rotateX(${(1 - back(kc)) * 80}deg) scale(${0.7 + 0.3 * easeOut(kc)})`;
+  });
+  anneau.visible = anneauVis > 0.01;
+  anneau.position.set(0, anneauY, -1.3);
+  anneau.scale.setScalar(0.6 + 0.4 * anneauVis);
+  anneau.rotation.set(0.45 + Math.sin(t * 0.8) * 0.12, Math.sin(t * 0.6) * 0.5, t * 0.6);
+  // fin
+  $("fin").style.opacity = t >= FIN ? 1 : 0;
+  pieceFin.visible = t >= FIN;
+  if (t >= FIN) {
+    animMots(finMots, t, FIN + 0.3);
+    slide($("t2"), t, FIN + 1.3, 0.45, 0, 30);
+    const kf = p(t, FIN + 1.7, 0.9);
+    pieceFin.position.set(0, Y(560) + Math.sin(t * 2.5) * 0.08, -6 * (1 - easeOut(kf)));
+    pieceFin.rotation.set(0.15, (1 - easeOut(kf)) * Math.PI * 6 + Math.sin(t * 1.8) * 0.5, 0);
+    const kp = p(t, FIN + 2.5, 0.6); $("fin").querySelector(".pill").style.transform = `scale(${elastic(kp)})`;
+    slide($("t3"), t, FIN + 3.3, 0.45, 0, 30);
+    $("t3").style.transform += ` translateY(${Math.sin(t * 5) * -4}px)`;
+  }
+  // petit flash lumineux au milieu des transitions
+  let fl = 0; etats.slice(1).forEach(([c]) => { fl = Math.max(fl, 1 - Math.abs(t - c + 0.05) / 0.12); });
+  $("flash").style.opacity = clamp(fl) * 0.35;
+  rendu.render(scene3, cam);
+}
+</script></body></html>

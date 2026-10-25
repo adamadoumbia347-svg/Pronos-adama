@@ -17,6 +17,10 @@ Sortie : `videos/auto/<nom>.mp4` (1080×1920, ~25 s, musique + bruitages) et `vi
 Publication : la vidéo est poussée sur `main`, puis programmée sur TikTok via Metricool avec l'adresse
 `https://raw.githubusercontent.com/adamadoumbia347-svg/Pronos-adama/main/videos/auto/<nom>.mp4`.
 
+## Style 3D
+
+Ajoute `"style": "3d"` dans le JSON pour le **motion design 3D** (modèle `modele-3d.html`, Three.js dans `vendor/`) : cartes en relief qui tournent, pièces 3D numérotées, formes brillantes et caméra en mouvement. Même format de JSON que le style motion.
+
 ## Format du JSON
 
 ```json
@@ -76,7 +80,7 @@ Sons : pop, pop2, ding, miaou, ouaf, whoosh, boom, crash, scratch, fete.
 - [ ] 5 erreurs avec la litière
 - [x] Ce que la position de sommeil de ton chien veut dire (2026-11-03)
 - [x] 5 choses que ton chien déteste (2026-11-08)
-- [ ] Chat d'intérieur : 5 idées pour qu'il soit heureux
+- [x] Chat d'intérieur : 5 idées pour qu'il soit heureux (2026-10-25, en 3D)
 - [x] Le rappel du chien en 4 étapes (2026-11-05)
 - [x] 5 signes que ton chat te fait confiance (2026-11-07)
 - [ ] Préparer son chien aux pétards du Nouvel An (à publier fin décembre)

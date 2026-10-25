@@ -18,8 +18,8 @@ nom = spec_path.stem
 env = {**os.environ, "NODE_PATH": subprocess.run(["npm", "root", "-g"], capture_output=True, text=True).stdout.strip()}
 tmp = pathlib.Path(tempfile.mkdtemp(prefix="video-" + nom + "-"))
 rendu = ICI.parent / "drole" / "rendu.js"
-# Style : « motion » (motion design, par défaut) ou « cartes » (ancien modèle)
-modele = "modele.html" if spec.get("style") == "cartes" else "modele-motion.html"
+# Style : « motion » (motion design, par défaut), « 3d » (motion design 3D, Three.js) ou « cartes » (ancien modèle)
+modele = {"cartes": "modele.html", "3d": "modele-3d.html"}.get(spec.get("style"), "modele-motion.html")
 shutil.copy(ICI / modele, ICI / "_video.html")
 subprocess.run(["node", str(rendu), str(ICI / "_video.html"), str(tmp)] + (["preview"] if apercu else []), check=True, env=env)
 if apercu:

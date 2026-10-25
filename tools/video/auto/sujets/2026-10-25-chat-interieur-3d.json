@@ -1,0 +1,17 @@
+{
+ "style": "3d",
+ "hook": "Chat d'intérieur : 5 idées pour qu'il soit <em>vraiment</em> heureux 🏠",
+ "emoji_hook": "😺",
+ "bandeau": "🐾 Chat d'intérieur heureux",
+ "musique": 4,
+ "cartes": [
+  {"visuel": {"type": "emoji", "texte": "🪟"}, "quoi": "Un poste d'observation", "sens": "Il adore regarder dehors 👀", "conseil": "→ Un arbre à chat près d'une fenêtre", "son": "pop"},
+  {"visuel": {"type": "chat", "queue": "fouette", "yeux": "normal", "oreilles": "detendues"}, "quoi": "Des jeux de chasse chaque jour", "sens": "Il a besoin de « chasser » 🎯", "conseil": "→ 2 à 3 courtes séances avec une canne à plumes", "son": "miaou"},
+  {"visuel": {"type": "emoji", "texte": "🧩"}, "quoi": "Chercher ses croquettes", "sens": "Ça occupe sa tête 🧠", "conseil": "→ Jeux d'intelligence ou croquettes cachées", "son": "ding"},
+  {"visuel": {"type": "emoji", "texte": "🪵"}, "quoi": "Plusieurs griffoirs", "sens": "Griffer, c'est un besoin vital 💅", "conseil": "→ Un vertical et un horizontal, bien stables", "son": "scratch"},
+  {"visuel": {"type": "chat", "queue": "enroulee", "yeux": "dort", "oreilles": "", "deco": "zzz"}, "quoi": "Des cachettes en hauteur", "sens": "Il s'y sent en sécurité 😌", "conseil": "→ Une étagère ou un panier perché", "son": "pop"}
+ ],
+ "fin": ["Ton chat a<br>laquelle ? 👇", "Tous nos conseils pour<br>un chat heureux 🐾"],
+ "legende": "Chat d'intérieur : 5 idées pour qu'il soit vraiment heureux 🏠🐈 Le n°2, c'est le plus important 🎯 Ton chat a laquelle ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chat #chatdinterieur #catsoftiktok #educanimaux"
+}
