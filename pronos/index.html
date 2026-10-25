@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pronos Adama</title>
+<meta name="description" content="Pronostics football calculés à partir des résultats passés : probabilités 1N2, scores probables, buts, analyse de forme et confrontations.">
+<meta name="theme-color" content="#0f1a14">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="entete">
+  <div class="entete-haut">
+    <a class="logo" href="#pronostics">⚽ <span>Pronos</span> Adama</a>
+    <button class="theme" id="theme" type="button" aria-label="Changer de thème">☾</button>
+  </div>
+  <nav class="ligues" id="ligues" aria-label="Championnat"></nav>
+  <nav class="onglets" aria-label="Sections">
+    <a href="#pronostics" data-onglet="pronostics">Pronostics</a>
+    <a href="#analyse" data-onglet="analyse">Analyser un match</a>
+    <a href="#classement" data-onglet="classement">Classement</a>
+    <a href="#fiabilite" data-onglet="fiabilite">Fiabilité</a>
+    <a href="#methode" data-onglet="methode">Méthode</a>
+  </nav>
+</header>
+
+<main id="vue" class="vue"><p class="chargement">Chargement des résultats…</p></main>
+
+<footer class="pied">
+  <p><strong>18+ · Jouer comporte des risques</strong> : endettement, isolement, dépendance.
+  Pour être aidé, appelez le 09 74 75 13 13 (Joueurs Info Service, appel non surtaxé).</p>
+  <p>Les pronostics sont des probabilités calculées sur les résultats passés, jamais des certitudes.
+  Ne misez que ce que vous pouvez vous permettre de perdre.</p>
+  <p class="source" id="source"></p>
+</footer>
+
+<script src="data/index.js"></script>
+<script src="js/modele.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

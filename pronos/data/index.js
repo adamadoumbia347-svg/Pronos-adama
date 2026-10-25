@@ -1,0 +1,3 @@
+window.PRONOS_DONNEES=window.PRONOS_DONNEES||{};
+PRONOS_DONNEES.saisons=["2024-25", "2025-26", "2026-27"];
+PRONOS_DONNEES.index=[{"code": "fr.1", "nom": "Ligue 1", "joues": 656, "aVenir": 262, "dernier": "2026-09-20"}, {"code": "en.1", "nom": "Premier League", "joues": 810, "aVenir": 330, "dernier": "2026-09-20"}, {"code": "es.1", "nom": "LaLiga", "joues": 819, "aVenir": 321, "dernier": "2026-09-20"}, {"code": "it.1", "nom": "Serie A", "joues": 800, "aVenir": 340, "dernier": "2026-09-20"}, {"code": "de.1", "nom": "Bundesliga", "joues": 648, "aVenir": 270, "dernier": "2026-09-20"}, {"code": "pt.1", "nom": "Liga Portugal", "joues": 674, "aVenir": 244, "dernier": "2026-09-20"}, {"code": "nl.1", "nom": "Eredivisie", "joues": 674, "aVenir": 244, "dernier": "2026-09-20"}];
