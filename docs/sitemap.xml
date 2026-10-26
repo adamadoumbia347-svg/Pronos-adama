@@ -13,7 +13,6 @@
     <lastmod>2026-10-26</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/apprendre-assis-couche-pas-bouger.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/portrait-chien.svg</image:loc></image:image>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/accueil.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -30,7 +29,6 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/black-friday-animaux.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/black-friday-animaux.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/assis-couche-pasbouger.svg</image:loc></image:image>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/portrait-chien.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -70,6 +68,8 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/chat.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/griffoir.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/chat-clicker.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/portrait-chat.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/accueil.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -79,7 +79,6 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/chien-aboie-seul.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/chien-aboie-seul.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/assis-couche-pasbouger.svg</image:loc></image:image>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/accueil.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -89,6 +88,14 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/chien.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/assis-couche-pasbouger.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/laisse.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/rappel.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/assis-leurre.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/portrait-chien.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/accueil.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/chiot-jouet.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/harnais.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/chat-clicker.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/proprete-moments.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -106,6 +113,8 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/conseils.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/conseils.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/conseils.html"/>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/rappel.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/assis-leurre.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/assis-couche-pasbouger.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/portrait-chat.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/portrait-chien.svg</image:loc></image:image>
@@ -115,7 +124,6 @@
     <image:image><image:loc>https://educanimaux.fr/img/illu/griffoir.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/chat-clicker.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/proprete-moments.svg</image:loc></image:image>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/rappel.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/laisse.svg</image:loc></image:image>
     <priority>0.8</priority>
   </url>
@@ -126,7 +134,6 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/idees-cadeaux-noel-chien-chat.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/idees-cadeaux-noel-chien-chat.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/assis-couche-pasbouger.svg</image:loc></image:image>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/portrait-chien.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -165,7 +172,6 @@
     <image:image><image:loc>https://educanimaux.fr/img/illu/laisse.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/harnais.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/assis-couche-pasbouger.svg</image:loc></image:image>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/portrait-chien.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -173,6 +179,14 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/materiel.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/materiel.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/materiel.html"/>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/rappel.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/assis-leurre.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/portrait-chat.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/accueil.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/chiot-jouet.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/harnais.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/griffoir.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/chat-clicker.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -183,7 +197,6 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/meilleur-clicker.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/chat-clicker.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/assis-couche-pasbouger.svg</image:loc></image:image>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/portrait-chien.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -204,7 +217,6 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/meilleur-harnais-chien.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/harnais.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/assis-couche-pasbouger.svg</image:loc></image:image>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/portrait-chien.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -214,7 +226,6 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/meilleure-camera-animaux.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/meilleure-camera-animaux.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/assis-couche-pasbouger.svg</image:loc></image:image>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/portrait-chien.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -231,6 +242,8 @@
     <loc>https://educanimaux.fr/meilleure-pochette-friandises.html</loc>
     <lastmod>2026-10-26</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/meilleure-pochette-friandises.html"/>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/assis-couche-pasbouger.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/portrait-chien.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -239,7 +252,6 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/meilleures-friandises-education-chien.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/assis-couche-pasbouger.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/portrait-chien.svg</image:loc></image:image>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/accueil.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -249,7 +261,6 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/meilleurs-jouets-occupation-chien.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/meilleurs-jouets-occupation-chien.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/assis-couche-pasbouger.svg</image:loc></image:image>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/portrait-chien.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -285,7 +296,6 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/produits-tendance-animaux.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/produits-tendance-animaux.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/assis-couche-pasbouger.svg</image:loc></image:image>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/portrait-chat.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -295,7 +305,6 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/promos-animaux.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/promos-animaux.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/assis-couche-pasbouger.svg</image:loc></image:image>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/portrait-chat.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -324,7 +333,6 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/rappel-chien.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/rappel.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/assis-couche-pasbouger.svg</image:loc></image:image>
-    <image:image><image:loc>https://educanimaux.fr/img/illu/portrait-chien.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -389,6 +397,8 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/chat.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/griffoir.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/chat-clicker.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/portrait-chat.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/accueil.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -408,6 +418,13 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/chien.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/assis-couche-pasbouger.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/laisse.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/chiot-jouet.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/accueil.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/portrait-chien.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/harnais.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/chat-clicker.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/proprete-moments.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/rappel.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -495,6 +512,12 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/materiel.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/materiel.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/materiel.html"/>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/portrait-chat.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/chiot-jouet.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/accueil.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/harnais.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/griffoir.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/chat-clicker.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -696,6 +719,8 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/chat.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/griffoir.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/chat-clicker.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/portrait-chat.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/accueil.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -715,6 +740,13 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/chien.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/assis-couche-pasbouger.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/laisse.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/chiot-jouet.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/accueil.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/portrait-chien.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/harnais.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/chat-clicker.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/proprete-moments.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/rappel.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>
@@ -802,6 +834,12 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/materiel.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/materiel.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/materiel.html"/>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/portrait-chat.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/chiot-jouet.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/accueil.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/harnais.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/griffoir.svg</image:loc></image:image>
+    <image:image><image:loc>https://educanimaux.fr/img/illu/chat-clicker.svg</image:loc></image:image>
     <priority>0.7</priority>
   </url>
   <url>

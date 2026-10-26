@@ -5,7 +5,8 @@ Usage : python3 tools/seo.py   (lancé aussi par tools/publier_article.py)
 - image de partage propre à chaque page (og:image, twitter:image) : docs/img/partage/<langue>-<page>.jpg,
   générée par `node tools/partage/rendu.js` ;
 - données structurées : fil d'Ariane (BreadcrumbList) sur toutes les pages, WebSite + Organization
-  sur l'accueil, Article complété (image, éditeur, date de mise à jour) ;
+  sur l'accueil, Article complété (image, éditeur, date de mise à jour), Article sur les guides,
+  WebApplication sur le quiz et le calculateur d'âge ;
 - robots.txt avec l'adresse du sitemap ;
 - statistiques de visite sans cookies (GoatCounter) sur toutes les pages.
 """
@@ -22,6 +23,8 @@ NOM = "Éduc'Animaux"
 # Statistiques de visite sans cookies (GoatCounter) : tableau de bord sur https://dobam.goatcounter.com
 STATS = ('<!-- stats --><script data-goatcounter="https://dobam.goatcounter.com/count" '
          'async src="https://gc.zgo.at/count.js"></script><!-- /stats -->')
+GUIDES = {"chien.html", "chat.html", "nac.html", "methodes.html"}   # pages piliers : données Article
+OUTILS = {"quiz.html", "age-humain.html"}                          # outils en ligne : données WebApplication
 ORGA = {"@type": "Organization", "name": NOM, "url": SITE + "/", "logo": f"{SITE}/img/partage/fr-index.jpg"}
 
 
@@ -105,6 +108,18 @@ def main():
             if nom == "index.html":
                 blocs += ld({"@type": "WebSite", "name": NOM, "url": url(prefixe, nom), "inLanguage": code, "publisher": ORGA})
                 blocs += ld(ORGA)
+            desc = re.search(r'<meta name="description" content="([^"]*)"', s)
+            desc = html.unescape(desc.group(1)) if desc else ""
+            titre = re.search(r"<h1[^>]*>(.*?)</h1>", s, re.S)
+            titre = re.sub(r"^[^\wÀ-ÿ«]+", "", html.unescape(re.sub(r"<[^>]+>", "", titre.group(1))).strip()) if titre else NOM
+            if nom in GUIDES:
+                blocs += ld({"@type": "Article", "headline": titre, "description": desc, "inLanguage": code, "image": [image],
+                             "author": {"@type": "Organization", "name": NOM, "url": SITE + "/"}, "publisher": ORGA,
+                             "mainEntityOfPage": url(prefixe, nom)})
+            if nom in OUTILS:
+                blocs += ld({"@type": "WebApplication", "name": titre, "description": desc, "url": url(prefixe, nom), "inLanguage": code,
+                             "applicationCategory": "LifestyleApplication", "operatingSystem": "Any", "isAccessibleForFree": True,
+                             "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "publisher": ORGA})
             fil = fil_ariane(s, prefixe, nom)
             if fil:
                 blocs += ld(fil)

@@ -17,6 +17,7 @@ Le script :
   - met l'article en tête des « derniers conseils » de docs/index.html (4 max) ;
   - relie la page aux autres langues et régénère docs/sitemap.xml (tools/langues.py) ;
   - met à jour les blocs « À lire aussi » de tous les articles (tools/lire_aussi.py) ;
+  - relie les guides chien / chat à leurs articles (tools/guides.py) ;
   - crée l'image de partage et l'épingle Pinterest, et les données structurées (tools/seo.py).
 """
 import html
@@ -27,6 +28,7 @@ import sys
 
 import subprocess
 
+import guides
 import langues
 import lire_aussi
 import recherche
@@ -138,6 +140,7 @@ def main():
     seo.main()
     langues.main()
     lire_aussi.main()
+    guides.main()
     recherche.main()
     print(f"Publié : {cible.relative_to(DOCS.parent)}")
 
