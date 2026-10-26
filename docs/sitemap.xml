@@ -139,6 +139,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://educanimaux.fr/fiches-gratuites.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/fiches-gratuites.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://educanimaux.fr/idees-cadeaux-noel-chien-chat.html</loc>
     <lastmod>2026-10-16</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/idees-cadeaux-noel-chien-chat.html"/>

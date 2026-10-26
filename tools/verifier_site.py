@@ -93,7 +93,7 @@ def main():
                 cible = posixpath.normpath(fichier)
             else:
                 cible = posixpath.normpath(posixpath.join(dossier, fichier)) if fichier else nom
-            if cible not in pages:
+            if cible not in pages and (cible.endswith(".html") or not (DOCS / cible).is_file()):
                 problemes.append(f"{nom} : lien cassé vers {href}")
             elif ancre and ancre not in analyses[cible].ids:
                 problemes.append(f"{nom} : ancre #{ancre} absente de {cible}")

@@ -415,3 +415,9 @@ tr.actuelle td { background: var(--soft); font-weight: 800; }
 .budget-total { margin-top: 18px; padding: 16px; background: var(--soft); border-radius: var(--radius); }
 .budget-total p { margin: 4px 0; }
 .budget-total strong { font-size: 1.2rem; color: var(--primary-dark); }
+/* Vidéos TikTok intégrées aux articles */
+.video-tiktok { max-width: 270px; margin: 20px auto 26px; text-align: center; }
+.video-tiktok video { width: 100%; height: auto; aspect-ratio: 9 / 16; border-radius: 18px; background: #2b2420; box-shadow: var(--shadow); }
+.video-tiktok figcaption { font-size: .9rem; color: var(--muted); margin-top: 8px; }
+/* Fiches gratuites */
+.fiche img { width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--border); margin-bottom: 10px; }

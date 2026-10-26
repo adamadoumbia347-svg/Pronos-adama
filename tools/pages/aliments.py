@@ -220,6 +220,12 @@ T = {
 }
 
 
+# Vidéo TikTok (version française uniquement), comme dans les articles
+VIDEO = ('        <!-- video --><figure class="video-tiktok"><video controls preload="none" playsinline poster="videos/aliments-chien-chat.jpg" width="270" height="480">'
+         '<source src="videos/aliments-chien-chat.mp4" type="video/mp4"></video><figcaption>🎬 L\'essentiel en 30 secondes · '
+         '<a href="https://www.tiktok.com/@educanimauxx" target="_blank" rel="noopener">Suivez-nous sur TikTok</a></figcaption></figure><!-- /video -->\n')
+
+
 def corps(code):
     t, v, e = T[code], VERDICT[code], html.escape
     cartes = "".join(
@@ -236,7 +242,7 @@ def corps(code):
         <p class="breadcrumb"><a href="index.html">{t["fil"]}</a> › {t["court"]}</p>
         <h1>{t["h1"]}</h1>
         <p class="lead">{t["lead"]}</p>
-        <div class="callout warn">{t["urgence"]}</div>
+{VIDEO if code == "fr" else ""}        <div class="callout warn">{t["urgence"]}</div>
         <div class="filtre-aliments">
           <input type="search" id="cherche-aliment" placeholder="{e(t["chercher"])}" aria-label="{e(t["chercher"])}" autocomplete="off">
           <div class="chips" role="group">{filtres}</div>
