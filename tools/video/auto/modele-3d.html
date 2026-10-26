@@ -219,7 +219,7 @@ let carteHook, pieceFin;
   for (const sc of scenes) {
     sc.carte = carte3D(await faceCarte(sc.c.visuel, sc.acc), sc.acc);
     const badge = sc.c.badge;
-    sc.piece = piece3D(facePiece(badge || String(scenes.indexOf(sc) + 1).padStart(2, "0"), sc.acc, "#fff", badge ? (badge.length > 4 ? 120 : 150) : 230), sc.acc, 0.5);
+    sc.piece = piece3D(facePiece(badge || String(scenes.indexOf(sc) + 1).padStart(2, "0"), sc.acc, "#fff", badge ? (badge.length > 4 ? 92 : 150) : 230), sc.acc, 0.5);
   }
   pieceFin = piece3D(facePiece("🐾", "#fff", "#b44c1c", 300), "#ffffff", 0.62);
   window.PRET = true; render(0);

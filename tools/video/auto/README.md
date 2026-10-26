@@ -117,3 +117,4 @@ Sons : pop, pop2, ding, miaou, ouaf, whoosh, boom, crash, scratch, fete.
 - [x] Ton chat fait pipi à côté de sa litière ? 5 raisons (2026-11-02)
 - [x] Ton chat te réveille à 4 h du matin ? (2026-11-04)
 - [x] Quelle litière ton chat préfère vraiment ? (2026-11-06)
+- [x] Ton chien peut-il manger ça ? (vrai/faux aliments, 2026-11-09)

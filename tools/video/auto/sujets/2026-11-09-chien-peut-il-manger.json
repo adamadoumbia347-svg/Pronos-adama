@@ -1,0 +1,16 @@
+{
+ "hook": "Ton chien peut-il manger <em>ça</em> ? Teste-toi ! 🐕",
+ "emoji_hook": "🍽️",
+ "bandeau": "🐾 Peut-il manger… ?",
+ "musique": 1,
+ "cartes": [
+  {"visuel": {"type": "emoji", "texte": "🍌"}, "quoi": "La banane", "sens": "OUI ✅ en petites rondelles", "conseil": "→ Elle est sucrée : avec modération", "son": "ding", "badge": "OUI", "couleur": "vert"},
+  {"visuel": {"type": "emoji", "texte": "🍇"}, "quoi": "Le raisin", "sens": "NON ❌ même un peu", "conseil": "→ Il peut abîmer ses reins", "son": "boom", "badge": "NON", "couleur": "rouge"},
+  {"visuel": {"type": "emoji", "texte": "🧀"}, "quoi": "Le fromage", "sens": "UN PEU ⚠️ en friandise", "conseil": "→ Gras et salé : un tout petit morceau", "son": "pop", "badge": "UN PEU"},
+  {"visuel": {"type": "emoji", "texte": "🥕"}, "quoi": "La carotte", "sens": "OUI ✅ crue ou cuite", "conseil": "→ Une friandise légère et croquante", "son": "ding", "badge": "OUI", "couleur": "vert"},
+  {"visuel": {"type": "emoji", "texte": "🧅"}, "quoi": "L'oignon", "sens": "NON ❌ cru, cuit ou en sauce", "conseil": "→ Toxique pour son sang", "son": "boom", "badge": "NON", "couleur": "rouge"}
+ ],
+ "fin": ["Tu as eu combien<br>de bonnes réponses ? 👇", "Les 37 aliments vérifiés<br>sur notre site 🍎"],
+ "legende": "Ton chien peut-il manger ça ? Teste-toi ! 🐕 Le n°2, beaucoup l'ignorent 🍇 Tu as eu combien de bonnes réponses ? 👇 Un doute : appelle ton vétérinaire.\nLes 37 aliments vérifiés : educanimaux.fr (lien en bio)",
+ "hashtags": "#chien #santechien #dogsoftiktok #educanimaux"
+}
