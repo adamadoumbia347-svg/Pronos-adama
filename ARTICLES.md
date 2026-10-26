@@ -32,8 +32,11 @@ transforme un lecteur qui cherche une solution en acheteur, sans surcharger les 
 
 ## Langues
 
-Les articles hebdomadaires sont publiés en français uniquement. Sur les versions anglaise et italienne,
-le sélecteur de langue renvoie alors vers l'accueil de la langue. Pour traduire un article, créer
+Les articles hebdomadaires sont publiés **en français, en anglais et en italien** : après les 3 articles français,
+écrire les traductions `articles/AAAA-MM-JJ-en-<slug>.html` et `articles/AAAA-MM-JJ-it-<slug>.html` (clé `lang: en` / `lang: it`,
+même slug, catégorie Dog/Puppy/Cat ou Cane/Cucciolo/Gatto, liens Amazon vers amazon.com / amazon.it avec des mots-clés traduits,
+vouvoiement remplacé par « you » en anglais et le tutoiement en italien comme sur le reste du site italien),
+puis les publier avec `tools/publier_article.py` (comparatifs d'abord). Méthode manuelle (ancienne) : créer
 `docs/en/<slug>.html` et/ou `docs/it/<slug>.html` (même nom de fichier, contenu traduit, `lang` et adresses
 `https://educanimaux.fr/en/…` ou `/it/…`, liens Amazon vers amazon.com ou amazon.it avec des mots-clés traduits),
 ajouter la carte dans `docs/en/conseils.html` / `docs/it/conseils.html`, puis lancer `python3 tools/langues.py`.
