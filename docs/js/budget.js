@@ -6,7 +6,7 @@
   var champs = [].slice.call(bloc.querySelectorAll("input[data-periode]"));
   var lire = function () { try { return JSON.parse(localStorage.getItem(CLE)) || {}; } catch (e) { return {}; } };
   var ecrire = function (o) { try { localStorage.setItem(CLE, JSON.stringify(o)); } catch (e) {} };
-  var euros = function (x) { return Math.round(x).toLocaleString("fr-FR") + " €"; };
+  var euros = function (x) { return Math.round(x).toLocaleString(document.documentElement.lang || "fr") + " €"; };
   var etat = lire();
   function espece() { return bloc.querySelector("input[name=b-espece]:checked").value; }
   function calculer() {

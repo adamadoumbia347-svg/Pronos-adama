@@ -47,6 +47,8 @@
   <url>
     <loc>https://educanimaux.fr/budget-animal.html</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/budget-animal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/budget-animal.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/budget-animal.html"/>
     <priority>0.7</priority>
   </url>
   <url>
@@ -343,6 +345,8 @@
   <url>
     <loc>https://educanimaux.fr/programme-chiot-30-jours.html</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/programme-chiot-30-jours.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/programme-chiot-30-jours.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/programme-chiot-30-jours.html"/>
     <priority>0.7</priority>
   </url>
   <url>
@@ -370,6 +374,8 @@
   <url>
     <loc>https://educanimaux.fr/quel-animal.html</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/quel-animal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/quel-animal.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/quel-animal.html"/>
     <priority>0.7</priority>
   </url>
   <url>
@@ -463,6 +469,13 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/black-friday-animaux.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/black-friday-animaux.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/black-friday-animaux.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/en/budget-animal.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/budget-animal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/budget-animal.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/budget-animal.html"/>
     <priority>0.7</priority>
   </url>
   <url>
@@ -716,6 +729,13 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://educanimaux.fr/en/programme-chiot-30-jours.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/programme-chiot-30-jours.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/programme-chiot-30-jours.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/programme-chiot-30-jours.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://educanimaux.fr/en/promos-animaux.html</loc>
     <lastmod>2026-10-20</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/promos-animaux.html"/>
@@ -731,6 +751,13 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/proprete-chiot.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/proprete-moments.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/chiot-jouet.svg</image:loc></image:image>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/en/quel-animal.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/quel-animal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/quel-animal.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/quel-animal.html"/>
     <priority>0.7</priority>
   </url>
   <url>
@@ -787,6 +814,13 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/black-friday-animaux.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/black-friday-animaux.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/black-friday-animaux.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/it/budget-animal.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/budget-animal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/budget-animal.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/budget-animal.html"/>
     <priority>0.7</priority>
   </url>
   <url>
@@ -1040,6 +1074,13 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://educanimaux.fr/it/programme-chiot-30-jours.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/programme-chiot-30-jours.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/programme-chiot-30-jours.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/programme-chiot-30-jours.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://educanimaux.fr/it/promos-animaux.html</loc>
     <lastmod>2026-10-20</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/promos-animaux.html"/>
@@ -1055,6 +1096,13 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/proprete-chiot.html"/>
     <image:image><image:loc>https://educanimaux.fr/img/illu/proprete-moments.svg</image:loc></image:image>
     <image:image><image:loc>https://educanimaux.fr/img/illu/chiot-jouet.svg</image:loc></image:image>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/it/quel-animal.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/quel-animal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://educanimaux.fr/en/quel-animal.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://educanimaux.fr/it/quel-animal.html"/>
     <priority>0.7</priority>
   </url>
   <url>
