@@ -134,7 +134,7 @@ CARTES = {"chien.html": "portrait-chien", "chat.html": "portrait-chat", "nac.htm
           "quiz.html": "quiz", "age-humain.html": "age", "meilleur-harnais-chien.html": "harnais", "meilleur-griffoir-chat.html": "griffoir",
           "meilleur-clicker.html": "chat-clicker", "proprete-chiot.html": "proprete-moments", "rappel-chien.html": "rappel",
           "marche-en-laisse.html": "laisse", "chat-griffe-canape.html": "griffoir", "chiot-mord.html": "chiot-jouet",
-          "kit-accueil-chiot.html": "chiot-jouet", "idees-cadeaux-noel-chien-chat.html": "accueil", "black-friday-animaux.html": "harnais", "produits-tendance-animaux.html": "chiot-jouet", "promos-animaux.html": "harnais", "chien-aboie-seul.html": "portrait-chien", "meilleurs-jouets-occupation-chien.html": "chiot-jouet", "meilleure-camera-animaux.html": "accueil"}
+          "kit-accueil-chiot.html": "chiot-jouet", "idees-cadeaux-noel-chien-chat.html": "accueil", "black-friday-animaux.html": "harnais", "produits-tendance-animaux.html": "chiot-jouet", "promos-animaux.html": "harnais", "chien-aboie-seul.html": "portrait-chien", "meilleurs-jouets-occupation-chien.html": "chiot-jouet", "meilleure-camera-animaux.html": "accueil", "chat-urine-hors-litiere.html": "portrait-chat", "chat-miaule-la-nuit.html": "portrait-chat", "meilleure-litiere-chat.html": "portrait-chat", "apprendre-assis-couche-pas-bouger.html": "assis-couche-pasbouger", "meilleures-friandises-education-chien.html": "assis-leurre", "meilleure-pochette-friandises.html": "rappel"}
 CARTE = re.compile(r'(<a class="card card-link" href="([^"]+)">\s*)<span class="icon">([^<]*)</span>')
 for d in ("", "en/", "it/"):
     for page in ("index.html", "conseils.html"):

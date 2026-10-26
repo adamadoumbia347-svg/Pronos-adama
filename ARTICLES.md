@@ -123,7 +123,7 @@ Les sessions du lundi prennent le premier sujet non coché. On peut réordonner 
 - [x] Chien qui aboie quand il est seul : comprendre et agir
 - [x] Chat qui fait pipi hors de sa litière : causes et solutions (2026-10-23)
 - [x] Chat qui miaule la nuit : pourquoi et comment dormir enfin (2026-10-23)
-- [ ] Apprendre « assis », « couché » et « pas bouger » à son chien
+- [x] Apprendre « assis », « couché » et « pas bouger » à son chien (2026-10-26)
 - [ ] Le clicker training expliqué aux débutants (chien et chat)
 - [ ] Chien qui saute sur les gens : la méthode douce
 - [ ] Chien qui a peur des pétards et de l'orage
@@ -151,8 +151,8 @@ Chaque lundi, les 2 premiers non cochés (entre parenthèses : l'article de cons
 - [x] Quelle caméra pour surveiller son chien ou son chat ? (chien qui aboie seul)
 - [x] Quelle litière choisir pour son chat ? (pipi hors litière) (2026-10-23)
 - [ ] Quel bac ou maison de toilette choisir pour son chat ? (pipi hors litière)
-- [ ] Quelles friandises d'éducation choisir pour son chien ? (assis, couché, pas bouger)
-- [ ] Quelle pochette à friandises choisir ? (clicker training)
+- [x] Quelles friandises d'éducation choisir pour son chien ? (assis, couché, pas bouger) (2026-10-26)
+- [x] Quelle pochette à friandises choisir ? (clicker training) (2026-10-26)
 - [ ] Quelle laisse choisir pour son chien ? (chien qui saute sur les gens / marche en laisse)
 - [ ] Quelle longe choisir pour travailler le rappel ? (rappel)
 - [ ] Peur des pétards et de l'orage : quels accessoires peuvent aider ? (peur des pétards)
@@ -187,3 +187,9 @@ Quand une liste est presque vide, ajouter 6 nouveaux sujets utiles et non trait�
 - 2026-10-19 — Quels jouets d'occupation choisir pour un chien seul ? Le comparatif (`meilleurs-jouets-occupation-chien.html`)
 - 2026-10-19 — Quelle caméra choisir pour surveiller son chien ou son chat ? Le comparatif (`meilleure-camera-animaux.html`)
 - 2026-10-19 — Chien qui aboie quand il est seul : comprendre et agir (`chien-aboie-seul.html`)
+- 2026-10-23 — Chat qui fait pipi hors de la litière : causes et solutions (`chat-urine-hors-litiere.html`, + EN/IT)
+- 2026-10-23 — Chat qui miaule la nuit : pourquoi et comment dormir enfin (`chat-miaule-la-nuit.html`, + EN/IT)
+- 2026-10-23 — Quelle litière choisir pour son chat ? Le comparatif (`meilleure-litiere-chat.html`, + EN/IT)
+- 2026-10-26 — Quelles friandises d'éducation pour son chien ? Le comparatif (`meilleures-friandises-education-chien.html`)
+- 2026-10-26 — Quelle pochette à friandises choisir ? Le comparatif (`meilleure-pochette-friandises.html`)
+- 2026-10-26 — Apprendre « assis », « couché » et « pas bouger » à son chien (`apprendre-assis-couche-pas-bouger.html`)
