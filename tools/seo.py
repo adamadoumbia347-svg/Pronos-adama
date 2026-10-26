@@ -112,7 +112,7 @@ def main():
             desc = html.unescape(desc.group(1)) if desc else ""
             titre = re.search(r"<h1[^>]*>(.*?)</h1>", s, re.S)
             titre = re.sub(r"^[^\wÀ-ÿ«]+", "", html.unescape(re.sub(r"<[^>]+>", "", titre.group(1))).strip()) if titre else NOM
-            if nom in GUIDES:
+            if nom in GUIDES or nom.startswith("race-"):
                 blocs += ld({"@type": "Article", "headline": titre, "description": desc, "inLanguage": code, "image": [image],
                              "author": {"@type": "Organization", "name": NOM, "url": SITE + "/"}, "publisher": ORGA,
                              "mainEntityOfPage": url(prefixe, nom)})

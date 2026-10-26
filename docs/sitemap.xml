@@ -381,6 +381,41 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://educanimaux.fr/race-berger-australien.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/race-berger-australien.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/race-bouledogue-francais.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/race-bouledogue-francais.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/race-golden-retriever.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/race-golden-retriever.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/race-jack-russell.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/race-jack-russell.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/race-labrador.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/race-labrador.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/race-maine-coon.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/race-maine-coon.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://educanimaux.fr/races.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/races.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://educanimaux.fr/rappel-chien.html</loc>
     <lastmod>2026-10-15</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://educanimaux.fr/rappel-chien.html"/>
