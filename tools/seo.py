@@ -24,7 +24,7 @@ NOM = "Éduc'Animaux"
 STATS = ('<!-- stats --><script data-goatcounter="https://dobam.goatcounter.com/count" '
          'async src="https://gc.zgo.at/count.js"></script><!-- /stats -->')
 GUIDES = {"chien.html", "chat.html", "nac.html", "methodes.html"}   # pages piliers : données Article
-OUTILS = {"quiz.html", "age-humain.html"}                          # outils en ligne : données WebApplication
+OUTILS = {"quiz.html", "age-humain.html", "noms-chien-chat.html", "programme-chiot-30-jours.html", "budget-animal.html", "quel-animal.html"}                          # outils en ligne : données WebApplication
 ORGA = {"@type": "Organization", "name": NOM, "url": SITE + "/", "logo": f"{SITE}/img/partage/fr-index.jpg"}
 
 

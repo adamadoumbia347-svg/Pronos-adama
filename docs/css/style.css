@@ -397,3 +397,21 @@ main > section ~ section { content-visibility: auto; contain-intrinsic-size: aut
 .noms-chips { margin-top: 18px; }
 .noms-chips .chip { font-size: 1.05rem; }
 tr.actuelle td { background: var(--soft); font-weight: 800; }
+/* Programme chiot et budget */
+.progression { margin: 22px 0 10px; }
+.barre-prog { height: 12px; background: var(--border); border-radius: 99px; overflow: hidden; margin: 8px 0 12px; }
+.barre-prog span { display: block; height: 100%; width: 0; background: var(--accent); transition: width .3s; }
+.jours { list-style: none; padding: 0; display: grid; gap: 10px; }
+.jour { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+.jour label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; font-weight: 400; margin: 0; }
+.jour input { width: 22px; height: 22px; margin-top: 2px; accent-color: var(--accent); flex: none; }
+.jour p { margin: 6px 0 0 32px; font-size: .95rem; color: var(--muted); }
+.jour.fait { background: #eef8f4; border-color: #b9e0d2; }
+#calc-budget fieldset { border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; margin: 18px 0 0; }
+#calc-budget legend { font-weight: 800; padding: 0 6px; }
+.poste { display: grid; grid-template-columns: 1fr 110px auto; gap: 8px; align-items: center; margin: 8px 0; }
+.poste label { font-weight: 600; margin: 0; }
+.poste input { font: inherit; padding: 8px 10px; border: 1px solid var(--border); border-radius: 10px; width: 100%; }
+.budget-total { margin-top: 18px; padding: 16px; background: var(--soft); border-radius: var(--radius); }
+.budget-total p { margin: 4px 0; }
+.budget-total strong { font-size: 1.2rem; color: var(--primary-dark); }

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Combien coûte un chien ou un chat ? Calculez votre budget</title>
+  <meta name="description" content="Calculez le budget de votre chien ou chat avec vos propres montants : alimentation, vétérinaire, assurance, garde. Coût par mois, par an et la 1re année.">
+  <link rel="canonical" href="https://educanimaux.fr/budget-animal.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Éduc'Animaux">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="Combien coûte un chien ou un chat ? Calculez votre budget">
+  <meta property="og:description" content="Calculez le budget de votre chien ou chat avec vos propres montants : alimentation, vétérinaire, assurance, garde. Coût par mois, par an et la 1re année.">
+  <meta property="og:url" content="https://educanimaux.fr/budget-animal.html">
+  <meta property="og:image" content="https://educanimaux.fr/img/partage/fr-budget-animal.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://educanimaux.fr/img/partage/fr-budget-animal.jpg">
+  <link rel="preload" href="fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
+<!-- seo -->
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Combien coûte un chien ou un chat ? Calculez votre budget", "description": "Calculez le budget de votre chien ou chat avec vos propres montants : alimentation, vétérinaire, assurance, garde. Coût par mois, par an et la 1re année.", "url": "https://educanimaux.fr/budget-animal.html", "inLanguage": "fr", "applicationCategory": "LifestyleApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "publisher": {"@type": "Organization", "name": "Éduc'Animaux", "url": "https://educanimaux.fr/", "logo": "https://educanimaux.fr/img/partage/fr-index.jpg"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://educanimaux.fr/"}, {"@type": "ListItem", "position": 2, "name": "Budget", "item": "https://educanimaux.fr/budget-animal.html"}]}</script>
+  <!-- /seo -->
+<!-- langues -->
+  <link rel="alternate" hreflang="fr" href="https://educanimaux.fr/budget-animal.html">
+  <link rel="alternate" hreflang="x-default" href="https://educanimaux.fr/budget-animal.html">
+  <!-- /langues -->
+  <!-- stats --><script data-goatcounter="https://dobam.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script><!-- /stats -->
+</head>
+<body>
+  <div class="disclosure">Ce site contient des liens d'affiliation : nous pouvons toucher une commission sur vos achats, sans surcoût pour vous. <a href="mentions-legales.html#affiliation">En savoir plus sur l'affiliation</a></div>
+  <header class="site-header">
+    <nav class="container nav" aria-label="Navigation principale">
+      <a class="logo" href="index.html">🐾 Éduc'<span>Animaux</span></a>
+      <!-- choix-langue --><div class="lang-switch"><a href="budget-animal.html" hreflang="fr" lang="fr" title="Français" aria-current="true">FR</a><a href="en/index.html" hreflang="en" lang="en" title="English">EN</a><a href="it/index.html" hreflang="it" lang="it" title="Italiano">IT</a></div><!-- /choix-langue -->
+<button class="nav-toggle" aria-expanded="false" aria-controls="menu">☰</button>
+      <ul class="nav-links" id="menu">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="methodes.html">Méthodes</a></li>
+        <li><a href="chien.html">Chien</a></li>
+        <li><a href="chat.html">Chat</a></li>
+        <li><a href="nac.html">Lapins &amp; NAC</a></li>
+        <li><a href="conseils.html" aria-current="page">Conseils</a></li>
+        <li><a href="materiel.html">Matériel</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container outil">
+        <p class="breadcrumb"><a href="index.html">Accueil</a> › Budget</p>
+        <h1>💶 Combien coûte un chien ou un chat ? Calculez votre budget</h1>
+        <p class="lead">Avant d'adopter, ou pour faire le point : entrez vos propres montants (devis du vétérinaire, prix de ses croquettes, assurance…) et obtenez le coût par mois, par an et pour la première année.</p>
+        <div class="card" id="calc-budget">
+          <div class="choix-espece" role="radiogroup" aria-label="Animal">
+            <label><input type="radio" name="b-espece" value="c" checked><span>🐕 Chien</span></label>
+            <label><input type="radio" name="b-espece" value="t"><span>🐈 Chat</span></label>
+          </div>
+          <fieldset><legend>Dépenses régulières (par mois)</legend><div class="poste" data-especes="ct"><label for="b-alim">Alimentation (croquettes, pâtée)</label><input id="b-alim" type="number" min="0" step="1" inputmode="decimal" placeholder="0" data-periode="mois"> <span>€</span></div><div class="poste" data-especes="ct"><label for="b-friandises">Friandises et jouets</label><input id="b-friandises" type="number" min="0" step="1" inputmode="decimal" placeholder="0" data-periode="mois"> <span>€</span></div><div class="poste" data-especes="t"><label for="b-litiere">Litière</label><input id="b-litiere" type="number" min="0" step="1" inputmode="decimal" placeholder="0" data-periode="mois"> <span>€</span></div><div class="poste" data-especes="ct"><label for="b-assurance">Assurance santé animale</label><input id="b-assurance" type="number" min="0" step="1" inputmode="decimal" placeholder="0" data-periode="mois"> <span>€</span></div><div class="poste" data-especes="ct"><label for="b-antiparasitaire">Antiparasitaires (si vous payez au mois)</label><input id="b-antiparasitaire" type="number" min="0" step="1" inputmode="decimal" placeholder="0" data-periode="mois"> <span>€</span></div></fieldset>
+          <fieldset><legend>Dépenses annuelles (par an)</legend><div class="poste" data-especes="ct"><label for="b-veto">Vétérinaire : vaccins et visite de contrôle</label><input id="b-veto" type="number" min="0" step="1" inputmode="decimal" placeholder="0" data-periode="an"> <span>€</span></div><div class="poste" data-especes="ct"><label for="b-toilettage">Toilettage</label><input id="b-toilettage" type="number" min="0" step="1" inputmode="decimal" placeholder="0" data-periode="an"> <span>€</span></div><div class="poste" data-especes="ct"><label for="b-garde">Garde ou pension pendant les vacances</label><input id="b-garde" type="number" min="0" step="1" inputmode="decimal" placeholder="0" data-periode="an"> <span>€</span></div><div class="poste" data-especes="c"><label for="b-education">Cours d&#x27;éducation</label><input id="b-education" type="number" min="0" step="1" inputmode="decimal" placeholder="0" data-periode="an"> <span>€</span></div><div class="poste" data-especes="ct"><label for="b-divers">Imprévus et divers</label><input id="b-divers" type="number" min="0" step="1" inputmode="decimal" placeholder="0" data-periode="an"> <span>€</span></div></fieldset>
+          <fieldset><legend>Dépenses de départ (une seule fois)</legend><div class="poste" data-especes="ct"><label for="b-adoption">Adoption ou achat</label><input id="b-adoption" type="number" min="0" step="1" inputmode="decimal" placeholder="0" data-periode="unique"> <span>€</span></div><div class="poste" data-especes="ct"><label for="b-identification">Identification, premiers vaccins</label><input id="b-identification" type="number" min="0" step="1" inputmode="decimal" placeholder="0" data-periode="unique"> <span>€</span></div><div class="poste" data-especes="ct"><label for="b-sterilisation">Stérilisation ou castration</label><input id="b-sterilisation" type="number" min="0" step="1" inputmode="decimal" placeholder="0" data-periode="unique"> <span>€</span></div><div class="poste" data-especes="ct"><label for="b-materiel">Matériel de départ (couchage, gamelles, laisse ou caisse…)</label><input id="b-materiel" type="number" min="0" step="1" inputmode="decimal" placeholder="0" data-periode="unique"> <span>€</span></div></fieldset>
+          <div class="budget-total" aria-live="polite">
+            <p>Par mois : <strong id="t-mois">0 €</strong></p>
+            <p>Par an : <strong id="t-an">0 €</strong></p>
+            <p>Première année (avec les dépenses de départ) : <strong id="t-premiere">0 €</strong></p>
+          </div>
+          <p class="small muted">Le calcul additionne uniquement vos montants. Vos chiffres restent sur votre appareil.</p>
+        </div>
+        <h2>Où trouver les bons montants ?</h2>
+        <ul>
+          <li><strong>Alimentation</strong> : regardez la ration conseillée sur le paquet pour le poids de votre animal, et combien de temps dure un sac.</li>
+          <li><strong>Vétérinaire</strong> : demandez le prix d'une consultation, des vaccins et, si besoin, de la stérilisation. Les tarifs varient selon les cliniques.</li>
+          <li><strong>Assurance</strong> : comparez plusieurs devis, en regardant les plafonds et ce qui est exclu.</li>
+          <li><strong>Garde</strong> : pension, pet-sitter ou proche : pensez-y avant les vacances.</li>
+          <li><strong>Imprévus</strong> : un accident ou une maladie arrive. Mettre un peu de côté chaque mois évite les mauvaises surprises.</li>
+        </ul>
+        <p>Pour bien préparer l'arrivée : <a href="kit-accueil-chiot.html">la liste du matériel pour un chiot</a> · <a href="promos-animaux.html">les promos animalerie du moment</a> · <a href="quel-animal.html">quel animal est fait pour vous ?</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="logo" style="color:#fff">🐾 Éduc'Animaux</p>
+          <p>Le guide indépendant des méthodes d'éducation bienveillantes pour tous les animaux de compagnie.</p>
+        </div>
+        <div>
+          <strong>Guides</strong>
+          <ul>
+            <li><a href="chien.html">Chien</a></li>
+            <li><a href="chat.html">Chat</a></li>
+            <li><a href="nac.html">Lapins &amp; NAC</a></li>
+            <li><a href="quiz.html">🧩 Quiz : quelle méthode ?</a></li>
+            <li><a href="age-humain.html">🎂 Âge en âge humain</a></li>
+            <li><a href="quel-animal.html">🤔 Quel animal pour moi ?</a></li>
+            <li><a href="budget-animal.html">💶 Calculer son budget</a></li>
+            <li><a href="programme-chiot-30-jours.html">🐶 Programme chiot 30 jours</a></li>
+            <li><a href="noms-chien-chat.html">🏷️ Idées de noms</a></li>
+            <li><a href="aliments-chien-chat.html">🍎 Peut-il manger… ?</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong>Le site</strong>
+          <ul>
+            <li><a href="methodes.html">Toutes les méthodes</a></li>
+            <li><a href="conseils.html">Articles &amp; conseils</a></li>
+            <li><a href="materiel.html">Matériel</a></li>
+            <li><a href="apropos.html">À propos</a></li>
+            <li><a href="apropos.html#sources">Notre méthode et nos sources</a></li>
+            <li><a href="apropos.html#contact">Contact</a></li>
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-legal">En tant que Partenaire Amazon, nous réalisons un bénéfice sur les achats remplissant les conditions requises. Les conseils de ce site ne remplacent pas l'avis d'un vétérinaire. © <span id="annee"></span> Éduc'Animaux</p>
+    </div>
+  </footer>
+
+  <script src="js/config.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/budget.js" defer></script>
+</body>
+</html>
