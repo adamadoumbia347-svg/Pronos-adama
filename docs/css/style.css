@@ -394,3 +394,6 @@ main > section ~ section { content-visibility: auto; contain-intrinsic-size: aut
 .v-oui { background: #dcf1ea; color: #1e5f52; }
 .v-modere { background: #fff1d6; color: #8a5300; }
 .v-non { background: #fde2e0; color: #a3271c; }
+.noms-chips { margin-top: 18px; }
+.noms-chips .chip { font-size: 1.05rem; }
+tr.actuelle td { background: var(--soft); font-weight: 800; }
