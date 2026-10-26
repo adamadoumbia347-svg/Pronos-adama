@@ -26,6 +26,12 @@ KONG = boite("🦴", "Jouet à garnir", "Une activité calme qui occupe sa tête
 FOUILLE = boite("🧺", "Tapis de fouille", "Il cherche ses croquettes avec son nez : une vraie dépense mentale.", "tapis-fouille", "tapis de fouille chien")
 LONGE = boite("🪢", "Longe de rappel", "Pour travailler le rappel en sécurité dans les grands espaces.", "longe", "longe dressage chien 10m")
 
+MANTEAU = boite("🧥", "Manteau pour petit chien", "Pour le protéger du froid en hiver, à la bonne taille.", "manteau-chien", "manteau petit chien hiver")
+CLICKER = boite("🔘", "Clicker", "Idéal pour un chien qui apprend vite : il marque l'instant exact de la réussite.", "clicker", "clicker dressage chien")
+ARBRE = boite("🌳", "Arbre à chat stable", "Des hauteurs et des cachettes pour qu'il se sente en sécurité.", "arbre-chat", "arbre à chat stable grand")
+CANNE = boite("🪶", "Canne à plumes", "Pour ses séances de jeu de chasse quotidiennes.", "canne-plumes", "canne à pêche plumes jouet chat")
+BROSSE_CHAT = boite("🪮", "Brosse pour chat à poil mi-long", "Pour un brossage régulier et doux.", "brosse-chat", "brosse chat poil long")
+
 RACES = [
  {"slug": "race-berger-australien", "icone": "🐕", "nom": "Berger australien",
   "titre": "Berger australien : caractère, éducation et besoins",
@@ -116,20 +122,35 @@ RACES = [
 ]
 
 
+from races_extra import EXTRA, NOUVELLES  # noqa: E402
+for r in RACES:
+    r.update(EXTRA.get(r["slug"], {}))
+for r in NOUVELLES:
+    r["produits"] = "".join(globals()[k] for k in r["produits"])
+    RACES.append(r)
+
+
 def fiche(r):
-    sections = "".join(f"        <h2>{t}</h2>\n        {c}\n" for t, c in r["sections"])
+    sections = (f"        <h2>Ses origines</h2>\n        <p>{r['origine']}</p>\n" if r.get("origine") else "")
+    sections += "".join(f"        <h2>{t}</h2>\n        {c}\n" for t, c in r["sections"])
+    if r.get("quotidien"):
+        sections += f"        <h2>Au quotidien</h2>\n        <p>{r['quotidien']}</p>\n"
+    if r.get("famille"):
+        sections += f"        <h2>Avec les enfants et les autres animaux</h2>\n        <p>{r['famille']}</p>\n"
+    faq = "".join(f"        <h3>{q}</h3>\n        <p>{a}</p>\n" for q, a in r.get("faq", []))
+    faq = f"        <h2>Questions fréquentes</h2>\n{faq}" if faq else ""
     oui, non = r["pour"]
     return f"""    <section class="page-hero">
       <div class="container article">
         <p class="breadcrumb"><a href="index.html">Accueil</a> › <a href="races.html">Races</a> › {r["nom"]}</p>
         <h1>{r["icone"]} {r["titre"]}</h1>
-        <p class="meta">{r["icone"]} Fiche race · Lecture 4 min</p>
+        <p class="meta">{r["icone"]} Fiche race · Lecture 6 min</p>
         <div class="callout"><strong>En bref :</strong> {r["bref"]}</div>
 {sections}        <h2>Est-ce la race pour vous ?</h2>
         <ul><li>✅ <strong>Oui si</strong> : {oui}</li><li>❌ <strong>Plutôt non si</strong> : {non}</li></ul>
         <p>Chaque animal est unique : le caractère dépend aussi de son histoire, de sa socialisation et de son éducation. Pensez à l'adoption en refuge ou en association de race, et passez du temps avec des chiens ou des chats de la race avant de vous décider.</p>
         <h2>Le matériel utile</h2>
-{r["produits"]}        <div class="callout warn"><strong>Santé :</strong> cette fiche donne des repères généraux. Pour toute question sur la santé de votre animal, son alimentation ou les dépistages, demandez conseil à votre vétérinaire.</div>
+{r["produits"]}{faq}        <div class="callout warn"><strong>Santé :</strong> cette fiche donne des repères généraux. Pour toute question sur la santé de votre animal, son alimentation ou les dépistages, demandez conseil à votre vétérinaire.</div>
         <p>Pour aller plus loin : {r["liens"]} · <a href="races.html">toutes nos fiches races</a> · <a href="quel-animal.html">quel animal pour moi ?</a></p>
       </div>
     </section>"""
@@ -154,7 +175,7 @@ if __name__ == "__main__":
     for r in RACES:
         creer_page.creer("fr", r["slug"], r["titre"], r["desc"], fiche(r))
     creer_page.creer("fr", "races", "Fiches races de chiens et de chats",
-                     "Berger australien, labrador, bouledogue français, golden, jack russell, maine coon : caractère, besoins, éducation et santé de chaque race.",
+                     "Berger australien, labrador, berger allemand, chihuahua, border collie, maine coon, ragdoll… : caractère, besoins, éducation et santé de chaque race.",
                      hub(), menu="🐾 Fiches races")
     creer_page.finir()
     print(len(RACES), "fiches races")
