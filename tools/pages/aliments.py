@@ -175,7 +175,7 @@ T = {
        "lead": "Une banane, un morceau de fromage, un reste de poulet ? Voici, aliment par aliment, ce que votre chien et votre chat peuvent manger, avec modération ou jamais. Tapez un aliment pour le trouver tout de suite.",
        "urgence": "<strong>Urgence :</strong> si votre animal a mangé un aliment toxique (chocolat, raisin, oignon, xylitol…), appelez <strong>immédiatement</strong> votre vétérinaire ou un centre antipoison vétérinaire, même s'il semble aller bien. N'essayez pas de le faire vomir sans avis vétérinaire.",
        "chercher": "Chercher un aliment (ex. : banane)", "filtres": ["Tous", "✅ Oui", "⚠️ Avec modération", "❌ À éviter"], "aucun": "Aucun aliment trouvé.",
-       "chien": "Chien", "chat": "Chat",
+       "chien": "Chien", "chat": "Chat", "liste": "La liste, aliment par aliment",
        "regles_t": "Les règles d'or", "regles": [
          "<strong>Toujours nature</strong> : sans sel, sucre, beurre, sauce, épices, oignon ni ail.",
          "<strong>En petite quantité</strong> : les vétérinaires conseillent généralement que les friandises ne dépassent pas environ 10&nbsp;% de ce que l'animal mange dans la journée.",
@@ -191,7 +191,7 @@ T = {
        "lead": "A banana, a piece of cheese, leftover chicken? Here, food by food, is what your dog and cat can eat, in moderation or never. Type a food to find it straight away.",
        "urgence": "<strong>Emergency:</strong> if your pet has eaten something toxic (chocolate, grapes, onion, xylitol…), call your vet or a pet poison helpline <strong>immediately</strong>, even if they seem fine. Don't try to make them vomit without veterinary advice.",
        "chercher": "Search for a food (e.g. banana)", "filtres": ["All", "✅ Yes", "⚠️ In moderation", "❌ Avoid"], "aucun": "No food found.",
-       "chien": "Dog", "chat": "Cat",
+       "chien": "Dog", "chat": "Cat", "liste": "The list, food by food",
        "regles_t": "The golden rules", "regles": [
          "<strong>Always plain</strong>: no salt, sugar, butter, sauce, spices, onion or garlic.",
          "<strong>In small amounts</strong>: vets generally advise that treats should not exceed about 10% of what the animal eats in a day.",
@@ -207,7 +207,7 @@ T = {
        "lead": "Una banana, un pezzo di formaggio, un avanzo di pollo? Ecco, alimento per alimento, cosa possono mangiare il tuo cane e il tuo gatto, con moderazione o mai. Scrivi un alimento per trovarlo subito.",
        "urgence": "<strong>Urgenza:</strong> se il tuo animale ha mangiato un alimento tossico (cioccolato, uva, cipolla, xilitolo…), chiama <strong>subito</strong> il veterinario o un centro antiveleni veterinario, anche se sembra stare bene. Non cercare di farlo vomitare senza il parere del veterinario.",
        "chercher": "Cerca un alimento (es.: banana)", "filtres": ["Tutti", "✅ Sì", "⚠️ Con moderazione", "❌ Da evitare"], "aucun": "Nessun alimento trovato.",
-       "chien": "Cane", "chat": "Gatto",
+       "chien": "Cane", "chat": "Gatto", "liste": "La lista, alimento per alimento",
        "regles_t": "Le regole d'oro", "regles": [
          "<strong>Sempre al naturale</strong>: senza sale, zucchero, burro, sughi, spezie, cipolla né aglio.",
          "<strong>In piccole quantità</strong>: i veterinari consigliano in genere che gli snack non superino circa il 10% di ciò che l'animale mangia in un giorno.",
@@ -247,6 +247,7 @@ def corps(code):
           <input type="search" id="cherche-aliment" placeholder="{e(t["chercher"])}" aria-label="{e(t["chercher"])}" autocomplete="off">
           <div class="chips" role="group">{filtres}</div>
         </div>
+        <h2>{t["liste"]}</h2>
         <div class="grid grid-2 aliments">
 {cartes}        </div>
         <p class="aucun-aliment" hidden>{t["aucun"]}</p>
