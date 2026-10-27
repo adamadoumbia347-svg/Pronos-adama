@@ -129,7 +129,7 @@ Les sessions du lundi prennent le premier sujet non coché. On peut réordonner 
 - [x] Apprendre « assis », « couché » et « pas bouger » à son chien (2026-10-26)
 - [ ] Le clicker training expliqué aux débutants (chien et chat)
 - [ ] Chien qui saute sur les gens : la méthode douce
-- [ ] Chien qui a peur des pétards et de l'orage
+- [x] Chien qui a peur des pétards et de l'orage
 - [ ] Habituer son chat à la caisse de transport et à la voiture
 - [ ] Rendre son lapin propre : bac à litière et astuces
 - [ ] Chiot qui pleure la nuit : que faire ?
@@ -196,3 +196,5 @@ Quand une liste est presque vide, ajouter 6 nouveaux sujets utiles et non trait�
 - 2026-10-26 — Quelles friandises d'éducation pour son chien ? Le comparatif (`meilleures-friandises-education-chien.html`)
 - 2026-10-26 — Quelle pochette à friandises choisir ? Le comparatif (`meilleure-pochette-friandises.html`)
 - 2026-10-26 — Apprendre « assis », « couché » et « pas bouger » à son chien (`apprendre-assis-couche-pas-bouger.html`)
+- 2026-10-27 — Noël : les dangers pour votre chien et votre chat (`noel-dangers-chien-chat.html`)
+- 2026-10-27 — Chien qui a peur des pétards et de l'orage : comment l'aider (`chien-peur-petards-orage.html`)
