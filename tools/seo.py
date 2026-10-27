@@ -7,6 +7,7 @@ Usage : python3 tools/seo.py   (lancé aussi par tools/publier_article.py)
 - données structurées : fil d'Ariane (BreadcrumbList) sur toutes les pages, WebSite + Organization
   sur l'accueil, Article complété (image, éditeur, date de mise à jour), Article sur les guides,
   WebApplication sur le quiz et le calculateur d'âge ;
+- balise robots max-image-preview:large (Google Discover) ;
 - robots.txt avec l'adresse du sitemap ;
 - statistiques de visite sans cookies (GoatCounter) sur toutes les pages.
 """
@@ -112,7 +113,7 @@ def main():
             desc = html.unescape(desc.group(1)) if desc else ""
             titre = re.search(r"<h1[^>]*>(.*?)</h1>", s, re.S)
             titre = re.sub(r"^[^\wÀ-ÿ«]+", "", html.unescape(re.sub(r"<[^>]+>", "", titre.group(1))).strip()) if titre else NOM
-            if nom in GUIDES or nom.startswith("race-"):
+            if nom in GUIDES or nom.startswith(("race-", "peut-il-")):
                 blocs += ld({"@type": "Article", "headline": titre, "description": desc, "inLanguage": code, "image": [image],
                              "author": {"@type": "Organization", "name": NOM, "url": SITE + "/"}, "publisher": ORGA,
                              "mainEntityOfPage": url(prefixe, nom)})
@@ -124,6 +125,10 @@ def main():
             if fil:
                 blocs += ld(fil)
             bloc = f"<!-- seo -->\n{blocs}  <!-- /seo -->"
+            # Google Discover : autoriser les grandes images (sauf pages en noindex)
+            if 'name="robots"' not in s:
+                s = s.replace('<meta name="viewport" content="width=device-width, initial-scale=1">',
+                              '<meta name="viewport" content="width=device-width, initial-scale=1">\n  <meta name="robots" content="max-image-preview:large">', 1)
             if "<!-- stats -->" in s:
                 s = re.sub(r"<!-- stats -->.*?<!-- /stats -->", lambda _: STATS, s, flags=re.S)
             else:

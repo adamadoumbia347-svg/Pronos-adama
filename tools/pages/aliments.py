@@ -163,6 +163,12 @@ A = [
    "en": "A few berries, washed, as a treat.",
    "it": "Qualche frutto, lavato, come premio."}),
 ]
+# Pages détaillées (français) créées par tools/pages/aliments_detail.py
+DETAIL = {"banane": "peut-il-manger-banane", "fromage": "peut-il-manger-fromage", "oeuf": "peut-il-manger-oeuf",
+          "pomme": "peut-il-manger-pomme", "carotte": "peut-il-manger-carotte", "chocolat": "peut-il-manger-chocolat",
+          "raisin": "peut-il-manger-raisin", "riz": "peut-il-manger-riz", "tomate": "peut-il-manger-tomate",
+          "pasteque": "peut-il-manger-pasteque", "avocat": "peut-il-manger-avocat", "oignon": "peut-il-manger-oignon",
+          "pates": "peut-il-manger-pates", "lait": "peut-il-boire-lait", "thon": "peut-il-manger-thon"}
 VERDICT = {
  "fr": {"oui": "✅ Oui", "modere": "⚠️ Avec modération", "non": "❌ À éviter"},
  "en": {"oui": "✅ Yes", "modere": "⚠️ In moderation", "non": "❌ Avoid"},
@@ -232,7 +238,9 @@ def corps(code):
         f'          <article class="card aliment" id="{i}" data-verdicts="{c} {g}" data-nom="{e(n[code].lower())}">\n'
         f'            <h3><span aria-hidden="true">{emo}</span> {e(n[code])}</h3>\n'
         f'            <p class="verdicts"><span class="v v-{c}">🐕 {t["chien"]} : {v[c]}</span> <span class="v v-{g}">🐈 {t["chat"]} : {v[g]}</span></p>\n'
-        f'            <p>{e(d[code])}</p>\n          </article>\n'
+        f'            <p>{e(d[code])}</p>\n'
+        + (f'            <p><a href="{DETAIL[i]}.html">En savoir plus →</a></p>\n' if code == "fr" and i in DETAIL else "")
+        + '          </article>\n'
         for i, emo, n, c, g, d in A)
     filtres = "".join(f'<button type="button" class="chip{" actif" if k == 0 else ""}" data-filtre="{f}">{e(lab)}</button>'
                       for k, (f, lab) in enumerate(zip(["", "oui", "modere", "non"], t["filtres"])))
