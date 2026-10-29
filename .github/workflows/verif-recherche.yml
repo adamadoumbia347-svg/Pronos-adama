@@ -1,0 +1,65 @@
+# Vérification du moteur de recherche en direct (/recherche/, White Label Travelpayouts) dans un vrai navigateur.
+# Lancé à la main : affiche ce que le moteur affiche (formulaire, champs, résultats) et l'adresse après une recherche.
+name: Vérifier la recherche en direct
+on:
+  workflow_dispatch:
+    inputs:
+      chemin:
+        description: "Page à ouvrir (ex. /recherche/ ou /recherche/?…)"
+        required: false
+        default: "/recherche/"
+
+permissions:
+  contents: read
+
+jobs:
+  verif:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Installer Chromium (Playwright)
+        run: |
+          npm init -y >/dev/null
+          npm i playwright@1.48.2 >/dev/null
+          npx playwright install --with-deps chromium >/dev/null
+      - name: Ouvrir la page et décrire le moteur
+        env:
+          URL: https://escale.live${{ inputs.chemin || '/recherche/' }}
+        run: |
+          cat > v.js <<'JS'
+          const { chromium } = require('playwright');
+          (async () => {
+            const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 1280, height: 900 }, locale: 'fr-FR' });
+            const errs = []; p.on('pageerror', e => errs.push(e.message));
+            const base = process.env.URL.split('?')[0];
+            const vals = async () => p.evaluate(() => { const r = document.querySelector('#tpwl-search')?.shadowRoot; if (!r) return null;
+              return [...r.querySelectorAll('input')].map(i => (i.name || i.type) + '=' + i.value).join(' ; '); });
+            // 1. Paramètres d'adresse possibles pour préremplir le formulaire
+            const tests = ['', '?origin=CDG&destination=DSS&depart_date=2026-12-10&return_date=2026-12-20&adults=1',
+              '?origin_iata=CDG&destination_iata=DSS&depart_date=2026-12-10&return_date=2026-12-20',
+              '?flightSearch=CDG1012DSS20121', '?params=CDG1012DSS20121', '#/flights/CDG1012DSS20121', '?search=CDG1012DSS20121'];
+            for (const t of tests) {
+              await p.goto(base + t, { waitUntil: 'networkidle', timeout: 60000 }).catch(() => {});
+              await p.waitForTimeout(6000);
+              console.log('ESSAI', t || '(aucun)', '=>', await vals(), '| adresse :', p.url());
+            }
+            // 2. Recherche préremplie (Paris → Dakar dans 45 jours, retour 7 jours après) puis clic sur « Recherche de vols »
+            const dd = (n) => { const d = new Date(Date.now() + n * 864e5); return String(d.getUTCDate()).padStart(2, '0') + String(d.getUTCMonth() + 1).padStart(2, '0'); };
+            await p.goto(base + '?flightSearch=CDG' + dd(45) + 'DSS' + dd(52) + '1', { waitUntil: 'networkidle' }); await p.waitForTimeout(6000);
+            console.log('Formulaire :', await vals());
+            await p.locator('#tpwl-search a:has-text("Recherche de vols")').first().click().catch(e => console.log('clic', e.message));
+            await p.waitForTimeout(25000);
+            console.log('Adresse après recherche :', p.url());
+            const res = await p.evaluate(() => { const r = document.querySelector('#tpwl-tickets').shadowRoot;
+              const txt = r.textContent.replace(/\.[A-Za-z][^{}]*\{[^}]*\}/g, ' ').replace(/\s+/g, ' ');
+              const links = [...r.querySelectorAll('a')].map(a => a.href).filter(h => h.startsWith('http')).slice(0, 4);
+              return { links, prix: (txt.match(/\d[\d\s\u202f]{1,6}\s?€/g) || []).slice(0, 8), boutons: [...r.querySelectorAll('button')].map(x => x.textContent.trim()).filter(Boolean).slice(0, 8), taille: r.innerHTML.length }; });
+            console.log('Résultats :', JSON.stringify(res));
+            // 3. Clic sur le premier bouton d'achat : quelle adresse s'ouvre (identifiant partenaire ?)
+            const [pop] = await Promise.all([p.waitForEvent('popup', { timeout: 15000 }).catch(() => null),
+              p.locator('#tpwl-tickets button:has-text("Acheter"), #tpwl-tickets button:has-text("Voir"), #tpwl-tickets a:has-text("Acheter")').first().click().catch(e => console.log('clic achat', e.message))]);
+            if (pop) { await pop.waitForTimeout(6000); console.log('Page de réservation :', pop.url().slice(0, 300)); }
+            console.log('Erreurs :', errs.slice(0, 5));
+            await b.close();
+          })();
+          JS
+          node v.js
