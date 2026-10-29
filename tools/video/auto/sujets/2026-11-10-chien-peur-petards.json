@@ -1,0 +1,17 @@
+{
+ "hook": "Ton chien a <em>peur</em><br>des pétards ?<br>5 réflexes 🎆",
+ "emoji_hook": "😨",
+ "bandeau": "🐾 Nouvel An serein",
+ "musique": 2,
+ "fond": ["#e6ecfa", "#ffe9d6"],
+ "cartes": [
+  {"visuel": {"type": "illu", "nom": "laisse"}, "quoi": "Sors-le avant la nuit", "sens": "Besoins faits avant les pétards 🌙", "conseil": "→ En laisse : un chien paniqué peut fuguer", "son": "whoosh"},
+  {"visuel": {"type": "emoji", "texte": "🏠"}, "quoi": "Ferme tout", "sens": "Fenêtres, volets, rideaux 🔇", "conseil": "→ Mets la télé ou une musique douce", "son": "pop"},
+  {"visuel": {"type": "chien", "pose": "couche", "tete": -6, "deco": "zzz"}, "quoi": "Prépare-lui un refuge", "sens": "Un coin calme où se cacher 🛏️", "conseil": "→ Ne le force jamais à en sortir", "son": "pop2"},
+  {"visuel": {"type": "chien", "pose": "assis", "tete": 8, "deco": "coeur"}, "quoi": "Tu peux le rassurer", "sens": "Ça ne « renforce » pas sa peur 💛", "conseil": "→ Reste calme, parle doucement", "son": "ding", "couleur": "vert"},
+  {"visuel": {"type": "chien", "pose": "assis", "tete": -4, "deco": "interdit"}, "quoi": "Jamais de punition", "sens": "Il a vraiment peur 🙏", "conseil": "→ Peur intense ? Parles-en à ton véto", "son": "boom", "couleur": "rouge"}
+ ],
+ "fin": ["Ton chien a peur<br>des pétards ? 👇", "Tous nos conseils pour<br>des fêtes sereines 🐾"],
+ "legende": "Ton chien a peur des pétards ? 5 réflexes pour l'aider au Nouvel An 🎆 Le n°4 surprend beaucoup de monde 😉 Le tien a peur aussi ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chien #petards #dogsoftiktok #educanimaux"
+}
