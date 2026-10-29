@@ -421,3 +421,6 @@ tr.actuelle td { background: var(--soft); font-weight: 800; }
 .video-tiktok figcaption { font-size: .9rem; color: var(--muted); margin-top: 8px; }
 /* Fiches gratuites */
 .fiche img { width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--border); margin-bottom: 10px; }
+
+.checklist{list-style:none;padding-left:0}
+.checklist li{margin:6px 0}
