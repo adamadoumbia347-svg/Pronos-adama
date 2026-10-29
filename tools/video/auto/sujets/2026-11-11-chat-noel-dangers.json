@@ -1,0 +1,17 @@
+{
+ "hook": "Noël avec un chat ?<br>Attention à<br><em>ces 5 pièges</em> 🎄",
+ "emoji_hook": "🙀",
+ "bandeau": "🐾 Un Noël sans danger",
+ "musique": 3,
+ "fond": ["#e3f2ea", "#fde8e0"],
+ "cartes": [
+  {"visuel": {"type": "emoji", "texte": "🎄"}, "quoi": "Le sapin", "sens": "Il adore l'escalader 🧗", "conseil": "→ Un pied lourd, fixé si besoin", "son": "whoosh"},
+  {"visuel": {"type": "chat", "queue": "question", "yeux": "content", "oreilles": "", "deco": "interdit"}, "quoi": "Guirlandes et cheveux d'ange", "sens": "Avalés, ils sont dangereux ⚠️", "conseil": "→ Évite-les avec un chat", "son": "pop", "couleur": "rouge"},
+  {"visuel": {"type": "emoji", "texte": "💐"}, "quoi": "Le lys", "sens": "Très toxique pour le chat 🚫", "conseil": "→ Même le pollen : pas de lys à la maison", "son": "boom", "couleur": "rouge"},
+  {"visuel": {"type": "emoji", "texte": "🍫"}, "quoi": "Chocolat et restes du repas", "sens": "Toxiques ou trop gras 🍗", "conseil": "→ Tout hors de portée", "son": "pop2"},
+  {"visuel": {"type": "chat", "queue": "enroulee", "yeux": "dort", "oreilles": "detendues", "deco": "zzz"}, "quoi": "Un coin calme", "sens": "Invités et bruit le stressent 😿", "conseil": "→ Une pièce à lui, au calme", "son": "ding", "couleur": "vert"}
+ ],
+ "fin": ["Ton chat touche<br>au sapin ? 👇", "Tous nos conseils pour<br>des fêtes sereines 🐾"],
+ "legende": "Noël avec un chat ? Attention à ces 5 pièges 🎄 Le n°3 est très dangereux et peu connu ⚠️ Le tien escalade le sapin ? 👇\nUn doute ? Appelle ton vétérinaire. Tous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chat #noel #catsoftiktok #educanimaux"
+}
