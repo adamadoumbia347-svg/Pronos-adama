@@ -179,6 +179,8 @@ HOTELS = [
      "L'aéroport de Kotoka est en ville : un hôtel à Osu ou près de l'aéroport limite les trajets, souvent ralentis par les embouteillages.", "ACC"),
     ("Lagos", "Nigeria", [("Victoria Island", "quartier des affaires, hôtels et restaurants"), ("Ikoyi", "résidentiel et chic, plus calme"), ("Ikeja", "proche de l'aéroport, sur le continent")],
      "Les embouteillages entre le continent et les îles peuvent être très longs : pour une arrivée tardive ou un départ tôt, une nuit à Ikeja, près de l'aéroport, est souvent plus pratique.", "LOS"),
+    ("Nairobi", "Kenya", [("Westlands", "animé, restaurants et centres commerciaux"), ("Upper Hill", "quartier des affaires, hôtels internationaux"), ("Kilimani et Kileleshwa", "résidentiel, appartements, plus calme")],
+     "L'aéroport Jomo-Kenyatta est à l'écart du centre et la circulation peut être dense aux heures de pointe : prévoyez de la marge, ou une nuit près de l'aéroport pour une correspondance.", "NBO"),
 ]
 
 def hotel_slug(h):
@@ -327,14 +329,15 @@ def barometre_page():
             '<li><strong>Mois le moins cher</strong> : le mois de départ où le prix le plus bas a été repéré.</li></ul></section>'
             '<section><h2>D\'où viennent ces prix ?</h2><p>Ce sont des prix réels trouvés récemment par des voyageurs sur Aviasales (via Travelpayouts), relevés chaque jour par Escale. '
             'Ils servent à repérer les tendances : le tarif exact dépend de vos dates et se confirme sur le site de réservation. '
-            'Vous pouvez citer ce baromètre en mentionnant la source « Escale (escale.live) ».</p></section>'
+            'Vous pouvez citer et réutiliser ce baromètre en mentionnant la source « Escale (escale.live) » (licence <a href="https://creativecommons.org/licenses/by/4.0/deed.fr" rel="license">CC BY 4.0</a>).</p></section>'
             '<section><h2>Être prévenu quand un prix baisse</h2><p>Ouvrez la page de votre trajet dans le tableau et créez une alerte prix : vous recevez un e-mail dès qu\'un aller-retour passe sous votre budget.</p>'
             '<p><a class="btn" href="/?type=vols">Comparer les prix des vols</a></p>' + build_i18n.wa_btn("fr") + '</section>')
     ld = '<script type="application/ld+json">' + __import__("json").dumps({
         "@context": "https://schema.org", "@type": "Dataset", "name": "Baromètre des prix des vols vers l'Afrique et le Maghreb",
         "description": "Prix aller-retour les plus bas repérés chaque jour sur les grands trajets entre l'Europe, l'Afrique et le Maghreb, avec leur évolution sur 7 et 30 jours.",
         "url": f"{DOMAIN}/barometre-prix/", "creator": {"@type": "Organization", "name": "Escale", "url": f"{DOMAIN}/"},
-        "isAccessibleForFree": True, "inLanguage": "fr"}, ensure_ascii=False) + "</script>"
+        "isAccessibleForFree": True, "inLanguage": "fr",
+        "license": "https://creativecommons.org/licenses/by/4.0/"}, ensure_ascii=False) + "</script>"
     return page("barometre-prix", "Baromètre des prix des vols vers l'Afrique et le Maghreb | Escale",
                 "Chaque jour, les prix aller-retour les plus bas vers Dakar, Bamako, Abidjan, Kinshasa, Alger, Casablanca, Tunis… et leur évolution sur 7 et 30 jours.",
                 hero, body, ld)
@@ -344,6 +347,8 @@ def route_page(r):
     fr, to, cf, ct, country, airport, dur, peak, note = r
     s = route_slug(r)
     title = f"Vol pas cher {cf} {ct} : comparer les prix des billets"
+    if len(title) > 65:  # noms de villes longs : version courte pour que Google affiche tout le titre
+        title = f"Vol pas cher {cf} {ct} : comparer les prix"
     desc = f"Vol pas cher {cf} – {ct} ({fr} → {to}) : prix en direct de dizaines de compagnies, jours les moins chers et alerte prix gratuite."
     app = "/?" + urllib.parse.urlencode({"type": "vols", "from": fr, "to": to})
     back = "/?" + urllib.parse.urlencode({"type": "vols", "from": to, "to": fr})
