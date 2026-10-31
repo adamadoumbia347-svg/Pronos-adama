@@ -169,6 +169,12 @@ DETAIL = {"banane": "peut-il-manger-banane", "fromage": "peut-il-manger-fromage"
           "raisin": "peut-il-manger-raisin", "riz": "peut-il-manger-riz", "tomate": "peut-il-manger-tomate",
           "pasteque": "peut-il-manger-pasteque", "avocat": "peut-il-manger-avocat", "oignon": "peut-il-manger-oignon",
           "pates": "peut-il-manger-pates", "lait": "peut-il-boire-lait", "thon": "peut-il-manger-thon"}
+# Pages détaillées pour le chat (tools/pages/aliments_chat.py)
+DETAIL_CHAT = {i: f"chat-peut-il-manger-{n}" for i, n in [
+    ("poulet", "poulet"), ("poisson", "poisson"), ("oeuf", "oeuf"), ("fromage", "fromage"), ("yaourt", "yaourt"),
+    ("charcuterie", "jambon"), ("chocolat", "chocolat"), ("oignon", "oignon"), ("ail", "ail"), ("raisin", "raisin"),
+    ("autre-espece", "croquettes-chien"), ("pasteque", "melon"), ("courgette", "concombre"), ("potiron", "potiron"),
+    ("banane", "banane")]}
 VERDICT = {
  "fr": {"oui": "✅ Oui", "modere": "⚠️ Avec modération", "non": "❌ À éviter"},
  "en": {"oui": "✅ Yes", "modere": "⚠️ In moderation", "non": "❌ Avoid"},
@@ -239,7 +245,10 @@ def corps(code):
         f'            <h3><span aria-hidden="true">{emo}</span> {e(n[code])}</h3>\n'
         f'            <p class="verdicts"><span class="v v-{c}">🐕 {t["chien"]} : {v[c]}</span> <span class="v v-{g}">🐈 {t["chat"]} : {v[g]}</span></p>\n'
         f'            <p>{e(d[code])}</p>\n'
-        + (f'            <p><a href="{DETAIL[i]}.html">En savoir plus →</a></p>\n' if code == "fr" and i in DETAIL else "")
+        + ('            <p>' + " · ".join(x for x in [
+            f'<a href="{DETAIL[i]}.html">{"Pour le chien" if i in DETAIL_CHAT else "En savoir plus"} →</a>' if i in DETAIL else "",
+            f'<a href="{DETAIL_CHAT[i]}.html">Pour le chat →</a>' if i in DETAIL_CHAT else ""] if x) + '</p>\n'
+           if code == "fr" and (i in DETAIL or i in DETAIL_CHAT) else "")
         + '          </article>\n'
         for i, emo, n, c, g, d in A)
     filtres = "".join(f'<button type="button" class="chip{" actif" if k == 0 else ""}" data-filtre="{f}">{e(lab)}</button>'

@@ -198,3 +198,6 @@ Quand une liste est presque vide, ajouter 6 nouveaux sujets utiles et non trait�
 - 2026-10-26 — Apprendre « assis », « couché » et « pas bouger » à son chien (`apprendre-assis-couche-pas-bouger.html`)
 - 2026-10-27 — Noël : les dangers pour votre chien et votre chat (`noel-dangers-chien-chat.html`)
 - 2026-10-27 — Chien qui a peur des pétards et de l'orage : comment l'aider (`chien-peur-petards-orage.html`)
+- 2026-10-31 — Chien et froid : faut-il le couvrir en hiver ? (`chien-froid-hiver.html`)
+- 2026-10-31 — Adopter un chiot à Noël : bonne idée ou fausse bonne idée ? (`adopter-chiot-noel.html`)
+- 2026-10-31 — Chat en hiver : froid, chauffage et dangers à connaître (`chat-hiver-froid-chauffage.html`)

@@ -30,6 +30,8 @@ MANTEAU = boite("🧥", "Manteau pour petit chien", "Pour le protéger du froid 
 CLICKER = boite("🔘", "Clicker", "Idéal pour un chien qui apprend vite : il marque l'instant exact de la réussite.", "clicker", "clicker dressage chien")
 ARBRE = boite("🌳", "Arbre à chat stable", "Des hauteurs et des cachettes pour qu'il se sente en sécurité.", "arbre-chat", "arbre à chat stable grand")
 CANNE = boite("🪶", "Canne à plumes", "Pour ses séances de jeu de chasse quotidiennes.", "canne-plumes", "canne à pêche plumes jouet chat")
+BROSSE_CHIEN = boite("🪮", "Brosse pour chien", "Pour un brossage régulier et doux, adapté à son type de poil.", "brosse-chien", "brosse chien poil long démêlante")
+COUSSIN_CHAUFFANT = boite("🔥", "Coussin auto-chauffant", "Il renvoie la chaleur du corps, sans électricité : parfait pour un chat frileux.", "coussin-chauffant", "coussin auto chauffant chat")
 BROSSE_CHAT = boite("🪮", "Brosse pour chat à poil mi-long", "Pour un brossage régulier et doux.", "brosse-chat", "brosse chat poil long")
 
 RACES = [
@@ -123,9 +125,10 @@ RACES = [
 
 
 from races_extra import EXTRA, NOUVELLES  # noqa: E402
+from races_plus import PLUS  # noqa: E402
 for r in RACES:
     r.update(EXTRA.get(r["slug"], {}))
-for r in NOUVELLES:
+for r in NOUVELLES + PLUS:
     r["produits"] = "".join(globals()[k] for k in r["produits"])
     RACES.append(r)
 
@@ -175,7 +178,7 @@ if __name__ == "__main__":
     for r in RACES:
         creer_page.creer("fr", r["slug"], r["titre"], r["desc"], fiche(r))
     creer_page.creer("fr", "races", "Fiches races de chiens et de chats",
-                     "Berger australien, labrador, berger allemand, chihuahua, border collie, maine coon, ragdoll… : caractère, besoins, éducation et santé de chaque race.",
+                     "Labrador, berger australien, husky, beagle, teckel, maine coon, bengal, sphynx… : caractère, besoins, éducation et santé de 20 races de chiens et chats.",
                      hub(), menu="🐾 Fiches races")
     creer_page.finir()
     print(len(RACES), "fiches races")
