@@ -1,0 +1,17 @@
+{
+ "hook": "Ton chien <em>engloutit</em><br>sa gamelle ?<br>5 astuces 🥣",
+ "emoji_hook": "😋",
+ "bandeau": "🐾 Manger sans se presser",
+ "musique": 1,
+ "fond": ["#fff1d6", "#e6f3ef"],
+ "cartes": [
+  {"visuel": {"type": "emoji", "texte": "🥣"}, "quoi": "Une gamelle anti-glouton", "sens": "Des reliefs qui ralentissent 🐢", "conseil": "→ Il mange plus lentement, sans effort", "son": "pop"},
+  {"visuel": {"type": "illu", "nom": "chiot-jouet"}, "quoi": "Un jouet distributeur", "sens": "Il gagne ses croquettes en jouant 🎾", "conseil": "→ Repas + jeu pour sa tête", "son": "pop2"},
+  {"visuel": {"type": "emoji", "texte": "🧺"}, "quoi": "Un tapis de fouille", "sens": "Il cherche avec son nez 👃", "conseil": "→ Très calmant en plus", "son": "whoosh"},
+  {"visuel": {"type": "chien", "pose": "assis", "tete": 6, "deco": "ok"}, "quoi": "Au calme, à l'écart", "sens": "Pas de pression d'un autre chien 🏠", "conseil": "→ Une gamelle chacun, dans des coins séparés", "son": "ding", "couleur": "vert"},
+  {"visuel": {"type": "chien", "pose": "debout", "tete": -6, "deco": "interdit"}, "quoi": "Ventre gonflé après le repas ?", "sens": "Il essaie de vomir sans y arriver ⚠️", "conseil": "→ Urgence : appelle le vétérinaire", "son": "boom", "couleur": "rouge"}
+ ],
+ "fin": ["Ton chien mange<br>en combien de temps ? 👇", "Tous nos conseils pour<br>un chien serein 🐾"],
+ "legende": "Ton chien engloutit sa gamelle en quelques secondes ? 5 astuces pour qu'il mange plus lentement 🥣 Le n°5 peut être une urgence ⚠️ Le tien mange en combien de temps ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chien #educationcanine #dogsoftiktok #educanimaux"
+}

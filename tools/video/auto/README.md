@@ -85,11 +85,11 @@ Sons : pop, pop2, ding, miaou, ouaf, whoosh, boom, crash, scratch, fete.
 - [x] 5 signes que ton chat te fait confiance (2026-11-07)
 - [ ] Préparer son chien aux pétards du Nouvel An (à publier fin décembre)
 - [x] 5 cadeaux de Noël utiles pour chien et chat (2026-12-02)
-- [ ] Ton chien mange trop vite ? 5 astuces
-- [ ] Pourquoi ton chat ronronne (pas que de bonheur)
+- [x] Ton chien mange trop vite ? 5 astuces
+- [x] Pourquoi ton chat ronronne (pas que de bonheur)
 - [ ] 5 erreurs quand on adopte un chaton
 - [ ] Chien seul à la maison : 5 conseils
-- [ ] Pourquoi ton chat te mordille pendant les caresses
+- [x] Pourquoi ton chat te mordille pendant les caresses
 - [ ] 5 signes que ton chien a mal (vétérinaire)
 - [ ] Comment présenter un chat à un chien
 - [ ] 5 plantes toxiques pour les chats
@@ -104,7 +104,7 @@ Sons : pop, pop2, ding, miaou, ouaf, whoosh, boom, crash, scratch, fete.
 - [ ] Pourquoi ton chat dort autant
 - [ ] 5 erreurs de récompense avec ton chien
 - [ ] Le bon griffoir pour ton chat
-- [ ] Chien qui saute sur les gens : la solution
+- [x] Chien qui saute sur les gens : la solution
 - [ ] Pourquoi ton chat renverse son verre d'eau
 - [ ] 5 choses à faire avant d'adopter un chien
 - [ ] Ton chat et le transport chez le vétérinaire

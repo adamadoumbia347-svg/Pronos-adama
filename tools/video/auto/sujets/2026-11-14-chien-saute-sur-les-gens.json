@@ -1,0 +1,17 @@
+{
+ "hook": "Ton chien <em>saute</em><br>sur tout le monde ?<br>La solution 🐕",
+ "emoji_hook": "🤸",
+ "bandeau": "🐾 Dire bonjour poliment",
+ "musique": 0,
+ "fond": ["#e3eefc", "#fff1d6"],
+ "cartes": [
+  {"visuel": {"type": "chien", "pose": "debout", "tete": 10, "deco": "coeur"}, "quoi": "Pourquoi il saute ?", "sens": "Il veut dire bonjour à ton visage 😍", "conseil": "→ Ce n'est pas de la « dominance »", "son": "ouaf"},
+  {"visuel": {"type": "emoji", "texte": "🙈"}, "quoi": "Il saute ?", "sens": "Retourne-toi calmement 🔄", "conseil": "→ Pas de regard, pas de mots, pas de mains", "son": "whoosh"},
+  {"visuel": {"type": "chien", "pose": "assis", "tete": 4, "deco": "friandise"}, "quoi": "4 pattes au sol ?", "sens": "Là, tu lui dis bonjour 🎉", "conseil": "→ Caresse ou friandise tout de suite", "son": "ding", "couleur": "vert"},
+  {"visuel": {"type": "illu", "nom": "assis-leurre"}, "quoi": "Apprends-lui « assis »", "sens": "Assis = on me dit bonjour 🪑", "conseil": "→ Entraîne-toi avant l'arrivée des invités", "son": "pop"},
+  {"visuel": {"type": "chien", "pose": "debout", "tete": -8, "deco": "interdit"}, "quoi": "Pas de coup de genou", "sens": "Ça fait peur ou ça l'excite 😬", "conseil": "→ Et tout le monde suit la même règle", "son": "boom", "couleur": "rouge"}
+ ],
+ "fin": ["Ton chien saute<br>sur qui ? 👇", "Tous nos conseils pour<br>un chien poli 🐾"],
+ "legende": "Ton chien saute sur tout le monde ? Voici la solution en douceur 🐕 Le n°3 change tout 😉 Il saute sur qui chez toi ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chien #educationcanine #dogsoftiktok #educanimaux"
+}

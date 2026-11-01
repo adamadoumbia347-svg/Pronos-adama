@@ -1,0 +1,17 @@
+{
+ "hook": "Pourquoi ton chat<br><em>ronronne</em> ?<br>Pas que de bonheur 😺",
+ "emoji_hook": "😻",
+ "bandeau": "🐾 Le secret du ronron",
+ "musique": 4,
+ "fond": ["#fde8e0", "#efe6fa"],
+ "cartes": [
+  {"visuel": {"type": "chat", "queue": "enroulee", "yeux": "content", "oreilles": "detendues", "deco": "coeur"}, "quoi": "Il est bien avec toi", "sens": "Le ronron du bonheur 💛", "conseil": "→ Profite, c'est un compliment", "son": "miaou", "couleur": "vert"},
+  {"visuel": {"type": "chat", "queue": "question", "yeux": "normal", "oreilles": "", "deco": "friandise"}, "quoi": "Il réclame à manger", "sens": "Un ronron plus insistant 🍽️", "conseil": "→ Garde des horaires de repas réguliers", "son": "pop"},
+  {"visuel": {"type": "chat", "queue": "enroulee", "yeux": "dort", "oreilles": "", "deco": "zzz"}, "quoi": "Il se rassure", "sens": "Il ronronne aussi quand il stresse 😟", "conseil": "→ Chez le véto, ça ne veut pas dire « tout va bien »", "son": "pop2"},
+  {"visuel": {"type": "emoji", "texte": "🐱"}, "quoi": "Avec ses chatons", "sens": "Le ronron sert à communiquer 🍼", "conseil": "→ Dès les premiers jours de vie", "son": "ding"},
+  {"visuel": {"type": "chat", "queue": "gonflee", "yeux": "peur", "oreilles": "plaquees", "deco": "interdit"}, "quoi": "Ronron + il se cache ?", "sens": "Il peut avoir mal 🩺", "conseil": "→ S'il ne mange plus, vétérinaire", "son": "boom", "couleur": "rouge"}
+ ],
+ "fin": ["Ton chat ronronne<br>quand ? 👇", "Tous nos conseils pour<br>comprendre ton chat 🐾"],
+ "legende": "Pourquoi ton chat ronronne ? Pas seulement quand il est heureux 😺 Le n°3 surprend beaucoup de monde 🩺 Le tien ronronne quand ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chat #comportementchat #catsoftiktok #educanimaux"
+}

@@ -1,0 +1,17 @@
+{
+ "hook": "Ton chat te <em>mordille</em><br>pendant les caresses ?<br>Voici pourquoi 😼",
+ "emoji_hook": "😾",
+ "bandeau": "🐾 Caresses sans morsures",
+ "musique": 2,
+ "fond": ["#fde8e0", "#e6f3ef"],
+ "cartes": [
+  {"visuel": {"type": "chat", "queue": "fouette", "yeux": "agace", "oreilles": "avion", "deco": ""}, "quoi": "Trop de caresses", "sens": "Il dit « stop » à sa façon 🛑", "conseil": "→ Ce n'est pas de la méchanceté", "son": "miaou"},
+  {"visuel": {"type": "chat", "queue": "fouette", "yeux": "normal", "oreilles": "avion", "deco": ""}, "quoi": "Repère les signaux", "sens": "Queue qui fouette, oreilles de côté 👀", "conseil": "→ Arrête AVANT la morsure", "son": "pop", "couleur": "rouge"},
+  {"visuel": {"type": "chat", "queue": "droite", "yeux": "content", "oreilles": "detendues", "deco": "coeur"}, "quoi": "Tête et joues", "sens": "Ses zones préférées 😻", "conseil": "→ Le ventre, souvent : non merci", "son": "ding", "couleur": "vert"},
+  {"visuel": {"type": "chat", "queue": "question", "yeux": "content", "oreilles": "", "deco": "ok"}, "quoi": "Laisse-le venir", "sens": "Des caresses courtes 🤏", "conseil": "→ S'il en redemande, il revient", "son": "pop2"},
+  {"visuel": {"type": "emoji", "texte": "🪶"}, "quoi": "Joue avec lui chaque jour", "sens": "Il dépense son énergie de chasseur 🐾", "conseil": "→ Changement soudain ? Vétérinaire", "son": "whoosh"}
+ ],
+ "fin": ["Ton chat fait ça<br>aussi ? 👇", "Tous nos conseils pour<br>comprendre ton chat 🐾"],
+ "legende": "Ton chat te mordille pendant les caresses ? Voici pourquoi (et comment l'éviter) 😼 Le n°2 change tout 👀 Le tien fait ça aussi ? 👇\nTous nos conseils : educanimaux.fr (lien en bio)",
+ "hashtags": "#chat #comportementchat #catsoftiktok #educanimaux"
+}
