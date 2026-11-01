@@ -22,6 +22,9 @@ import fetes_dest  # noqa: E402
 import famille_pages  # noqa: E402
 import italia  # noqa: E402
 import deutsch  # noqa: E402
+import nederlands  # noqa: E402
+import pays_accueil  # noqa: E402
+import visa  # noqa: E402
 import explore_pages  # noqa: E402
 import hubs  # noqa: E402
 import villes  # noqa: E402
@@ -607,6 +610,8 @@ def main():
     i18n_urls, route_paths, hotel_paths = build_i18n.build(SITE, ctx)
     explore_pages.build_favs(SITE, ctx)  # pages personnelles : hors du plan du site
     hub_urls, _ = hubs.build_hubs(SITE, ctx, route_paths, hotel_paths)
+    urls += pays_accueil.build(SITE, ctx, route_paths)  # accueils par pays africain (/ci/, /sn/, /ng/…)
+    urls += visa.build(SITE, ctx)  # outil « visa selon mon passeport » (/visa/, /en/visa/)
     urls += hub_urls
     urls += i18n_urls + build_i18n.build_indexes(SITE, ctx, route_paths, hotel_paths) + build_i18n.build_deals(SITE, ctx) + build_i18n.build_guides(SITE, ctx) + build_i18n.build_about(SITE, ctx) + build_i18n.build_fetes(SITE, ctx) + explore_pages.build_anywhere(SITE, ctx)
     urls += legal_pages()
@@ -616,6 +621,7 @@ def main():
     urls.append(hotels_live_page())
     urls += italia.build(SITE, ctx)  # test : trajets au départ de l'Italie, en italien
     urls += deutsch.build(SITE, ctx)  # trajets au départ de l'Allemagne, de l'Autriche et de Zurich, en allemand
+    urls += nederlands.build(SITE, ctx)  # trajets au départ des Pays-Bas et de Bruxelles, en néerlandais
     urls += ete.build(page, E, lambda lang, c, c_en, code: build_i18n.extras_html(SITE, lang, c, c_en, code), build_i18n.alert_btn, DOMAIN,
                       lambda p: (SITE / p / "index.html").exists(), lambda p: (SITE / p / "index.html").exists(), build_i18n.wa_btn)
     urls += fetes_dest.build(page, E, lambda lang, c, c_en, code: build_i18n.extras_html(SITE, lang, c, c_en, code), build_i18n.alert_btn,
@@ -638,7 +644,8 @@ def main():
     by_origin = {}
     for r in ROUTES:
         by_origin.setdefault(r[2], []).append(f'<li><a href="/{route_slug(r)}/">Vol {E(r[2])} → {E(r[3])}</a></li>')
-    links = "".join(group(f"Vols au départ de {E(o)}", items) for o, items in by_origin.items())
+    links = group("Partir d’Afrique : vols au départ de chaque pays", [f'<li><a href="/{c}/">{p[1]} Vols au départ {E(pays_accueil.DU.get(c, "du " + p[0]))}</a></li>' for c, p in pays_accueil.PAYS.items()])
+    links += "".join(group(f"Vols au départ de {E(o)}", items) for o, items in by_origin.items())
     links += group("Hôtels pas chers", [f'<li><a href="/{hotel_slug(h)}/">Hôtel pas cher à {E(h[0])}</a></li>' for h in HOTELS])
     links += group("Articles du blog", [f'<li><a href="/blog/{a["slug"]}/">{E(a["h1"])}</a></li>' for a in blog.ARTICLES] + ['<li><a href="/blog/">Tous les articles</a></li>'])
     links += group("Guides pratiques", ['<li><a href="/guides/bagages-avion/">Bagages : ne pas payer plus cher</a></li>',
@@ -652,8 +659,8 @@ def main():
                                         '<li><a href="/vols-ete-2027/">Vacances d’été 2027 au pays : prix par destination</a></li>',
                                         '<li><a href="/barometre-prix/">Baromètre des prix des vols</a></li>',
                                         '<li><a href="/widget/">Widget gratuit « Prix des vols » pour votre site</a></li>'])
-    links += '<p class="lead guides-langs">Guides in English, en español, em português, بالعربية, in italiano, auf Deutsch : ' + " · ".join(
-        f'<a href="/{l}/" hreflang="{l}" lang="{l}">{build_i18n.NAMES[l]}</a>' for l in build_i18n.LANGS + ["it", "de"]) + "</p>"
+    links += '<p class="lead guides-langs">Guides in English, en español, em português, بالعربية, in italiano, auf Deutsch, in het Nederlands : ' + " · ".join(
+        f'<a href="/{l}/" hreflang="{l}" lang="{l}">{build_i18n.NAMES[l]}</a>' for l in build_i18n.LANGS + ["it", "de", "nl"]) + "</p>"
     s = re.sub(r"<!-- TRAVELPAYOUTS:START -->.*?<!-- TRAVELPAYOUTS:END -->",
                lambda m: "<!-- TRAVELPAYOUTS:START -->\n" + TRAVELPAYOUTS + "\n<!-- TRAVELPAYOUTS:END -->", s, flags=re.S)
     # Accueil : bandeau des cookies écrit dans la page (fin du <body>) au lieu de /consent.js chargé à part,

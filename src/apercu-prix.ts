@@ -6,7 +6,7 @@ import { Ctx, esc, pricesForDates } from "./_lib/common"
 // - section « Prix repérés récemment » : le prix le plus bas pour chacun des 6 prochains mois, avec une phrase de résumé
 // Les prix (Travelpayouts) sont gardés 6 heures dans le cache de Cloudflare. Sans réponse rapide, la page part telle quelle
 // et route-prices.js prend le relais dans le navigateur. Les chemins concernés sont listés dans wrangler.jsonc (run_worker_first).
-const PAGES = /^\/(vol-|vols-pour-|en\/flights-|es\/vuelos-|pt\/voos-|ar\/flights-|it\/voli-|de\/fluege-)/
+const PAGES = /^\/(vol-|vols-pour-|en\/flights-|es\/vuelos-|pt\/voos-|ar\/flights-|it\/voli-|de\/fluege-|nl\/vluchten-)/
 const MONTHS = 6
 const WAIT_MS = 1200
 const CACHE_S = 6 * 3600
@@ -23,19 +23,21 @@ const TRACKED = new Set(("CDG-DSS CDG-BKO CDG-ABJ CDG-CKY CDG-DLA CDG-NSI CDG-LF
   "LIL-ALG LIL-ORN LIL-TUN LIL-OUD GVA-ABJ CDG-MPM BOD-RAK MXP-ABJ MXP-DSS FCO-DSS MXP-CMN MXP-LOS MXP-ACC " +
   "CDG-NIM CDG-NDJ CDG-OXB CDG-BJL CDG-RAI CDG-ACC CDG-LOS CDG-ADD CDG-NBO CDG-JNB CDG-KGL CDG-CAI CDG-TNR CDG-LAD CDG-MPM CDG-DAR CDG-MRU MXP-TUN MXP-CAI MXP-ADD MXP-ALG FCO-CMN FCO-TUN FCO-CAI FCO-LOS FCO-ADD FCO-ALG FCO-ACC FCO-ABJ").split(" "))
 const HIST_DAYS = 120, HIST_MIN = 7, HIST_WINDOW = 60
-export type Point = [string, number] // [date, prix le plus bas des 6 prochains mois]
+export type Point = [string, number, string?] // [date, prix le plus bas des 6 prochains mois]
 
 export async function readHistory(ctx: Ctx, from: string, to: string): Promise<Point[]> {
   if (!ctx.env.ESCALE || !TRACKED.has(`${from}-${to}`)) return []
   try { return ((await ctx.env.ESCALE.get(`hist:${from}-${to}`, "json")) as Point[]) || [] } catch { return [] }
 }
 
-async function recordHistory(ctx: Ctx, from: string, to: string, price: number) {
+// Le mois le moins cher est gardé avec le prix : le baromètre lit tout dans KV, sans ouvrir le cache de chaque trajet
+async function recordHistory(ctx: Ctx, from: string, to: string, price: number, month: string) {
   if (!ctx.env.ESCALE || !TRACKED.has(`${from}-${to}`)) return
   const today = new Date().toISOString().slice(0, 10)
   const hist = await readHistory(ctx, from, to)
-  if (hist.length && hist[hist.length - 1][0] === today) return
-  hist.push([today, Math.round(price)])
+  const last = hist[hist.length - 1]
+  if (last && last[0] === today) { if (last[2]) return; last[2] = month } // relevé du jour déjà fait (on complète le mois s'il manquait)
+  else hist.push([today, Math.round(price), month])
   await ctx.env.ESCALE.put(`hist:${from}-${to}`, JSON.stringify(hist.slice(-HIST_DAYS)))
 }
 
@@ -101,6 +103,13 @@ const L: Record<string, { loc: string; from: string; hero: string; direct: strin
     midTxt: "{p}, nah am üblichen Preis ({avg}, Median der letzten {n} erfassten Tage).",
     highTxt: "{p}, also {x} % teurer als üblich ({avg}, Median der letzten {n} erfassten Tage). Wenn du warten kannst, erstelle einen Preisalarm.",
     chart: "Niedrigster Preis nach Abflugmonat" },
+  nl: { loc: "nl-NL", from: "vanaf", hero: "Retour gevonden vanaf", direct: "rechtstreeks", one: "1 overstap", many: " overstappen", best: "Goedkoopst", go: "Bekijk deze data",
+    summary: "Goedkoopste maand op dit moment: {m}, vanaf {p} retour. In de komende {n} maanden liggen de gevonden prijzen tussen {p} en {max}.", updated: "Prijzen bijgewerkt op {d}.",
+    low: "Nu een goede prijs", mid: "Gemiddelde prijs", high: "Nu eerder duur",
+    lowTxt: "{p}, dus {x} % goedkoper dan normaal (mediaanprijs {avg} over de laatste {n} gemeten dagen).",
+    midTxt: "{p}, dicht bij de normale prijs ({avg}, mediaan van de laatste {n} gemeten dagen).",
+    highTxt: "{p}, dus {x} % duurder dan normaal ({avg}, mediaan van de laatste {n} gemeten dagen). Kun je wachten, stel dan een prijsalert in.",
+    chart: "Laagste prijs per vertrekmaand" },
 }
 
 // Prix le plus bas par mois de départ (6 prochains mois), depuis le cache Cloudflare ou Travelpayouts.
@@ -125,7 +134,7 @@ export async function routeMonths(ctx: Ctx, from: string, to: string): Promise<M
     if (t) out.push({ month: months[i], price: t.price, dep: String(t.departure_at).slice(0, 10), ret: t.return_at ? String(t.return_at).slice(0, 10) : "", transfers: t.transfers ?? 0 })
   })
   if (cache) ctx.waitUntil(cache.put(key, new Response(JSON.stringify(out), { headers: { "Content-Type": "application/json", "Cache-Control": `public, max-age=${CACHE_S}` } })))
-  if (out.length) ctx.waitUntil(recordHistory(ctx, from, to, Math.min(...out.map((r) => r.price))).catch(() => {}))
+  if (out.length) { const b = out.reduce((a, c) => (c.price < a.price ? c : a)); ctx.waitUntil(recordHistory(ctx, from, to, b.price, b.month).catch(() => {})) }
   return out
 }
 
@@ -139,7 +148,7 @@ function render(html: string, from: string, to: string, rows: Month[], hist: Poi
   const bestRow = rows.find((r) => r.price === best)!
   const label = `${t.from} ${money(best)}`
   const lead = label.charAt(0).toUpperCase() + label.slice(1)
-  const app = lang === "fr" ? "" : "&lang=" + lang
+  const app = lang === "fr" ? "" : "&lang=" + (lang === "nl" ? "en" : lang)
   const items = rows.map((r) => {
     const stops = r.transfers === 0 ? t.direct : r.transfers === 1 ? t.one : r.transfers + t.many
     const when = date(r.dep, { day: "numeric", month: "short" }) + (r.ret ? " → " + date(r.ret, { day: "numeric", month: "short" }) : "")
@@ -172,7 +181,7 @@ function render(html: string, from: string, to: string, rows: Month[], hist: Poi
 
 // Pages « destination » (tous les vols vers une ville) : chaque ligne reçoit le prix déjà connu du trajet (cache des pages trajets).
 // Les trajets pas encore en cache sont préparés en arrière-plan (3 par visite) ; hub.js complète dans le navigateur.
-const t2 = (lang: string) => ({ fr: "dès", en: "from", es: "desde", pt: "desde", ar: "من", it: "da", de: "ab" } as Record<string, string>)[lang] || "dès"
+const t2 = (lang: string) => ({ fr: "dès", en: "from", es: "desde", pt: "desde", ar: "من", it: "da", de: "ab", nl: "vanaf" } as Record<string, string>)[lang] || "dès"
 async function fillHub(ctx: Ctx, html: string) {
   const cache = (globalThis as any).caches?.default
   const cells = [...html.matchAll(/<td class="hub-price" data-from="([A-Z]{3})" data-to="([A-Z]{3})" data-label="([^"]*)"><\/td>/g)]
