@@ -25,6 +25,7 @@ import deutsch  # noqa: E402
 import nederlands  # noqa: E402
 import pays_accueil  # noqa: E402
 import visa  # noqa: E402
+import afrique_themes  # noqa: E402
 import explore_pages  # noqa: E402
 import hubs  # noqa: E402
 import villes  # noqa: E402
@@ -593,6 +594,27 @@ def legal_pages():
 DISTANCES = {}
 
 
+# Mode léger (réseaux lents, économie de données, visiteurs en Afrique) : un petit script en tête de chaque page ajoute la classe
+# « lite » à <html> ; sans elle, il précharge la police du site. En mode léger : police du système, pas de photos décoratives,
+# grille et courbe des prix chargées à la demande (pages.css, site/grille.js, site/courbe.js). Choix modifiable en bas de page (clics.js).
+FONT_PRELOAD = '<link rel="preload" href="/fonts/instrument-sans-latin-f587e7.woff2" as="font" type="font/woff2" crossorigin>'
+LITE_JS = ('<script>(function(){try{var d=document.documentElement,s=localStorage.getItem("escale.lite"),c=navigator.connection||{},z="";'
+           'try{z=Intl.DateTimeFormat().resolvedOptions().timeZone||""}catch(e){}'
+           'if(s==="1"||(s!=="0"&&(c.saveData||/2g|3g/.test(c.effectiveType||"")||z.indexOf("Africa/")===0)))d.classList.add("lite");'
+           'else{var l=document.createElement("link");l.rel="preload";l.as="font";l.type="font/woff2";l.crossOrigin="anonymous";'
+           'l.href="/fonts/instrument-sans-latin-f587e7.woff2";document.head.appendChild(l)}}catch(e){}})();</script>')
+
+
+def lite_mode(site):
+    n = 0
+    for f in site.rglob("*.html"):
+        t = f.read_text(encoding="utf-8")
+        if FONT_PRELOAD in t:
+            f.write_text(t.replace(FONT_PRELOAD, LITE_JS), encoding="utf-8")
+            n += 1
+    return n
+
+
 def main():
     airports_all = {a[0]: a for a in __import__("json").loads((SITE / "data" / "airports.json").read_text(encoding="utf-8"))}
     _, dist = routes_extra.extend(ROUTES, translations, airports_all)
@@ -612,6 +634,7 @@ def main():
     hub_urls, _ = hubs.build_hubs(SITE, ctx, route_paths, hotel_paths)
     urls += pays_accueil.build(SITE, ctx, route_paths)  # accueils par pays africain (/ci/, /sn/, /ng/…)
     urls += visa.build(SITE, ctx)  # outil « visa selon mon passeport » (/visa/, /en/visa/)
+    urls += afrique_themes.build(SITE, ctx, route_paths)  # Hajj/Omra, études, commerce : vols au départ de l'Afrique
     urls += hub_urls
     urls += i18n_urls + build_i18n.build_indexes(SITE, ctx, route_paths, hotel_paths) + build_i18n.build_deals(SITE, ctx) + build_i18n.build_guides(SITE, ctx) + build_i18n.build_about(SITE, ctx) + build_i18n.build_fetes(SITE, ctx) + explore_pages.build_anywhere(SITE, ctx)
     urls += legal_pages()
@@ -644,7 +667,8 @@ def main():
     by_origin = {}
     for r in ROUTES:
         by_origin.setdefault(r[2], []).append(f'<li><a href="/{route_slug(r)}/">Vol {E(r[2])} → {E(r[3])}</a></li>')
-    links = group("Partir d’Afrique : vols au départ de chaque pays", [f'<li><a href="/{c}/">{p[1]} Vols au départ {E(pays_accueil.DU.get(c, "du " + p[0]))}</a></li>' for c, p in pays_accueil.PAYS.items()])
+    links = group("Partir d’Afrique : vols au départ de chaque pays", [f'<li><a href="/{c}/">{p[1]} Vols au départ {E(pays_accueil.DU.get(c, "du " + p[0]))}</a></li>' for c, p in pays_accueil.PAYS.items()]
+                  + [f'<li><a href="/{p}/">{E(t)}</a></li>' for p, t in afrique_themes.links("fr")] + ['<li><a href="/visa/">Faut-il un visa avec mon passeport ?</a></li>'])
     links += "".join(group(f"Vols au départ de {E(o)}", items) for o, items in by_origin.items())
     links += group("Hôtels pas chers", [f'<li><a href="/{hotel_slug(h)}/">Hôtel pas cher à {E(h[0])}</a></li>' for h in HOTELS])
     links += group("Articles du blog", [f'<li><a href="/blog/{a["slug"]}/">{E(a["h1"])}</a></li>' for a in blog.ARTICLES] + ['<li><a href="/blog/">Tous les articles</a></li>'])
@@ -726,6 +750,7 @@ def main():
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
         "".join(f"  <url><loc>{u}</loc><lastmod>{new_lm['/' + (u[len(DOMAIN):].strip('/') + '/' if u[len(DOMAIN):].strip('/') else '')][1]}</lastmod></url>\n" for u in urls) + "</urlset>\n", encoding="utf-8")
     (SITE / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {DOMAIN}/sitemap.xml\n", encoding="utf-8")
+    lite_mode(SITE)
     print(f"{len(urls)} pages dans le sitemap")
 
 if __name__ == "__main__":
