@@ -21,6 +21,7 @@ import ete  # noqa: E402
 import fetes_dest  # noqa: E402
 import famille_pages  # noqa: E402
 import italia  # noqa: E402
+import deutsch  # noqa: E402
 import explore_pages  # noqa: E402
 import hubs  # noqa: E402
 import villes  # noqa: E402
@@ -614,6 +615,7 @@ def main():
     urls.append(recherche_page())
     urls.append(hotels_live_page())
     urls += italia.build(SITE, ctx)  # test : trajets au départ de l'Italie, en italien
+    urls += deutsch.build(SITE, ctx)  # trajets au départ de l'Allemagne, de l'Autriche et de Zurich, en allemand
     urls += ete.build(page, E, lambda lang, c, c_en, code: build_i18n.extras_html(SITE, lang, c, c_en, code), build_i18n.alert_btn, DOMAIN,
                       lambda p: (SITE / p / "index.html").exists(), lambda p: (SITE / p / "index.html").exists(), build_i18n.wa_btn)
     urls += fetes_dest.build(page, E, lambda lang, c, c_en, code: build_i18n.extras_html(SITE, lang, c, c_en, code), build_i18n.alert_btn,
@@ -650,8 +652,8 @@ def main():
                                         '<li><a href="/vols-ete-2027/">Vacances d’été 2027 au pays : prix par destination</a></li>',
                                         '<li><a href="/barometre-prix/">Baromètre des prix des vols</a></li>',
                                         '<li><a href="/widget/">Widget gratuit « Prix des vols » pour votre site</a></li>'])
-    links += '<p class="lead guides-langs">Guides in English, en español, em português, بالعربية, in italiano : ' + " · ".join(
-        f'<a href="/{l}/" hreflang="{l}" lang="{l}">{build_i18n.NAMES[l]}</a>' for l in build_i18n.LANGS + ["it"]) + "</p>"
+    links += '<p class="lead guides-langs">Guides in English, en español, em português, بالعربية, in italiano, auf Deutsch : ' + " · ".join(
+        f'<a href="/{l}/" hreflang="{l}" lang="{l}">{build_i18n.NAMES[l]}</a>' for l in build_i18n.LANGS + ["it", "de"]) + "</p>"
     s = re.sub(r"<!-- TRAVELPAYOUTS:START -->.*?<!-- TRAVELPAYOUTS:END -->",
                lambda m: "<!-- TRAVELPAYOUTS:START -->\n" + TRAVELPAYOUTS + "\n<!-- TRAVELPAYOUTS:END -->", s, flags=re.S)
     # Accueil : bandeau des cookies écrit dans la page (fin du <body>) au lieu de /consent.js chargé à part,
@@ -672,18 +674,20 @@ def main():
         fcards.append(
             f'<a class="city-card" href="{hrefs["fr"]}" data-hrefs="{E(json.dumps(hrefs))}">'
             f'<img src="/img/villes/{img}-480.webp" srcset="/img/villes/{img}-480.webp 480w, /img/villes/{img}.webp 800w" sizes="(max-width: 600px) 46vw, 300px" width="480" height="360" alt="" loading="lazy" decoding="async">'
-            f'<span class="city-info"><strong data-names="{E(json.dumps({l: lab[l][0] for l in build_i18n.LANGS}, ensure_ascii=False))}">{E(lab["fr"][0])}</strong>'
-            f'<small data-names="{E(json.dumps({l: lab[l][1] for l in build_i18n.LANGS}, ensure_ascii=False))}">{E(lab["fr"][1])}</small></span></a>')
+            f'<span class="city-info"><strong data-names="{E(json.dumps({l: lab[l][0] for l in build_i18n.LANGS + ["it", "de"]}, ensure_ascii=False))}">{E(lab["fr"][0])}</strong>'
+            f'<small data-names="{E(json.dumps({l: lab[l][1] for l in build_i18n.LANGS + ["it", "de"]}, ensure_ascii=False))}">{E(lab["fr"][1])}</small></span></a>')
     # Bandeau de saison de l'accueil : la prochaine fête (le choix se fait dans le navigateur, selon la date du jour)
     EMO = {"noel": "🎄", "hiver": "☀️", "ramadan": "🌙", "printemps": "🌸", "tabaski": "🐑", "ete": "☀️"}
     MSG = {"fr": "{e} {t} ({d}) : les prix montent à l’approche des dates. Voir les vols →",
            "en": "{e} {t} ({d}): prices rise as the dates get closer. See flights →",
            "es": "{e} {t} ({d}): los precios suben a medida que se acercan las fechas. Ver vuelos →",
            "pt": "{e} {t} ({d}): os preços sobem à medida que as datas se aproximam. Ver voos →",
-           "ar": "{e} {t} ({d}): ترتفع الأسعار مع اقتراب المواعيد. اعرض الرحلات ←"}
+           "ar": "{e} {t} ({d}): ترتفع الأسعار مع اقتراب المواعيد. اعرض الرحلات ←",
+           "it": "{e} {t} ({d}): i prezzi salgono man mano che le date si avvicinano. Vedi i voli →",
+           "de": "{e} {t} ({d}): Die Preise steigen, je näher die Termine rücken. Flüge ansehen →"}
     season = [{"dep": f["dep"],
                "txt": {l: MSG[l].format(e=EMO.get(f["key"], "✈️"), t=FT.CARDS[f["key"]][1][l][0], d=FT.CARDS[f["key"]][1][l][1]) for l in MSG},
-               "href": {l: "/" + f[l]["slug"] + "/" for l in MSG}} for f in sorted(FT.FETES, key=lambda x: x["dep"])]
+               "href": {l: "/" + f[l if l in f else "en"]["slug"] + "/" for l in MSG}} for f in sorted(FT.FETES, key=lambda x: x["dep"])]
     s = re.sub(r"<!-- SAISON:START -->.*?<!-- SAISON:END -->", lambda m: '<!-- SAISON:START --><script type="application/json" id="season-data">'
                + __import__("json").dumps(season, ensure_ascii=False).replace("</", "<\\/") + '</script><!-- SAISON:END -->', s, flags=re.S)
     s = re.sub(r"<!-- FETES:START -->.*?<!-- FETES:END -->", lambda m: '<!-- FETES:START -->\n    <div class="city-grid fete-grid">' + "".join(fcards) + '</div>\n    <!-- FETES:END -->', s, flags=re.S)
