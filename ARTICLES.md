@@ -127,7 +127,7 @@ Les sessions du lundi prennent le premier sujet non coché. On peut réordonner 
 - [x] Chat qui fait pipi hors de sa litière : causes et solutions (2026-10-23)
 - [x] Chat qui miaule la nuit : pourquoi et comment dormir enfin (2026-10-23)
 - [x] Apprendre « assis », « couché » et « pas bouger » à son chien (2026-10-26)
-- [ ] Le clicker training expliqué aux débutants (chien et chat)
+- [x] Le clicker training expliqué aux débutants (chien et chat) (2026-11-02)
 - [ ] Chien qui saute sur les gens : la méthode douce
 - [x] Chien qui a peur des pétards et de l'orage
 - [ ] Habituer son chat à la caisse de transport et à la voiture
@@ -164,12 +164,12 @@ Chaque lundi, les 2 premiers non cochés (entre parenthèses : l'article de cons
 - [ ] Quels jouets à mâcher pour un chiot ? (chiot qui pleure la nuit / chiot qui mord)
 - [ ] Quel parc ou quelle cage pour un chiot ? (chiot qui pleure la nuit)
 - [ ] Quelle muselière panier choisir (et comment l'habituer en douceur) ? (chien qui mange tout dehors)
-- [ ] Quels jouets choisir pour un chat d'intérieur ? (présenter un nouveau chat / chaton qui mord)
+- [x] Quels jouets choisir pour un chat d'intérieur ? (présenter un nouveau chat / chaton qui mord) (2026-11-02)
 - [ ] Quel arbre à chat choisir ? (chien et chat)
 - [ ] Quels jouets et perchoirs pour un perroquet ? (perroquet sur la main)
 - [ ] Quel coupe-griffes choisir pour son chien ? (couper les griffes)
 - [ ] Quelle gamelle anti-glouton choisir ? (chien réactif / occuper son chien)
-- [ ] Quels jeux d'intelligence pour chien ? (occuper son chien en appartement)
+- [x] Quels jeux d'intelligence pour chien ? (occuper son chien en appartement) (2026-11-02)
 - [ ] Quel lit ou panier pour un chien adopté adulte ? (adopter un chien adulte)
 
 Quand une liste est presque vide, ajouter 6 nouveaux sujets utiles et non traités.
@@ -201,3 +201,6 @@ Quand une liste est presque vide, ajouter 6 nouveaux sujets utiles et non trait�
 - 2026-10-31 — Chien et froid : faut-il le couvrir en hiver ? (`chien-froid-hiver.html`)
 - 2026-10-31 — Adopter un chiot à Noël : bonne idée ou fausse bonne idée ? (`adopter-chiot-noel.html`)
 - 2026-10-31 — Chat en hiver : froid, chauffage et dangers à connaître (`chat-hiver-froid-chauffage.html`)
+- 2026-11-02 — Clicker training : le guide pour débutants (chien et chat) (`clicker-training-debutant.html`, + EN/IT)
+- 2026-11-02 — Quels jeux d'intelligence pour chien ? Le comparatif (`meilleurs-jeux-intelligence-chien.html`, + EN/IT)
+- 2026-11-02 — Quels jouets choisir pour un chat d'intérieur ? (`meilleurs-jouets-chat-interieur.html`, + EN/IT)
