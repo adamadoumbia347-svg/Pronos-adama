@@ -551,6 +551,7 @@ def legal_pages():
 </section>
 <section><h2>Alertes prix</h2>
 <p>Si vous créez une alerte prix, nous conservons votre e-mail, le trajet, votre budget et la langue choisie, uniquement pour vous prévenir quand le prix baisse. L'alerte n'est active qu'après confirmation par le lien reçu par e-mail ; sans confirmation, elle est effacée au bout de 7 jours. Chaque e-mail contient un lien de désinscription qui efface immédiatement l'alerte. Une alerte est de toute façon supprimée au bout d'un an. Les e-mails sont envoyés par un prestataire d'envoi (Resend ou Brevo), qui ne reçoit que l'adresse et le contenu du message.</p>
+<p>Si vous choisissez l'alerte par notification, votre navigateur nous donne, avec votre accord, une adresse technique d'abonnement (fournie par Google, Apple, Mozilla ou Microsoft selon votre appareil). Nous la conservons avec le trajet, le budget et la langue, uniquement pour vous envoyer la notification, au plus une tous les 3 jours, pendant un an au maximum. Aucun e-mail ni numéro n'est demandé. Pour arrêter, retirez l'autorisation des notifications d'Escale dans les réglages de votre navigateur : l'abonnement et les alertes liées sont alors effacés.</p>
 </section>
 <section><h2>Ce qui reste sur votre appareil</h2>
 <p>Vos dernières recherches, le dernier onglet, la langue, la devise, votre aéroport de départ et votre choix concernant les cookies sont enregistrés dans le stockage local de votre navigateur, uniquement pour vous les reproposer. Ces données ne quittent pas votre appareil. Vous pouvez les effacer à tout moment en supprimant les données du site dans votre navigateur.</p>
@@ -696,7 +697,7 @@ def main():
         by_origin.setdefault(r[2], []).append(f'<li><a href="/{route_slug(r)}/">Vol {E(r[2])} → {E(r[3])}</a></li>')
     links = group("Partir d’Afrique : vols au départ de chaque pays", [f'<li><a href="/{c}/">{p[1]} Vols au départ {E(pays_accueil.DU.get(c, "du " + p[0]))}</a></li>' for c, p in pays_accueil.PAYS.items()]
                   + [f'<li><a href="/{p}/">{E(t)}</a></li>' for p, t in afrique_themes.links("fr")] + ['<li><a href="/visa/">Faut-il un visa avec mon passeport ?</a></li>',
-                     '<li><a href="/billet-avion-urgent/">Partir en urgence au pays (décès, maladie)</a></li>', '<li><a href="/bagages-compagnies-afrique/">Bagages : la franchise de chaque compagnie</a></li>',
+                     '<li><a href="/billet-avion-urgent/">Partir en urgence au pays (décès, maladie)</a></li>', '<li><a href="/payer-billet-avion-mobile-money/">Payer son billet avec Orange Money, Wave ou MTN MoMo</a></li>', '<li><a href="/bagages-compagnies-afrique/">Bagages : la franchise de chaque compagnie</a></li>',
                      '<li><a href="/avis-voyageurs/">Avis des voyageurs</a></li>']
                   + [f'<li><a href="/{aeroports.path(c, "fr")}/">Arriver à l’aéroport {E(aeroports.de(a[0]))}</a></li>' for c, a in aeroports.A.items()])
     links += "".join(group(f"Vols au départ de {E(o)}", items) for o, items in by_origin.items())
