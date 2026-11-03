@@ -292,7 +292,7 @@
 
   // ---------- Sites comparés ----------
   const COLORS = { google: "#1a73e8", sky: "#0062e3", kayak: "#ff690f", momondo: "#d1006e", booking: "#003580",
-    hotels: "#d32f2f", agoda: "#5c2d91", airbnb: "#e0475b", rental: "#00897b", discover: "#2e7d32", aviasales: "#0c73fe", economy: "#f26b21", bike: "#ff8a00", stay22: "#2a3ff6", tripcom: "#287dfa" };
+    hotels: "#d32f2f", agoda: "#5c2d91", airbnb: "#e0475b", rental: "#00897b", discover: "#2e7d32", aviasales: "#0c73fe", economy: "#f26b21", bike: "#ff8a00", stay22: "#2a3ff6", tripcom: "#287dfa", "tripcom-package": "#287dfa" };
   const SITES = {
     fr: { kayak: "www.kayak.fr", momondo: "www.momondo.fr", sky: "www.skyscanner.fr/transport/vols", booking: "searchresults.fr.html",
           hotels: "fr.hotels.com", agoda: "fr-fr", airbnb: "www.airbnb.fr", rental: "fr", discover: "fr" },
@@ -349,6 +349,18 @@
           ddate: s.dep, rdate: s.ret || "", triptype: s.ret ? "rt" : "ow", class: { business: "c", first: "f" }[s.cabin] || "y", quantity: s.adults + (s.children || 0),
           nonstoponly: s.direct ? "on" : "off", searchboxarg: "t", locale: { fr: "fr-FR", en: "en-GB", es: "es-ES", pt: "pt-PT", ar: "ar-AE", it: "it-IT", de: "de-DE", nl: "nl-NL" }[LANG] || "en-GB", curr: CUR,
           Allianceid: "11233048", SID: "335082259", trip_sub1: "escale", trip_sub2: "recherche-vols" }) });
+    }
+    // Vol + hôtel Trip.com : seulement en aller-retour et vers les villes dont on connaît l'identifiant Trip.com
+    {
+      const HID = { ABJ: 3265, DSS: 856, CMN: 809, RAK: 1360, CAI: 332, LOS: 783, ACC: 1274, NBO: 825, DXB: 220, IST: 532, SAW: 532, BKK: 359, DMK: 359,
+        HND: 228, NRT: 228, DPS: 723, SIN: 73, HKT: 725, CDG: 192, ORY: 192 };
+      const C = { CDG: "PAR", ORY: "PAR", BVA: "PAR", LHR: "LON", LGW: "LON", STN: "LON", LTN: "LON", FCO: "ROM", MXP: "MIL", LIN: "MIL", BGY: "MIL", JFK: "NYC", EWR: "NYC", HND: "TYO", NRT: "TYO", SAW: "IST", DSS: "DKR", CMN: "CAS", DMK: "BKK" };
+      if (s.ret && HID[s.to.code]) list.push({ k: "tripcom-package", name: T("Vol + hôtel (Trip.com)", "Flight + hotel (Trip.com)"), sponsored: true,
+        desc: T("Le vol et l’hôtel réservés ensemble, souvent moins cher que séparément.", "Flight and hotel booked together, often cheaper than separately."),
+        url: "https://www.trip.com/packages/list?" + q({ adult: s.adults, child: s.children || 0, infants: 0, aCityCode: C[s.to.code] || s.to.code, dCityCode: C[s.from.code] || s.from.code,
+          tripWay: "round-trip", classType: "ys", dDate: s.dep, rDate: s.ret, hCity: HID[s.to.code], iDate: s.dep, oDate: s.ret, room: 1, curr: CUR, destinationName: s.to.name, isOversea: "true",
+          locale: { fr: "fr-FR", en: "en-GB", es: "es-ES", pt: "pt-PT", ar: "ar-AE", it: "it-IT", de: "de-DE", nl: "nl-NL" }[LANG] || "en-GB",
+          Allianceid: "11233048", SID: "335082259", trip_sub1: "escale", trip_sub2: "recherche-vol-hotel" }) });
     }
     list.push({ k: "sky", name: "Skyscanner", desc: T("Très bon sur les compagnies low-cost et les agences en ligne.", "Great for low-cost airlines and online agencies."),
       url: `https://${d.sky}/${F}/${Tt}/${yymmdd(s.dep)}/` + (s.ret ? `${yymmdd(s.ret)}/` : "") + "?" +
@@ -1437,18 +1449,38 @@
   });
 
   // ---------- Position du visiteur : aéroport le plus proche et devise ----------
-  function nearestAirport(lat, lon) {
+  // Aéroport principal le plus proche. Avec le pays du visiteur (position déduite de l'adresse IP, souvent approximative près
+  // des frontières), on préfère un aéroport de son pays s'il y en a un à moins de 250 km.
+  function nearestAirport(lat, lon, cc) {
     const rad = Math.PI / 180;
-    let best = null, bestD = Infinity;
+    let best = null, bestD = Infinity, home = null, homeD = Infinity;
     for (const a of DB) {
       if (!a[4] || a[5] == null) continue;
       const dLat = (a[5] - lat) * rad, dLon = (a[6] - lon) * rad;
       const h = Math.sin(dLat / 2) ** 2 + Math.cos(lat * rad) * Math.cos(a[5] * rad) * Math.sin(dLon / 2) ** 2;
       const dist = 12742 * Math.asin(Math.sqrt(h));
       if (dist < bestD) { bestD = dist; best = a; }
+      if (cc && a[3] === cc && dist < homeD) { homeD = dist; home = a; }
     }
+    if (home && homeD < 250) return home;
     return bestD < 400 ? best : null;
   }
+  // Bouton « 📍 Aéroport le plus proche » : position précise du téléphone (avec l'accord du visiteur), rien n'est envoyé ni gardé
+  $("f-near") && $("f-near").addEventListener("click", () => {
+    const b = $("f-near");
+    if (!navigator.geolocation) { b.textContent = T("Position indisponible", "Location unavailable"); return; }
+    b.setAttribute("aria-busy", "true");
+    navigator.geolocation.getCurrentPosition(async (pos) => {
+      await loadDB(); b.removeAttribute("aria-busy");
+      const near = dbLoaded && nearestAirport(pos.coords.latitude, pos.coords.longitude);
+      if (!near) { b.textContent = T("Aucun aéroport trouvé", "No airport found"); return; }
+      $("f-from").value = labelOf(near[0]);
+      $("f-from").dispatchEvent(new Event("change", { bubbles: true }));
+      store.set("escale.from", labelOf(near[0]));
+      if (currentTab === "vols") rerender();
+    }, () => { b.removeAttribute("aria-busy"); b.textContent = T("Position refusée : tapez votre ville", "Location denied: type your city"); },
+    { enableHighAccuracy: false, timeout: 10000, maximumAge: 600000 });
+  });
   // Bandeau « Vous partez de … ? » : visiteurs en Afrique, vers la page des vols au départ de leur pays (scripts/pays_accueil.py)
   const PAYS = { CI: ["ci", "🇨🇮", "de Côte d’Ivoire", "d’Abidjan", "Côte d’Ivoire", "Abidjan"], SN: ["sn", "🇸🇳", "du Sénégal", "de Dakar", "Senegal", "Dakar"],
     ML: ["ml", "🇲🇱", "du Mali", "de Bamako", "Mali", "Bamako"], GN: ["gn", "🇬🇳", "de Guinée", "de Conakry", "Guinea", "Conakry"],
@@ -1476,7 +1508,7 @@
       if (g.lat == null || g.lon == null) return null;
       await loadDB();
       if (!dbLoaded) return null;
-      return nearestAirport(g.lat, g.lon);
+      return nearestAirport(g.lat, g.lon, g.country);
     } catch (e) { return null; }
   }
 

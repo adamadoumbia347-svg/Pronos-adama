@@ -50,9 +50,62 @@ CITIES = [
     ("PTP", "Guadeloupe", ["Grande Anse Deshaies Guadeloupe", "Plage Guadeloupe", "Guadeloupe beach", "Plage de la Caravelle Guadeloupe", "Guadeloupe coast"], "guadeloupe", ""),
     ("HND", "Tokyo", ["Chureito Pagoda Mount Fuji", "Mount Fuji Chureito", "Tokyo skyline Mount Fuji", "Fushimi Inari"], "fuji|chureito|tokyo|fushimi", ""),
     ("NBO", "Nairobi", ["Maasai Mara elephants", "Masai Mara savanna", "Maasai Mara giraffe", "Nairobi National Park giraffe"], "mara|masai|maasai|nairobi|savanna|serengeti", ""),
+    # Destinations des bons plans (« Partez ce mois-ci », cartes « Partout ») : codes de ville
+    ("LON", "Londres", ["Tower Bridge London", "Big Ben Westminster", "London skyline Thames"], "tower bridge|big ben|westminster|london", ""),
+    ("MIL", "Milan", ["Milan Cathedral facade", "Duomo di Milano", "Galleria Vittorio Emanuele II"], "duomo|milan|milano|galleria", ""),
+    ("ROM", "Rome", ["Colosseum Rome", "Colosseo Roma", "Trevi Fountain"], "colosse|colosseo|colosseum|roma|rome", ""),
+    ("VCE", "Venise", ["Grand Canal Venice", "Venice Rialto", "Canal Grande Venezia"], "venic|venezia|rialto|canal grande|grand canal", ""),
+    ("NAP", "Naples", ["Naples panorama Vesuvius", "Napoli panorama", "Castel dell'Ovo Naples"], "napl|napoli|vesuv|ovo", ""),
+    ("FLR", "Florence", ["Florence Duomo panorama", "Firenze panorama", "Ponte Vecchio Florence"], "floren|firenze|ponte vecchio", ""),
+    ("MAD", "Madrid", ["Plaza Mayor Madrid", "Gran Vía Madrid", "Palacio Real Madrid"], "madrid", ""),
+    ("SVQ", "Séville", ["Plaza de España Sevilla", "Seville Plaza de España", "Giralda Sevilla"], "sevill|giralda|plaza de espa", ""),
+    ("VLC", "Valence", ["Ciudad de las Artes y las Ciencias", "Valencia City of Arts and Sciences"], "valencia|ciudad de las artes|arts and sciences", ""),
+    ("AGP", "Malaga", ["Málaga skyline from Gibralfaro", "Málaga port panorama", "Playa de la Malagueta"], "m[aá]laga|malagueta|gibralfaro", ""),
+    ("PMI", "Majorque", ["Cala Mallorca beach", "Palma de Mallorca cathedral", "Mallorca coast"], "mallorca|majorca|palma", ""),
+    ("LPA", "Gran Canaria", ["Maspalomas dunes", "Roque Nublo Gran Canaria", "Gran Canaria beach"], "maspalomas|gran canaria|roque nublo", ""),
+    ("TCI", "Tenerife", ["Teide Tenerife", "Tenerife coast", "Los Gigantes Tenerife"], "tenerife|teide|gigantes", ""),
+    ("OPO", "Porto", ["Porto Ribeira Douro", "Porto Dom Luís I Bridge", "Porto panorama"], "porto|ribeira|douro|lu[ií]s i", ""),
+    ("FAO", "Algarve", ["Praia da Marinha", "Algarve coast Benagil", "Ponta da Piedade"], "algarve|marinha|benagil|piedade", ""),
+    ("AMS", "Amsterdam", ["Amsterdam canal houses", "Amsterdam canals", "Amsterdam Prinsengracht"], "amsterdam|gracht", ""),
+    ("BER", "Berlin", ["Brandenburg Gate", "Brandenburger Tor", "Berlin Reichstag"], "brandenburg|berlin|reichstag", ""),
+    ("PRG", "Prague", ["Prague Charles Bridge", "Prague Old Town Square", "Prague Castle panorama"], "prague|praha|charles bridge|karl", ""),
+    ("BUD", "Budapest", ["Hungarian Parliament Building", "Budapest Parliament Danube", "Budapest panorama"], "budapest|parliament|parlament", ""),
+    ("VIE", "Vienne", ["Schönbrunn Palace facade", "Vienna Hofburg Michaelerplatz", "Vienna panorama"], "sch[oö]nbrunn|vienna|wien|hofburg", ""),
+    ("KRK", "Cracovie", ["St. Mary's Basilica Kraków", "Kraków Cloth Hall", "Wawel Castle Kraków"], "krak[oó]w|cracow|wawel|sukiennice|mary", ""),
+    ("WAW", "Varsovie", ["Warsaw Old Town", "Warsaw Old Town Market Place", "Warszawa Stare Miasto"], "warsaw|warszawa|stare miasto", ""),
+    ("CPH", "Copenhague", ["Nyhavn", "Nyhavn Copenhagen colourful", "Copenhagen Nyhavn waterfront"], "nyhavn|copenhag|k[oø]benhavn", ""),
+    ("OSL", "Oslo", ["Oslo Opera House", "Oslo harbour", "Oslo fjord city"], "oslo", ""),
+    ("STO", "Stockholm", ["Stockholm Gamla stan", "Stockholm skyline", "Stockholm old town"], "stockholm|gamla stan", ""),
+    ("REK", "Reykjavik", ["Hallgrímskirkja", "Reykjavík panorama", "Reykjavik harbour"], "reykjav|hallgr", ""),
+    ("DUB", "Dublin", ["Ha'penny Bridge Dublin", "Dublin Temple Bar", "Dublin River Liffey"], "dublin|liffey|ha'penny|temple bar", ""),
+    ("EDI", "Édimbourg", ["Edinburgh Castle", "Edinburgh skyline", "Edinburgh Old Town"], "edinburgh|[ée]dimbourg", ""),
+    ("MAN", "Manchester", ["Manchester Town Hall Albert Square", "Manchester Castlefield", "Manchester skyline"], "manchester|castlefield", ""),
+    ("ATH", "Athènes", ["Acropolis of Athens", "Parthenon Athens", "Athens Acropolis view"], "acropol|parthenon|athen", ""),
+    ("HER", "Crète", ["Balos lagoon Crete", "Elafonisi beach", "Crete coast"], "crete|kriti|balos|elafonisi|chania", ""),
+    ("MLA", "Malte", ["Valletta Malta", "Valletta skyline", "Malta Blue Lagoon"], "vallett|malta", ""),
+    ("DBV", "Dubrovnik", ["Dubrovnik old town walls", "Dubrovnik panorama", "Dubrovnik city walls"], "dubrovnik", ""),
+    ("NCE", "Nice", ["Promenade des Anglais Nice", "Nice baie des Anges", "Nice France coast"], "nice|promenade des anglais|baie des anges", ""),
+    ("BRU", "Bruxelles", ["Grand-Place Brussels", "Grand Place Bruxelles"], "grand.?place|brussel|bruxelles", ""),
+    ("GVA", "Genève", ["Jet d'Eau Geneva", "Geneva lake city", "Genève rade"], "gen[eè]v|jet d'eau", ""),
+    ("AYT", "Antalya", ["Antalya old harbour", "Kaleiçi Antalya harbour", "Antalya cliffs coast"], "antalya|kalei", ""),
+    ("SSH", "Charm el-Cheikh", ["Sharm el-Sheikh beach", "Sharm El Sheikh coast", "Ras Mohammed"], "sharm|ras mohamm", ""),
+    ("HRG", "Hurghada", ["Hurghada beach", "Hurghada Red Sea", "Hurghada coast"], "hurghada", ""),
+    ("AGA", "Agadir", ["Agadir beach", "Agadir bay panorama", "Agadir from Oufella"], "agadir", ""),
+    ("FEZ", "Fès", ["Fes medina panorama", "Fes el Bali view", "Bab Bou Jeloud"], "f[eè]s|fez|bou jeloud", ""),
+    ("MRU", "Maurice", ["Le Morne Brabant", "Mauritius lagoon", "Île aux Cerfs Mauritius"], "mauritius|maurice|le morne|cerfs", ""),
+    ("RUN", "La Réunion", ["Cirque de Cilaos view", "Piton des Neiges", "Cirque de Salazie", "Réunion island landscape"], "r[ée]union|piton|mafate|cilaos|salazie", ""),
+    ("FDF", "Martinique", ["Plage des Salines Martinique", "Martinique beach", "Diamond Rock Martinique"], "martinique|salines|diamant", ""),
+    ("PUJ", "Punta Cana", ["Punta Cana beach", "Bávaro beach", "Playa Bávaro"], "punta cana|b[aá]varo", ""),
+    ("CUN", "Cancún", ["Cancún beach", "Cancun hotel zone beach", "Tulum ruins"], "canc[uú]n|tulum", ""),
+    ("MIA", "Miami", ["Miami Beach", "Miami skyline", "South Beach Miami"], "miami", ""),
+    ("YMQ", "Montréal", ["Old Montreal", "Montreal skyline", "Vieux-Montréal"], "montr[eé]al", ""),
+    ("DPS", "Bali", ["Tanah Lot temple", "Bali rice terraces Tegallalang", "Pura Ulun Danu Bratan"], "bali|tanah lot|tegallalang|ulun danu", ""),
+    ("SIN", "Singapour", ["Marina Bay Sands", "Singapore skyline Marina Bay", "Gardens by the Bay"], "marina bay|singapore|gardens by the bay", ""),
+    ("HKT", "Phuket", ["Phang Nga Bay", "Promthep Cape Phuket", "Kata beach Phuket"], "phuket|phang nga|promthep|kata", ""),
+    ("MLE", "Maldives", ["Maldives water villas", "Maldives island aerial view", "Maldives lagoon"], "maldiv", ""),
 ]
 OK_LICENSE = re.compile(r"^(public domain|pd|cc0|cc by(-sa)?( \d\.\d)?)", re.I)
-BAD_WORDS = re.compile(r"triptyque|triptych|painting|peinture|tableau|map|flag|logo|plan|coat of arms|diagram|stamp|banknote|poster|interior|inside|ceiling|vault|nave|portrait|ferry|ship|boat|bateau|autoroute|motorway|highway|night|nuit|roundabout|fountain|stadium|estadi|\.svg|\.png|\.gif|\.tif", re.I)
+BAD_WORDS = re.compile(r"-- 1711|amietophrynus|frog|toad|grenouille|lizard|insect|welcome|entrance|art project|protest|manifestation|demolition|construction|statue|sculpture|skulptur|sparrow|bird|oiseau|prayer hall|triptyque|triptych|painting|peinture|tableau|map|flag|logo|plan|coat of arms|diagram|stamp|banknote|poster|interior|inside|ceiling|vault|nave|portrait|ferry|ship|boat|bateau|autoroute|motorway|highway|night|nuit|roundabout|fountain|stadium|estadi|\.svg|\.png|\.gif|\.tif", re.I)
 
 
 def api(params):
@@ -131,7 +184,7 @@ def save(x, slug):
 
 def slugify(t):
     t = t.lower()
-    for a, b in (("é", "e"), ("è", "e"), ("ï", "i"), ("à", "a"), ("ô", "o")):
+    for a, b in (("é", "e"), ("è", "e"), ("ê", "e"), ("ï", "i"), ("à", "a"), ("ô", "o"), ("ú", "u"), ("É", "e")):
         t = t.replace(a, b)
     return re.sub(r"[^a-z0-9]+", "-", t).strip("-")
 
