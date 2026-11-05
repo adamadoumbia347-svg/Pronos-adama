@@ -123,7 +123,11 @@ if __name__ == "__main__":
         ident, slug, question = page[:3]
         vchat = PAR_ID[ident][4]
         v = VERDICT["fr"][vchat].split(" ", 1)[1]
-        desc = f"{question} {v.capitalize()} : la réponse claire, pourquoi, quelle quantité et que faire s'il en a mangé."
-        creer_page.creer("fr", slug, question, desc, corps(page))
+        nom = page[3]
+        desc = f"{nom[0].upper() + nom[1:]}, toxique pour le chat ? {v.capitalize()} : la réponse claire, pourquoi, quelle quantité et que faire s'il en a mangé."
+        if len(desc) > 160:
+            desc = f"{nom[0].upper() + nom[1:]}, toxique pour le chat ? {v.capitalize()} : la réponse, la bonne quantité et que faire s'il en a mangé."
+        titre = question + " Toxique ou pas ?" if len(question) <= 48 else question
+        creer_page.creer("fr", slug, titre, desc, corps(page))
     creer_page.finir()
     print(len(PAGES), "pages aliments chat")

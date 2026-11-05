@@ -129,6 +129,7 @@ if __name__ == "__main__":
         desc = f"{question} {v.capitalize()} : la réponse claire, pourquoi, quelle quantité et que faire s'il en a mangé, pour le chien comme pour le chat."
         if len(desc) > 160:
             desc = f"{question} {v.capitalize()} : la réponse, la bonne quantité et que faire s'il en a mangé."
-        creer_page.creer("fr", slug, question, desc, corps(page))
+        titre = question + " Toxique ou pas ?" if len(question) <= 48 else question
+        creer_page.creer("fr", slug, titre, desc, corps(page))
     creer_page.finir()
     print(len(PAGES), "pages aliments")

@@ -424,3 +424,13 @@ tr.actuelle td { background: var(--soft); font-weight: 800; }
 
 .checklist{list-style:none;padding-left:0}
 .checklist li{margin:6px 0}
+/* Calculateur du coût de la litière */
+#calcul-litiere { background: var(--soft); border-radius: var(--radius); padding: 16px; margin: 18px 0 24px; }
+#calcul-litiere .calc-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+#calcul-litiere h3 { margin: 0 0 8px; font-size: 1.05rem; }
+#calcul-litiere label { display: block; font-weight: 600; margin: 0 0 8px; font-size: .95rem; }
+#calcul-litiere input { display: block; font: inherit; padding: 8px 10px; border: 1px solid var(--border); border-radius: 10px; width: 100%; margin-top: 4px; background: #fff; }
+#calcul-litiere .calc-res { margin: 6px 0 0; min-height: 1.4em; }
+#calcul-litiere .calc-res strong { font-size: 1.2rem; color: var(--primary-dark); }
+#calcul-litiere .calc-verdict { margin: 12px 0 0; font-weight: 700; }
+@media (max-width: 480px) { #calcul-litiere .calc-cols { grid-template-columns: 1fr; } }
