@@ -7,6 +7,7 @@ import html
 import json
 
 import build_i18n as B
+import climat
 
 E = html.escape
 
@@ -129,6 +130,10 @@ def build(site, ctx):
         for lang, t in T.items():
             n = name_of(d0, lang)
             a = PRE.get(n, "à") if lang == "fr" else ""
+            if a == "en" and n.startswith("la "):
+                n = n[3:]  # « en Martinique », pas « en la Martinique »
+            plain = name_of(d0, lang)
+            cl_html, cl_faq = climat.render(code, lang, plain, {"fr": f"{a} {n}", "it": ITDE[code][1]}.get(lang, ""))
             if lang == "it":
                 n = ITDE[code][1]  # « a Dakar », « ad Abidjan », « in Guadalupa »…
             q = "" if lang == "fr" else f"?lang={lang}"
@@ -141,12 +146,13 @@ def build(site, ctx):
                     f'<div id="mm-chart" class="mm-chart" data-to="{code}" data-t="{tj}"></div>'
                     f'<div id="mm-summary" class="mm-summary" aria-live="polite"></div><p><a id="mm-go" class="btn" href="/{q}" hidden>{E(t["go"])}</a></p>'
                     f'<section><h2>{E(t["how_h"])}</h2><ul>' + "".join(f"<li>{E(x)}</li>" for x in t["how"]) + "</ul></section>"
+                    + cl_html + climat.faq_html(cl_faq, lang) +
                     f'<section><h2>{E(t["other"])}</h2><ul class="pv-other">{others}</ul></section>'
                     '<script src="/fetes.js" defer></script><script src="/meilleur-mois.js" defer></script>')
             hero = f'<h1>{t["h1"].format(a=a, n=E(n))}</h1><p class="hero-lead">{E(t["lead"])}</p>{img}'
             title = t["title"].format(a=a, n=n).replace("  ", " ")
             desc = t["desc"].format(a=a, n=n).replace("  ", " ")
-            urls.append(B.write(site, paths[lang], lang, title, desc, hero, body, "", paths, ctx))
+            urls.append(B.write(site, paths[lang], lang, title, desc, hero, body, climat.faq_ld(cl_faq), paths, ctx))
     for lang, t in T.items():
         cards = "".join(
             f'<li class="tr-card"><a class="tr-link" href="/{t["base"]}/{slug_of(d, lang)}/">'
@@ -155,3 +161,38 @@ def build(site, ctx):
         hero = f'<h1>{t["idx_h1"]}</h1><p class="hero-lead">{E(t["idx_lead"])}</p>'
         urls.append(B.write(site, t["base"], lang, t["idx_title"], t["idx_desc"], hero, f'<ul class="tr-grid mm-idx">{cards}</ul>', "", idx_paths, ctx))
     return urls
+
+
+ALIAS = {"JFK": "NYC", "EWR": "NYC", "LGA": "NYC", "HND": "TYO", "NRT": "TYO", "FCO": "ROM", "CIA": "ROM", "LHR": "LON", "LGW": "LON", "STN": "LON",
+         "LTN": "LON", "YUL": "YMQ", "SAW": "IST", "RMF": "RAK"}
+LINK = {"fr": "🗓️ Quand partir {a} ? Climat, saisons et mois le moins cher →", "en": "🗓️ When to go to {n}? Weather, seasons and the cheapest month →",
+        "it": "🗓️ Quando andare {a}? Clima, stagioni e mese più economico →", "de": "🗓️ Wann nach {n}? Klima, Reisezeit und günstigster Monat →"}
+
+
+def link_routes(site):
+    """Ajoute, sur les pages de trajets et de destinations (fr, en, it, de), un lien vers la page « Meilleur mois » de la destination."""
+    import re
+    by = {d[0]: d for d in DESTS}
+    bases = tuple("/" + T[l]["base"] + "/" for l in T)
+    n = 0
+    for f in site.rglob("index.html"):
+        rel = "/" + str(f.parent.relative_to(site)).replace("\\", "/") + "/"
+        if rel.startswith(bases) or rel.startswith("/recherche/"):
+            continue
+        s = f.read_text(encoding="utf-8")
+        m = re.search(r'<html lang="(fr|en|it|de)"', s[:400])
+        c = re.search(r'data-to="([A-Z]{3})"', s)
+        if not m or not c or "mm-link" in s:
+            continue
+        lang, code = m.group(1), ALIAS.get(c.group(1), c.group(1))
+        d = by.get(code)
+        k = s.find('<section class="faq"')
+        if not d or k < 0:
+            continue
+        nm = name_of(d, lang)
+        a = {"fr": f'{PRE.get(nm, "à")} {nm[3:] if PRE.get(nm) == "en" and nm.startswith("la ") else nm}', "it": ITDE[code][1]}.get(lang, nm)
+        href = f'/{T[lang]["base"]}/{slug_of(d, lang)}/'
+        s = s[:k] + f'<p class="mm-link"><a href="{href}">{E(LINK[lang].format(a=a, n=nm))}</a></p>' + s[k:]
+        f.write_text(s, encoding="utf-8")
+        n += 1
+    return n
