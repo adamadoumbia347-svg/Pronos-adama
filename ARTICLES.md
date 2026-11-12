@@ -41,6 +41,12 @@ puis les publier avec `tools/publier_article.py` (comparatifs d'abord). Méthode
 `https://educanimaux.fr/en/…` ou `/it/…`, liens Amazon vers amazon.com ou amazon.it avec des mots-clés traduits),
 ajouter la carte dans `docs/en/conseils.html` / `docs/it/conseils.html`, puis lancer `python3 tools/langues.py`.
 
+## Photos
+
+Pour ajouter une vraie photo à une page : déposer l'original dans `tools/photos/originaux/<slug>.jpg`, son crédit dans
+`tools/photos/credits.json`, puis lancer `python3 tools/photos.py` (voir l'en-tête du script). Seulement des photos
+libres de droits (Creative Commons avec crédit) ou appartenant au site.
+
 ## Format du fichier source
 
 ```
@@ -128,9 +134,9 @@ Les sessions du lundi prennent le premier sujet non coché. On peut réordonner 
 - [x] Chat qui miaule la nuit : pourquoi et comment dormir enfin (2026-10-23)
 - [x] Apprendre « assis », « couché » et « pas bouger » à son chien (2026-10-26)
 - [x] Le clicker training expliqué aux débutants (chien et chat) (2026-11-02)
-- [ ] Chien qui saute sur les gens : la méthode douce
+- [x] Chien qui saute sur les gens : la méthode douce (2026-11-12)
 - [x] Chien qui a peur des pétards et de l'orage
-- [ ] Habituer son chat à la caisse de transport et à la voiture
+- [x] Habituer son chat à la caisse de transport et à la voiture (2026-11-12)
 - [ ] Rendre son lapin propre : bac à litière et astuces
 - [ ] Chiot qui pleure la nuit : que faire ?
 - [ ] Chien qui mange tout dehors : apprendre « laisse »
@@ -204,3 +210,5 @@ Quand une liste est presque vide, ajouter 6 nouveaux sujets utiles et non trait�
 - 2026-11-02 — Clicker training : le guide pour débutants (chien et chat) (`clicker-training-debutant.html`, + EN/IT)
 - 2026-11-02 — Quels jeux d'intelligence pour chien ? Le comparatif (`meilleurs-jeux-intelligence-chien.html`, + EN/IT)
 - 2026-11-02 — Quels jouets choisir pour un chat d'intérieur ? (`meilleurs-jouets-chat-interieur.html`, + EN/IT)
+- 2026-11-12 — Chien qui saute sur les gens : la méthode douce (`chien-saute-sur-les-gens.html`)
+- 2026-11-12 — Habituer son chat à la caisse de transport et à la voiture (`chat-caisse-transport-voiture.html`)
