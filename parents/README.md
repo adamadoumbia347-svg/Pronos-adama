@@ -40,7 +40,7 @@ taille du texte, partage, temps de lecture et sommaire automatiques, bouton reto
 | `routine-enfant.html` | Tableau de routine matin/soir à imprimer, avec le prénom de l'enfant |
 | `liste-naissance.html` | Check-list de naissance à cocher (gardée dans le navigateur du visiteur) |
 | `materiel.html` | Sélection de matériel par âge |
-| `mentions-legales.html` | Mentions légales — **compléter nom, contact et hébergeur** |
+| `mentions-legales.html` | Mentions légales et confidentialité (éditeur particulier anonyme, hébergeur Netlify : à modifier si vous hébergez ailleurs) |
 
 La logique des calculateurs est dans `js/outils.js`, les liens d'affiliation et les options dans `js/main.js`,
 la progression (graines, niveaux, badges, défis, accueil personnalisé) dans `js/espace.js`, et les pages
