@@ -1,1 +1,202 @@
-{}
+{
+ "chat-caisse-transport-voiture": {
+  "alt": {
+   "fr": "Deux chats installés dans une caisse de transport",
+   "en": "Two cats settled in a pet carrier",
+   "it": "Due gatti sistemati in un trasportino"
+  },
+  "auteur": "someToast",
+  "licence": "CC BY-SA 2.0",
+  "source": "https://www.flickr.com/photos/22315104@N00/3170625352"
+ },
+ "race-beagle": {
+  "alt": {
+   "fr": "Un beagle assis devant une porte en bois",
+   "en": "A beagle sitting in front of a wooden door",
+   "it": "Un beagle seduto davanti a una porta di legno"
+  },
+  "auteur": "Artem Beliaikin",
+  "licence": "CC0",
+  "source": "https://www.flickr.com/photos/157635012@N07/44134376585"
+ },
+ "race-bengal": {
+  "alt": {
+   "fr": "Un chat bengal à la robe tachetée",
+   "en": "A spotted Bengal cat",
+   "it": "Un gatto bengala maculato"
+  },
+  "auteur": "roberto shabs",
+  "licence": "CC BY 2.0",
+  "source": "https://www.flickr.com/photos/37287295@N00/2448784677"
+ },
+ "race-berger-allemand": {
+  "alt": {
+   "fr": "Un berger allemand couché dans l'herbe",
+   "en": "A German Shepherd lying in the grass",
+   "it": "Un pastore tedesco sdraiato sull'erba"
+  },
+  "auteur": "Ronoli",
+  "licence": "CC BY 2.0",
+  "source": "https://www.flickr.com/photos/60771890@N00/19924112054"
+ },
+ "race-border-collie": {
+  "alt": {
+   "fr": "Un border collie noir et blanc couché dans les feuilles",
+   "en": "A black and white Border Collie lying in leaves",
+   "it": "Un border collie bianco e nero sdraiato tra le foglie"
+  },
+  "auteur": "Image Catalog",
+  "licence": "CC0",
+  "source": "https://www.flickr.com/photos/132795455@N08/21390927346"
+ },
+ "race-bouledogue-francais": {
+  "alt": {
+   "fr": "Un bouledogue français bringé sur un canapé",
+   "en": "A brindle French Bulldog on a sofa",
+   "it": "Un bulldog francese tigrato sul divano"
+  },
+  "auteur": "Ndecam",
+  "licence": "CC BY 2.0",
+  "source": "https://www.flickr.com/photos/37035967@N07/3420900889"
+ },
+ "race-british-shorthair": {
+  "alt": {
+   "fr": "Un british shorthair gris-bleu aux yeux cuivrés",
+   "en": "A blue-grey British Shorthair with copper eyes",
+   "it": "Un british shorthair grigio-blu dagli occhi ramati"
+  },
+  "auteur": "I.Gouss",
+  "licence": "CC BY-SA 2.0",
+  "source": "https://www.flickr.com/photos/79448018@N00/3342511507"
+ },
+ "race-cavalier-king-charles": {
+  "alt": {
+   "fr": "Un cavalier king charles blenheim en promenade",
+   "en": "A Blenheim Cavalier King Charles on a walk",
+   "it": "Un cavalier king charles blenheim a passeggio"
+  },
+  "auteur": "Shames Privacy",
+  "licence": "CC BY 2.0",
+  "source": "https://www.flickr.com/photos/14346946@N07/2861021595"
+ },
+ "race-chihuahua": {
+  "alt": {
+   "fr": "Un chihuahua tricolore en laisse",
+   "en": "A tricolour Chihuahua on a lead",
+   "it": "Un chihuahua tricolore al guinzaglio"
+  },
+  "auteur": "Dakiny",
+  "licence": "CC BY 2.0",
+  "source": "https://www.flickr.com/photos/55658968@N00/7669133218"
+ },
+ "race-golden-retriever": {
+  "alt": {
+   "fr": "Un chiot golden retriever dans l'herbe",
+   "en": "A Golden Retriever puppy on the grass",
+   "it": "Un cucciolo di golden retriever sul prato"
+  },
+  "auteur": "puppypawrent",
+  "licence": "CC BY 2.0",
+  "source": "https://www.flickr.com/photos/198196106@N06/52857271747"
+ },
+ "race-husky": {
+  "alt": {
+   "fr": "Un husky sibérien aux yeux clairs",
+   "en": "A Siberian Husky",
+   "it": "Un husky siberiano"
+  },
+  "auteur": "localpups",
+  "licence": "CC BY 2.0",
+  "source": "https://www.flickr.com/photos/133374862@N02/20314366700"
+ },
+ "race-jack-russell": {
+  "alt": {
+   "fr": "Portrait d'un jack russell terrier",
+   "en": "Portrait of a Jack Russell Terrier",
+   "it": "Ritratto di un jack russell terrier"
+  },
+  "auteur": "Dusty J",
+  "licence": "CC BY 2.0",
+  "source": "https://www.flickr.com/photos/55608722@N06/8368190901"
+ },
+ "race-labrador": {
+  "alt": {
+   "fr": "Trois labradors (chocolat, noir et sable) dans la neige",
+   "en": "Three Labradors (chocolate, black and yellow) in the snow",
+   "it": "Tre labrador (cioccolato, nero e miele) sulla neve"
+  },
+  "auteur": "meadelaurence",
+  "licence": "CC BY 2.0",
+  "source": "https://www.flickr.com/photos/53497317@N04/13070853294"
+ },
+ "race-maine-coon": {
+  "alt": {
+   "fr": "Un grand chat roux à poil mi-long",
+   "en": "A large ginger long-haired cat",
+   "it": "Un grande gatto rosso a pelo semilungo"
+  },
+  "auteur": "sam.romilly",
+  "licence": "CC BY 2.0",
+  "source": "https://www.flickr.com/photos/31387699@N00/49575363658"
+ },
+ "race-ragdoll": {
+  "alt": {
+   "fr": "Un chaton ragdoll aux yeux bleus sur un arbre à chat",
+   "en": "A blue-eyed Ragdoll kitten on a cat tree",
+   "it": "Un gattino ragdoll dagli occhi azzurri su un tiragraffi"
+  },
+  "auteur": "Jules & Jenny",
+  "licence": "CC BY 2.0",
+  "source": "https://www.flickr.com/photos/78914786@N06/52142758282"
+ },
+ "race-sacre-de-birmanie": {
+  "alt": {
+   "fr": "Un chat sacré de Birmanie dans les bras de son humain",
+   "en": "A Birman cat in its owner's arms",
+   "it": "Un gatto sacro di Birmania in braccio"
+  },
+  "auteur": "James E. Petts",
+  "licence": "CC BY-SA 2.0",
+  "source": "https://www.flickr.com/photos/14730981@N08/51707197922"
+ },
+ "race-shih-tzu": {
+  "alt": {
+   "fr": "Un shih tzu blanc et fauve couché sur le carrelage",
+   "en": "A white and fawn Shih Tzu lying on tiles",
+   "it": "Uno shih tzu bianco e fulvo sdraiato sulle piastrelle"
+  },
+  "auteur": "gurdonark",
+  "licence": "CC BY 2.0",
+  "source": "https://www.flickr.com/photos/46183897@N00/3359214266"
+ },
+ "race-sphynx": {
+  "alt": {
+   "fr": "Un chat sphynx assis",
+   "en": "A sitting Sphynx cat",
+   "it": "Un gatto sphynx seduto"
+  },
+  "auteur": "IndyDina with Mr. Wonderful",
+  "licence": "CC BY 2.0",
+  "source": "https://www.flickr.com/photos/68982768@N00/57571157"
+ },
+ "race-teckel": {
+  "alt": {
+   "fr": "Un teckel avec un jouet sur le canapé près de son humaine",
+   "en": "A dachshund with a toy on the sofa next to its owner",
+   "it": "Un bassotto con un gioco sul divano accanto alla sua umana"
+  },
+  "auteur": "mike_landry97",
+  "licence": "Domaine public",
+  "source": "https://www.flickr.com/photos/203408835@N04/54743836452"
+ },
+ "race-berger-australien": {
+  "alt": {
+   "fr": "Un chiot berger australien rouge merle aux yeux bleus",
+   "en": "A red merle Australian Shepherd puppy with blue eyes",
+   "it": "Un cucciolo di pastore australiano red merle dagli occhi azzurri"
+  },
+  "auteur": "Ted Van Pelt",
+  "licence": "CC BY 2.0",
+  "source": "https://www.flickr.com/photos/28914673@N02/5580029980"
+ }
+}

@@ -5,7 +5,7 @@ Usage : python3 tools/photos.py
 1. Déposer la photo originale dans tools/photos/originaux/<slug>.jpg (ou .jpeg, .png, .webp),
    où <slug> est le nom de la page sans « .html » (ex. race-labrador, chien-saute-sur-les-gens).
 2. Indiquer le crédit dans tools/photos/credits.json :
-   {"race-labrador": {"alt": "Un labrador sable assis dans l'herbe", "auteur": "Nom", "licence": "CC BY 2.0",
+   {"race-labrador": {"alt": {"fr": "Un labrador sable…", "en": "…", "it": "…"}, "auteur": "Nom", "licence": "CC BY 2.0",
                       "source": "https://…"}}
    Pour vos propres photos : {"auteur": "Éduc'Animaux"} suffit (pas de licence ni de source).
 3. Lancer le script : il crée docs/img/photos/<slug>-1200.webp et -600.webp, insère la photo sous le titre
@@ -49,10 +49,15 @@ def credit(c, lang):
     return txt
 
 
+def alt(c, lang):
+    a = c.get("alt", "")
+    return a.get(lang) or a.get("fr", "") if isinstance(a, dict) else a
+
+
 def figure(slug, c, prefixe, lang):
     return (f'<!-- photo --><figure class="photo"><img src="{prefixe}img/photos/{slug}-1200.webp" '
             f'srcset="{prefixe}img/photos/{slug}-600.webp 600w, {prefixe}img/photos/{slug}-1200.webp 1200w" '
-            f'sizes="(max-width: 760px) 100vw, 760px" width="1200" height="800" alt="{e(c.get("alt", ""))}" '
+            f'sizes="(max-width: 760px) 100vw, 760px" width="1200" height="800" alt="{e(alt(c, lang))}" '
             f'fetchpriority="high"><figcaption>{credit(c, lang)}</figcaption></figure><!-- /photo -->')
 
 
