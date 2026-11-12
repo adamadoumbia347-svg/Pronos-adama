@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Histoire du soir personnalisée avec le prénom de votre enfant | Parents Sereins</title>
+  <meta name="description" content="Créez en un clic une histoire du soir unique avec le prénom de votre enfant, son animal préféré et un lieu magique. Lecture à voix haute incluse. Gratuit.">
+  <meta property="og:title" content="Histoire du soir personnalisée avec le prénom de votre enfant | Parents Sereins">
+  <meta property="og:description" content="Créez en un clic une histoire du soir unique avec le prénom de votre enfant, son animal préféré et un lieu magique. Lecture à voix haute incluse. Gratuit.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="img/histoires.jpg">
+  <meta name="theme-color" content="#e8735a">
+  <script>try{var t=JSON.parse(localStorage.getItem("ps-theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Nunito:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="container">
+      <a class="logo" href="index.html"><span class="pousse" aria-hidden="true">🌱</span>Parents <span>Sereins</span></a>
+      <nav class="menu" aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="conseils.html">Conseils</a></li>
+          <li><a href="outils.html">Outils</a></li>
+          <li><a href="histoires.html" aria-current="page">Histoires</a></li>
+          <li><a href="mon-espace.html">Mon espace</a></li>
+        </ul>
+      </nav>
+      <a class="icone-btn" href="favoris.html" aria-label="Mes favoris" title="Mes favoris">♡<span class="pastille pastille-favoris"></span></a>
+      <button class="icone-btn" id="theme" type="button" aria-label="Changer de thème">🌗</button>
+      <button class="icone-btn burger" type="button" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+  <main>
+    <div class="container article">
+      <div class="entete-article">
+        <p class="fil"><a href="index.html">Accueil</a> › Histoires du soir</p>
+        <h1>L'histoire du soir… dont il est le héros 🌙</h1>
+        <p class="chapeau">Choisissez son compagnon, un lieu magique et une valeur : le site invente une histoire unique avec son prénom. Et si vous êtes trop fatigué pour la lire, elle peut même être lue à voix haute.</p>
+      </div>
+      <div class="photo-article"><img src="img/histoires.jpg" alt="Des mains tiennent un livre ouvert" width="1000" height="650"></div>
+      <form class="outil" id="form-histoire">
+        <h2 style="margin-top:0">✨ Créer une histoire (+5 🌱)</h2>
+        <label for="h-prenom">Prénom du héros ou de l'héroïne</label>
+        <input type="text" id="h-prenom" maxlength="25" placeholder="Ex. Léo">
+        <div class="grille-form">
+          <div><label for="h-ami">Son compagnon</label><select id="h-ami"><option value="lapin">🐰 Un lapin</option><option value="dragon">🐉 Un petit dragon</option><option value="ours">🧸 Un ourson</option><option value="licorne">🦄 Une licorne</option><option value="renard">🦊 Un renard</option><option value="dinosaure">🦕 Un dinosaure</option><option value="hibou">🦉 Un hibou</option><option value="chat">🐱 Un chat</option></select></div>
+          <div><label for="h-lieu">Le lieu</label><select id="h-lieu"><option value="foret">🌳 La forêt enchantée</option><option value="ocean">🐠 Le fond de l'océan</option><option value="lune">🌙 La Lune</option><option value="chateau">🏰 Un château dans les nuages</option><option value="jungle">🌴 La jungle</option><option value="banquise">🐧 La banquise</option></select></div>
+          <div><label for="h-objet">L'objet magique</label><select id="h-objet"><option value="cle">🗝️ Une clé dorée</option><option value="lampe">🔦 Une lampe magique</option><option value="carte">🗺️ Une carte au trésor</option><option value="flute">🎶 Une flûte enchantée</option><option value="graine">🌱 Une graine magique</option><option value="plume">🪶 Une plume volante</option></select></div>
+          <div><label for="h-valeur">Ce qu'on apprend</label><select id="h-valeur"><option value="courage">🦁 Le courage</option><option value="amitie">🤝 L'amitié</option><option value="partage">🍓 Le partage</option><option value="patience">⏳ La patience</option><option value="confiance">💪 La confiance en soi</option></select></div>
+          <div><label for="h-longueur">Durée</label><select id="h-longueur"><option value="courte">Courte (2-3 min)</option><option value="longue">Plus longue (4-5 min)</option></select></div>
+        </div>
+        <p class="boutons"><button class="btn" type="submit">📖 Inventer l'histoire</button><button class="btn clair" type="button" id="h-hasard">🎲 Tout au hasard</button></p>
+      </form>
+      <div id="histoire-zone" style="display:none;scroll-margin-top:90px">
+        <div class="histoire" id="histoire" aria-live="polite"></div>
+        <p class="boutons"><button class="btn" type="button" id="h-lire">🔊 Lire à voix haute</button><button class="btn clair" type="button" id="h-autre">🔄 Une autre version</button></p>
+      </div>
+      <h2>Pour prolonger la magie</h2>
+      <div class="produit">
+        <div class="ico" aria-hidden="true">🌌</div>
+        <div>
+          <h3>Projecteur d'étoiles</h3>
+          <p>Le plafond devient un ciel étoilé pour finir l'histoire en douceur.</p>
+          <a class="aff" data-aff="projecteur" data-q="projecteur étoiles enfant" href="https://www.amazon.fr/s?k=projecteur+étoiles+enfant">Voir les prix sur Amazon</a>
+        </div>
+      </div>
+      <div class="produit">
+        <div class="ico" aria-hidden="true">🎧</div>
+        <div>
+          <h3>Conteuse audio sans écran</h3>
+          <p>Des centaines d'histoires à écouter, même quand vous n'êtes pas là.</p>
+          <a class="aff" data-aff="conteuse" data-q="conteuse audio enfant sans écran" href="https://www.amazon.fr/s?k=conteuse+audio+enfant+sans+écran">Voir les prix sur Amazon</a>
+        </div>
+      </div>
+      <div class="produit">
+        <div class="ico" aria-hidden="true">📚</div>
+        <div>
+          <h3>Livres personnalisés</h3>
+          <p>Un vrai livre imprimé avec son prénom : un cadeau inoubliable.</p>
+          <a class="aff" data-aff="livre-perso" data-q="livre personnalisé prénom enfant" href="https://www.amazon.fr/s?k=livre+personnalisé+prénom+enfant">Voir les prix sur Amazon</a>
+        </div>
+      </div>
+      <p class="mention-aff">Liens affiliés Amazon : une petite commission pour le site, sans surcoût pour vous.</p>
+    </div>
+  </main>
+  <footer class="site">
+    <div class="container">
+      <a class="logo" href="index.html"><span class="pousse" aria-hidden="true">🌱</span>Parents <span>Sereins</span></a>
+      <p>Des repères simples et bienveillants pour les parents, de la naissance à l'adolescence.</p>
+      <p>Les conseils de ce site ne remplacent pas l'avis d'un médecin ou d'une sage-femme. En cas de doute sur la santé de votre enfant, appelez votre médecin ; en urgence, le 15 (ou le 112).</p>
+      <p>En tant que Partenaire Amazon, ce site réalise un bénéfice sur les achats remplissant les conditions requises. Photos : <a href="https://unsplash.com/fr/licence" rel="noopener">Unsplash</a>.<br>
+        <a href="conseils.html">Conseils</a> · <a href="outils.html">Outils</a> · <a href="histoires.html">Histoires du soir</a> · <a href="prenoms.html">Prénoms</a> · <a href="quiz.html">Quiz</a> · <a href="journal.html">Journal de bébé</a> · <a href="suivi-bebe.html">Suivi de bébé</a> · <a href="liste-naissance.html">Liste de naissance</a> · <a href="materiel.html">Matériel</a> · <a href="mon-espace.html">Mon espace</a> · <a href="favoris.html">Mes favoris</a> · <a href="mentions-legales.html">Mentions légales</a> · © <span class="annee">2026</span> Parents Sereins</p>
+    </div>
+  </footer>
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/espace.js"></script>
+  <script src="js/jeux.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trouver un prénom de bébé : le jeu des coups de cœur | Parents Sereins</title>
+  <meta name="description" content="Plus de 180 prénoms de fille, de garçon et mixtes à faire défiler. Gardez vos coups de cœur et trouvez les prénoms en commun avec l'autre parent.">
+  <meta property="og:title" content="Trouver un prénom de bébé : le jeu des coups de cœur | Parents Sereins">
+  <meta property="og:description" content="Plus de 180 prénoms de fille, de garçon et mixtes à faire défiler. Gardez vos coups de cœur et trouvez les prénoms en commun avec l'autre parent.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="img/prenoms.jpg">
+  <meta name="theme-color" content="#e8735a">
+  <script>try{var t=JSON.parse(localStorage.getItem("ps-theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Nunito:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="container">
+      <a class="logo" href="index.html"><span class="pousse" aria-hidden="true">🌱</span>Parents <span>Sereins</span></a>
+      <nav class="menu" aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="conseils.html">Conseils</a></li>
+          <li><a href="outils.html">Outils</a></li>
+          <li><a href="histoires.html">Histoires</a></li>
+          <li><a href="mon-espace.html">Mon espace</a></li>
+        </ul>
+      </nav>
+      <a class="icone-btn" href="favoris.html" aria-label="Mes favoris" title="Mes favoris">♡<span class="pastille pastille-favoris"></span></a>
+      <button class="icone-btn" id="theme" type="button" aria-label="Changer de thème">🌗</button>
+      <button class="icone-btn burger" type="button" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+  <main>
+    <div class="container" id="prenoms">
+      <div class="entete-article">
+        <p class="fil"><a href="index.html">Accueil</a> › Prénoms</p>
+        <h1>Le jeu des prénoms 💘</h1>
+        <p class="chapeau">Faites défiler les prénoms : ❤️ si vous aimez, ✕ sinon (ou glissez la carte, ou utilisez les flèches du clavier). Puis comparez avec l'autre parent pour découvrir vos prénoms en commun !</p>
+      </div>
+      <div class="photo-article"><img src="img/prenoms.jpg" alt="Une petite fille sourit, le visage couvert de peinture" width="1000" height="650"></div>
+      <div class="outil">
+        <div class="grille-form">
+          <div><label>Pour</label><div class="radios">
+            <label><input type="radio" name="p-genre" value="f" checked><span>Fille</span></label>
+            <label><input type="radio" name="p-genre" value="m"><span>Garçon</span></label>
+            <label><input type="radio" name="p-genre" value="tous"><span>Tous</span></label>
+          </div>
+          <label style="font-weight:600"><input type="checkbox" id="p-mixtes" checked> Inclure les prénoms mixtes</label></div>
+          <div><label for="p-style">Style</label><select id="p-style"><option value="">Tous les styles</option><option value="court">Court</option><option value="retro">Rétro</option><option value="nature">Nature</option><option value="international">International</option></select></div>
+          <div><label for="p-initiale">Initiale</label><select id="p-initiale"></select></div>
+        </div>
+      </div>
+      <div class="prenoms-jeu">
+        <div>
+          <div class="scene-prenom"><div class="carte-prenom" id="p-carte"></div></div>
+          <div class="choix-prenom">
+            <button class="rond" type="button" id="p-non" aria-label="Je n'aime pas">✕</button>
+            <button class="rond oui" type="button" id="p-oui" aria-label="J'aime">❤️</button>
+          </div>
+          <p class="mention-aff" style="text-align:center" id="p-restants"></p>
+        </div>
+        <div class="outil" style="margin:0">
+          <h2 style="margin-top:0">❤️ Mes coups de cœur <span class="etiquette" id="p-nb">0</span></h2>
+          <ul class="aimes" id="p-aimes"></ul>
+          <p class="boutons"><button class="btn petit" type="button" id="p-copier">📋 Copier ma liste</button><button class="pilule" type="button" id="p-raz">Revoir les prénoms refusés</button></p>
+          <h3>💞 Comparer avec l'autre parent</h3>
+          <p class="mention-aff">Chacun joue sur son téléphone. Collez ici la liste copiée par l'autre parent :</p>
+          <textarea id="p-autre" style="font:inherit;width:100%;min-height:70px;padding:10px;border:2px solid var(--ligne);border-radius:14px;background:var(--fond);color:var(--texte)" placeholder="Mes prénoms coups de cœur : Jade, Louise, Léo…"></textarea>
+          <p><button class="btn" type="button" id="p-comparer" data-gain="prenoms-match">Trouver nos prénoms en commun</button></p>
+          <div class="resultat" id="p-match"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="site">
+    <div class="container">
+      <a class="logo" href="index.html"><span class="pousse" aria-hidden="true">🌱</span>Parents <span>Sereins</span></a>
+      <p>Des repères simples et bienveillants pour les parents, de la naissance à l'adolescence.</p>
+      <p>Les conseils de ce site ne remplacent pas l'avis d'un médecin ou d'une sage-femme. En cas de doute sur la santé de votre enfant, appelez votre médecin ; en urgence, le 15 (ou le 112).</p>
+      <p>En tant que Partenaire Amazon, ce site réalise un bénéfice sur les achats remplissant les conditions requises. Photos : <a href="https://unsplash.com/fr/licence" rel="noopener">Unsplash</a>.<br>
+        <a href="conseils.html">Conseils</a> · <a href="outils.html">Outils</a> · <a href="histoires.html">Histoires du soir</a> · <a href="prenoms.html">Prénoms</a> · <a href="quiz.html">Quiz</a> · <a href="journal.html">Journal de bébé</a> · <a href="suivi-bebe.html">Suivi de bébé</a> · <a href="liste-naissance.html">Liste de naissance</a> · <a href="materiel.html">Matériel</a> · <a href="mon-espace.html">Mon espace</a> · <a href="favoris.html">Mes favoris</a> · <a href="mentions-legales.html">Mentions légales</a> · © <span class="annee">2026</span> Parents Sereins</p>
+    </div>
+  </footer>
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/espace.js"></script>
+  <script src="js/jeux.js"></script>
+</body>
+</html>

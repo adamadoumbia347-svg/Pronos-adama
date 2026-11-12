@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mon espace parent : progression, badges, défi du jour | Parents Sereins</title>
+  <meta name="description" content="Votre espace personnel : vos enfants, des conseils adaptés à leur âge, le défi du jour, vos graines, niveaux et badges.">
+  <meta property="og:title" content="Mon espace parent : progression, badges, défi du jour | Parents Sereins">
+  <meta property="og:description" content="Votre espace personnel : vos enfants, des conseils adaptés à leur âge, le défi du jour, vos graines, niveaux et badges.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="img/mon-espace.jpg">
+  <meta name="theme-color" content="#e8735a">
+  <script>try{var t=JSON.parse(localStorage.getItem("ps-theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Nunito:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="container">
+      <a class="logo" href="index.html"><span class="pousse" aria-hidden="true">🌱</span>Parents <span>Sereins</span></a>
+      <nav class="menu" aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="conseils.html">Conseils</a></li>
+          <li><a href="outils.html">Outils</a></li>
+          <li><a href="histoires.html">Histoires</a></li>
+          <li><a href="mon-espace.html" aria-current="page">Mon espace</a></li>
+        </ul>
+      </nav>
+      <a class="icone-btn" href="favoris.html" aria-label="Mes favoris" title="Mes favoris">♡<span class="pastille pastille-favoris"></span></a>
+      <button class="icone-btn" id="theme" type="button" aria-label="Changer de thème">🌗</button>
+      <button class="icone-btn burger" type="button" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+  <main>
+    <div class="container" id="espace">
+      <p class="fil"><a href="index.html">Accueil</a> › Mon espace</p>
+      <h1>Mon espace 🌱</h1>
+      <p class="chapeau">Lisez, testez les outils, relevez le défi du jour : chaque action fait pousser votre jardin de parent. Revenez chaque jour pour entretenir votre série 🔥</p>
+      <div class="espace-tete" id="espace-niveau"></div>
+      <h2 class="section-titre">Aujourd'hui</h2>
+      <div id="espace-jour"></div>
+
+      <h2 class="section-titre" id="enfants">Mes enfants</h2>
+      <div class="widgets">
+        <div class="outil" style="margin:0">
+          <ul class="liste-enfants" id="espace-enfants"></ul>
+          <form id="form-enfant">
+            <label for="enfant-prenom">Prénom</label>
+            <input type="text" id="enfant-prenom" maxlength="30" required placeholder="Ex. Léa">
+            <label for="enfant-naissance">Date de naissance (ou date du terme)</label>
+            <input type="date" id="enfant-naissance" required>
+            <p><button class="btn" type="submit">Ajouter (+10 🌱)</button></p>
+          </form>
+          <p class="mention-aff">🔒 Tout est enregistré uniquement sur cet appareil : rien n'est envoyé sur internet. Pensez à faire une sauvegarde depuis <a href="mon-espace.html#donnees">Mon espace</a>.</p>
+        </div>
+        <div id="espace-pourage"></div>
+      </div>
+
+      <h2 class="section-titre">Mes badges</h2>
+      <div class="badges" id="espace-badges"></div>
+
+      <h2 class="section-titre">Mon parcours de lecture</h2>
+      <p>Lisez un article jusqu'au bout pour le cocher (+10 🌱).</p>
+      <div class="lectures" id="espace-lectures"></div>
+
+      <h2 class="section-titre">Comment gagner des graines ?</h2>
+      <div class="tableau"><table>
+        <tr><th>Action</th><th>Graines</th></tr>
+        <tr><td>🎁 Récolter ses graines du jour (plus la série est longue, plus on gagne)</td><td>5 à 15</td></tr>
+        <tr><td>🎯 Réussir le défi du jour</td><td>15</td></tr>
+        <tr><td>📖 Lire un article jusqu'au bout</td><td>10</td></tr>
+        <tr><td>👶 Ajouter un enfant</td><td>10</td></tr>
+        <tr><td>🧮 Utiliser un outil (une fois par jour et par outil)</td><td>5</td></tr>
+        <tr><td>📸 Noter un souvenir dans le journal · 🧚 Créer une histoire</td><td>5</td></tr>
+        <tr><td>🧠 Bonne réponse au quiz · 🍼 Noter un moment dans le suivi</td><td>2</td></tr>
+        <tr><td>🏆 Faire 10/10 au quiz</td><td>20</td></tr>
+      </table></div>
+
+      <h2 class="section-titre" id="donnees">Mes données</h2>
+      <div class="outil">
+        <p>Vos données (progression, enfants, journal, suivi, favoris, prénoms…) sont gardées <strong>uniquement dans ce navigateur</strong>. Faites une sauvegarde pour ne rien perdre ou pour les transférer sur un autre appareil.</p>
+        <p class="boutons" style="margin-top:0">
+          <button class="btn" type="button" id="exporter">💾 Télécharger une sauvegarde</button>
+          <label class="btn clair" style="cursor:pointer">📂 Restaurer une sauvegarde<input type="file" id="importer" accept="application/json,.json" hidden></label>
+          <button class="btn clair" type="button" id="effacer">🗑️ Tout effacer</button>
+        </p>
+      </div>
+    </div>
+  </main>
+  <footer class="site">
+    <div class="container">
+      <a class="logo" href="index.html"><span class="pousse" aria-hidden="true">🌱</span>Parents <span>Sereins</span></a>
+      <p>Des repères simples et bienveillants pour les parents, de la naissance à l'adolescence.</p>
+      <p>Les conseils de ce site ne remplacent pas l'avis d'un médecin ou d'une sage-femme. En cas de doute sur la santé de votre enfant, appelez votre médecin ; en urgence, le 15 (ou le 112).</p>
+      <p>En tant que Partenaire Amazon, ce site réalise un bénéfice sur les achats remplissant les conditions requises. Photos : <a href="https://unsplash.com/fr/licence" rel="noopener">Unsplash</a>.<br>
+        <a href="conseils.html">Conseils</a> · <a href="outils.html">Outils</a> · <a href="histoires.html">Histoires du soir</a> · <a href="prenoms.html">Prénoms</a> · <a href="quiz.html">Quiz</a> · <a href="journal.html">Journal de bébé</a> · <a href="suivi-bebe.html">Suivi de bébé</a> · <a href="liste-naissance.html">Liste de naissance</a> · <a href="materiel.html">Matériel</a> · <a href="mon-espace.html">Mon espace</a> · <a href="favoris.html">Mes favoris</a> · <a href="mentions-legales.html">Mentions légales</a> · © <span class="annee">2026</span> Parents Sereins</p>
+    </div>
+  </footer>
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/espace.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiz parents : vrai ou faux ? Testez vos connaissances | Parents Sereins</title>
+  <meta name="description" content="Miel, sommeil, écrans, dents, allergies : 10 questions vrai ou faux pour tester vos connaissances de parent, avec les explications. Rejouable à l'infini.">
+  <meta property="og:title" content="Quiz parents : vrai ou faux ? Testez vos connaissances | Parents Sereins">
+  <meta property="og:description" content="Miel, sommeil, écrans, dents, allergies : 10 questions vrai ou faux pour tester vos connaissances de parent, avec les explications. Rejouable à l'infini.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="img/quiz.jpg">
+  <meta name="theme-color" content="#e8735a">
+  <script>try{var t=JSON.parse(localStorage.getItem("ps-theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Nunito:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="container">
+      <a class="logo" href="index.html"><span class="pousse" aria-hidden="true">🌱</span>Parents <span>Sereins</span></a>
+      <nav class="menu" aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="conseils.html">Conseils</a></li>
+          <li><a href="outils.html">Outils</a></li>
+          <li><a href="histoires.html">Histoires</a></li>
+          <li><a href="mon-espace.html">Mon espace</a></li>
+        </ul>
+      </nav>
+      <a class="icone-btn" href="favoris.html" aria-label="Mes favoris" title="Mes favoris">♡<span class="pastille pastille-favoris"></span></a>
+      <button class="icone-btn" id="theme" type="button" aria-label="Changer de thème">🌗</button>
+      <button class="icone-btn burger" type="button" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+  <main>
+    <div class="container article" id="quiz">
+      <div class="entete-article">
+        <p class="fil"><a href="index.html">Accueil</a> › Quiz</p>
+        <h1>Vrai ou faux ? Le quiz des parents 🧠</h1>
+        <p class="chapeau">10 idées reçues sur les bébés et les enfants. Saurez-vous démêler le vrai du faux ? Chaque partie pioche de nouvelles questions.</p>
+      </div>
+      <div class="photo-article"><img src="img/quiz.jpg" alt="Des enfants rient et font des signes à l'appareil photo" width="1000" height="650"></div>
+      <div id="q-jeu">
+        <div class="quiz-tete"><span id="q-num"></span><span id="q-score"></span></div>
+        <div class="progression"><div id="q-barre"></div></div>
+        <div class="q-carte" id="q-carte">
+          <p class="q-texte" id="q-texte"></p>
+          <div class="q-reponses">
+            <button class="q-rep" type="button" data-rep="vrai">👍 Vrai</button>
+            <button class="q-rep" type="button" data-rep="faux">👎 Faux</button>
+          </div>
+          <div class="q-expli" id="q-expli" aria-live="polite"></div>
+          <p><button class="btn" type="button" id="q-suivant" style="display:none;margin-top:16px">Question suivante →</button></p>
+        </div>
+      </div>
+      <div id="q-fin" class="outil" style="display:none" aria-live="polite"></div>
+    </div>
+  </main>
+  <footer class="site">
+    <div class="container">
+      <a class="logo" href="index.html"><span class="pousse" aria-hidden="true">🌱</span>Parents <span>Sereins</span></a>
+      <p>Des repères simples et bienveillants pour les parents, de la naissance à l'adolescence.</p>
+      <p>Les conseils de ce site ne remplacent pas l'avis d'un médecin ou d'une sage-femme. En cas de doute sur la santé de votre enfant, appelez votre médecin ; en urgence, le 15 (ou le 112).</p>
+      <p>En tant que Partenaire Amazon, ce site réalise un bénéfice sur les achats remplissant les conditions requises. Photos : <a href="https://unsplash.com/fr/licence" rel="noopener">Unsplash</a>.<br>
+        <a href="conseils.html">Conseils</a> · <a href="outils.html">Outils</a> · <a href="histoires.html">Histoires du soir</a> · <a href="prenoms.html">Prénoms</a> · <a href="quiz.html">Quiz</a> · <a href="journal.html">Journal de bébé</a> · <a href="suivi-bebe.html">Suivi de bébé</a> · <a href="liste-naissance.html">Liste de naissance</a> · <a href="materiel.html">Matériel</a> · <a href="mon-espace.html">Mon espace</a> · <a href="favoris.html">Mes favoris</a> · <a href="mentions-legales.html">Mentions légales</a> · © <span class="annee">2026</span> Parents Sereins</p>
+    </div>
+  </footer>
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/espace.js"></script>
+  <script src="js/jeux.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Suivi de bébé : tétées, biberons, sommeil, couches | Parents Sereins</title>
+  <meta name="description" content="Notez en un geste les tétées (avec chronomètre et côté), biberons, siestes et couches de bébé. Résumé du jour et de la semaine. Gratuit, sans inscription.">
+  <meta property="og:title" content="Suivi de bébé : tétées, biberons, sommeil, couches | Parents Sereins">
+  <meta property="og:description" content="Notez en un geste les tétées (avec chronomètre et côté), biberons, siestes et couches de bébé. Résumé du jour et de la semaine. Gratuit, sans inscription.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="img/suivi-bebe.jpg">
+  <meta name="theme-color" content="#e8735a">
+  <script>try{var t=JSON.parse(localStorage.getItem("ps-theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Nunito:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="container">
+      <a class="logo" href="index.html"><span class="pousse" aria-hidden="true">🌱</span>Parents <span>Sereins</span></a>
+      <nav class="menu" aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="conseils.html">Conseils</a></li>
+          <li><a href="outils.html">Outils</a></li>
+          <li><a href="histoires.html">Histoires</a></li>
+          <li><a href="mon-espace.html">Mon espace</a></li>
+        </ul>
+      </nav>
+      <a class="icone-btn" href="favoris.html" aria-label="Mes favoris" title="Mes favoris">♡<span class="pastille pastille-favoris"></span></a>
+      <button class="icone-btn" id="theme" type="button" aria-label="Changer de thème">🌗</button>
+      <button class="icone-btn burger" type="button" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+  <main>
+    <div class="container article" id="suivi">
+      <div class="entete-article">
+        <p class="fil"><a href="index.html">Accueil</a> › Suivi de bébé</p>
+        <h1>Le suivi de bébé 🍼</h1>
+        <p class="chapeau">À 3 heures du matin, impossible de se rappeler l'heure de la dernière tétée ou le côté… Un geste suffit : le site s'en souvient pour vous.</p>
+      </div>
+      <div class="photo-article"><img src="img/suivi-bebe.jpg" alt="Un bébé à quatre pattes sous une couverture" width="1000" height="650"></div>
+      <div class="outil">
+        <h2 style="margin-top:0">Noter un moment</h2>
+        <p class="mention-aff">Tétées et sommeil : touchez une fois pour lancer le chronomètre, une seconde fois pour l'arrêter.</p>
+        <div class="boutons-suivi">
+          <button class="bouton-suivi" type="button" data-suivi="teteeG"><span class="gros">🤱</span>Tétée gauche<span class="etat"></span></button>
+          <button class="bouton-suivi" type="button" data-suivi="teteeD"><span class="gros">🤱</span>Tétée droite<span class="etat"></span></button>
+          <button class="bouton-suivi" type="button" data-suivi="biberon"><span class="gros">🍼</span>Biberon<span class="etat"></span></button>
+          <button class="bouton-suivi" type="button" data-suivi="sommeil"><span class="gros">😴</span>Sommeil<span class="etat"></span></button>
+          <button class="bouton-suivi" type="button" data-suivi="pipi"><span class="gros">💧</span>Couche pipi<span class="etat"></span></button>
+          <button class="bouton-suivi" type="button" data-suivi="selles"><span class="gros">💩</span>Couche selles<span class="etat"></span></button>
+          <button class="bouton-suivi" type="button" data-suivi="soin"><span class="gros">🩹</span>Soin / médicament<span class="etat"></span></button>
+        </div>
+      </div>
+      <div class="outil">
+        <h2 style="margin-top:0">Aujourd'hui</h2>
+        <div class="resume-suivi" id="suivi-resume"></div>
+        <ul class="liste-suivi" id="suivi-liste" style="margin-top:14px"></ul>
+      </div>
+      <div class="outil">
+        <h2 style="margin-top:0">Repas sur 7 jours</h2>
+        <div class="semaine" id="suivi-semaine"></div>
+      </div>
+      <div class="encadre"><strong>Bon à savoir</strong>Un nouveau-né allaité tète souvent 8 à 12 fois par 24 h, à la demande. Ce suivi sert à vous repérer, pas à imposer un rythme. Le bon signe : 5 à 6 couches bien mouillées par jour et une prise de poids régulière. En cas de doute, demandez conseil à votre sage-femme, votre médecin ou la PMI.</div>
+      <p class="mention-aff">🔒 Tout est enregistré uniquement sur cet appareil : rien n'est envoyé sur internet. Pensez à faire une sauvegarde depuis <a href="mon-espace.html#donnees">Mon espace</a>.</p>
+    </div>
+  </main>
+  <footer class="site">
+    <div class="container">
+      <a class="logo" href="index.html"><span class="pousse" aria-hidden="true">🌱</span>Parents <span>Sereins</span></a>
+      <p>Des repères simples et bienveillants pour les parents, de la naissance à l'adolescence.</p>
+      <p>Les conseils de ce site ne remplacent pas l'avis d'un médecin ou d'une sage-femme. En cas de doute sur la santé de votre enfant, appelez votre médecin ; en urgence, le 15 (ou le 112).</p>
+      <p>En tant que Partenaire Amazon, ce site réalise un bénéfice sur les achats remplissant les conditions requises. Photos : <a href="https://unsplash.com/fr/licence" rel="noopener">Unsplash</a>.<br>
+        <a href="conseils.html">Conseils</a> · <a href="outils.html">Outils</a> · <a href="histoires.html">Histoires du soir</a> · <a href="prenoms.html">Prénoms</a> · <a href="quiz.html">Quiz</a> · <a href="journal.html">Journal de bébé</a> · <a href="suivi-bebe.html">Suivi de bébé</a> · <a href="liste-naissance.html">Liste de naissance</a> · <a href="materiel.html">Matériel</a> · <a href="mon-espace.html">Mon espace</a> · <a href="favoris.html">Mes favoris</a> · <a href="mentions-legales.html">Mentions légales</a> · © <span class="annee">2026</span> Parents Sereins</p>
+    </div>
+  </footer>
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/espace.js"></script>
+  <script src="js/jeux.js"></script>
+</body>
+</html>

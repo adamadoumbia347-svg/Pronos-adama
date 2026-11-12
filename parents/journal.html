@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Journal de bébé en ligne : ses premières fois | Parents Sereins</title>
+  <meta name="description" content="Notez les premières fois de votre enfant (sourire, dent, pas, mots…) dans une jolie frise chronologique, gratuitement et sans inscription. À imprimer.">
+  <meta property="og:title" content="Journal de bébé en ligne : ses premières fois | Parents Sereins">
+  <meta property="og:description" content="Notez les premières fois de votre enfant (sourire, dent, pas, mots…) dans une jolie frise chronologique, gratuitement et sans inscription. À imprimer.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="img/journal.jpg">
+  <meta name="theme-color" content="#e8735a">
+  <script>try{var t=JSON.parse(localStorage.getItem("ps-theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Nunito:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="container">
+      <a class="logo" href="index.html"><span class="pousse" aria-hidden="true">🌱</span>Parents <span>Sereins</span></a>
+      <nav class="menu" aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="conseils.html">Conseils</a></li>
+          <li><a href="outils.html">Outils</a></li>
+          <li><a href="histoires.html">Histoires</a></li>
+          <li><a href="mon-espace.html">Mon espace</a></li>
+        </ul>
+      </nav>
+      <a class="icone-btn" href="favoris.html" aria-label="Mes favoris" title="Mes favoris">♡<span class="pastille pastille-favoris"></span></a>
+      <button class="icone-btn" id="theme" type="button" aria-label="Changer de thème">🌗</button>
+      <button class="icone-btn burger" type="button" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+  <main>
+    <div class="container article">
+      <div class="entete-article">
+        <p class="fil"><a href="index.html">Accueil</a> › Journal de bébé</p>
+        <h1>Le journal de ses premières fois 📸</h1>
+        <p class="chapeau">Premier sourire, première dent, premiers pas… Notez chaque moment, il s'affiche dans une frise avec son âge exact. Un trésor à relire (et à imprimer) dans quelques années.</p>
+      </div>
+      <div class="photo-article"><img src="img/journal.jpg" alt="Une maman serre son petit garçon dans ses bras au bord de la mer" width="1000" height="650"></div>
+      <form class="outil pas-imprimer" id="form-journal">
+        <h2 style="margin-top:0">✍️ Ajouter un souvenir (+5 🌱)</h2>
+        <div class="grille-form">
+          <div><label for="j-moment">Le moment</label><select id="j-moment"><option value="Premier sourire" data-ico="😊">😊 Premier sourire</option><option value="Premier éclat de rire" data-ico="😂">😂 Premier éclat de rire</option><option value="Se retourne tout seul" data-ico="🔄">🔄 Se retourne tout seul</option><option value="Première dent" data-ico="🦷">🦷 Première dent</option><option value="Tient assis" data-ico="🪑">🪑 Tient assis</option><option value="Première purée" data-ico="🥄">🥄 Première purée</option><option value="Premiers déplacements à quatre pattes" data-ico="🐢">🐢 Premiers déplacements à quatre pattes</option><option value="Premier mot" data-ico="💬">💬 Premier mot</option><option value="Premiers pas" data-ico="👣">👣 Premiers pas</option><option value="Première nuit complète" data-ico="🌙">🌙 Première nuit complète</option><option value="Premier jour de crèche ou d'école" data-ico="🎒">🎒 Premier jour de crèche ou d'école</option><option value="Première coupe de cheveux" data-ico="✂️">✂️ Première coupe de cheveux</option><option value="Premier dessin" data-ico="🎨">🎨 Premier dessin</option><option value="Premier tour de vélo" data-ico="🚲">🚲 Premier tour de vélo</option><option value="Perd sa première dent de lait" data-ico="🧚">🧚 Perd sa première dent de lait</option><option value="Lit son premier mot" data-ico="📖">📖 Lit son premier mot</option><option value="Anniversaire" data-ico="🎂">🎂 Anniversaire</option><option value="autre" data-ico="⭐">⭐ Autre moment…</option></select></div>
+          <div><label for="j-enfant">Pour</label><select id="j-enfant"></select></div>
+          <div><label for="j-date">Date</label><input type="date" id="j-date" required></div>
+        </div>
+        <div id="j-autre-zone" style="display:none"><label for="j-autre">Quel moment ?</label><input type="text" id="j-autre" maxlength="80" placeholder="Ex. Premier bisou à sa petite sœur"></div>
+        <label for="j-note">Une petite note (facultatif)</label>
+        <textarea id="j-note" maxlength="500" placeholder="Où étiez-vous ? Qu'a-t-il fait ? Ce que vous avez ressenti…"></textarea>
+        <p><button class="btn" type="submit">Ajouter au journal</button></p>
+        <p class="mention-aff">Astuce : ajoutez votre enfant dans <a href="mon-espace.html#enfants">Mon espace</a> pour voir son âge à chaque souvenir.</p>
+      </form>
+      <h2>Ma frise <span class="etiquette" id="journal-compte">0</span></h2>
+      <div id="journal-vide" class="encadre">Aucun souvenir pour l'instant. Commencez par le plus récent… ou le plus beau !</div>
+      <ol class="frise" id="frise"></ol>
+      <p class="pas-imprimer"><button class="btn clair" type="button" id="j-imprimer">🖨️ Imprimer mon journal</button></p>
+      <div class="pas-imprimer"><p class="mention-aff">🔒 Tout est enregistré uniquement sur cet appareil : rien n'est envoyé sur internet. Pensez à faire une sauvegarde depuis <a href="mon-espace.html#donnees">Mon espace</a>.</p></div>
+    </div>
+  </main>
+  <footer class="site">
+    <div class="container">
+      <a class="logo" href="index.html"><span class="pousse" aria-hidden="true">🌱</span>Parents <span>Sereins</span></a>
+      <p>Des repères simples et bienveillants pour les parents, de la naissance à l'adolescence.</p>
+      <p>Les conseils de ce site ne remplacent pas l'avis d'un médecin ou d'une sage-femme. En cas de doute sur la santé de votre enfant, appelez votre médecin ; en urgence, le 15 (ou le 112).</p>
+      <p>En tant que Partenaire Amazon, ce site réalise un bénéfice sur les achats remplissant les conditions requises. Photos : <a href="https://unsplash.com/fr/licence" rel="noopener">Unsplash</a>.<br>
+        <a href="conseils.html">Conseils</a> · <a href="outils.html">Outils</a> · <a href="histoires.html">Histoires du soir</a> · <a href="prenoms.html">Prénoms</a> · <a href="quiz.html">Quiz</a> · <a href="journal.html">Journal de bébé</a> · <a href="suivi-bebe.html">Suivi de bébé</a> · <a href="liste-naissance.html">Liste de naissance</a> · <a href="materiel.html">Matériel</a> · <a href="mon-espace.html">Mon espace</a> · <a href="favoris.html">Mes favoris</a> · <a href="mentions-legales.html">Mentions légales</a> · © <span class="annee">2026</span> Parents Sereins</p>
+    </div>
+  </footer>
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/espace.js"></script>
+  <script src="js/jeux.js"></script>
+</body>
+</html>
