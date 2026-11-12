@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculateur de sommeil enfant et repères écrans par âge | Parents Sereins</title>
+  <meta name="description" content="Combien d'heures doit dormir mon enfant ? À quelle heure le coucher ? Quels écrans à quel âge ? Deux outils gratuits pour les parents.">
+  <meta property="og:title" content="Calculateur de sommeil enfant et repères écrans par âge | Parents Sereins">
+  <meta property="og:description" content="Combien d'heures doit dormir mon enfant ? À quelle heure le coucher ? Quels écrans à quel âge ? Deux outils gratuits pour les parents.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="container">
+      <a class="logo" href="index.html">🌱 Parents <span>Sereins</span></a>
+      <button class="burger" aria-label="Menu" aria-expanded="false">☰</button>
+      <nav class="menu" aria-label="Menu principal">
+        <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="conseils.html">Conseils</a></li>
+        <li><a href="outils.html" aria-current="page">Outils</a></li>
+        <li><a href="liste-naissance.html">Liste de naissance</a></li>
+        <li><a href="materiel.html">Matériel</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container article">
+      <p class="fil"><a href="index.html">Accueil</a> › Outils</p>
+      <h1>Outils pour les parents</h1>
+      <p class="chapeau">Deux calculateurs gratuits, sans inscription. Rien n'est envoyé : tout se calcule dans votre navigateur.</p>
+
+      <section class="outil" id="sommeil">
+        <h2 style="margin-top:0">⏰ Combien doit dormir mon enfant ?</h2>
+        <form id="form-sommeil">
+          <label for="s-naissance">Date de naissance de l'enfant</label>
+          <input type="date" id="s-naissance" required>
+          <label for="s-reveil">Heure de réveil habituelle</label>
+          <input type="time" id="s-reveil" value="07:00" style="font:inherit;padding:10px;border:1px solid var(--ligne);border-radius:8px;background:var(--fond);color:var(--texte)">
+          <p><button class="btn" type="submit">Calculer</button></p>
+        </form>
+        <div class="resultat" id="res-sommeil" aria-live="polite"></div>
+        <p class="mention-aff">Repères de l'Académie américaine de médecine du sommeil et de la National Sleep Foundation. Chaque enfant est différent : s'il est en forme et grandit bien, son sommeil lui convient probablement.</p>
+      </section>
+
+      <section class="outil" id="ecrans">
+        <h2 style="margin-top:0">🧭 Écrans : que recommandent les experts à cet âge ?</h2>
+        <form id="form-ecrans">
+          <label for="e-age">Âge de l'enfant</label>
+          <select id="e-age" required>
+            <option value="">Choisir…</option>
+            <option value="0">Moins d'1 an</option><option value="1">1 an</option><option value="2">2 ans</option>
+            <option value="3">3 ans</option><option value="4">4 ans</option><option value="5">5 ans</option>
+            <option value="6">6 ans</option><option value="7">7 ans</option><option value="8">8 ans</option>
+            <option value="9">9 ans</option><option value="10">10 ans</option><option value="11">11 ans</option>
+            <option value="12">12 ans</option><option value="13">13 ans</option><option value="14">14 ans</option>
+            <option value="15">15 ans</option><option value="16">16 ans</option><option value="17">17 ans</option>
+          </select>
+          <p><button class="btn" type="submit">Voir les repères</button></p>
+        </form>
+        <div class="resultat" id="res-ecrans" aria-live="polite"></div>
+        <p class="mention-aff">D'après le rapport de la commission d'experts « Enfants et écrans » (2024) et les recommandations de l'OMS. Pour aller plus loin : <a href="ecrans-enfants.html">écrans et enfants, le guide complet</a>.</p>
+      </section>
+    </div>
+  </main>
+  <footer class="site">
+    <div class="container">
+      <p>🌱 Parents Sereins — des repères simples et bienveillants pour les parents de 0 à 18 ans.</p>
+      <p>Les conseils de ce site ne remplacent pas l'avis d'un médecin ou d'une sage-femme. En cas de doute sur la santé de votre enfant, appelez votre médecin ; en urgence, le 15 (ou le 112).</p>
+      <p>En tant que Partenaire Amazon, ce site réalise un bénéfice sur les achats remplissant les conditions requises. ·
+        <a href="mentions-legales.html">Mentions légales</a> · © <span class="annee">2026</span> Parents Sereins</p>
+    </div>
+  </footer>
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/outils.js"></script>
+</body>
+</html>

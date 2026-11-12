@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Liste de naissance : l'essentiel à prévoir (check-list) | Parents Sereins</title>
+  <meta name="description" content="La liste de naissance essentielle, sans superflu : sommeil, toilette, repas, sortie, vêtements, valise de maternité. À cocher en ligne, gratuitement.">
+  <meta property="og:title" content="Liste de naissance : l'essentiel à prévoir (check-list) | Parents Sereins">
+  <meta property="og:description" content="La liste de naissance essentielle, sans superflu : sommeil, toilette, repas, sortie, vêtements, valise de maternité. À cocher en ligne, gratuitement.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="container">
+      <a class="logo" href="index.html">🌱 Parents <span>Sereins</span></a>
+      <button class="burger" aria-label="Menu" aria-expanded="false">☰</button>
+      <nav class="menu" aria-label="Menu principal">
+        <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="conseils.html">Conseils</a></li>
+        <li><a href="outils.html">Outils</a></li>
+        <li><a href="liste-naissance.html" aria-current="page">Liste de naissance</a></li>
+        <li><a href="materiel.html">Matériel</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container article">
+      <p class="fil"><a href="index.html">Accueil</a> › Liste de naissance</p>
+      <h1>Liste de naissance : l'essentiel, sans superflu</h1>
+      <p class="chapeau">Tout ce qu'il faut vraiment avant l'arrivée de bébé. Cochez au fur et à mesure : votre liste est gardée sur cet appareil, rien n'est envoyé.</p>
+      <div class="outil" style="position:sticky;top:70px;z-index:5;padding:12px 20px">
+        <strong>Votre progression : <span id="liste-compte">0</span></strong>
+        <div class="progression"><div id="liste-barre"></div></div>
+        <button class="btn clair" id="liste-raz" type="button" style="padding:6px 14px;font-size:.85rem">Tout décocher</button>
+      </div>
+      <div class="encadre attention"><strong>Sécurité du sommeil</strong>Bébé dort sur le dos, dans son lit, dans une gigoteuse : ni couette, ni oreiller, ni tour de lit, ni peluche. C'est la recommandation de Santé publique France pour réduire le risque de mort inattendue du nourrisson.</div>
+      <div id="liste-naissance">
+      <h2>🛏️ Pour dormir</h2>
+      <ul class="liste-coche">
+        <li><label><input type="checkbox" id="n-lit"><span>Un lit à barreaux ou un berceau aux normes, avec un matelas ferme bien ajusté</span></label> <a class="aff" style="padding:3px 10px;font-size:.8rem" data-aff="lit" data-q="lit bébé barreaux matelas" href="https://www.amazon.fr/s?k=lit+bébé+barreaux+matelas">Voir</a></li>
+        <li><label><input type="checkbox" id="n-gigoteuse"><span>2 à 3 gigoteuses (turbulettes) adaptées à la saison</span></label> <a class="aff" style="padding:3px 10px;font-size:.8rem" data-aff="gigoteuse" data-q="gigoteuse bébé 0-6 mois" href="https://www.amazon.fr/s?k=gigoteuse+bébé+0-6+mois">Voir</a></li>
+        <li><label><input type="checkbox" id="n-draps"><span>3 draps-housses pour le matelas</span></label> <a class="aff" style="padding:3px 10px;font-size:.8rem" data-aff="draps" data-q="drap housse lit bébé 60x120" href="https://www.amazon.fr/s?k=drap+housse+lit+bébé+60x120">Voir</a></li>
+        <li><label><input type="checkbox" id="n-babyphone"><span>Un babyphone (écoute-bébé)</span></label> <a class="aff" style="padding:3px 10px;font-size:.8rem" data-aff="babyphone" data-q="babyphone" href="https://www.amazon.fr/s?k=babyphone">Voir</a></li>
+        <li><label><input type="checkbox" id="n-veilleuse"><span>Une veilleuse douce pour les tétées de nuit</span></label> <a class="aff" style="padding:3px 10px;font-size:.8rem" data-aff="veilleuse" data-q="veilleuse bébé" href="https://www.amazon.fr/s?k=veilleuse+bébé">Voir</a></li>
+      </ul>
+      <h2>🛁 Pour la toilette et le change</h2>
+      <ul class="liste-coche">
+        <li><label><input type="checkbox" id="n-matelas-langer"><span>Un matelas à langer</span></label> <a class="aff" style="padding:3px 10px;font-size:.8rem" data-aff="matelas-langer" data-q="matelas à langer" href="https://www.amazon.fr/s?k=matelas+à+langer">Voir</a></li>
+        <li><label><input type="checkbox" id="n-baignoire"><span>Une baignoire bébé ou un transat de bain</span></label> <a class="aff" style="padding:3px 10px;font-size:.8rem" data-aff="baignoire" data-q="baignoire bébé" href="https://www.amazon.fr/s?k=baignoire+bébé">Voir</a></li>
+        <li><label><input type="checkbox" id="n-thermometre-bain"><span>Un thermomètre de bain</span></label> <a class="aff" style="padding:3px 10px;font-size:.8rem" data-aff="thermometre-bain" data-q="thermomètre bain bébé" href="https://www.amazon.fr/s?k=thermomètre+bain+bébé">Voir</a></li>
+        <li><label><input type="checkbox" id="n-capes"><span>2 ou 3 capes de bain</span></label> <a class="aff" style="padding:3px 10px;font-size:.8rem" data-aff="capes" data-q="cape de bain bébé" href="https://www.amazon.fr/s?k=cape+de+bain+bébé">Voir</a></li>
+        <li><label><input type="checkbox" id="n-couches"><span>Des couches taille 1 (sans en stocker trop : bébé grandit vite)</span></label> <a class="aff" style="padding:3px 10px;font-size:.8rem" data-aff="couches" data-q="couches taille 1" href="https://www.amazon.fr/s?k=couches+taille+1">Voir</a></li>
+        <li><label><input type="checkbox" id="n-liniment"><span>Liniment ou eau et coton pour le change</span></label> <a class="aff" style="padding:3px 10px;font-size:.8rem" data-aff="liniment" data-q="liniment oléo-calcaire" href="https://www.amazon.fr/s?k=liniment+oléo-calcaire">Voir</a></li>
+        <li><label><input type="checkbox" id="n-thermometre"><span>Un thermomètre médical rectal ou frontal</span></label> <a class="aff" style="padding:3px 10px;font-size:.8rem" data-aff="thermometre" data-q="thermomètre bébé" href="https://www.amazon.fr/s?k=thermomètre+bébé">Voir</a></li>
+        <li><label><input type="checkbox" id="n-mouche-bebe"><span>Un mouche-bébé et du sérum physiologique</span></label> <a class="aff" style="padding:3px 10px;font-size:.8rem" data-aff="mouche-bebe" data-q="mouche bébé" href="https://www.amazon.fr/s?k=mouche+bébé">Voir</a></li>
+        <li><label><input type="checkbox" id="n-coupe-ongles"><span>Des ciseaux à bouts ronds ou une lime pour bébé</span></label> <a class="aff" style="padding:3px 10px;font-size:.8rem" data-aff="coupe-ongles" data-q="ciseaux ongles bébé" href="https://www.amazon.fr/s?k=ciseaux+ongles+bébé">Voir</a></li>
+      </ul>
+      <h2>🍼 Pour les repas</h2>
+      <ul class="liste-coche">
+        <li><label><input type="checkbox" id="n-biberons"><span>4 à 6 biberons et tétines 1er âge (même en allaitement, 1 ou 2 peuvent servir)</span></label> <a class="aff" style="padding:3px 10px;font-size:.8rem" data-aff="biberons" data-q="biberon nouveau-né" href="https://www.amazon.fr/s?k=biberon+nouveau-né">Voir</a></li>
+        <li><label><input type="checkbox" id="n-goupillon"><span>Un goupillon pour les laver</span></label> <a class="aff" style="padding:3px 10px;font-size:.8rem" data-aff="goupillon" data-q="goupillon biberon" href="https://www.amazon.fr/s?k=goupillon+biberon">Voir</a></li>
+        <li><label><input type="checkbox" id="n-bavoirs"><span>Des bavoirs et langes en coton (on n'en a jamais trop)</span></label> <a class="aff" style="padding:3px 10px;font-size:.8rem" data-aff="bavoirs" data-q="lange coton bébé" href="https://www.amazon.fr/s?k=lange+coton+bébé">Voir</a></li>
+        <li><label><input type="checkbox" id="n-coussin"><span>Un coussin d'allaitement (aussi utile au biberon)</span></label> <a class="aff" style="padding:3px 10px;font-size:.8rem" data-aff="coussin" data-q="coussin allaitement" href="https://www.amazon.fr/s?k=coussin+allaitement">Voir</a></li>
+        <li><label><input type="checkbox" id="n-tire-lait"><span>Un tire-lait, si vous allaitez et reprenez le travail (souvent remboursé sur ordonnance en location)</span></label> <a class="aff" style="padding:3px 10px;font-size:.8rem" data-aff="tire-lait" data-q="tire-lait électrique" href="https://www.amazon.fr/s?k=tire-lait+électrique">Voir</a></li>
+      </ul>
+      <h2>🚗 Pour sortir</h2>
+      <ul class="liste-coche">
+        <li><label><input type="checkbox" id="n-siege-auto"><span>Un siège-auto groupe 0+ / i-Size, installé dos à la route — obligatoire dès la sortie de la maternité</span></label> <a class="aff" style="padding:3px 10px;font-size:.8rem" data-aff="siege-auto" data-q="siège auto i-size naissance" href="https://www.amazon.fr/s?k=siège+auto+i-size+naissance">Voir</a></li>
+        <li><label><input type="checkbox" id="n-poussette"><span>Une poussette compatible nacelle ou cosy</span></label> <a class="aff" style="padding:3px 10px;font-size:.8rem" data-aff="poussette" data-q="poussette naissance" href="https://www.amazon.fr/s?k=poussette+naissance">Voir</a></li>
+        <li><label><input type="checkbox" id="n-porte-bebe"><span>Une écharpe ou un porte-bébé physiologique</span></label> <a class="aff" style="padding:3px 10px;font-size:.8rem" data-aff="porte-bebe" data-q="porte bébé physiologique" href="https://www.amazon.fr/s?k=porte+bébé+physiologique">Voir</a></li>
+        <li><label><input type="checkbox" id="n-sac-langer"><span>Un sac à langer</span></label> <a class="aff" style="padding:3px 10px;font-size:.8rem" data-aff="sac-langer" data-q="sac à langer" href="https://www.amazon.fr/s?k=sac+à+langer">Voir</a></li>
+      </ul>
+      <h2>👕 Vêtements (taille naissance et 1 mois)</h2>
+      <ul class="liste-coche">
+        <li><label><input type="checkbox" id="n-bodies"><span>6 à 8 bodies</span></label> <a class="aff" style="padding:3px 10px;font-size:.8rem" data-aff="bodies" data-q="body bébé naissance" href="https://www.amazon.fr/s?k=body+bébé+naissance">Voir</a></li>
+        <li><label><input type="checkbox" id="n-pyjamas"><span>6 à 8 pyjamas</span></label> <a class="aff" style="padding:3px 10px;font-size:.8rem" data-aff="pyjamas" data-q="pyjama bébé naissance" href="https://www.amazon.fr/s?k=pyjama+bébé+naissance">Voir</a></li>
+        <li><label><input type="checkbox" id="n-bonnet"><span>Un bonnet de naissance et 2 paires de chaussettes</span></label> <a class="aff" style="padding:3px 10px;font-size:.8rem" data-aff="bonnet" data-q="bonnet naissance" href="https://www.amazon.fr/s?k=bonnet+naissance">Voir</a></li>
+        <li><label><input type="checkbox" id="n-gilets"><span>2 gilets ou brassières</span></label> <a class="aff" style="padding:3px 10px;font-size:.8rem" data-aff="gilets" data-q="gilet bébé naissance" href="https://www.amazon.fr/s?k=gilet+bébé+naissance">Voir</a></li>
+      </ul>
+      <h2>🏥 Pour la valise de maternité</h2>
+      <ul class="liste-coche">
+        <li><label><input type="checkbox" id="n-valise"><span>Une tenue pour la sortie de bébé et une pour vous</span></label></li>
+        <li><label><input type="checkbox" id="n-papiers"><span>Carte vitale, carte de mutuelle, dossier de grossesse, pièce d'identité</span></label></li>
+        <li><label><input type="checkbox" id="n-chemises"><span>2 chemises de nuit ou t-shirts amples, et des slips jetables</span></label> <a class="aff" style="padding:3px 10px;font-size:.8rem" data-aff="chemises" data-q="slip jetable maternité" href="https://www.amazon.fr/s?k=slip+jetable+maternité">Voir</a></li>
+        <li><label><input type="checkbox" id="n-coussinets"><span>Des coussinets d'allaitement</span></label> <a class="aff" style="padding:3px 10px;font-size:.8rem" data-aff="coussinets" data-q="coussinets allaitement" href="https://www.amazon.fr/s?k=coussinets+allaitement">Voir</a></li>
+      </ul>
+      </div>
+      <div class="encadre"><strong>Astuce budget</strong>Beaucoup d'articles (lit, poussette, baignoire, vêtements de naissance) se trouvent d'occasion en très bon état. Seuls le siège-auto (on ne connaît pas son historique d'accidents) et le matelas sont à acheter neufs.</div>
+      <p class="mention-aff">Les liens « Voir » mènent à Amazon ; ce site touche une petite commission sur les achats, sans surcoût pour vous.</p>
+    </div>
+  </main>
+  <footer class="site">
+    <div class="container">
+      <p>🌱 Parents Sereins — des repères simples et bienveillants pour les parents de 0 à 18 ans.</p>
+      <p>Les conseils de ce site ne remplacent pas l'avis d'un médecin ou d'une sage-femme. En cas de doute sur la santé de votre enfant, appelez votre médecin ; en urgence, le 15 (ou le 112).</p>
+      <p>En tant que Partenaire Amazon, ce site réalise un bénéfice sur les achats remplissant les conditions requises. ·
+        <a href="mentions-legales.html">Mentions légales</a> · © <span class="annee">2026</span> Parents Sereins</p>
+    </div>
+  </footer>
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/outils.js"></script>
+</body>
+</html>
