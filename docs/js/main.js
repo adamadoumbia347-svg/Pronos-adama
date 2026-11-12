@@ -302,3 +302,126 @@
   var annee = document.getElementById("annee");
   if (annee) annee.textContent = new Date().getFullYear();
 })();
+
+/* ===== Design 2026 : motion design, mode sombre, favoris, retour en haut ===== */
+(function () {
+  var lang = (document.documentElement.lang || "fr").slice(0, 2);
+  var L = {
+    fr: { sombre: "Activer le mode sombre", clair: "Activer le mode clair", haut: "Retour en haut", fav: "Ajouter aux favoris", favOk: "Dans vos favoris", vide: "Vous n'avez pas encore de favoris. Cliquez sur ♡ en haut d'un article pour l'ajouter ici.", retirer: "Retirer" },
+    en: { sombre: "Switch to dark mode", clair: "Switch to light mode", haut: "Back to top", fav: "Add to favourites", favOk: "In your favourites", vide: "No favourites yet. Click ♡ at the top of an article to add it here.", retirer: "Remove" },
+    it: { sombre: "Attiva la modalità scura", clair: "Attiva la modalità chiara", haut: "Torna su", fav: "Aggiungi ai preferiti", favOk: "Nei tuoi preferiti", vide: "Non hai ancora preferiti. Clicca su ♡ in cima a un articolo per aggiungerlo qui.", retirer: "Rimuovi" }
+  }[lang] || {};
+  var store = {
+    get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  };
+  var reduit = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Mode sombre : bouton dans l'en-tête (le choix est appliqué dès le <head>)
+  var nav = document.querySelector(".site-header .nav");
+  if (nav) {
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "btn-theme";
+    var maj = function () {
+      var sombre = document.documentElement.dataset.theme === "dark";
+      b.textContent = sombre ? "☀️" : "🌙";
+      b.setAttribute("aria-label", sombre ? L.clair : L.sombre); b.title = b.getAttribute("aria-label");
+    };
+    if (!document.documentElement.dataset.theme && window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches) document.documentElement.dataset.theme = "dark";
+    maj();
+    b.addEventListener("click", function () {
+      var t = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      document.documentElement.dataset.theme = t; store.set("theme", t); maj();
+    });
+    var toggle = nav.querySelector(".nav-toggle");
+    nav.insertBefore(b, toggle || null);
+  }
+
+  // Apparition des blocs au défilement (seulement sous la ligne de flottaison)
+  if (!reduit && "IntersectionObserver" in window) {
+    document.documentElement.classList.add("js-motion");
+    var cibles = document.querySelectorAll("main section > .container > h2, main .grid > *, .article h2, .product-box, .callout, .table-wrap, .photo, .chiffres > div, .faq details, .lire-aussi .card");
+    var hauteur = window.innerHeight;
+    var io = new IntersectionObserver(function (entrees) {
+      entrees.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("vu"); io.unobserve(e.target); } });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+    cibles.forEach(function (el) {
+      if (el.getBoundingClientRect().top < hauteur * 0.92) return;
+      var parent = el.parentElement;
+      if (parent && parent.classList.contains("grid")) {
+        var i = Array.prototype.indexOf.call(parent.children, el) % 4;
+        el.style.setProperty("--delai", (i * 0.08) + "s");
+      }
+      el.classList.add("reveal"); io.observe(el);
+    });
+  }
+
+  // Compteurs animés (accueil)
+  document.querySelectorAll("[data-compte]").forEach(function (el) {
+    var fin = parseInt(el.dataset.compte, 10), suffixe = el.dataset.suffixe || "";
+    if (reduit || !("IntersectionObserver" in window)) { el.textContent = fin + suffixe; return; }
+    el.textContent = "0" + suffixe;
+    var o = new IntersectionObserver(function (es) {
+      if (!es[0].isIntersecting) return; o.disconnect();
+      var t0 = performance.now(), d = 1200;
+      (function pas(t) {
+        var k = Math.min(1, (t - t0) / d), v = Math.round(fin * (1 - Math.pow(1 - k, 3)));
+        el.textContent = v + suffixe; if (k < 1) requestAnimationFrame(pas);
+      })(t0);
+    });
+    o.observe(el);
+  });
+
+  // Retour en haut
+  var h = document.createElement("button");
+  h.type = "button"; h.className = "haut"; h.textContent = "↑"; h.setAttribute("aria-label", L.haut); h.title = L.haut;
+  document.body.appendChild(h);
+  h.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: reduit ? "auto" : "smooth" }); });
+  var vis = false;
+  window.addEventListener("scroll", function () {
+    var v = window.scrollY > 700;
+    if (v !== vis) { vis = v; h.classList.toggle("visible", v); }
+  }, { passive: true });
+
+  // Favoris : bouton sur les articles, liste sur la page favoris.html
+  var lire = function () { try { return JSON.parse(store.get("favoris") || "[]"); } catch (e) { return []; } };
+  var ecrire = function (l) { store.set("favoris", JSON.stringify(l)); };
+  var article = document.querySelector(".article");
+  var h1 = article && article.querySelector("h1");
+  if (h1 && !document.getElementById("liste-favoris")) {
+    var url = location.pathname, titre = h1.textContent.replace(/^[^\wÀ-ÿ«]+/, "").trim();
+    var f = document.createElement("button");
+    f.type = "button"; f.className = "btn-favori";
+    var etat = function () {
+      var dedans = lire().some(function (x) { return x.u === url; });
+      f.setAttribute("aria-pressed", dedans ? "true" : "false");
+      f.innerHTML = '<span class="coeur" aria-hidden="true">' + (dedans ? "♥" : "♡") + "</span>" + (dedans ? L.favOk : L.fav);
+    };
+    etat();
+    f.addEventListener("click", function () {
+      var l = lire(), i = -1;
+      l.forEach(function (x, k) { if (x.u === url) i = k; });
+      if (i >= 0) l.splice(i, 1); else l.unshift({ u: url, t: titre });
+      ecrire(l.slice(0, 100)); etat();
+    });
+    var meta = article.querySelector(".meta");
+    (meta || h1).insertAdjacentElement("afterend", f);
+  }
+  var liste = document.getElementById("liste-favoris");
+  if (liste) {
+    var rendu = function () {
+      var l = lire(); liste.innerHTML = "";
+      if (!l.length) { liste.innerHTML = '<p class="lead">' + L.vide + "</p>"; return; }
+      var ul = document.createElement("ul"); ul.className = "liste-favoris";
+      l.forEach(function (x) {
+        var li = document.createElement("li"), a = document.createElement("a"), r = document.createElement("button");
+        a.href = x.u; a.textContent = x.t;
+        r.type = "button"; r.textContent = "✕"; r.setAttribute("aria-label", L.retirer + " : " + x.t); r.title = L.retirer;
+        r.addEventListener("click", function () { ecrire(lire().filter(function (y) { return y.u !== x.u; })); rendu(); });
+        li.appendChild(a); li.appendChild(r); ul.appendChild(li);
+      });
+      liste.appendChild(ul);
+    };
+    rendu();
+  }
+})();
