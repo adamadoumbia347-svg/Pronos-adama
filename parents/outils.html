@@ -8,30 +8,38 @@
   <meta property="og:title" content="Outils parents : sommeil, écrans, diversification, budget bébé | Parents Sereins">
   <meta property="og:description" content="Calculateur de sommeil, repères écrans par âge, calendrier de diversification, budget de la première année : des outils gratuits pour les parents.">
   <meta property="og:type" content="website">
+  <meta name="theme-color" content="#e8735a">
+  <script>try{var t=JSON.parse(localStorage.getItem("ps-theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Nunito:wght@400;600;700;800&display=swap">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="site">
     <div class="container">
-      <a class="logo" href="index.html">🌱 Parents <span>Sereins</span></a>
-      <button class="burger" aria-label="Menu" aria-expanded="false">☰</button>
+      <a class="logo" href="index.html"><span class="pousse" aria-hidden="true">🌱</span>Parents <span>Sereins</span></a>
       <nav class="menu" aria-label="Menu principal">
         <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="conseils.html">Conseils</a></li>
-        <li><a href="outils.html" aria-current="page">Outils</a></li>
-        <li><a href="liste-naissance.html">Liste de naissance</a></li>
-        <li><a href="materiel.html">Matériel</a></li>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="conseils.html">Conseils</a></li>
+          <li><a href="outils.html" aria-current="page">Outils</a></li>
+          <li><a href="liste-naissance.html">Liste de naissance</a></li>
+          <li><a href="materiel.html">Matériel</a></li>
         </ul>
       </nav>
+      <a class="icone-btn" href="favoris.html" aria-label="Mes favoris" title="Mes favoris">♡<span class="pastille pastille-favoris"></span></a>
+      <button class="icone-btn" id="theme" type="button" aria-label="Changer de thème">🌗</button>
+      <button class="icone-btn burger" type="button" aria-label="Menu" aria-expanded="false">☰</button>
     </div>
   </header>
   <main>
     <div class="container article">
       <p class="fil"><a href="index.html">Accueil</a> › Outils</p>
       <h1>Outils pour les parents</h1>
-      <p><a href="#sommeil">⏰ Sommeil</a> · <a href="#ecrans">🧭 Écrans</a> · <a href="#diversification">🥕 Diversification</a> · <a href="#budget">💶 Budget bébé</a> · <a href="routine-enfant.html">🗓️ Routine</a></p>
+      <div class="photo-article"><img src="img/outils.jpg" alt="Un nouveau-né bâille dans son lit à côté d'une peluche" width="1000" height="650"></div>
+      <p><a href="#sommeil">⏰ Sommeil</a> · <a href="#ecrans">🧭 Écrans</a> · <a href="#diversification">🥕 Diversification</a> · <a href="#budget">💶 Budget bébé</a> · <a href="#idee">🎲 Idée d'activité</a> · <a href="#argent">🪙 Argent de poche</a> · <a href="routine-enfant.html">🗓️ Routine</a></p>
       <p class="chapeau">Des outils gratuits, sans inscription. Rien n'est envoyé : tout se calcule dans votre navigateur.</p>
 
       <section class="outil" id="sommeil">
@@ -82,24 +90,53 @@
         <form id="form-budget">
           <label>Alimentation</label>
           <div class="radios">
-            <label><input type="radio" name="lait" value="allaitement" checked> Allaitement</label>
-            <label><input type="radio" name="lait" value="infantile"> Lait infantile</label>
+            <label><input type="radio" name="lait" value="allaitement" checked><span>Allaitement</span></label>
+            <label><input type="radio" name="lait" value="infantile"><span>Lait infantile</span></label>
           </div>
           <label>Couches</label>
           <div class="radios">
-            <label><input type="radio" name="couches" value="jetables" checked> Jetables</label>
-            <label><input type="radio" name="couches" value="lavables"> Lavables</label>
+            <label><input type="radio" name="couches" value="jetables" checked><span>Jetables</span></label>
+            <label><input type="radio" name="couches" value="lavables"><span>Lavables</span></label>
           </div>
           <label>Équipement et vêtements</label>
           <div class="radios">
-            <label><input type="radio" name="achat" value="neuf"> Tout neuf</label>
-            <label><input type="radio" name="achat" value="mixte" checked> Neuf + occasion</label>
-            <label><input type="radio" name="achat" value="occasion"> Surtout d'occasion</label>
+            <label><input type="radio" name="achat" value="neuf"><span>Tout neuf</span></label>
+            <label><input type="radio" name="achat" value="mixte" checked><span>Neuf + occasion</span></label>
+            <label><input type="radio" name="achat" value="occasion"><span>Surtout d'occasion</span></label>
           </div>
           <p><button class="btn" type="submit">Calculer le budget</button></p>
         </form>
         <div class="resultat" id="res-budget" aria-live="polite"></div>
         <p class="mention-aff">Estimations moyennes, hors frais de garde (très variables selon le mode de garde et vos revenus : simulez-les sur monenfant.fr).</p>
+      </section>
+
+      <section class="outil" id="idee">
+        <h2 style="margin-top:0">🎲 Idée d'activité au hasard</h2>
+        <p>Un enfant qui s'ennuie ? Choisissez son âge et tirez une idée, sans écran et avec ce que vous avez à la maison.</p>
+        <div class="radios" role="radiogroup" aria-label="Âge">
+          <label><input type="radio" name="idee-age" value="petit" checked><span>1 – 3 ans</span></label>
+          <label><input type="radio" name="idee-age" value="moyen"><span>3 – 6 ans</span></label>
+          <label><input type="radio" name="idee-age" value="grand"><span>6 – 10 ans</span></label>
+          <label><input type="radio" name="idee-age" value="famille"><span>En famille</span></label>
+        </div>
+        <p><button class="btn" type="button" id="idee-tirer">🎲 Tirer une idée</button></p>
+        <div class="carte-idee" id="idee-carte" aria-live="polite"><div class="face"><div><span class="em">✨</span>Votre idée apparaîtra ici</div></div></div>
+        <p class="mention-aff">Plus d'idées : <a href="activites-enfants-maison.html">30 activités à faire à la maison</a>.</p>
+      </section>
+
+      <section class="outil" id="argent">
+        <h2 style="margin-top:0">🪙 Combien d'argent de poche selon l'âge ?</h2>
+        <form id="form-argent">
+          <label for="a-age">Âge de l'enfant</label>
+          <select id="a-age" required>
+            <option value="">Choisir…</option>
+            <option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option>
+            <option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option>
+          </select>
+          <p><button class="btn" type="submit">Voir le repère</button></p>
+        </form>
+        <div class="resultat" id="res-argent" aria-live="polite"></div>
+        <p class="mention-aff">Il n'existe pas de montant officiel : ce sont des fourchettes courantes en France. L'essentiel est la régularité et ce qu'il doit payer lui-même.</p>
       </section>
 
       <section class="outil">
@@ -111,10 +148,11 @@
   </main>
   <footer class="site">
     <div class="container">
-      <p>🌱 Parents Sereins — des repères simples et bienveillants pour les parents de 0 à 18 ans.</p>
+      <a class="logo" href="index.html"><span class="pousse" aria-hidden="true">🌱</span>Parents <span>Sereins</span></a>
+      <p>Des repères simples et bienveillants pour les parents, de la naissance à l'adolescence.</p>
       <p>Les conseils de ce site ne remplacent pas l'avis d'un médecin ou d'une sage-femme. En cas de doute sur la santé de votre enfant, appelez votre médecin ; en urgence, le 15 (ou le 112).</p>
-      <p>En tant que Partenaire Amazon, ce site réalise un bénéfice sur les achats remplissant les conditions requises. ·
-        <a href="mentions-legales.html">Mentions légales</a> · © <span class="annee">2026</span> Parents Sereins</p>
+      <p>En tant que Partenaire Amazon, ce site réalise un bénéfice sur les achats remplissant les conditions requises. Photos : <a href="https://unsplash.com/fr/licence" rel="noopener">Unsplash</a>.<br>
+        <a href="conseils.html">Conseils</a> · <a href="outils.html">Outils</a> · <a href="favoris.html">Mes favoris</a> · <a href="mentions-legales.html">Mentions légales</a> · © <span class="annee">2026</span> Parents Sereins</p>
     </div>
   </footer>
   <script src="js/config.js"></script>

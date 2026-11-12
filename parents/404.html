@@ -8,28 +8,35 @@
   <meta property="og:title" content="Page introuvable | Parents Sereins">
   <meta property="og:description" content="Cette page n'existe pas.">
   <meta property="og:type" content="website">
+  <meta name="theme-color" content="#e8735a">
+  <script>try{var t=JSON.parse(localStorage.getItem("ps-theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Nunito:wght@400;600;700;800&display=swap">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="site">
     <div class="container">
-      <a class="logo" href="index.html">🌱 Parents <span>Sereins</span></a>
-      <button class="burger" aria-label="Menu" aria-expanded="false">☰</button>
+      <a class="logo" href="index.html"><span class="pousse" aria-hidden="true">🌱</span>Parents <span>Sereins</span></a>
       <nav class="menu" aria-label="Menu principal">
         <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="conseils.html">Conseils</a></li>
-        <li><a href="outils.html">Outils</a></li>
-        <li><a href="liste-naissance.html">Liste de naissance</a></li>
-        <li><a href="materiel.html">Matériel</a></li>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="conseils.html">Conseils</a></li>
+          <li><a href="outils.html">Outils</a></li>
+          <li><a href="liste-naissance.html">Liste de naissance</a></li>
+          <li><a href="materiel.html">Matériel</a></li>
         </ul>
       </nav>
+      <a class="icone-btn" href="favoris.html" aria-label="Mes favoris" title="Mes favoris">♡<span class="pastille pastille-favoris"></span></a>
+      <button class="icone-btn" id="theme" type="button" aria-label="Changer de thème">🌗</button>
+      <button class="icone-btn burger" type="button" aria-label="Menu" aria-expanded="false">☰</button>
     </div>
   </header>
   <main>
     <div class="container article" style="text-align:center;padding:60px 16px">
-      <div style="font-size:4rem">🧸</div>
+      <div class="photo-article" style="max-width:420px;margin:0 auto 20px"><img src="img/cubes.jpg" alt="" width="1000" height="650"></div>
       <h1>Oups, cette page s'est cachée</h1>
       <p class="chapeau">Elle n'existe pas ou a changé d'adresse.</p>
       <p><a class="btn" href="index.html">Retour à l'accueil</a></p>
@@ -37,10 +44,11 @@
   </main>
   <footer class="site">
     <div class="container">
-      <p>🌱 Parents Sereins — des repères simples et bienveillants pour les parents de 0 à 18 ans.</p>
+      <a class="logo" href="index.html"><span class="pousse" aria-hidden="true">🌱</span>Parents <span>Sereins</span></a>
+      <p>Des repères simples et bienveillants pour les parents, de la naissance à l'adolescence.</p>
       <p>Les conseils de ce site ne remplacent pas l'avis d'un médecin ou d'une sage-femme. En cas de doute sur la santé de votre enfant, appelez votre médecin ; en urgence, le 15 (ou le 112).</p>
-      <p>En tant que Partenaire Amazon, ce site réalise un bénéfice sur les achats remplissant les conditions requises. ·
-        <a href="mentions-legales.html">Mentions légales</a> · © <span class="annee">2026</span> Parents Sereins</p>
+      <p>En tant que Partenaire Amazon, ce site réalise un bénéfice sur les achats remplissant les conditions requises. Photos : <a href="https://unsplash.com/fr/licence" rel="noopener">Unsplash</a>.<br>
+        <a href="conseils.html">Conseils</a> · <a href="outils.html">Outils</a> · <a href="favoris.html">Mes favoris</a> · <a href="mentions-legales.html">Mentions légales</a> · © <span class="annee">2026</span> Parents Sereins</p>
     </div>
   </footer>
   <script src="js/config.js"></script>

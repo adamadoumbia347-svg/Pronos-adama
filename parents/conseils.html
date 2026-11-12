@@ -4,75 +4,89 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Conseils pour les parents : sommeil, repas, colères, écrans, école | Parents Sereins</title>
-  <meta name="description" content="Tous les conseils de Parents Sereins, de la naissance à 12 ans : sommeil, diversification, dents, propreté, colères, devoirs, écrans, activités.">
+  <meta name="description" content="Tous les conseils de Parents Sereins : sommeil, diversification, dents, langage, propreté, colères, frères et sœurs, crèche, école, écrans, voyages.">
   <meta property="og:title" content="Conseils pour les parents : sommeil, repas, colères, écrans, école | Parents Sereins">
-  <meta property="og:description" content="Tous les conseils de Parents Sereins, de la naissance à 12 ans : sommeil, diversification, dents, propreté, colères, devoirs, écrans, activités.">
+  <meta property="og:description" content="Tous les conseils de Parents Sereins : sommeil, diversification, dents, langage, propreté, colères, frères et sœurs, crèche, école, écrans, voyages.">
   <meta property="og:type" content="website">
+  <meta name="theme-color" content="#e8735a">
+  <script>try{var t=JSON.parse(localStorage.getItem("ps-theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Nunito:wght@400;600;700;800&display=swap">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="site">
     <div class="container">
-      <a class="logo" href="index.html">🌱 Parents <span>Sereins</span></a>
-      <button class="burger" aria-label="Menu" aria-expanded="false">☰</button>
+      <a class="logo" href="index.html"><span class="pousse" aria-hidden="true">🌱</span>Parents <span>Sereins</span></a>
       <nav class="menu" aria-label="Menu principal">
         <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="conseils.html" aria-current="page">Conseils</a></li>
-        <li><a href="outils.html">Outils</a></li>
-        <li><a href="liste-naissance.html">Liste de naissance</a></li>
-        <li><a href="materiel.html">Matériel</a></li>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="conseils.html" aria-current="page">Conseils</a></li>
+          <li><a href="outils.html">Outils</a></li>
+          <li><a href="liste-naissance.html">Liste de naissance</a></li>
+          <li><a href="materiel.html">Matériel</a></li>
         </ul>
       </nav>
+      <a class="icone-btn" href="favoris.html" aria-label="Mes favoris" title="Mes favoris">♡<span class="pastille pastille-favoris"></span></a>
+      <button class="icone-btn" id="theme" type="button" aria-label="Changer de thème">🌗</button>
+      <button class="icone-btn burger" type="button" aria-label="Menu" aria-expanded="false">☰</button>
     </div>
   </header>
   <main>
     <div class="container">
       <p class="fil"><a href="index.html">Accueil</a> › Conseils</p>
       <h1>Tous les conseils</h1>
-      <label for="recherche" class="mention-aff" style="display:block;margin-bottom:6px">Rechercher un sujet</label>
+      <div class="photo-article"><img src="img/conseils.jpg" alt="Une famille se tient par la main au bord de la mer au coucher du soleil" width="1000" height="650"></div>
+      <label for="recherche" class="mention-aff" style="display:block;margin:20px 0 8px">Rechercher un sujet</label>
       <input class="recherche" id="recherche" type="search" placeholder="Ex. dents, sieste, devoirs, pot…" autocomplete="off">
       <p id="recherche-vide" style="display:none">Aucun article ne correspond. Essayez un autre mot (sommeil, repas, école…).</p>
       <section class="groupe-conseils">
-        <h2>👶 Bébé (0 – 2 ans)</h2>
+        <h2 class="section-titre">👶 Bébé (0 – 2 ans)</h2>
         <div class="grille">
-          <a class="carte" href="sommeil-bebe.html" data-recherche="nuit dodo sieste reveil endormir"><span class="etiquette">Sommeil</span><h3>Faire dormir bébé : 10 conseils</h3><p>Rituel, rythme et sécurité du couchage.</p></a>
-          <a class="carte" href="diversification-alimentaire.html" data-recherche="repas purée manger allergie dme petits pots"><span class="etiquette">Alimentation</span><h3>La diversification mois par mois</h3><p>Quand commencer, quoi donner, quelles quantités.</p></a>
-          <a class="carte" href="poussees-dentaires.html" data-recherche="dents dent gencive douleur dentifrice"><span class="etiquette">Santé</span><h3>Poussées dentaires : soulager bébé</h3><p>Symptômes, soulagement, brossage.</p></a>
-          <a class="carte" href="liste-naissance.html" data-recherche="grossesse maternité valise achat equipement"><span class="etiquette">Naissance</span><h3>Liste de naissance</h3><p>L'essentiel à prévoir, à cocher en ligne.</p></a>
+          <a class="carte" href="sommeil-bebe.html" data-recherche="nuit dodo sieste reveil endormir"><div class="photo"><img src="img/sommeil-bebe.jpg" alt="" loading="lazy" width="1000" height="650"></div><span class="etiquette">Sommeil</span><h3>Faire dormir bébé : 10 conseils</h3><p>Rituel, rythme et sécurité du couchage.</p><span class="lire">Lire <span>→</span></span></a>
+          <a class="carte" href="diversification-alimentaire.html" data-recherche="repas puree manger allergie dme petits pots"><div class="photo"><img src="img/diversification-alimentaire.jpg" alt="" loading="lazy" width="1000" height="650"></div><span class="etiquette">Alimentation</span><h3>La diversification mois par mois</h3><p>Quand commencer, quoi donner, quelles quantités.</p><span class="lire">Lire <span>→</span></span></a>
+          <a class="carte" href="poussees-dentaires.html" data-recherche="dents dent gencive douleur dentifrice"><div class="photo"><img src="img/poussees-dentaires.jpg" alt="" loading="lazy" width="1000" height="650"></div><span class="etiquette">Santé</span><h3>Poussées dentaires : soulager bébé</h3><p>Symptômes, soulagement, brossage.</p><span class="lire">Lire <span>→</span></span></a>
+          <a class="carte" href="langage-enfant.html" data-recherche="parler mots parole orthophoniste babillage retard"><div class="photo"><img src="img/langage-enfant.jpg" alt="" loading="lazy" width="1000" height="650"></div><span class="etiquette">Langage</span><h3>Les premiers mots</h3><p>Les étapes du langage et comment l'encourager.</p><span class="lire">Lire <span>→</span></span></a>
+          <a class="carte" href="liste-naissance.html" data-recherche="grossesse maternite valise achat equipement"><div class="photo"><img src="img/liste-naissance.jpg" alt="" loading="lazy" width="1000" height="650"></div><span class="etiquette">Naissance</span><h3>Liste de naissance</h3><p>L'essentiel à prévoir, à cocher en ligne.</p><span class="lire">Lire <span>→</span></span></a>
         </div>
       </section>
       <section class="groupe-conseils">
-        <h2>🧒 Petite enfance (2 – 6 ans)</h2>
+        <h2 class="section-titre">🧒 Petite enfance (2 – 6 ans)</h2>
         <div class="grille">
-          <a class="carte" href="coleres-enfant.html" data-recherche="crise colere pleurs tape cri emotion"><span class="etiquette">Émotions</span><h3>Les colères de 2 à 6 ans</h3><p>Que faire pendant, et comment les prévenir.</p></a>
-          <a class="carte" href="proprete-enfant.html" data-recherche="pot couches toilettes pipi lit"><span class="etiquette">Autonomie</span><h3>Apprendre la propreté</h3><p>Les signes qu'il est prêt, la méthode en douceur.</p></a>
-          <a class="carte" href="routine-enfant.html" data-recherche="autonomie matin soir imprimer"><span class="etiquette">Outil</span><h3>Tableau de routine à imprimer</h3><p>Matin ou soir, avec son prénom.</p></a>
+          <a class="carte" href="coleres-enfant.html" data-recherche="crise colere pleurs tape cri emotion"><div class="photo"><img src="img/coleres-enfant.jpg" alt="" loading="lazy" width="1000" height="650"></div><span class="etiquette">Émotions</span><h3>Les colères de 2 à 6 ans</h3><p>Que faire pendant, et comment les prévenir.</p><span class="lire">Lire <span>→</span></span></a>
+          <a class="carte" href="proprete-enfant.html" data-recherche="pot couches toilettes pipi lit"><div class="photo"><img src="img/proprete-enfant.jpg" alt="" loading="lazy" width="1000" height="650"></div><span class="etiquette">Autonomie</span><h3>Apprendre la propreté</h3><p>Les signes qu'il est prêt, la méthode en douceur.</p><span class="lire">Lire <span>→</span></span></a>
+          <a class="carte" href="adaptation-creche-ecole.html" data-recherche="creche nounou assistante maternelle maternelle rentree pleurs separation"><div class="photo"><img src="img/adaptation-creche-ecole.jpg" alt="" loading="lazy" width="1000" height="650"></div><span class="etiquette">Séparation</span><h3>Crèche, nounou, école : réussir la séparation</h3><p>Adaptation, au revoir, rentrée en maternelle.</p><span class="lire">Lire <span>→</span></span></a>
+          <a class="carte" href="freres-et-soeurs.html" data-recherche="frere soeur jalousie dispute bebe aine rivalite"><div class="photo"><img src="img/freres-et-soeurs.jpg" alt="" loading="lazy" width="1000" height="650"></div><span class="etiquette">Famille</span><h3>Frères et sœurs : jalousie et disputes</h3><p>Préparer l'aîné, apaiser les conflits.</p><span class="lire">Lire <span>→</span></span></a>
+          <a class="carte" href="routine-enfant.html" data-recherche="autonomie matin soir imprimer"><div class="photo"><img src="img/routine-enfant.jpg" alt="" loading="lazy" width="1000" height="650"></div><span class="etiquette">Outil</span><h3>Tableau de routine à imprimer</h3><p>Matin ou soir, avec son prénom.</p><span class="lire">Ouvrir <span>→</span></span></a>
         </div>
       </section>
       <section class="groupe-conseils">
-        <h2>🎒 Enfants (6 – 12 ans)</h2>
+        <h2 class="section-titre">🎒 Enfants (6 – 12 ans)</h2>
         <div class="grille">
-          <a class="carte" href="devoirs-sans-crise.html" data-recherche="ecole devoirs lecons travail concentration"><span class="etiquette">École</span><h3>Les devoirs sans crise</h3><p>8 conseils pour des devoirs plus calmes.</p></a>
-          <a class="carte" href="activites-enfants-maison.html" data-recherche="jeux pluie vacances ennui bricolage occuper"><span class="etiquette">Loisirs</span><h3>30 activités à la maison</h3><p>Des idées sans écran, par âge.</p></a>
+          <a class="carte" href="devoirs-sans-crise.html" data-recherche="ecole devoirs lecons travail concentration"><div class="photo"><img src="img/devoirs-sans-crise.jpg" alt="" loading="lazy" width="1000" height="650"></div><span class="etiquette">École</span><h3>Les devoirs sans crise</h3><p>8 conseils pour des devoirs plus calmes.</p><span class="lire">Lire <span>→</span></span></a>
+          <a class="carte" href="confiance-en-soi-enfant.html" data-recherche="estime confiance timide encourager"><div class="photo"><img src="img/confiance-en-soi-enfant.jpg" alt="" loading="lazy" width="1000" height="650"></div><span class="etiquette">Émotions</span><h3>La confiance en soi</h3><p>8 attitudes qui l'aident à croire en lui.</p><span class="lire">Lire <span>→</span></span></a>
+          <a class="carte" href="activites-enfants-maison.html" data-recherche="jeux pluie vacances ennui bricolage occuper"><div class="photo"><img src="img/activites-enfants-maison.jpg" alt="" loading="lazy" width="1000" height="650"></div><span class="etiquette">Loisirs</span><h3>30 activités à la maison</h3><p>Des idées sans écran, par âge.</p><span class="lire">Lire <span>→</span></span></a>
         </div>
       </section>
       <section class="groupe-conseils">
-        <h2>📱 Tous âges</h2>
+        <h2 class="section-titre">📱 Tous âges</h2>
         <div class="grille">
-          <a class="carte" href="ecrans-enfants.html" data-recherche="tablette telephone television reseaux sociaux portable"><span class="etiquette">Écrans</span><h3>Écrans et enfants : les repères par âge</h3><p>Quel âge, combien de temps, quelles alternatives.</p></a>
-          <a class="carte" href="outils.html" data-recherche="calculateur budget cout argent sommeil"><span class="etiquette">Outils</span><h3>Calculateurs pour parents</h3><p>Sommeil, écrans, diversification, budget bébé.</p></a>
+          <a class="carte" href="ecrans-enfants.html" data-recherche="tablette telephone television reseaux sociaux portable"><div class="photo"><img src="img/ecrans-enfants.jpg" alt="" loading="lazy" width="1000" height="650"></div><span class="etiquette">Écrans</span><h3>Écrans et enfants : les repères par âge</h3><p>Quel âge, combien de temps, quelles alternatives.</p><span class="lire">Lire <span>→</span></span></a>
+          <a class="carte" href="voyager-avec-enfants.html" data-recherche="vacances voiture avion siege auto passeport voyage"><div class="photo"><img src="img/voyager-avec-enfants.jpg" alt="" loading="lazy" width="1000" height="650"></div><span class="etiquette">Vacances</span><h3>Voyager avec des enfants</h3><p>Voiture, avion, papiers, pharmacie.</p><span class="lire">Lire <span>→</span></span></a>
+          <a class="carte" href="outils.html" data-recherche="calculateur budget cout argent poche sommeil idee activite"><div class="photo"><img src="img/outils.jpg" alt="" loading="lazy" width="1000" height="650"></div><span class="etiquette">Outils</span><h3>Calculateurs pour parents</h3><p>Sommeil, diversification, budget, argent de poche…</p><span class="lire">Ouvrir <span>→</span></span></a>
         </div>
       </section>
     </div>
   </main>
   <footer class="site">
     <div class="container">
-      <p>🌱 Parents Sereins — des repères simples et bienveillants pour les parents de 0 à 18 ans.</p>
+      <a class="logo" href="index.html"><span class="pousse" aria-hidden="true">🌱</span>Parents <span>Sereins</span></a>
+      <p>Des repères simples et bienveillants pour les parents, de la naissance à l'adolescence.</p>
       <p>Les conseils de ce site ne remplacent pas l'avis d'un médecin ou d'une sage-femme. En cas de doute sur la santé de votre enfant, appelez votre médecin ; en urgence, le 15 (ou le 112).</p>
-      <p>En tant que Partenaire Amazon, ce site réalise un bénéfice sur les achats remplissant les conditions requises. ·
-        <a href="mentions-legales.html">Mentions légales</a> · © <span class="annee">2026</span> Parents Sereins</p>
+      <p>En tant que Partenaire Amazon, ce site réalise un bénéfice sur les achats remplissant les conditions requises. Photos : <a href="https://unsplash.com/fr/licence" rel="noopener">Unsplash</a>.<br>
+        <a href="conseils.html">Conseils</a> · <a href="outils.html">Outils</a> · <a href="favoris.html">Mes favoris</a> · <a href="mentions-legales.html">Mentions légales</a> · © <span class="annee">2026</span> Parents Sereins</p>
     </div>
   </footer>
   <script src="js/config.js"></script>

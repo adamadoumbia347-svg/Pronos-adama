@@ -2,6 +2,13 @@
 
 Site statique (HTML/CSS/JS, aucune dépendance), séparé d'Éduc'Animaux (`docs/`), avec liens d'affiliation Amazon.
 
+**Design** : polices Fraunces (titres) et Nunito (texte) via Google Fonts ; animations (apparition au défilement,
+parallaxe, compteurs, bandeau défilant, cartes qui se soulèvent, barre de lecture) désactivées automatiquement si le
+visiteur a demandé « réduire les animations ». Photos libres de droits Unsplash dans `img/`.
+
+**Options pour le visiteur** (gardées sur son appareil) : thème clair / sombre / automatique, favoris (`favoris.html`),
+taille du texte, partage, temps de lecture et sommaire automatiques, bouton retour en haut.
+
 ## Pages
 
 | Fichier | Contenu |
@@ -15,8 +22,14 @@ Site statique (HTML/CSS/JS, aucune dépendance), séparé d'Éduc'Animaux (`docs
 | `proprete-enfant.html` | Apprendre la propreté |
 | `poussees-dentaires.html` | Poussées dentaires et brossage |
 | `devoirs-sans-crise.html` | Les devoirs sans crise |
+| `langage-enfant.html` | Les premiers mots |
+| `freres-et-soeurs.html` | Jalousie et disputes entre frères et sœurs |
+| `adaptation-creche-ecole.html` | Crèche, nounou, école : la séparation |
+| `voyager-avec-enfants.html` | Voyager avec des enfants |
+| `confiance-en-soi-enfant.html` | La confiance en soi |
+| `favoris.html` | Articles enregistrés par le visiteur |
 | `activites-enfants-maison.html` | 30 activités sans écran |
-| `outils.html` | Calculateurs : sommeil, repères écrans, diversification, budget de la 1re année |
+| `outils.html` | Calculateurs : sommeil, repères écrans, diversification, budget de la 1re année, idée d'activité au hasard, argent de poche |
 | `routine-enfant.html` | Tableau de routine matin/soir à imprimer, avec le prénom de l'enfant |
 | `liste-naissance.html` | Check-list de naissance à cocher (gardée dans le navigateur du visiteur) |
 | `materiel.html` | Sélection de matériel par âge |

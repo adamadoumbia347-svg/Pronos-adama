@@ -228,3 +228,46 @@
   if (q) { champ.value = q; }
   filtrer();
 })();
+
+/* ---------- 8. Idée d'activité au hasard ---------- */
+(function () {
+  var btn = document.getElementById("idee-tirer");
+  if (!btn) return;
+  var IDEES = {
+    petit: [["🫘", "Transvaser des pâtes avec une cuillère (sous surveillance)"], ["🎨", "Peindre à l'eau sur un tableau noir"], ["🏕️", "Construire une cabane sous la table"], ["🛁", "Bac d'eau tiède, gobelets et éponges"], ["📚", "Mimer les animaux d'un imagier"], ["🧦", "Trier les chaussettes par couleur"], ["🎵", "Faire de la musique avec des casseroles"], ["🫧", "Faire des bulles de savon"]],
+    moyen: [["🗺️", "Chasse au trésor avec des indices en dessins"], ["🥞", "Cuisiner des crêpes ensemble"], ["🛋️", "Parcours de motricité avec les coussins"], ["✂️", "Collage avec de vieux magazines"], ["🧦", "Spectacle de marionnettes-chaussettes"], ["📦", "Construire une ville en cartons"], ["💃", "Jacques a dit… en musique"], ["🌱", "Planter des lentilles dans du coton"]],
+    grand: [["🌋", "Volcan bicarbonate + vinaigre"], ["💬", "Écrire et dessiner sa propre BD"], ["✈️", "Concours d'avions en papier"], ["🧱", "Défi : le pont le plus long en briques"], ["🍝", "Cuisiner un vrai repas en suivant la recette"], ["🔍", "Préparer un jeu de piste pour les parents"], ["🧪", "Fabriquer du slime"], ["🎬", "Tourner un mini-film d'animation en pâte à modeler"]],
+    famille: [["🎲", "Soirée jeux de société, sans écran"], ["🧺", "Pique-nique dans le salon"], ["🎤", "Karaoké en famille"], ["📸", "Décorer un album photo ensemble"], ["🧁", "Atelier pâtisserie"], ["📖", "Lecture partagée : chacun lit une page"], ["🧹", "Grand rangement en musique, chronométré"], ["🔢", "Loto maison avec des petits lots"]]
+  };
+  var carte = document.getElementById("idee-carte"), derniere = -1;
+  btn.addEventListener("click", function () {
+    var age = (document.querySelector("input[name=idee-age]:checked") || {}).value || "petit";
+    var l = IDEES[age], i;
+    do { i = Math.floor(Math.random() * l.length); } while (i === derniere && l.length > 1);
+    derniere = i;
+    carte.classList.remove("tourne"); void carte.offsetWidth; carte.classList.add("tourne");
+    setTimeout(function () { carte.querySelector(".face").innerHTML = "<div><span class='em'>" + l[i][0] + "</span>" + l[i][1] + "</div>"; }, 300);
+  });
+})();
+
+/* ---------- 9. Argent de poche ---------- */
+(function () {
+  var form = document.getElementById("form-argent");
+  if (!form) return;
+  var REPERES = [
+    { max: 7, montant: "1 à 2 € par semaine", conseil: "Une petite somme hebdomadaire, dans une tirelire transparente : il voit l'argent s'accumuler. Idéal pour apprendre à compter et à attendre." },
+    { max: 10, montant: "2 à 5 € par semaine", conseil: "Il peut payer lui-même ses petits plaisirs (cartes, magazines). Laissez-le se tromper sur de petites sommes : c'est comme ça qu'il apprend." },
+    { max: 13, montant: "15 à 25 € par mois", conseil: "Passez à un versement mensuel pour apprendre à gérer sur la durée. Fixez ensemble ce qu'il paie lui-même (sorties, cadeaux aux copains…)." },
+    { max: 17, montant: "25 à 50 € par mois", conseil: "Une carte bancaire pour mineurs avec plafond peut l'aider à suivre ses dépenses. Plus il paie de choses lui-même (forfait, vêtements), plus le montant peut monter." }
+  ];
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var age = parseInt(document.getElementById("a-age").value, 10), r = document.getElementById("res-argent");
+    if (isNaN(age)) return;
+    if (age < 6) { r.innerHTML = "<p>Avant 6 ans, l'argent de poche n'est pas nécessaire : jouez plutôt à la marchande pour découvrir les pièces et les billets.</p>"; r.classList.add("visible"); return; }
+    var t = REPERES.filter(function (x) { return age <= x.max; })[0];
+    r.innerHTML = "<p><strong>À " + age + " ans : " + t.montant + "</strong> (fourchette courante).</p><p>💡 " + t.conseil + "</p>" +
+      "<p>👉 L'argent de poche ne devrait pas servir de punition ou de récompense aux notes : il sert à apprendre à gérer.</p>";
+    r.classList.add("visible");
+  });
+})();

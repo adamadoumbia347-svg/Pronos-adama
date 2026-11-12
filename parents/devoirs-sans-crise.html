@@ -7,31 +7,51 @@
   <meta name="description" content="Les devoirs tournent au conflit ? Une routine simple, le bon moment, le bon endroit et la bonne posture de parent pour des devoirs plus calmes, du CP au collège.">
   <meta property="og:title" content="Devoirs sans crise : 8 conseils pour aider son enfant | Parents Sereins">
   <meta property="og:description" content="Les devoirs tournent au conflit ? Une routine simple, le bon moment, le bon endroit et la bonne posture de parent pour des devoirs plus calmes, du CP au collège.">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="img/devoirs-sans-crise.jpg">
+  <meta name="theme-color" content="#e8735a">
+  <script>try{var t=JSON.parse(localStorage.getItem("ps-theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Nunito:wght@400;600;700;800&display=swap">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <div class="barre-lecture" aria-hidden="true"></div>
   <header class="site">
     <div class="container">
-      <a class="logo" href="index.html">🌱 Parents <span>Sereins</span></a>
-      <button class="burger" aria-label="Menu" aria-expanded="false">☰</button>
+      <a class="logo" href="index.html"><span class="pousse" aria-hidden="true">🌱</span>Parents <span>Sereins</span></a>
       <nav class="menu" aria-label="Menu principal">
         <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="conseils.html" aria-current="page">Conseils</a></li>
-        <li><a href="outils.html">Outils</a></li>
-        <li><a href="liste-naissance.html">Liste de naissance</a></li>
-        <li><a href="materiel.html">Matériel</a></li>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="conseils.html" aria-current="page">Conseils</a></li>
+          <li><a href="outils.html">Outils</a></li>
+          <li><a href="liste-naissance.html">Liste de naissance</a></li>
+          <li><a href="materiel.html">Matériel</a></li>
         </ul>
       </nav>
+      <a class="icone-btn" href="favoris.html" aria-label="Mes favoris" title="Mes favoris">♡<span class="pastille pastille-favoris"></span></a>
+      <button class="icone-btn" id="theme" type="button" aria-label="Changer de thème">🌗</button>
+      <button class="icone-btn burger" type="button" aria-label="Menu" aria-expanded="false">☰</button>
     </div>
   </header>
   <main>
     <div class="container article">
-      <p class="fil"><a href="index.html">Accueil</a> › <a href="conseils.html">Conseils</a> › Les devoirs sans crise : 8 conseils</p>
-      <h1>Les devoirs sans crise : 8 conseils</h1>
-      <p class="chapeau">Cris, larmes, « je sais pas faire »… Les devoirs sont l'une des premières sources de conflit à la maison. Avec une routine claire et la bonne distance, ils peuvent redevenir un moment calme (ou presque).</p>
+      <div class="entete-article">
+        <p class="fil"><a href="index.html">Accueil</a> › <a href="conseils.html">Conseils</a> › Les devoirs sans crise : 8 conseils</p>
+        <h1>Les devoirs sans crise : 8 conseils</h1>
+        <p class="chapeau">Cris, larmes, « je sais pas faire »… Les devoirs sont l'une des premières sources de conflit à la maison. Avec une routine claire et la bonne distance, ils peuvent redevenir un moment calme (ou presque).</p>
+      </div>
+      <div class="photo-article"><img src="img/devoirs-sans-crise.jpg" alt="" width="1000" height="650" fetchpriority="high"></div>
+      <div class="outils-article">
+        <span class="duree">⏱ Lecture</span>
+        <button class="pilule" type="button" id="favori" aria-pressed="false"><span class="coeur">❤</span> <span class="libelle">Enregistrer</span></button>
+        <button class="pilule" type="button" id="partager">↗ Partager</button>
+        <button class="pilule" type="button" data-taille="-0.1" aria-label="Réduire le texte">A−</button>
+        <button class="pilule" type="button" data-taille="0.1" aria-label="Agrandir le texte">A+</button>
+      </div>
+      <div class="contenu-article">
       <div class="encadre"><strong>Bon à savoir</strong>À l'école élémentaire, les devoirs écrits sont en principe proscrits depuis 1956 : le travail à la maison doit rester court (leçons, lecture). Si votre enfant de primaire y passe plus de 20 à 30 minutes chaque soir, parlez-en à l'enseignant.</div>
 
       <h2>Les 8 conseils</h2>
@@ -86,20 +106,22 @@
         </div>
       </div>
       <p class="mention-aff">Liens affiliés Amazon : une petite commission pour le site, sans surcoût pour vous.</p>
+      </div>
       <h2>À lire aussi</h2>
       <div class="grille">
-        <a class="carte" href="ecrans-enfants.html"><h3>📱 Écrans et enfants</h3><p>Les repères par âge.</p></a>
-        <a class="carte" href="coleres-enfant.html"><h3>🌋 Les colères de 2 à 6 ans</h3><p>Que faire pendant, et comment les prévenir.</p></a>
-        <a class="carte" href="routine-enfant.html"><h3>🗓️ Tableau de routine</h3><p>À imprimer, avec son prénom.</p></a>
+        <a class="carte" href="ecrans-enfants.html"><div class="photo"><img src="img/ecrans-enfants.jpg" alt="" loading="lazy" width="1000" height="650"></div><h3>📱 Écrans et enfants</h3><p>Les repères par âge.</p><span class="lire">Lire <span>→</span></span></a>
+        <a class="carte" href="coleres-enfant.html"><div class="photo"><img src="img/coleres-enfant.jpg" alt="" loading="lazy" width="1000" height="650"></div><h3>🌋 Les colères de 2 à 6 ans</h3><p>Que faire pendant, et comment les prévenir.</p><span class="lire">Lire <span>→</span></span></a>
+        <a class="carte" href="routine-enfant.html"><div class="photo"><img src="img/routine-enfant.jpg" alt="" loading="lazy" width="1000" height="650"></div><h3>🗓️ Tableau de routine</h3><p>À imprimer, avec son prénom.</p><span class="lire">Ouvrir <span>→</span></span></a>
       </div>
     </div>
   </main>
   <footer class="site">
     <div class="container">
-      <p>🌱 Parents Sereins — des repères simples et bienveillants pour les parents de 0 à 18 ans.</p>
+      <a class="logo" href="index.html"><span class="pousse" aria-hidden="true">🌱</span>Parents <span>Sereins</span></a>
+      <p>Des repères simples et bienveillants pour les parents, de la naissance à l'adolescence.</p>
       <p>Les conseils de ce site ne remplacent pas l'avis d'un médecin ou d'une sage-femme. En cas de doute sur la santé de votre enfant, appelez votre médecin ; en urgence, le 15 (ou le 112).</p>
-      <p>En tant que Partenaire Amazon, ce site réalise un bénéfice sur les achats remplissant les conditions requises. ·
-        <a href="mentions-legales.html">Mentions légales</a> · © <span class="annee">2026</span> Parents Sereins</p>
+      <p>En tant que Partenaire Amazon, ce site réalise un bénéfice sur les achats remplissant les conditions requises. Photos : <a href="https://unsplash.com/fr/licence" rel="noopener">Unsplash</a>.<br>
+        <a href="conseils.html">Conseils</a> · <a href="outils.html">Outils</a> · <a href="favoris.html">Mes favoris</a> · <a href="mentions-legales.html">Mentions légales</a> · © <span class="annee">2026</span> Parents Sereins</p>
     </div>
   </footer>
   <script src="js/config.js"></script>

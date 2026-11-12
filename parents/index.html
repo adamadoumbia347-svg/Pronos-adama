@@ -4,79 +4,119 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Parents Sereins — conseils simples pour parents de 0 à 18 ans</title>
-  <meta name="description" content="Sommeil de bébé, colères, écrans, liste de naissance : des conseils clairs et bienveillants et des outils gratuits pour les parents.">
+  <meta name="description" content="Sommeil de bébé, diversification, colères, écrans, école : des conseils clairs et bienveillants et des outils gratuits pour les parents.">
   <meta property="og:title" content="Parents Sereins — conseils simples pour parents de 0 à 18 ans">
-  <meta property="og:description" content="Sommeil de bébé, colères, écrans, liste de naissance : des conseils clairs et bienveillants et des outils gratuits pour les parents.">
+  <meta property="og:description" content="Sommeil de bébé, diversification, colères, écrans, école : des conseils clairs et bienveillants et des outils gratuits pour les parents.">
   <meta property="og:type" content="website">
+  <meta name="theme-color" content="#e8735a">
+  <script>try{var t=JSON.parse(localStorage.getItem("ps-theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Nunito:wght@400;600;700;800&display=swap">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="site">
     <div class="container">
-      <a class="logo" href="index.html">🌱 Parents <span>Sereins</span></a>
-      <button class="burger" aria-label="Menu" aria-expanded="false">☰</button>
+      <a class="logo" href="index.html"><span class="pousse" aria-hidden="true">🌱</span>Parents <span>Sereins</span></a>
       <nav class="menu" aria-label="Menu principal">
         <ul>
-        <li><a href="index.html" aria-current="page">Accueil</a></li>
-        <li><a href="conseils.html">Conseils</a></li>
-        <li><a href="outils.html">Outils</a></li>
-        <li><a href="liste-naissance.html">Liste de naissance</a></li>
-        <li><a href="materiel.html">Matériel</a></li>
+          <li><a href="index.html" aria-current="page">Accueil</a></li>
+          <li><a href="conseils.html">Conseils</a></li>
+          <li><a href="outils.html">Outils</a></li>
+          <li><a href="liste-naissance.html">Liste de naissance</a></li>
+          <li><a href="materiel.html">Matériel</a></li>
         </ul>
       </nav>
+      <a class="icone-btn" href="favoris.html" aria-label="Mes favoris" title="Mes favoris">♡<span class="pastille pastille-favoris"></span></a>
+      <button class="icone-btn" id="theme" type="button" aria-label="Changer de thème">🌗</button>
+      <button class="icone-btn burger" type="button" aria-label="Menu" aria-expanded="false">☰</button>
     </div>
   </header>
   <main>
     <section class="hero">
+      <span class="forme f1" aria-hidden="true"></span><span class="forme f2" aria-hidden="true"></span><span class="forme f3" aria-hidden="true"></span>
       <div class="container">
-        <span class="etiquette">Gratuit · sans inscription</span>
-        <h1>Être parent, plus sereinement 🌱</h1>
-        <p class="sous">Sommeil, colères, écrans, arrivée de bébé : des repères clairs, fondés sur les recommandations des pédiatres, et des outils pratiques pour vous simplifier la vie.</p>
-        <div class="boutons">
-          <a class="btn" href="outils.html">Calculer le sommeil de mon enfant</a>
-          <a class="btn clair" href="liste-naissance.html">Préparer l'arrivée de bébé</a>
+        <div class="hero-texte">
+          <span class="etiquette">Gratuit · sans inscription · fondé sur les recommandations officielles</span>
+          <h1>Être parent, <em>plus sereinement</em></h1>
+          <p class="sous">Sommeil, repas, colères, écrans, école : des repères clairs et bienveillants, et des outils pratiques pour vous simplifier la vie, de la naissance à l'adolescence.</p>
+          <div class="boutons">
+            <a class="btn" href="conseils.html">Lire les conseils <span class="fleche">→</span></a>
+            <a class="btn clair" href="outils.html">Essayer les outils</a>
+          </div>
+          <div class="chiffres">
+            <div><strong data-compte="14">14</strong>guides pratiques</div>
+            <div><strong data-compte="7">7</strong>outils gratuits</div>
+            <div><strong data-compte="100" data-suffixe=" %">100 %</strong>sans inscription</div>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <div class="cadre"><img src="img/accueil-grand.jpg" alt="Des parents jouent avec leur bébé sur une plage" width="1600" height="1200" fetchpriority="high"></div>
+          <div class="bulle b1">😴 Bébé dort enfin !</div>
+          <div class="bulle b2">✅ Liste de naissance prête</div>
         </div>
       </div>
     </section>
+    <div class="ruban" aria-label="Thèmes"><div class="piste"><a href="sommeil-bebe.html">🌙 Sommeil</a><a href="diversification-alimentaire.html">🥕 Diversification</a><a href="coleres-enfant.html">🌋 Colères</a><a href="ecrans-enfants.html">📱 Écrans</a><a href="proprete-enfant.html">🚽 Propreté</a><a href="poussees-dentaires.html">🦷 Dents</a><a href="langage-enfant.html">💬 Langage</a><a href="freres-et-soeurs.html">👫 Frères et sœurs</a><a href="adaptation-creche-ecole.html">🎒 Crèche et école</a><a href="devoirs-sans-crise.html">✏️ Devoirs</a><a href="confiance-en-soi-enfant.html">💪 Confiance en soi</a><a href="voyager-avec-enfants.html">🚗 Voyages</a><a href="activites-enfants-maison.html">🎨 Activités</a><a href="sommeil-bebe.html">🌙 Sommeil</a><a href="diversification-alimentaire.html">🥕 Diversification</a><a href="coleres-enfant.html">🌋 Colères</a><a href="ecrans-enfants.html">📱 Écrans</a><a href="proprete-enfant.html">🚽 Propreté</a><a href="poussees-dentaires.html">🦷 Dents</a><a href="langage-enfant.html">💬 Langage</a><a href="freres-et-soeurs.html">👫 Frères et sœurs</a><a href="adaptation-creche-ecole.html">🎒 Crèche et école</a><a href="devoirs-sans-crise.html">✏️ Devoirs</a><a href="confiance-en-soi-enfant.html">💪 Confiance en soi</a><a href="voyager-avec-enfants.html">🚗 Voyages</a><a href="activites-enfants-maison.html">🎨 Activités</a></div></div>
+
     <section class="container">
-      <h2>Les conseils les plus lus</h2>
+      <h2 class="section-titre">Les conseils les plus lus</h2>
       <div class="grille">
-        <a class="carte" href="sommeil-bebe.html"><div class="ico">🌙</div><h3>Faire dormir bébé</h3><p>Rituel, rythme, sécurité du couchage : 10 conseils qui marchent vraiment.</p></a>
-        <a class="carte" href="coleres-enfant.html"><div class="ico">🌋</div><h3>Les colères de 2 à 6 ans</h3><p>Pourquoi elles arrivent, que faire pendant, et comment les prévenir.</p></a>
-        <a class="carte" href="ecrans-enfants.html"><div class="ico">📱</div><h3>Écrans : quel âge, combien ?</h3><p>Les repères officiels par âge, et des idées pour remplacer la tablette.</p></a>
-        <a class="carte" href="diversification-alimentaire.html"><div class="ico">🥕</div><h3>La diversification</h3><p>Quand commencer, quoi donner, en quelle quantité.</p></a>
-        <a class="carte" href="proprete-enfant.html"><div class="ico">🚽</div><h3>Apprendre la propreté</h3><p>Les signes qu'il est prêt et la méthode en douceur.</p></a>
+        <a class="carte" href="sommeil-bebe.html"><div class="photo"><img src="img/sommeil-bebe.jpg" alt="" loading="lazy" width="1000" height="650"></div><span class="etiquette">Sommeil</span><h3>Faire dormir bébé</h3><p>Rituel, rythme, sécurité du couchage : 10 conseils qui marchent vraiment.</p><span class="lire">Lire <span>→</span></span></a>
+        <a class="carte" href="diversification-alimentaire.html"><div class="photo"><img src="img/diversification-alimentaire.jpg" alt="" loading="lazy" width="1000" height="650"></div><span class="etiquette">Alimentation</span><h3>La diversification</h3><p>Quand commencer, quoi donner, en quelle quantité.</p><span class="lire">Lire <span>→</span></span></a>
+        <a class="carte" href="coleres-enfant.html"><div class="photo"><img src="img/coleres-enfant.jpg" alt="" loading="lazy" width="1000" height="650"></div><span class="etiquette">Émotions</span><h3>Les colères de 2 à 6 ans</h3><p>Pourquoi elles arrivent, que faire pendant, et comment les prévenir.</p><span class="lire">Lire <span>→</span></span></a>
+        <a class="carte" href="ecrans-enfants.html"><div class="photo"><img src="img/ecrans-enfants.jpg" alt="" loading="lazy" width="1000" height="650"></div><span class="etiquette">Écrans</span><h3>Écrans : quel âge, combien ?</h3><p>Les repères officiels par âge, et des idées pour remplacer la tablette.</p><span class="lire">Lire <span>→</span></span></a>
+        <a class="carte" href="langage-enfant.html"><div class="photo"><img src="img/langage-enfant.jpg" alt="" loading="lazy" width="1000" height="650"></div><span class="etiquette">Langage</span><h3>Les premiers mots</h3><p>Comment le langage se développe et comment l'encourager.</p><span class="lire">Lire <span>→</span></span></a>
+        <a class="carte" href="confiance-en-soi-enfant.html"><div class="photo"><img src="img/confiance-en-soi-enfant.jpg" alt="" loading="lazy" width="1000" height="650"></div><span class="etiquette">Émotions</span><h3>La confiance en soi</h3><p>8 attitudes qui aident un enfant à croire en lui.</p><span class="lire">Lire <span>→</span></span></a>
       </div>
-      <form action="conseils.html" method="get" style="margin:8px 0 0">
-        <label for="q-accueil" class="mention-aff" style="display:block;margin-bottom:6px">Vous cherchez un sujet précis ?</label>
+      <p style="text-align:center"><a class="btn clair" href="conseils.html">Voir les 14 guides <span class="fleche">→</span></a></p>
+      <form action="conseils.html" method="get" style="text-align:center;margin-top:18px">
+        <label for="q-accueil" class="mention-aff" style="display:block;margin-bottom:8px">Vous cherchez un sujet précis ?</label>
         <input class="recherche" id="q-accueil" type="search" name="q" placeholder="Ex. dents, sieste, devoirs, pot…">
       </form>
     </section>
+
     <section class="container">
-      <h2>Outils gratuits</h2>
-      <div class="grille">
-        <a class="carte" href="outils.html#sommeil"><div class="ico">⏰</div><h3>Calculateur de sommeil</h3><p>Combien d'heures, combien de siestes, à quelle heure le coucher ?</p></a>
-        <a class="carte" href="outils.html#ecrans"><div class="ico">🧭</div><h3>Repères écrans par âge</h3><p>Ce que recommandent les experts pour l'âge de votre enfant.</p></a>
-        <a class="carte" href="outils.html#diversification"><div class="ico">🥕</div><h3>Calendrier de diversification</h3><p>Ce que bébé peut manger, mois par mois.</p></a>
-        <a class="carte" href="outils.html#budget"><div class="ico">💶</div><h3>Budget bébé</h3><p>Combien coûte la première année, selon vos choix.</p></a>
-        <a class="carte" href="routine-enfant.html"><div class="ico">🗓️</div><h3>Tableau de routine</h3><p>Matin ou soir, avec son prénom, prêt à imprimer.</p></a>
-        <a class="carte" href="liste-naissance.html"><div class="ico">✅</div><h3>Check-list naissance</h3><p>Cochez ce que vous avez déjà : votre liste est gardée sur votre appareil.</p></a>
+      <div class="bandeau-photo">
+        <img src="img/liste-naissance.jpg" alt="" loading="lazy" width="1000" height="650">
+        <div class="voile">
+          <h2>Bébé arrive bientôt ?</h2>
+          <p>La liste de naissance essentielle, sans superflu, à cocher au fur et à mesure. Elle reste enregistrée sur votre téléphone.</p>
+          <a class="btn" href="liste-naissance.html">Ouvrir ma liste <span class="fleche">→</span></a>
+        </div>
       </div>
     </section>
+
     <section class="container">
-      <h2>Questions fréquentes</h2>
-      <details><summary>Les conseils de ce site sont-ils fiables ?</summary><p>Ils reprennent les recommandations publiques (Santé publique France, Haute Autorité de santé, OMS, sociétés savantes du sommeil, commission d'experts « Enfants et écrans »). Ils ne remplacent pas un avis médical : en cas de doute, parlez-en à votre médecin, à votre sage-femme ou à la PMI.</p></details>
+      <h2 class="section-titre">Des outils pour vous simplifier la vie</h2>
+      <div class="grille">
+        <a class="carte" href="outils.html#sommeil"><div class="ico">⏰</div><h3>Calculateur de sommeil</h3><p>Combien d'heures, combien de siestes, à quelle heure le coucher ?</p><span class="lire">Ouvrir <span>→</span></span></a>
+        <a class="carte" href="outils.html#diversification"><div class="ico">🥕</div><h3>Calendrier de diversification</h3><p>Ce que bébé peut manger, mois par mois.</p><span class="lire">Ouvrir <span>→</span></span></a>
+        <a class="carte" href="outils.html#budget"><div class="ico">💶</div><h3>Budget bébé</h3><p>Combien coûte la première année, selon vos choix.</p><span class="lire">Ouvrir <span>→</span></span></a>
+        <a class="carte" href="outils.html#idee"><div class="ico">🎲</div><h3>Idée d'activité au hasard</h3><p>Un enfant qui s'ennuie ? Tirez une idée adaptée à son âge.</p><span class="lire">Ouvrir <span>→</span></span></a>
+        <a class="carte" href="outils.html#argent"><div class="ico">🪙</div><h3>Argent de poche</h3><p>Combien donner selon l'âge, et comment.</p><span class="lire">Ouvrir <span>→</span></span></a>
+        <a class="carte" href="outils.html#ecrans"><div class="ico">🧭</div><h3>Repères écrans</h3><p>Ce que recommandent les experts pour son âge.</p><span class="lire">Ouvrir <span>→</span></span></a>
+        <a class="carte" href="routine-enfant.html"><div class="photo"><img src="img/routine-enfant.jpg" alt="" loading="lazy" width="1000" height="650"></div><h3>Tableau de routine</h3><p>Matin ou soir, avec son prénom, prêt à imprimer.</p><span class="lire">Ouvrir <span>→</span></span></a>
+      </div>
+    </section>
+
+    <section class="container article">
+      <h2 class="section-titre">Questions fréquentes</h2>
+      <details><summary>Les conseils de ce site sont-ils fiables ?</summary><p>Ils reprennent les recommandations publiques (Santé publique France, Haute Autorité de santé, OMS, Société française de pédiatrie, commission d'experts « Enfants et écrans »). Ils ne remplacent pas un avis médical : en cas de doute, parlez-en à votre médecin, à votre sage-femme ou à la PMI.</p></details>
       <details><summary>Pourquoi des liens vers Amazon ?</summary><p>Quand vous achetez via ces liens, le site touche une petite commission, sans surcoût pour vous. C'est ce qui permet de garder le site gratuit. Nous ne recommandons que des types de produits réellement utiles.</p></details>
-      <details><summary>Mes réponses aux outils sont-elles enregistrées ?</summary><p>Non. Les calculs se font dans votre navigateur ; la liste de naissance est gardée uniquement sur votre appareil.</p></details>
+      <details><summary>Mes réponses aux outils sont-elles enregistrées ?</summary><p>Non. Les calculs se font dans votre navigateur. Votre liste de naissance, vos favoris et vos préférences (thème, taille du texte) sont gardés uniquement sur votre appareil.</p></details>
+      <details><summary>Comment garder un article pour plus tard ?</summary><p>Touchez « ❤ Enregistrer » en haut de chaque article : il apparaît dans vos favoris (le cœur en haut de l'écran).</p></details>
     </section>
   </main>
   <footer class="site">
     <div class="container">
-      <p>🌱 Parents Sereins — des repères simples et bienveillants pour les parents de 0 à 18 ans.</p>
+      <a class="logo" href="index.html"><span class="pousse" aria-hidden="true">🌱</span>Parents <span>Sereins</span></a>
+      <p>Des repères simples et bienveillants pour les parents, de la naissance à l'adolescence.</p>
       <p>Les conseils de ce site ne remplacent pas l'avis d'un médecin ou d'une sage-femme. En cas de doute sur la santé de votre enfant, appelez votre médecin ; en urgence, le 15 (ou le 112).</p>
-      <p>En tant que Partenaire Amazon, ce site réalise un bénéfice sur les achats remplissant les conditions requises. ·
-        <a href="mentions-legales.html">Mentions légales</a> · © <span class="annee">2026</span> Parents Sereins</p>
+      <p>En tant que Partenaire Amazon, ce site réalise un bénéfice sur les achats remplissant les conditions requises. Photos : <a href="https://unsplash.com/fr/licence" rel="noopener">Unsplash</a>.<br>
+        <a href="conseils.html">Conseils</a> · <a href="outils.html">Outils</a> · <a href="favoris.html">Mes favoris</a> · <a href="mentions-legales.html">Mentions légales</a> · © <span class="annee">2026</span> Parents Sereins</p>
     </div>
   </footer>
   <script src="js/config.js"></script>
