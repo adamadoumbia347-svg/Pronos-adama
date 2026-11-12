@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Calculateur de sommeil enfant et repères écrans par âge | Parents Sereins</title>
-  <meta name="description" content="Combien d'heures doit dormir mon enfant ? À quelle heure le coucher ? Quels écrans à quel âge ? Deux outils gratuits pour les parents.">
-  <meta property="og:title" content="Calculateur de sommeil enfant et repères écrans par âge | Parents Sereins">
-  <meta property="og:description" content="Combien d'heures doit dormir mon enfant ? À quelle heure le coucher ? Quels écrans à quel âge ? Deux outils gratuits pour les parents.">
+  <title>Outils parents : sommeil, écrans, diversification, budget bébé | Parents Sereins</title>
+  <meta name="description" content="Calculateur de sommeil, repères écrans par âge, calendrier de diversification, budget de la première année : des outils gratuits pour les parents.">
+  <meta property="og:title" content="Outils parents : sommeil, écrans, diversification, budget bébé | Parents Sereins">
+  <meta property="og:description" content="Calculateur de sommeil, repères écrans par âge, calendrier de diversification, budget de la première année : des outils gratuits pour les parents.">
   <meta property="og:type" content="website">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
   <link rel="stylesheet" href="css/style.css">
@@ -31,7 +31,8 @@
     <div class="container article">
       <p class="fil"><a href="index.html">Accueil</a> › Outils</p>
       <h1>Outils pour les parents</h1>
-      <p class="chapeau">Deux calculateurs gratuits, sans inscription. Rien n'est envoyé : tout se calcule dans votre navigateur.</p>
+      <p><a href="#sommeil">⏰ Sommeil</a> · <a href="#ecrans">🧭 Écrans</a> · <a href="#diversification">🥕 Diversification</a> · <a href="#budget">💶 Budget bébé</a> · <a href="routine-enfant.html">🗓️ Routine</a></p>
+      <p class="chapeau">Des outils gratuits, sans inscription. Rien n'est envoyé : tout se calcule dans votre navigateur.</p>
 
       <section class="outil" id="sommeil">
         <h2 style="margin-top:0">⏰ Combien doit dormir mon enfant ?</h2>
@@ -63,6 +64,48 @@
         </form>
         <div class="resultat" id="res-ecrans" aria-live="polite"></div>
         <p class="mention-aff">D'après le rapport de la commission d'experts « Enfants et écrans » (2024) et les recommandations de l'OMS. Pour aller plus loin : <a href="ecrans-enfants.html">écrans et enfants, le guide complet</a>.</p>
+      </section>
+
+      <section class="outil" id="diversification">
+        <h2 style="margin-top:0">🥕 Diversification : que peut manger bébé ce mois-ci ?</h2>
+        <form id="form-diversif">
+          <label for="d-naissance">Date de naissance de bébé</label>
+          <input type="date" id="d-naissance" required>
+          <p><button class="btn" type="submit">Voir les aliments</button></p>
+        </form>
+        <div class="resultat" id="res-diversif" aria-live="polite"></div>
+        <p class="mention-aff">D'après le Programme national nutrition santé et la Société française de pédiatrie. Bébé prématuré, allergie dans la famille ou doute : parlez-en à votre médecin. Le guide complet : <a href="diversification-alimentaire.html">la diversification mois par mois</a>.</p>
+      </section>
+
+      <section class="outil" id="budget">
+        <h2 style="margin-top:0">💶 Combien coûte la première année de bébé ?</h2>
+        <form id="form-budget">
+          <label>Alimentation</label>
+          <div class="radios">
+            <label><input type="radio" name="lait" value="allaitement" checked> Allaitement</label>
+            <label><input type="radio" name="lait" value="infantile"> Lait infantile</label>
+          </div>
+          <label>Couches</label>
+          <div class="radios">
+            <label><input type="radio" name="couches" value="jetables" checked> Jetables</label>
+            <label><input type="radio" name="couches" value="lavables"> Lavables</label>
+          </div>
+          <label>Équipement et vêtements</label>
+          <div class="radios">
+            <label><input type="radio" name="achat" value="neuf"> Tout neuf</label>
+            <label><input type="radio" name="achat" value="mixte" checked> Neuf + occasion</label>
+            <label><input type="radio" name="achat" value="occasion"> Surtout d'occasion</label>
+          </div>
+          <p><button class="btn" type="submit">Calculer le budget</button></p>
+        </form>
+        <div class="resultat" id="res-budget" aria-live="polite"></div>
+        <p class="mention-aff">Estimations moyennes, hors frais de garde (très variables selon le mode de garde et vos revenus : simulez-les sur monenfant.fr).</p>
+      </section>
+
+      <section class="outil">
+        <h2 style="margin-top:0">🗓️ Tableau de routine à imprimer</h2>
+        <p>Créez le tableau du matin ou du soir de votre enfant, avec son prénom, et imprimez-le.</p>
+        <p><a class="btn" href="routine-enfant.html">Créer mon tableau</a></p>
       </section>
     </div>
   </main>

@@ -7,11 +7,17 @@ Site statique (HTML/CSS/JS, aucune dépendance), séparé d'Éduc'Animaux (`docs
 | Fichier | Contenu |
 |---|---|
 | `index.html` | Accueil, articles phares, outils, FAQ |
-| `conseils.html` | Liste des articles par âge |
+| `conseils.html` | Liste des articles par âge, avec recherche (`conseils.html?q=dents`) |
 | `sommeil-bebe.html` | Faire dormir bébé : 10 conseils + sécurité du couchage |
 | `coleres-enfant.html` | Les colères de 2 à 6 ans |
 | `ecrans-enfants.html` | Écrans et enfants : repères par âge |
-| `outils.html` | Calculateur de sommeil (heure de coucher) et repères écrans par âge |
+| `diversification-alimentaire.html` | La diversification mois par mois |
+| `proprete-enfant.html` | Apprendre la propreté |
+| `poussees-dentaires.html` | Poussées dentaires et brossage |
+| `devoirs-sans-crise.html` | Les devoirs sans crise |
+| `activites-enfants-maison.html` | 30 activités sans écran |
+| `outils.html` | Calculateurs : sommeil, repères écrans, diversification, budget de la 1re année |
+| `routine-enfant.html` | Tableau de routine matin/soir à imprimer, avec le prénom de l'enfant |
 | `liste-naissance.html` | Check-list de naissance à cocher (gardée dans le navigateur du visiteur) |
 | `materiel.html` | Sélection de matériel par âge |
 | `mentions-legales.html` | Mentions légales — **compléter nom, contact et hébergeur** |

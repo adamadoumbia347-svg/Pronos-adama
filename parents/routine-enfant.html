@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tableau de routine enfant à imprimer (matin et soir) | Parents Sereins</title>
+  <meta name="description" content="Créez gratuitement le tableau de routine du matin ou du soir de votre enfant, avec son prénom et des images, et imprimez-le.">
+  <meta property="og:title" content="Tableau de routine enfant à imprimer (matin et soir) | Parents Sereins">
+  <meta property="og:description" content="Créez gratuitement le tableau de routine du matin ou du soir de votre enfant, avec son prénom et des images, et imprimez-le.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="container">
+      <a class="logo" href="index.html">🌱 Parents <span>Sereins</span></a>
+      <button class="burger" aria-label="Menu" aria-expanded="false">☰</button>
+      <nav class="menu" aria-label="Menu principal">
+        <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="conseils.html">Conseils</a></li>
+        <li><a href="outils.html" aria-current="page">Outils</a></li>
+        <li><a href="liste-naissance.html">Liste de naissance</a></li>
+        <li><a href="materiel.html">Matériel</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container article">
+      <div class="pas-imprimer">
+        <p class="fil"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Tableau de routine</p>
+        <h1>Tableau de routine à imprimer</h1>
+        <p class="chapeau">Des étapes en images que l'enfant coche lui-même : moins de rappels, moins de conflits, plus d'autonomie. Idéal de 3 à 8 ans.</p>
+        <div class="outil">
+          <label for="routine-moment">Moment de la journée</label>
+          <select id="routine-moment"><option value="matin">☀️ Le matin</option><option value="soir">🌙 Le soir</option></select>
+          <label for="routine-prenom">Prénom de l'enfant (facultatif)</label>
+          <input type="text" id="routine-prenom" maxlength="30" style="font:inherit;padding:10px;border:1px solid var(--ligne);border-radius:8px;width:100%;max-width:320px;background:var(--fond);color:var(--texte)">
+          <label>Étapes à afficher</label>
+          <ul class="liste-coche" id="routine-choix"></ul>
+          <p><button class="btn" type="button" id="routine-imprimer">🖨️ Imprimer le tableau</button></p>
+        </div>
+        <h2>Aperçu</h2>
+      </div>
+      <div id="routine-apercu" class="imprimable"></div>
+      <div class="pas-imprimer">
+        <div class="encadre"><strong>Astuce</strong>Plastifiez la feuille (ou glissez-la dans une pochette transparente) : l'enfant coche au feutre effaçable et recommence le lendemain. Ou imprimez sur papier aimanté pour le frigo.</div>
+      <div class="produit">
+        <div class="ico" aria-hidden="true">🧲</div>
+        <div>
+          <h3>Tableau de routine magnétique</h3>
+          <p>Une version prête à l'emploi avec des magnets à déplacer.</p>
+          <a class="aff" data-aff="routines" data-q="tableau routine enfant magnétique" href="https://www.amazon.fr/s?k=tableau+routine+enfant+magnétique">Voir les prix sur Amazon</a>
+        </div>
+      </div>
+      <div class="produit">
+        <div class="ico" aria-hidden="true">🖊️</div>
+        <div>
+          <h3>Pochettes à plastifier et feutres effaçables</h3>
+          <p>Pour réutiliser votre tableau tous les jours.</p>
+          <a class="aff" data-aff="plastif" data-q="pochette plastification a4 feutre effaçable" href="https://www.amazon.fr/s?k=pochette+plastification+a4+feutre+effaçable">Voir les prix sur Amazon</a>
+        </div>
+      </div>
+      <div class="produit">
+        <div class="ico" aria-hidden="true">⏰</div>
+        <div>
+          <h3>Réveil enfant jour/nuit</h3>
+          <p>Il change de couleur quand on a le droit de se lever.</p>
+          <a class="aff" data-aff="reveil" data-q="réveil enfant jour nuit" href="https://www.amazon.fr/s?k=réveil+enfant+jour+nuit">Voir les prix sur Amazon</a>
+        </div>
+      </div>
+      <p class="mention-aff">Liens affiliés Amazon : une petite commission pour le site, sans surcoût pour vous.</p>
+      </div>
+    </div>
+  </main>
+  <footer class="site">
+    <div class="container">
+      <p>🌱 Parents Sereins — des repères simples et bienveillants pour les parents de 0 à 18 ans.</p>
+      <p>Les conseils de ce site ne remplacent pas l'avis d'un médecin ou d'une sage-femme. En cas de doute sur la santé de votre enfant, appelez votre médecin ; en urgence, le 15 (ou le 112).</p>
+      <p>En tant que Partenaire Amazon, ce site réalise un bénéfice sur les achats remplissant les conditions requises. ·
+        <a href="mentions-legales.html">Mentions légales</a> · © <span class="annee">2026</span> Parents Sereins</p>
+    </div>
+  </footer>
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/outils.js"></script>
+</body>
+</html>

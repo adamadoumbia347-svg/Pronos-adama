@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Conseils pour les parents : sommeil, colères, écrans | Parents Sereins</title>
-  <meta name="description" content="Tous les conseils de Parents Sereins : faire dormir bébé, gérer les colères, écrans et enfants, liste de naissance.">
-  <meta property="og:title" content="Conseils pour les parents : sommeil, colères, écrans | Parents Sereins">
-  <meta property="og:description" content="Tous les conseils de Parents Sereins : faire dormir bébé, gérer les colères, écrans et enfants, liste de naissance.">
+  <title>Conseils pour les parents : sommeil, repas, colères, écrans, école | Parents Sereins</title>
+  <meta name="description" content="Tous les conseils de Parents Sereins, de la naissance à 12 ans : sommeil, diversification, dents, propreté, colères, devoirs, écrans, activités.">
+  <meta property="og:title" content="Conseils pour les parents : sommeil, repas, colères, écrans, école | Parents Sereins">
+  <meta property="og:description" content="Tous les conseils de Parents Sereins, de la naissance à 12 ans : sommeil, diversification, dents, propreté, colères, devoirs, écrans, activités.">
   <meta property="og:type" content="website">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
   <link rel="stylesheet" href="css/style.css">
@@ -31,20 +31,40 @@
     <div class="container">
       <p class="fil"><a href="index.html">Accueil</a> › Conseils</p>
       <h1>Tous les conseils</h1>
-      <h2>👶 Bébé (0 – 2 ans)</h2>
-      <div class="grille">
-        <a class="carte" href="sommeil-bebe.html"><span class="etiquette">Sommeil</span><h3>Faire dormir bébé : 10 conseils</h3><p>Rituel, rythme et sécurité du couchage.</p></a>
-        <a class="carte" href="liste-naissance.html"><span class="etiquette">Naissance</span><h3>Liste de naissance</h3><p>L'essentiel à prévoir, à cocher en ligne.</p></a>
-      </div>
-      <h2>🧒 Petite enfance (2 – 6 ans)</h2>
-      <div class="grille">
-        <a class="carte" href="coleres-enfant.html"><span class="etiquette">Émotions</span><h3>Les colères de 2 à 6 ans</h3><p>Que faire pendant, et comment les prévenir.</p></a>
-      </div>
-      <h2>📱 Tous âges</h2>
-      <div class="grille">
-        <a class="carte" href="ecrans-enfants.html"><span class="etiquette">Écrans</span><h3>Écrans et enfants : les repères par âge</h3><p>Quel âge, combien de temps, quelles alternatives.</p></a>
-        <a class="carte" href="outils.html"><span class="etiquette">Outil</span><h3>Calculateur de sommeil</h3><p>Heures de sommeil et heure de coucher selon l'âge.</p></a>
-      </div>
+      <label for="recherche" class="mention-aff" style="display:block;margin-bottom:6px">Rechercher un sujet</label>
+      <input class="recherche" id="recherche" type="search" placeholder="Ex. dents, sieste, devoirs, pot…" autocomplete="off">
+      <p id="recherche-vide" style="display:none">Aucun article ne correspond. Essayez un autre mot (sommeil, repas, école…).</p>
+      <section class="groupe-conseils">
+        <h2>👶 Bébé (0 – 2 ans)</h2>
+        <div class="grille">
+          <a class="carte" href="sommeil-bebe.html" data-recherche="nuit dodo sieste reveil endormir"><span class="etiquette">Sommeil</span><h3>Faire dormir bébé : 10 conseils</h3><p>Rituel, rythme et sécurité du couchage.</p></a>
+          <a class="carte" href="diversification-alimentaire.html" data-recherche="repas purée manger allergie dme petits pots"><span class="etiquette">Alimentation</span><h3>La diversification mois par mois</h3><p>Quand commencer, quoi donner, quelles quantités.</p></a>
+          <a class="carte" href="poussees-dentaires.html" data-recherche="dents dent gencive douleur dentifrice"><span class="etiquette">Santé</span><h3>Poussées dentaires : soulager bébé</h3><p>Symptômes, soulagement, brossage.</p></a>
+          <a class="carte" href="liste-naissance.html" data-recherche="grossesse maternité valise achat equipement"><span class="etiquette">Naissance</span><h3>Liste de naissance</h3><p>L'essentiel à prévoir, à cocher en ligne.</p></a>
+        </div>
+      </section>
+      <section class="groupe-conseils">
+        <h2>🧒 Petite enfance (2 – 6 ans)</h2>
+        <div class="grille">
+          <a class="carte" href="coleres-enfant.html" data-recherche="crise colere pleurs tape cri emotion"><span class="etiquette">Émotions</span><h3>Les colères de 2 à 6 ans</h3><p>Que faire pendant, et comment les prévenir.</p></a>
+          <a class="carte" href="proprete-enfant.html" data-recherche="pot couches toilettes pipi lit"><span class="etiquette">Autonomie</span><h3>Apprendre la propreté</h3><p>Les signes qu'il est prêt, la méthode en douceur.</p></a>
+          <a class="carte" href="routine-enfant.html" data-recherche="autonomie matin soir imprimer"><span class="etiquette">Outil</span><h3>Tableau de routine à imprimer</h3><p>Matin ou soir, avec son prénom.</p></a>
+        </div>
+      </section>
+      <section class="groupe-conseils">
+        <h2>🎒 Enfants (6 – 12 ans)</h2>
+        <div class="grille">
+          <a class="carte" href="devoirs-sans-crise.html" data-recherche="ecole devoirs lecons travail concentration"><span class="etiquette">École</span><h3>Les devoirs sans crise</h3><p>8 conseils pour des devoirs plus calmes.</p></a>
+          <a class="carte" href="activites-enfants-maison.html" data-recherche="jeux pluie vacances ennui bricolage occuper"><span class="etiquette">Loisirs</span><h3>30 activités à la maison</h3><p>Des idées sans écran, par âge.</p></a>
+        </div>
+      </section>
+      <section class="groupe-conseils">
+        <h2>📱 Tous âges</h2>
+        <div class="grille">
+          <a class="carte" href="ecrans-enfants.html" data-recherche="tablette telephone television reseaux sociaux portable"><span class="etiquette">Écrans</span><h3>Écrans et enfants : les repères par âge</h3><p>Quel âge, combien de temps, quelles alternatives.</p></a>
+          <a class="carte" href="outils.html" data-recherche="calculateur budget cout argent sommeil"><span class="etiquette">Outils</span><h3>Calculateurs pour parents</h3><p>Sommeil, écrans, diversification, budget bébé.</p></a>
+        </div>
+      </section>
     </div>
   </main>
   <footer class="site">
@@ -57,5 +77,6 @@
   </footer>
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/outils.js"></script>
 </body>
 </html>
